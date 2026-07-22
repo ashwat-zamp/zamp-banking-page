@@ -1,821 +1,2594 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Zamp for Banking — a digital workforce where precision is non-negotiable</title>
-<meta name="description" content="Zamp builds digital employees that run banking operations start to close, for institutions where precision is non-negotiable: inside your systems, under your controls, on the record for your examiners." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<style>
-:root{
-  --blue:#005EFF; --blue-bright:#3B82FF; --blue-tint:#EAF1FF;
-  --ink:#0A0A0B; --ink-2:#131316; --ink-3:#1C1C21;
-  --body:#4B4B4E; --muted:#737373; --faint:#A3A3A3;
-  --hair:#E7E7E7; --hair-2:#EFEFEF; --surface:#F5F5F5; --canvas:#FCFCFC; --white:#FFFFFF;
-  --lime:#D1EF59;
-  --sans:"Geist","DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  --mono:"Geist Mono","DM Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  --maxw:1240px;
-  --ease:cubic-bezier(.22,.61,.36,1);
-  --ease-out:cubic-bezier(.16,1,.3,1);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--sans);font-size:17px;line-height:1.6;font-weight:400;color:var(--ink);background:var(--canvas);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-::selection{background:var(--blue);color:#fff}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zamp for Banking — a digital workforce where precision is non-negotiable</title>
+  <meta name="description"
+    content="Zamp builds digital employees that run banking operations start to close, for institutions where precision is non-negotiable: inside your systems, under your controls, on the record for your examiners." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --blue: #005EFF;
+      --blue-bright: #3B82FF;
+      --blue-tint: #EAF1FF;
+      --ink: #0A0A0B;
+      --ink-2: #131316;
+      --ink-3: #1C1C21;
+      --body: #4B4B4E;
+      --muted: #737373;
+      --faint: #A3A3A3;
+      --hair: #E7E7E7;
+      --hair-2: #EFEFEF;
+      --surface: #F5F5F5;
+      --canvas: #FCFCFC;
+      --white: #FFFFFF;
+      --lime: #D1EF59;
+      --sans: "Geist", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: "Geist Mono", "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --maxw: 1240px;
+      --ease: cubic-bezier(.22, .61, .36, 1);
+      --ease-out: cubic-bezier(.16, 1, .3, 1);
+    }
 
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-@media(min-width:768px){.wrap{padding:0 40px}}
-section{position:relative}
-section[id],main [id]{scroll-margin-top:96px}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
 
-/* type */
-h1,h2,h3{font-weight:600;letter-spacing:-0.03em;line-height:1.03}
-h1{font-size:clamp(46px,8.4vw,108px);letter-spacing:-0.045em;font-weight:700;line-height:.98}
-h2{font-size:clamp(30px,4.6vw,54px);letter-spacing:-0.038em;font-weight:600}
-h3{font-size:19px;font-weight:600;letter-spacing:-0.015em;line-height:1.22}
-p{color:var(--body)}
-.lead{font-size:clamp(18px,2.1vw,22px);color:var(--body);line-height:1.5;font-weight:400}
-.num{font-family:var(--mono);font-weight:500;font-feature-settings:"tnum" 1;letter-spacing:-.02em}
-/* field label (replaces pills): plain letter-spaced mono, no dot, no background */
-.flabel{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:2.2px;text-transform:uppercase;color:var(--faint)}
-.mark{height:22px;width:auto;display:inline-block}
-.mark path{fill:currentColor}
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%
+    }
 
-.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--blue),var(--blue-bright));z-index:100;transition:width .1s linear}
+    body {
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.6;
+      font-weight: 400;
+      color: var(--ink);
+      background: var(--canvas);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden
+    }
 
-/* buttons */
-.btn{position:relative;display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-size:15px;font-weight:500;padding:14px 24px;border-radius:10px;cursor:pointer;border:1px solid transparent;transition:transform .2s var(--ease),background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease),box-shadow .2s var(--ease);white-space:nowrap}
-.btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--blue);color:#fff;box-shadow:0 8px 24px -10px rgba(0,94,255,.7)}
-.btn-primary:hover{background:#0B52E0;box-shadow:0 12px 30px -10px rgba(0,94,255,.8)}
-.btn-ink{background:var(--ink);color:#fff}
-.btn-ink:hover{background:var(--blue)}
-.btn-light{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.22);backdrop-filter:blur(4px)}
-.btn-light:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.5)}
-.btn .ar{transition:transform .22s var(--ease)}
-.btn:hover .ar{transform:translateX(4px)}
+    a {
+      color: inherit;
+      text-decoration: none
+    }
 
-/* nav */
-.nav{position:sticky;top:0;z-index:70;transition:background .35s var(--ease),border-color .35s var(--ease),backdrop-filter .35s var(--ease);border-bottom:1px solid transparent}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
-.brand{display:flex;align-items:center;gap:11px;color:#fff;transition:color .35s var(--ease)}
-.brand .mark{height:20px}
-.brand .tag{font-family:var(--mono);font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.5);padding-left:12px;margin-left:1px;border-left:1px solid rgba(255,255,255,.2);transition:color .35s,border-color .35s}
-.nav-links{display:none;gap:32px;align-items:center}
-.nav-links a{font-size:14.5px;color:rgba(255,255,255,.7);transition:color .2s}
-.nav-links a:hover,.nav-links a.on{color:#fff}
-.nav-cta .btn{padding:10px 18px;font-size:14px}
-@media(min-width:960px){.nav-links{display:flex}}
-.nav.scrolled{background:rgba(252,252,252,.85);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--hair)}
-.nav.scrolled .brand{color:var(--ink)}
-.nav.scrolled .brand .tag{color:var(--muted);border-color:var(--hair)}
-.nav.scrolled .nav-links a{color:var(--body)}
-.nav.scrolled .nav-links a:hover,.nav.scrolled .nav-links a.on{color:var(--ink)}
-.nav.scrolled .btn-light{background:var(--ink);color:#fff;border-color:var(--ink)}
-.nav.scrolled .btn-light:hover{background:var(--blue);border-color:var(--blue)}
+    img {
+      max-width: 100%;
+      display: block
+    }
 
-/* hero */
-.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:clamp(96px,16vh,168px) 0 clamp(84px,13vh,140px);margin-top:-70px;padding-top:calc(clamp(96px,16vh,168px) + 70px)}
-#px{position:absolute;inset:0;z-index:0;pointer-events:none}
-.hero-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:60px 60px;-webkit-mask-image:radial-gradient(120% 90% at 70% 8%,#000 0%,transparent 66%);mask-image:radial-gradient(120% 90% at 70% 8%,#000 0%,transparent 66%)}
-.hero-glow{position:absolute;z-index:0;top:-14%;right:-6%;width:min(760px,80vw);height:min(760px,80vw);background:radial-gradient(circle,rgba(0,94,255,.30) 0%,rgba(0,94,255,.06) 40%,transparent 66%);filter:blur(10px);animation:breathe 9s var(--ease) infinite alternate}
-.hero-glow.two{top:auto;bottom:-30%;right:auto;left:-10%;width:min(560px,70vw);height:min(560px,70vw);background:radial-gradient(circle,rgba(59,130,255,.16) 0%,transparent 64%);animation-delay:-4s}
-@keyframes breathe{from{opacity:.75;transform:scale(1)}to{opacity:1;transform:scale(1.12)}}
-.hero .wrap{position:relative;z-index:2}
-.hero h1{max-width:16ch;margin-bottom:30px;color:#fff}
-.hero h1 .ln{display:block;overflow:hidden}
-.hero h1 .ln span{display:block;transform:translateY(105%);animation:rise 1s var(--ease-out) forwards}
-.hero h1 .ln:nth-child(1) span{animation-delay:.08s}
-.hero h1 .ln:nth-child(2) span{animation-delay:.2s;color:rgba(255,255,255,.4)}
-@keyframes rise{to{transform:translateY(0)}}
-@keyframes up{to{opacity:1;transform:none}}
-.hero .lead{max-width:52ch;color:rgba(255,255,255,.68);margin-bottom:38px;opacity:0;animation:up .9s var(--ease-out) .5s forwards}
-.hero-actions{display:flex;flex-wrap:wrap;gap:13px;opacity:0;animation:up .9s var(--ease-out) .62s forwards}
-.hero-cred{margin-top:40px;display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:12px;letter-spacing:.5px;color:rgba(255,255,255,.5);opacity:0;animation:up .9s var(--ease-out) .74s forwards}
-.hero-cred .rule{width:34px;height:1px;background:rgba(255,255,255,.25);flex:none}
-@media(prefers-reduced-motion:reduce){.hero h1 .ln span,.hero .lead,.hero-actions,.hero-cred{animation:none;transform:none;opacity:1}.hero-glow{animation:none}}
+    ::selection {
+      background: var(--blue);
+      color: #fff
+    }
 
-/* section frame */
-.sec{padding:clamp(76px,11vh,128px) 0}
-.sec-head{max-width:760px;margin-bottom:clamp(44px,6vh,62px)}
-.sec-head h2{margin-bottom:18px}
-.sec-head .lead{max-width:56ch}
-.rule-h{height:1px;background:var(--hair);border:0;max-width:var(--maxw);margin:0 auto}
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 24px
+    }
 
-/* ============ METRICS (number + two-line label) ============ */
-.metrics{background:var(--white);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
-.metrics .wrap{padding-top:clamp(56px,8vh,84px);padding-bottom:clamp(56px,8vh,84px)}
-.metrics .kick{font-size:16px;color:var(--muted);max-width:58ch;margin-bottom:44px;line-height:1.5}
-.metrics .kick b{color:var(--ink);font-weight:600}
-.mgrid{display:grid;grid-template-columns:1fr;gap:2px;background:var(--hair-2)}
-@media(min-width:720px){.mgrid{grid-template-columns:1fr 1fr}}
-.mcell{background:var(--white);display:flex;align-items:center;gap:24px;padding:30px 8px 30px 0}
-@media(min-width:720px){.mcell{padding:34px 40px 34px 0}.mcell:nth-child(even){padding-left:40px}}
-.mcell .big{font-family:var(--mono);font-weight:500;font-size:clamp(50px,6.4vw,72px);line-height:.9;letter-spacing:-.04em;color:var(--ink);flex:none;display:flex;align-items:flex-start;font-feature-settings:"tnum" 1}
-.mcell .big .s{color:var(--blue);font-size:.44em;margin-left:2px;margin-top:.1em}
-.mcell .lbl{font-size:clamp(16px,1.7vw,19px);font-weight:600;line-height:1.28;color:var(--ink);letter-spacing:-.01em}
-.mcell .lbl span{display:block}
-.mcell .lbl .sub{font-weight:500;color:var(--muted)}
+    @media(min-width:768px) {
+      .wrap {
+        padding: 0 40px
+      }
+    }
 
-/* ============ LANDSCAPE (offices) ============ */
-.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
-.tab{font-family:var(--mono);font-size:12.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);padding:12px 18px;border:1px solid var(--hair);border-radius:30px;background:var(--white);cursor:pointer;transition:all .22s var(--ease)}
-.tab:hover{border-color:var(--faint);color:var(--body);transform:translateY(-1px)}
-.tab.on{background:var(--ink);border-color:var(--ink);color:var(--white)}
-.panel{display:none;animation:fade .5s var(--ease-out)}
-.panel.on{display:block}
-@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+    section {
+      position: relative
+    }
 
-/* office card: pain-stat hero (left) + supporting context (right) */
-.office{border:1px solid var(--hair);border-radius:22px;background:var(--white);padding:clamp(28px,4vw,46px);box-shadow:0 30px 60px -46px rgba(10,10,30,.4)}
-.office-cap{display:flex;align-items:baseline;gap:14px;margin-bottom:clamp(26px,3.2vw,38px);padding-bottom:22px;border-bottom:1px solid var(--hair-2)}
-.office-cap .oname{font-family:var(--mono);font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--faint)}
-.office-cap h3{font-size:clamp(21px,2.4vw,28px);font-weight:600;letter-spacing:-.03em;color:var(--ink)}
-.office-body{display:grid;grid-template-columns:1fr;gap:34px}
-@media(min-width:840px){.office-body{grid-template-columns:1.1fr .9fr;gap:0}}
-.office-pain{padding-right:0}
-@media(min-width:840px){.office-pain{padding-right:52px}}
-.office-pain .flabel{display:block;margin-bottom:14px}
-.office-pain .pnum{font-family:var(--mono);font-weight:500;font-size:clamp(40px,5.4vw,62px);letter-spacing:-.035em;color:var(--blue);line-height:.95;margin-bottom:20px}
-.office-pain .pdesc{font-size:16.5px;line-height:1.55;color:var(--body);max-width:42ch}
-.office-pain .pdesc b{color:var(--ink);font-weight:600}
-.office-ctx{display:flex;flex-direction:column;gap:26px;padding-top:6px}
-@media(min-width:840px){.office-ctx{padding-left:52px;padding-top:0;border-left:1px solid var(--hair)}}
-.ctx-block .flabel{display:block;margin-bottom:12px}
-.measure-val{font-size:clamp(19px,2vw,23px);font-weight:600;letter-spacing:-.02em;color:var(--ink);line-height:1.2}
-.worklist{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
-.worklist li{font-size:14.5px;font-weight:500;color:var(--body);background:var(--surface);border:1px solid var(--hair);border-radius:8px;padding:7px 12px;transition:all .2s}
-.worklist li:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-tint)}
+    section[id],
+    main [id] {
+      scroll-margin-top: 96px
+    }
 
-/* ============ STATEMENT BAND (with head + tail) ============ */
-.band{background:var(--ink);color:#fff;position:relative;overflow:hidden}
-.band::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.3px);background-size:26px 26px;-webkit-mask-image:radial-gradient(130% 130% at 15% 50%,#000,transparent 62%);mask-image:radial-gradient(130% 130% at 15% 50%,#000,transparent 62%);pointer-events:none}
-.band .wrap{position:relative;z-index:1;padding:clamp(66px,11vh,110px) 0}
-.band .head{font-family:var(--mono);font-size:13px;letter-spacing:.4px;color:rgba(255,255,255,.55);margin-bottom:26px;max-width:60ch}
-.band h2{font-size:clamp(27px,3.8vw,48px);color:#fff;max-width:30ch;letter-spacing:-.035em;line-height:1.05}
-.band h2 .dim{color:rgba(255,255,255,.4)}
-.band .tail{margin-top:30px;display:flex;align-items:center;gap:14px;font-size:clamp(17px,1.9vw,21px);color:#fff;font-weight:500;letter-spacing:-.01em}
-.band .tail .arrow{color:var(--blue-bright);font-size:1.3em;line-height:1}
+    /* type */
+    h1,
+    h2,
+    h3 {
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.03
+    }
 
-/* owner beat */
-.owns{display:grid;grid-template-columns:1fr;gap:26px}
-@media(min-width:820px){.owns{grid-template-columns:repeat(3,1fr);gap:44px}}
-.own{border-top:2px solid var(--ink);padding-top:18px}
-.own h3{font-size:17.5px;font-weight:600;letter-spacing:-.015em;margin-bottom:9px}
-.own p{font-size:15px;line-height:1.55;color:var(--body)}
+    h1 {
+      font-size: clamp(46px, 8.4vw, 108px);
+      letter-spacing: -0.045em;
+      font-weight: 700;
+      line-height: .98
+    }
 
-/* ============ HOW IT WORKS — LOOP ============ */
-.loop-lead{margin-bottom:44px}
-.loop-lead p{font-size:16px;color:var(--muted);max-width:64ch;line-height:1.6}
-.loop-lead p b{color:var(--ink);font-weight:600}
-.loop{display:grid;grid-template-columns:1fr;gap:16px;position:relative}
-@media(min-width:860px){.loop{grid-template-columns:repeat(3,1fr);gap:20px}}
-.stage{border:1px solid var(--hair);border-radius:18px;padding:30px 28px 26px;background:var(--white);position:relative;overflow:hidden;cursor:pointer;transition:border-color .35s var(--ease),box-shadow .35s var(--ease),transform .35s var(--ease)}
-.stage.on{border-color:var(--blue);box-shadow:0 22px 50px -30px rgba(0,94,255,.6);transform:translateY(-4px)}
-.stage .snum{font-family:var(--mono);font-weight:500;font-size:14px;color:var(--faint);letter-spacing:1px;transition:color .3s}
-.stage.on .snum{color:var(--blue)}
-.stage h3{font-size:21px;margin:14px 0 10px;letter-spacing:-.02em}
-.stage .sdesc{font-size:15px;line-height:1.55;color:var(--body)}
-.stage .sout{margin-top:18px;padding-top:16px;border-top:1px solid var(--hair-2);font-size:13.5px;color:var(--muted);line-height:1.45}
-.stage .sout b{color:var(--ink);font-weight:600}
-.stage .stime{position:absolute;top:26px;right:26px;font-family:var(--mono);font-size:12px;font-weight:500;color:var(--ink);background:var(--surface);border:1px solid var(--hair);border-radius:20px;padding:4px 11px}
-.stage.on .stime{background:var(--blue-tint);border-color:transparent;color:var(--blue)}
-.stage .prog{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--blue)}
-.stage.on .prog{animation:progfill 4.2s linear forwards}
-@keyframes progfill{from{width:0}to{width:100%}}
-.loop-foot{margin-top:26px;display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:12.5px;letter-spacing:.4px;color:var(--muted)}
-.loop-foot .ring{width:22px;height:22px;border:2px solid var(--hair);border-top-color:var(--blue);border-radius:50%;animation:spin 2.4s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.loop-foot b{color:var(--ink);font-weight:600}
-@media(prefers-reduced-motion:reduce){.stage.on .prog{animation:none;width:100%}.loop-foot .ring{animation:none}}
+    h2 {
+      font-size: clamp(30px, 4.6vw, 54px);
+      letter-spacing: -0.038em;
+      font-weight: 600
+    }
 
-/* ============ COMPARE (dark) ============ */
-.dark{background:var(--ink);color:#fff;position:relative;overflow:hidden}
-.dark::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.3px);background-size:26px 26px;-webkit-mask-image:radial-gradient(120% 100% at 100% 0%,#000,transparent 58%);mask-image:radial-gradient(120% 100% at 100% 0%,#000,transparent 58%);pointer-events:none}
-.dark .wrap{position:relative;z-index:1}
-.dark h2{color:#fff}
-.dark .lead{color:rgba(255,255,255,.66)}
-.compare{border-top:1px solid rgba(255,255,255,.14)}
-.crow{display:grid;grid-template-columns:1fr;gap:6px 32px;padding:26px 0;border-bottom:1px solid rgba(255,255,255,.12)}
-@media(min-width:760px){.crow{grid-template-columns:150px 1fr 1fr;align-items:baseline;gap:32px}}
-.crow .cdim{font-family:var(--mono);font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--blue-bright)}
-.crow .ctrad{color:rgba(255,255,255,.5);font-size:15.5px;line-height:1.45}
-.crow .cdig{color:#fff;font-size:15.5px;line-height:1.45;font-weight:500}
-.crow .cdig .num{color:#fff}
-.chead{padding:0 0 16px}
-@media(min-width:760px){.chead{display:grid;grid-template-columns:150px 1fr 1fr;gap:32px}}
-.chead .h-trad{font-family:var(--mono);font-size:12px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4)}
-.chead .h-dig{font-family:var(--mono);font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#fff}
-.chead .h-dig::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--blue-bright);margin-right:8px;vertical-align:middle}
+    h3 {
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.22
+    }
 
-/* governance */
-.gov{display:grid;grid-template-columns:1fr;gap:0}
-@media(min-width:800px){.gov{grid-template-columns:1fr 1fr;column-gap:64px}}
-.gitem{padding:26px 0;border-top:1px solid var(--hair);display:flex;gap:18px;transition:border-color .3s}
-.gitem:hover{border-top-color:var(--blue)}
-.gitem .gi{width:auto;height:auto;flex:none;color:var(--ink);margin-top:2px;transition:color .3s var(--ease)}
-.gitem:hover .gi{color:var(--blue)}
-.gitem .gi svg{width:22px;height:22px}
-.gitem h3{margin-bottom:7px;font-size:17px;font-weight:600;letter-spacing:-.012em}
-.gitem p{font-size:15px;line-height:1.5;max-width:42ch}
-.govnote{margin-top:38px;font-size:14.5px;color:var(--muted);max-width:66ch;line-height:1.55}
+    p {
+      color: var(--body)
+    }
 
-/* logo wall */
-.wall{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);background:var(--white)}
-.wall .head{max-width:720px;padding:clamp(60px,9vh,90px) 0 40px}
-.wall .head h2{font-size:clamp(28px,3.8vw,46px);margin-bottom:18px}
-.wall .head p{font-size:16.5px;max-width:60ch}
-.marquee{overflow:hidden;padding:14px 0 clamp(56px,9vh,80px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.track{display:flex;gap:16px;width:max-content;animation:scroll 50s linear infinite}
-.marquee:hover .track{animation-play-state:paused}
-@keyframes scroll{to{transform:translateX(-50%)}}
-.lg{height:88px;min-width:190px;border:1px solid var(--hair);border-radius:16px;background:var(--canvas);display:grid;place-items:center;padding:0 30px;flex:none;transition:border-color .28s,background .28s,transform .28s}
-.lg:hover{border-color:var(--faint);background:#fff;transform:translateY(-3px)}
-.lg img{height:27px;width:auto;filter:grayscale(1) contrast(.55) opacity(.6);transition:filter .35s var(--ease)}
-.lg:hover img{filter:none}
-.lg .word{font-weight:600;font-size:20px;letter-spacing:-.02em;color:var(--faint);transition:color .3s}
-.lg .word .mono{font-family:var(--mono);font-weight:400;font-size:12px;color:var(--faint)}
-.lg:hover .word{color:var(--ink)}
+    .lead {
+      font-size: clamp(18px, 2.1vw, 22px);
+      color: var(--body);
+      line-height: 1.5;
+      font-weight: 400
+    }
 
-/* cases */
-.case{display:grid;grid-template-columns:1fr;gap:40px}
-@media(min-width:920px){.case{grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}}
-.case .who{font-family:var(--mono);font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:inline-flex;align-items:center;gap:10px}
-.case .who::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--blue)}
-.case h3{font-size:clamp(26px,3.2vw,40px);font-weight:600;letter-spacing:-.035em;line-height:1.06;margin-bottom:18px}
-.case .flow-txt{font-size:17px;line-height:1.55;color:var(--body);max-width:48ch}
-.cmetrics{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--hair)}
-.cm{display:flex;align-items:baseline;gap:20px;padding:20px 0;border-bottom:1px solid var(--hair)}
-.cm .v{font-family:var(--mono);font-size:clamp(30px,3.6vw,44px);font-weight:500;letter-spacing:-.04em;color:var(--ink);min-width:150px;font-feature-settings:"tnum" 1;line-height:1}
-.cm .v .s{font-size:.5em;color:var(--blue);font-weight:500}
-.cm .l{font-size:14.5px;color:var(--body);line-height:1.35}
+    .num {
+      font-family: var(--mono);
+      font-weight: 500;
+      font-feature-settings: "tnum" 1;
+      letter-spacing: -.02em
+    }
 
-/* pilot (blue) */
-.blue{background:linear-gradient(155deg,#0B52E0 0%,var(--blue) 55%,#2C74FF 100%);color:#fff;position:relative;overflow:hidden}
-.blue::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1.3px);background-size:24px 24px;-webkit-mask-image:radial-gradient(120% 120% at 0% 100%,#000,transparent 58%);mask-image:radial-gradient(120% 120% at 0% 100%,#000,transparent 58%)}
-.blue .wrap{position:relative;z-index:1}
-.blue h2{color:#fff;margin-bottom:18px}
-.blue .lead{color:rgba(255,255,255,.92);max-width:52ch}
-.steps3{display:grid;grid-template-columns:1fr;gap:0;margin:48px 0 42px}
-@media(min-width:760px){.steps3{grid-template-columns:repeat(3,1fr)}}
-.st3{border-top:2px solid rgba(255,255,255,.4);padding:22px 26px 8px 0}
-.st3 .st3-k{display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
-.st3 .st3-k .n{font-family:var(--mono);font-size:20px;font-weight:500;color:#fff}
-.st3 .st3-k .w{font-family:var(--mono);font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.75)}
-.st3 h3{color:#fff;font-size:20px;margin-bottom:8px}
-.st3 p{color:rgba(255,255,255,.9);font-size:15.5px;line-height:1.45}
-.st3 p .num{color:#fff}
-.blue .btn-ink{background:#fff;color:var(--ink)}
-.blue .btn-ink:hover{background:var(--ink);color:#fff}
+    /* field label (replaces pills): plain letter-spaced mono, no dot, no background */
+    .flabel {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: var(--faint)
+    }
 
-/* faq */
-.faq{max-width:840px}
-.qa{border-top:1px solid var(--hair);transition:border-color .3s}
-.qa:last-child{border-bottom:1px solid var(--hair)}
-.qa.open{border-top-color:var(--blue)}
-.qa button{width:100%;background:none;border:0;cursor:pointer;font-family:var(--sans);text-align:left;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding:26px 0;font-size:19px;font-weight:600;letter-spacing:-.015em;color:var(--ink);transition:color .2s}
-.qa button:hover{color:var(--blue)}
-.qa .pm{flex:none;width:20px;height:20px;position:relative;margin-top:6px}
-.qa .pm::before,.qa .pm::after{content:"";position:absolute;background:var(--muted);border-radius:2px;transition:transform .25s var(--ease),opacity .25s,background .2s}
-.qa .pm::before{left:0;right:0;top:9px;height:2px}
-.qa .pm::after{top:0;bottom:0;left:9px;width:2px}
-.qa.open .pm::after{opacity:0}
-.qa.open .pm::before{background:var(--blue)}
-.qa .ans{overflow:hidden;max-height:0;transition:max-height .38s var(--ease)}
-.qa .ans p{font-size:16px;line-height:1.6;color:var(--body);padding:0 44px 26px 0}
+    .mark {
+      height: 22px;
+      width: auto;
+      display: inline-block
+    }
 
-/* footer */
-.footer{background:var(--ink);color:#fff;padding:72px 0 44px;position:relative;overflow:hidden}
-.footer::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1.3px);background-size:28px 28px;-webkit-mask-image:radial-gradient(120% 120% at 90% 0%,#000,transparent 60%);mask-image:radial-gradient(120% 120% at 90% 0%,#000,transparent 60%);pointer-events:none}
-.footer .wrap{position:relative;z-index:1}
-.fgrid{display:grid;grid-template-columns:1fr;gap:44px}
-@media(min-width:820px){.fgrid{grid-template-columns:2fr 1fr 1fr 1fr}}
-.footer .brand{color:#fff;margin-bottom:18px}
-.footer .ft{font-size:14.5px;color:rgba(255,255,255,.55);max-width:34ch;line-height:1.55}
-.footer h4{font-family:var(--mono);font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px;font-weight:400}
-.footer ul{list-style:none}
-.footer li{margin-bottom:12px}
-.footer li a{font-size:14.5px;color:rgba(255,255,255,.62);transition:color .15s}
-.footer li a:hover{color:#fff}
-.fbase{margin-top:56px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
-.fbase p{font-family:var(--mono);font-size:11.5px;letter-spacing:.4px;color:rgba(255,255,255,.4)}
+    .mark path {
+      fill: currentColor
+    }
 
-.banner{background:var(--lime);color:var(--ink);text-align:center;font-family:var(--mono);font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;padding:9px 16px;position:relative;z-index:80}
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, var(--blue), var(--blue-bright));
+      z-index: 100;
+      transition: width .1s linear
+    }
 
-/* reveal */
-.rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
-.rv.in{opacity:1;transform:none}
-.rv[data-d="1"]{transition-delay:.08s}.rv[data-d="2"]{transition-delay:.16s}.rv[data-d="3"]{transition-delay:.24s}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.track{animation:none}}
-</style>
+    /* buttons */
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 14px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease), box-shadow .2s var(--ease);
+      white-space: nowrap
+    }
+
+    .btn:hover {
+      transform: translateY(-2px)
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 0 8px 24px -10px rgba(0, 94, 255, .7)
+    }
+
+    .btn-primary:hover {
+      background: #0B52E0;
+      box-shadow: 0 12px 30px -10px rgba(0, 94, 255, .8)
+    }
+
+    .btn-ink {
+      background: var(--ink);
+      color: #fff
+    }
+
+    .btn-ink:hover {
+      background: var(--blue)
+    }
+
+    .btn-light {
+      background: rgba(255, 255, 255, .08);
+      color: #fff;
+      border-color: rgba(255, 255, 255, .22);
+      backdrop-filter: blur(4px)
+    }
+
+    .btn-light:hover {
+      background: rgba(255, 255, 255, .16);
+      border-color: rgba(255, 255, 255, .5)
+    }
+
+    .btn .ar {
+      transition: transform .22s var(--ease)
+    }
+
+    .btn:hover .ar {
+      transform: translateX(4px)
+    }
+
+    /* nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 70;
+      transition: background .35s var(--ease), border-color .35s var(--ease), backdrop-filter .35s var(--ease);
+      border-bottom: 1px solid transparent
+    }
+
+    .nav-in {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: #fff;
+      transition: color .35s var(--ease)
+    }
+
+    .brand .mark {
+      height: 20px
+    }
+
+    .brand .tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .5);
+      padding-left: 12px;
+      margin-left: 1px;
+      border-left: 1px solid rgba(255, 255, 255, .2);
+      transition: color .35s, border-color .35s
+    }
+
+    .nav-links {
+      display: none;
+      gap: 32px;
+      align-items: center
+    }
+
+    .nav-links a {
+      font-size: 14.5px;
+      color: rgba(255, 255, 255, .7);
+      transition: color .2s
+    }
+
+    .nav-links a:hover,
+    .nav-links a.on {
+      color: #fff
+    }
+
+    .nav-cta .btn {
+      padding: 10px 18px;
+      font-size: 14px
+    }
+
+    @media(min-width:960px) {
+      .nav-links {
+        display: flex
+      }
+    }
+
+    .nav.scrolled {
+      background: rgba(252, 252, 252, .85);
+      backdrop-filter: saturate(180%) blur(16px);
+      border-bottom: 1px solid var(--hair)
+    }
+
+    .nav.scrolled .brand {
+      color: var(--ink)
+    }
+
+    .nav.scrolled .brand .tag {
+      color: var(--muted);
+      border-color: var(--hair)
+    }
+
+    .nav.scrolled .nav-links a {
+      color: var(--body)
+    }
+
+    .nav.scrolled .nav-links a:hover,
+    .nav.scrolled .nav-links a.on {
+      color: var(--ink)
+    }
+
+    .nav.scrolled .btn-light {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink)
+    }
+
+    .nav.scrolled .btn-light:hover {
+      background: var(--blue);
+      border-color: var(--blue)
+    }
+
+    /* hero */
+    .hero {
+      background: var(--ink);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      padding: clamp(96px, 16vh, 168px) 0 clamp(84px, 13vh, 140px);
+      margin-top: -70px;
+      padding-top: calc(clamp(96px, 16vh, 168px) + 70px)
+    }
+
+    #px {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image: linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px);
+      background-size: 60px 60px;
+      -webkit-mask-image: radial-gradient(120% 90% at 70% 8%, #000 0%, transparent 66%);
+      mask-image: radial-gradient(120% 90% at 70% 8%, #000 0%, transparent 66%)
+    }
+
+    .hero-glow {
+      position: absolute;
+      z-index: 0;
+      top: -14%;
+      right: -6%;
+      width: min(760px, 80vw);
+      height: min(760px, 80vw);
+      background: radial-gradient(circle, rgba(0, 94, 255, .30) 0%, rgba(0, 94, 255, .06) 40%, transparent 66%);
+      filter: blur(10px);
+      animation: breathe 9s var(--ease) infinite alternate
+    }
+
+    .hero-glow.two {
+      top: auto;
+      bottom: -30%;
+      right: auto;
+      left: -10%;
+      width: min(560px, 70vw);
+      height: min(560px, 70vw);
+      background: radial-gradient(circle, rgba(59, 130, 255, .16) 0%, transparent 64%);
+      animation-delay: -4s
+    }
+
+    @keyframes breathe {
+      from {
+        opacity: .75;
+        transform: scale(1)
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1.12)
+      }
+    }
+
+    .hero .wrap {
+      position: relative;
+      z-index: 2
+    }
+
+    .hero h1 {
+      max-width: 16ch;
+      margin-bottom: 30px;
+      color: #fff
+    }
+
+    .hero h1 .ln {
+      display: block;
+      overflow: hidden
+    }
+
+    .hero h1 .ln span {
+      display: block;
+      transform: translateY(105%);
+      animation: rise 1s var(--ease-out) forwards
+    }
+
+    .hero h1 .ln:nth-child(1) span {
+      animation-delay: .08s
+    }
+
+    .hero h1 .ln:nth-child(2) span {
+      animation-delay: .2s;
+      color: rgba(255, 255, 255, .4)
+    }
+
+    @keyframes rise {
+      to {
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes up {
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    .hero .lead {
+      max-width: 52ch;
+      color: rgba(255, 255, 255, .68);
+      margin-bottom: 38px;
+      opacity: 0;
+      animation: up .9s var(--ease-out) .5s forwards
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      opacity: 0;
+      animation: up .9s var(--ease-out) .62s forwards
+    }
+
+    .hero-cred {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .5px;
+      color: rgba(255, 255, 255, .5);
+      opacity: 0;
+      animation: up .9s var(--ease-out) .74s forwards
+    }
+
+    .hero-cred .rule {
+      width: 34px;
+      height: 1px;
+      background: rgba(255, 255, 255, .25);
+      flex: none
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      .hero h1 .ln span,
+      .hero .lead,
+      .hero-actions,
+      .hero-cred {
+        animation: none;
+        transform: none;
+        opacity: 1
+      }
+
+      .hero-glow {
+        animation: none
+      }
+    }
+
+    /* section frame */
+    .sec {
+      padding: clamp(76px, 11vh, 128px) 0
+    }
+
+    .sec-head {
+      max-width: 760px;
+      margin-bottom: clamp(44px, 6vh, 62px)
+    }
+
+    .sec-head h2 {
+      margin-bottom: 18px
+    }
+
+    .sec-head .lead {
+      max-width: 56ch
+    }
+
+    .rule-h {
+      height: 1px;
+      background: var(--hair);
+      border: 0;
+      max-width: var(--maxw);
+      margin: 0 auto
+    }
+
+    /* ============ METRICS (number + two-line label) ============ */
+    .metrics {
+      background: var(--white);
+      border-top: 1px solid var(--hair);
+      border-bottom: 1px solid var(--hair)
+    }
+
+    .metrics .wrap {
+      padding-top: clamp(56px, 8vh, 84px);
+      padding-bottom: clamp(56px, 8vh, 84px)
+    }
+
+    .metrics .kick {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 58ch;
+      margin-bottom: 44px;
+      line-height: 1.5
+    }
+
+    .metrics .kick b {
+      color: var(--ink);
+      font-weight: 600
+    }
+
+    .mgrid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+      background: var(--hair-2)
+    }
+
+    @media(min-width:720px) {
+      .mgrid {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    .mcell {
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 30px 8px 30px 0
+    }
+
+    @media(min-width:720px) {
+      .mcell {
+        padding: 34px 40px 34px 0
+      }
+
+      .mcell:nth-child(even) {
+        padding-left: 40px
+      }
+    }
+
+    .mcell .big {
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: clamp(50px, 6.4vw, 72px);
+      line-height: .9;
+      letter-spacing: -.04em;
+      color: var(--ink);
+      flex: none;
+      display: flex;
+      align-items: flex-start;
+      font-feature-settings: "tnum" 1
+    }
+
+    .mcell .big .s {
+      color: var(--blue);
+      font-size: .44em;
+      margin-left: 2px;
+      margin-top: .1em
+    }
+
+    .mcell .lbl {
+      font-size: clamp(16px, 1.7vw, 19px);
+      font-weight: 600;
+      line-height: 1.28;
+      color: var(--ink);
+      letter-spacing: -.01em
+    }
+
+    .mcell .lbl span {
+      display: block
+    }
+
+    .mcell .lbl .sub {
+      font-weight: 500;
+      color: var(--muted)
+    }
+
+    /* ============ LANDSCAPE (offices) ============ */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 40px
+    }
+
+    .tab {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 12px 18px;
+      border: 1px solid var(--hair);
+      border-radius: 30px;
+      background: var(--white);
+      cursor: pointer;
+      transition: all .22s var(--ease)
+    }
+
+    .tab:hover {
+      border-color: var(--faint);
+      color: var(--body);
+      transform: translateY(-1px)
+    }
+
+    .tab.on {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--white)
+    }
+
+    .panel {
+      display: none;
+      animation: fade .5s var(--ease-out)
+    }
+
+    .panel.on {
+      display: block
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(14px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    /* office card: pain-stat hero (left) + supporting context (right) */
+    .office {
+      border: 1px solid var(--hair);
+      border-radius: 22px;
+      background: var(--white);
+      padding: clamp(28px, 4vw, 46px);
+      box-shadow: 0 30px 60px -46px rgba(10, 10, 30, .4)
+    }
+
+    .office-cap {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: clamp(26px, 3.2vw, 38px);
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--hair-2)
+    }
+
+    .office-cap .oname {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--faint)
+    }
+
+    .office-cap h3 {
+      font-size: clamp(21px, 2.4vw, 28px);
+      font-weight: 600;
+      letter-spacing: -.03em;
+      color: var(--ink)
+    }
+
+    .office-body {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 34px
+    }
+
+    @media(min-width:840px) {
+      .office-body {
+        grid-template-columns: 1.1fr .9fr;
+        gap: 0
+      }
+    }
+
+    .office-pain {
+      padding-right: 0
+    }
+
+    @media(min-width:840px) {
+      .office-pain {
+        padding-right: 52px
+      }
+    }
+
+    .office-pain .flabel {
+      display: block;
+      margin-bottom: 14px
+    }
+
+    .office-pain .pnum {
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: clamp(40px, 5.4vw, 62px);
+      letter-spacing: -.035em;
+      color: var(--blue);
+      line-height: .95;
+      margin-bottom: 20px
+    }
+
+    .office-pain .pdesc {
+      font-size: 16.5px;
+      line-height: 1.55;
+      color: var(--body);
+      max-width: 42ch
+    }
+
+    .office-pain .pdesc b {
+      color: var(--ink);
+      font-weight: 600
+    }
+
+    .office-ctx {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+      padding-top: 6px
+    }
+
+    @media(min-width:840px) {
+      .office-ctx {
+        padding-left: 52px;
+        padding-top: 0;
+        border-left: 1px solid var(--hair)
+      }
+    }
+
+    .ctx-block .flabel {
+      display: block;
+      margin-bottom: 12px
+    }
+
+    .measure-val {
+      font-size: clamp(19px, 2vw, 23px);
+      font-weight: 600;
+      letter-spacing: -.02em;
+      color: var(--ink);
+      line-height: 1.2
+    }
+
+    .worklist {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .worklist li {
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--body);
+      background: var(--surface);
+      border: 1px solid var(--hair);
+      border-radius: 8px;
+      padding: 7px 12px;
+      transition: all .2s
+    }
+
+    .worklist li:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: var(--blue-tint)
+    }
+
+    /* ============ STATEMENT BAND (with head + tail) ============ */
+    .band {
+      background: var(--ink);
+      color: #fff;
+      position: relative;
+      overflow: hidden
+    }
+
+    .band::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, .05) 1px, transparent 1.3px);
+      background-size: 26px 26px;
+      -webkit-mask-image: radial-gradient(130% 130% at 15% 50%, #000, transparent 62%);
+      mask-image: radial-gradient(130% 130% at 15% 50%, #000, transparent 62%);
+      pointer-events: none
+    }
+
+    .band .wrap {
+      position: relative;
+      z-index: 1;
+      padding: clamp(66px, 11vh, 110px) 0
+    }
+
+    .band .head {
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: .4px;
+      color: rgba(255, 255, 255, .55);
+      margin-bottom: 26px;
+      max-width: 60ch
+    }
+
+    .band h2 {
+      font-size: clamp(27px, 3.8vw, 48px);
+      color: #fff;
+      max-width: 30ch;
+      letter-spacing: -.035em;
+      line-height: 1.05
+    }
+
+    .band h2 .dim {
+      color: rgba(255, 255, 255, .4)
+    }
+
+    .band .tail {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: clamp(17px, 1.9vw, 21px);
+      color: #fff;
+      font-weight: 500;
+      letter-spacing: -.01em
+    }
+
+    .band .tail .arrow {
+      color: var(--blue-bright);
+      font-size: 1.3em;
+      line-height: 1
+    }
+
+    /* owner beat */
+    .owns {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 26px
+    }
+
+    @media(min-width:820px) {
+      .owns {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 44px
+      }
+    }
+
+    .own {
+      border-top: 2px solid var(--ink);
+      padding-top: 18px
+    }
+
+    .own h3 {
+      font-size: 17.5px;
+      font-weight: 600;
+      letter-spacing: -.015em;
+      margin-bottom: 9px
+    }
+
+    .own p {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--body)
+    }
+
+    /* ============ HOW IT WORKS — LOOP ============ */
+    .loop-lead {
+      margin-bottom: 44px
+    }
+
+    .loop-lead p {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 64ch;
+      line-height: 1.6
+    }
+
+    .loop-lead p b {
+      color: var(--ink);
+      font-weight: 600
+    }
+
+    .loop {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      position: relative
+    }
+
+    @media(min-width:860px) {
+      .loop {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px
+      }
+    }
+
+    .stage {
+      border: 1px solid var(--hair);
+      border-radius: 18px;
+      padding: 30px 28px 26px;
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color .35s var(--ease), box-shadow .35s var(--ease), transform .35s var(--ease)
+    }
+
+    .stage.on {
+      border-color: var(--blue);
+      box-shadow: 0 22px 50px -30px rgba(0, 94, 255, .6);
+      transform: translateY(-4px)
+    }
+
+    .stage .snum {
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--faint);
+      letter-spacing: 1px;
+      transition: color .3s
+    }
+
+    .stage.on .snum {
+      color: var(--blue)
+    }
+
+    .stage h3 {
+      font-size: 21px;
+      margin: 14px 0 10px;
+      letter-spacing: -.02em
+    }
+
+    .stage .sdesc {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--body)
+    }
+
+    .stage .sout {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--hair-2);
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.45
+    }
+
+    .stage .sout b {
+      color: var(--ink);
+      font-weight: 600
+    }
+
+    .stage .stime {
+      position: absolute;
+      top: 26px;
+      right: 26px;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink);
+      background: var(--surface);
+      border: 1px solid var(--hair);
+      border-radius: 20px;
+      padding: 4px 11px
+    }
+
+    .stage.on .stime {
+      background: var(--blue-tint);
+      border-color: transparent;
+      color: var(--blue)
+    }
+
+    .stage .prog {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 3px;
+      width: 0;
+      background: var(--blue)
+    }
+
+    .stage.on .prog {
+      animation: progfill 4.2s linear forwards
+    }
+
+    @keyframes progfill {
+      from {
+        width: 0
+      }
+
+      to {
+        width: 100%
+      }
+    }
+
+    .loop-foot {
+      margin-top: 26px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      letter-spacing: .4px;
+      color: var(--muted)
+    }
+
+    .loop-foot .ring {
+      width: 22px;
+      height: 22px;
+      border: 2px solid var(--hair);
+      border-top-color: var(--blue);
+      border-radius: 50%;
+      animation: spin 2.4s linear infinite
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .loop-foot b {
+      color: var(--ink);
+      font-weight: 600
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .stage.on .prog {
+        animation: none;
+        width: 100%
+      }
+
+      .loop-foot .ring {
+        animation: none
+      }
+    }
+
+    /* ============ COMPARE (dark) ============ */
+    .dark {
+      background: var(--ink);
+      color: #fff;
+      position: relative;
+      overflow: hidden
+    }
+
+    .dark::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, .05) 1px, transparent 1.3px);
+      background-size: 26px 26px;
+      -webkit-mask-image: radial-gradient(120% 100% at 100% 0%, #000, transparent 58%);
+      mask-image: radial-gradient(120% 100% at 100% 0%, #000, transparent 58%);
+      pointer-events: none
+    }
+
+    .dark .wrap {
+      position: relative;
+      z-index: 1
+    }
+
+    .dark h2 {
+      color: #fff
+    }
+
+    .dark .lead {
+      color: rgba(255, 255, 255, .66)
+    }
+
+    .compare {
+      border-top: 1px solid rgba(255, 255, 255, .14)
+    }
+
+    .crow {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px 32px;
+      padding: 26px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .12)
+    }
+
+    @media(min-width:760px) {
+      .crow {
+        grid-template-columns: 150px 1fr 1fr;
+        align-items: baseline;
+        gap: 32px
+      }
+    }
+
+    .crow .cdim {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--blue-bright)
+    }
+
+    .crow .ctrad {
+      color: rgba(255, 255, 255, .5);
+      font-size: 15.5px;
+      line-height: 1.45
+    }
+
+    .crow .cdig {
+      color: #fff;
+      font-size: 15.5px;
+      line-height: 1.45;
+      font-weight: 500
+    }
+
+    .crow .cdig .num {
+      color: #fff
+    }
+
+    .chead {
+      padding: 0 0 16px
+    }
+
+    @media(min-width:760px) {
+      .chead {
+        display: grid;
+        grid-template-columns: 150px 1fr 1fr;
+        gap: 32px
+      }
+    }
+
+    .chead .h-trad {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .4)
+    }
+
+    .chead .h-dig {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff
+    }
+
+    .chead .h-dig::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue-bright);
+      margin-right: 8px;
+      vertical-align: middle
+    }
+
+    /* governance */
+    .gov {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0
+    }
+
+    @media(min-width:800px) {
+      .gov {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 64px
+      }
+    }
+
+    .gitem {
+      padding: 26px 0;
+      border-top: 1px solid var(--hair);
+      display: flex;
+      gap: 18px;
+      transition: border-color .3s
+    }
+
+    .gitem:hover {
+      border-top-color: var(--blue)
+    }
+
+    .gitem .gi {
+      width: auto;
+      height: auto;
+      flex: none;
+      color: var(--ink);
+      margin-top: 2px;
+      transition: color .3s var(--ease)
+    }
+
+    .gitem:hover .gi {
+      color: var(--blue)
+    }
+
+    .gitem .gi svg {
+      width: 22px;
+      height: 22px
+    }
+
+    .gitem h3 {
+      margin-bottom: 7px;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -.012em
+    }
+
+    .gitem p {
+      font-size: 15px;
+      line-height: 1.5;
+      max-width: 42ch
+    }
+
+    .govnote {
+      margin-top: 38px;
+      font-size: 14.5px;
+      color: var(--muted);
+      max-width: 66ch;
+      line-height: 1.55
+    }
+
+    /* logo wall */
+    .wall {
+      border-top: 1px solid var(--hair);
+      border-bottom: 1px solid var(--hair);
+      background: var(--white)
+    }
+
+    .wall .head {
+      max-width: 720px;
+      padding: clamp(60px, 9vh, 90px) 0 40px
+    }
+
+    .wall .head h2 {
+      font-size: clamp(28px, 3.8vw, 46px);
+      margin-bottom: 18px
+    }
+
+    .wall .head p {
+      font-size: 16.5px;
+      max-width: 60ch
+    }
+
+    .marquee {
+      overflow: hidden;
+      padding: 14px 0 clamp(56px, 9vh, 80px);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent)
+    }
+
+    .track {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+      animation: scroll 50s linear infinite
+    }
+
+    .marquee:hover .track {
+      animation-play-state: paused
+    }
+
+    @keyframes scroll {
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    .lg {
+      height: 88px;
+      min-width: 190px;
+      border: 1px solid var(--hair);
+      border-radius: 16px;
+      background: var(--canvas);
+      display: grid;
+      place-items: center;
+      padding: 0 30px;
+      flex: none;
+      transition: border-color .28s, background .28s, transform .28s
+    }
+
+    .lg:hover {
+      border-color: var(--faint);
+      background: #fff;
+      transform: translateY(-3px)
+    }
+
+    .lg img {
+      height: 27px;
+      width: auto;
+      filter: grayscale(1) contrast(.55) opacity(.6);
+      transition: filter .35s var(--ease)
+    }
+
+    .lg:hover img {
+      filter: none
+    }
+
+    .lg .word {
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: -.02em;
+      color: var(--faint);
+      transition: color .3s
+    }
+
+    .lg .word .mono {
+      font-family: var(--mono);
+      font-weight: 400;
+      font-size: 12px;
+      color: var(--faint)
+    }
+
+    .lg:hover .word {
+      color: var(--ink)
+    }
+
+    /* cases */
+    .case {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px
+    }
+
+    @media(min-width:920px) {
+      .case {
+        grid-template-columns: 1.05fr .95fr;
+        gap: 72px;
+        align-items: center
+      }
+    }
+
+    .case .who {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .case .who::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue)
+    }
+
+    .case h3 {
+      font-size: clamp(26px, 3.2vw, 40px);
+      font-weight: 600;
+      letter-spacing: -.035em;
+      line-height: 1.06;
+      margin-bottom: 18px
+    }
+
+    .case .flow-txt {
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--body);
+      max-width: 48ch
+    }
+
+    .cmetrics {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-top: 1px solid var(--hair)
+    }
+
+    .cm {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--hair)
+    }
+
+    .cm .v {
+      font-family: var(--mono);
+      font-size: clamp(30px, 3.6vw, 44px);
+      font-weight: 500;
+      letter-spacing: -.04em;
+      color: var(--ink);
+      min-width: 150px;
+      font-feature-settings: "tnum" 1;
+      line-height: 1
+    }
+
+    .cm .v .s {
+      font-size: .5em;
+      color: var(--blue);
+      font-weight: 500
+    }
+
+    .cm .l {
+      font-size: 14.5px;
+      color: var(--body);
+      line-height: 1.35
+    }
+
+    /* pilot (blue) */
+    .blue {
+      background: linear-gradient(155deg, #0B52E0 0%, var(--blue) 55%, #2C74FF 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden
+    }
+
+    .blue::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, .12) 1px, transparent 1.3px);
+      background-size: 24px 24px;
+      -webkit-mask-image: radial-gradient(120% 120% at 0% 100%, #000, transparent 58%);
+      mask-image: radial-gradient(120% 120% at 0% 100%, #000, transparent 58%)
+    }
+
+    .blue .wrap {
+      position: relative;
+      z-index: 1
+    }
+
+    .blue h2 {
+      color: #fff;
+      margin-bottom: 18px
+    }
+
+    .blue .lead {
+      color: rgba(255, 255, 255, .92);
+      max-width: 52ch
+    }
+
+    .steps3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin: 48px 0 42px
+    }
+
+    @media(min-width:760px) {
+      .steps3 {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    .st3 {
+      border-top: 2px solid rgba(255, 255, 255, .4);
+      padding: 22px 26px 8px 0
+    }
+
+    .st3 .st3-k {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 12px
+    }
+
+    .st3 .st3-k .n {
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 500;
+      color: #fff
+    }
+
+    .st3 .st3-k .w {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .75)
+    }
+
+    .st3 h3 {
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 8px
+    }
+
+    .st3 p {
+      color: rgba(255, 255, 255, .9);
+      font-size: 15.5px;
+      line-height: 1.45
+    }
+
+    .st3 p .num {
+      color: #fff
+    }
+
+    .blue .btn-ink {
+      background: #fff;
+      color: var(--ink)
+    }
+
+    .blue .btn-ink:hover {
+      background: var(--ink);
+      color: #fff
+    }
+
+    /* faq */
+    .faq {
+      max-width: 840px
+    }
+
+    .qa {
+      border-top: 1px solid var(--hair);
+      transition: border-color .3s
+    }
+
+    .qa:last-child {
+      border-bottom: 1px solid var(--hair)
+    }
+
+    .qa.open {
+      border-top-color: var(--blue)
+    }
+
+    .qa button {
+      width: 100%;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      font-family: var(--sans);
+      text-align: left;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 26px 0;
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: -.015em;
+      color: var(--ink);
+      transition: color .2s
+    }
+
+    .qa button:hover {
+      color: var(--blue)
+    }
+
+    .qa .pm {
+      flex: none;
+      width: 20px;
+      height: 20px;
+      position: relative;
+      margin-top: 6px
+    }
+
+    .qa .pm::before,
+    .qa .pm::after {
+      content: "";
+      position: absolute;
+      background: var(--muted);
+      border-radius: 2px;
+      transition: transform .25s var(--ease), opacity .25s, background .2s
+    }
+
+    .qa .pm::before {
+      left: 0;
+      right: 0;
+      top: 9px;
+      height: 2px
+    }
+
+    .qa .pm::after {
+      top: 0;
+      bottom: 0;
+      left: 9px;
+      width: 2px
+    }
+
+    .qa.open .pm::after {
+      opacity: 0
+    }
+
+    .qa.open .pm::before {
+      background: var(--blue)
+    }
+
+    .qa .ans {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height .38s var(--ease)
+    }
+
+    .qa .ans p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--body);
+      padding: 0 44px 26px 0
+    }
+
+    /* footer */
+    .footer {
+      background: var(--ink);
+      color: #fff;
+      padding: 72px 0 44px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, .04) 1px, transparent 1.3px);
+      background-size: 28px 28px;
+      -webkit-mask-image: radial-gradient(120% 120% at 90% 0%, #000, transparent 60%);
+      mask-image: radial-gradient(120% 120% at 90% 0%, #000, transparent 60%);
+      pointer-events: none
+    }
+
+    .footer .wrap {
+      position: relative;
+      z-index: 1
+    }
+
+    .fgrid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 44px
+    }
+
+    @media(min-width:820px) {
+      .fgrid {
+        grid-template-columns: 2fr 1fr 1fr 1fr
+      }
+    }
+
+    .footer .brand {
+      color: #fff;
+      margin-bottom: 18px
+    }
+
+    .footer .ft {
+      font-size: 14.5px;
+      color: rgba(255, 255, 255, .55);
+      max-width: 34ch;
+      line-height: 1.55
+    }
+
+    .footer h4 {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .4);
+      margin-bottom: 18px;
+      font-weight: 400
+    }
+
+    .footer ul {
+      list-style: none
+    }
+
+    .footer li {
+      margin-bottom: 12px
+    }
+
+    .footer li a {
+      font-size: 14.5px;
+      color: rgba(255, 255, 255, .62);
+      transition: color .15s
+    }
+
+    .footer li a:hover {
+      color: #fff
+    }
+
+    .fbase {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: space-between
+    }
+
+    .fbase p {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: .4px;
+      color: rgba(255, 255, 255, .4)
+    }
+
+    .banner {
+      background: var(--lime);
+      color: var(--ink);
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      padding: 9px 16px;
+      position: relative;
+      z-index: 80
+    }
+
+    /* reveal */
+    .rv {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .8s var(--ease-out), transform .8s var(--ease-out)
+    }
+
+    .rv.in {
+      opacity: 1;
+      transform: none
+    }
+
+    .rv[data-d="1"] {
+      transition-delay: .08s
+    }
+
+    .rv[data-d="2"] {
+      transition-delay: .16s
+    }
+
+    .rv[data-d="3"] {
+      transition-delay: .24s
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .rv {
+        opacity: 1;
+        transform: none
+      }
+
+      .track {
+        animation: none
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="banner">Internal mockup · Banking industry page · Copy &amp; story review — not published</div>
-<div class="progress" id="progress"></div>
+  <div class="banner">Internal mockup · Banking industry page · Copy &amp; story review — not published</div>
+  <div class="progress" id="progress"></div>
 
-<!-- NAV -->
-<header class="nav" id="nav">
-  <div class="wrap nav-in">
-    <a href="#top" class="brand">
-      <svg class="mark" viewBox="0 0 101 23" aria-label="Zamp"><path d="M40.8466 4.23199V1.0606H27.3799V4.01835H36.3791L27.0176 14.0104V17.1825H41.0596V14.2241H31.3954L40.8466 4.23199Z"/><path d="M57.3106 14.1747C57.1567 14.026 57.082 13.7377 57.082 13.3163V7.39949C57.082 5.24498 56.4963 3.5872 55.3301 2.43073C54.1638 1.27425 52.4411 0.693737 50.1678 0.693737C48.1776 0.693737 46.5542 1.16061 45.3081 2.08333C44.062 3.01124 43.2776 4.30733 42.9555 5.98003L46.8224 6.19366C47.0256 5.36965 47.3931 4.73914 47.9243 4.30733C48.4555 3.87551 49.2048 3.65733 50.173 3.65733C51.1957 3.65733 51.9749 3.94499 52.5106 4.5307C53.0418 5.11121 53.31 5.98977 53.31 7.15664L47.9341 8.1839C46.162 8.5261 44.8419 9.09233 43.9783 9.87673C43.1094 10.6611 42.6776 11.7481 42.6776 13.1377C42.6776 14.5273 43.1887 15.6098 44.2166 16.3838C45.2445 17.1578 46.599 17.5455 48.2918 17.5455H48.3016C49.2847 17.5455 50.1879 17.3968 51.0015 17.0935C51.8158 16.7909 52.4859 16.3637 53.0067 15.8078C53.3255 15.4708 53.5807 15.1039 53.7729 14.7085C53.8424 15.1585 53.9632 15.5409 54.1385 15.8526C54.4262 16.374 54.8333 16.7461 55.3443 16.9695C55.8606 17.1929 56.4463 17.302 57.1112 17.302C57.3943 17.302 57.6625 17.2922 57.9255 17.2721C58.1885 17.252 58.382 17.2227 58.5014 17.1825V14.4026H57.9904C57.6878 14.4026 57.4593 14.3234 57.3106 14.1741V14.1747ZM53.2996 10.6605C53.2996 11.4845 53.1262 12.204 52.7736 12.8196C52.421 13.4351 51.9301 13.9117 51.2944 14.2539C50.6593 14.5961 49.9093 14.765 49.0457 14.765H49.0405C48.2561 14.765 47.6509 14.5961 47.2289 14.2539C46.8068 13.9117 46.5938 13.4299 46.5938 12.8046C46.5938 12.2189 46.7873 11.752 47.1698 11.4001C47.5522 11.0475 48.1776 10.7793 49.0412 10.6007L53.3002 9.7566V10.6598L53.2996 10.6605Z"/><path d="M80.7851 1.41885C79.9812 0.947429 79.013 0.709121 77.8864 0.709121C77.0423 0.709121 76.2832 0.87795 75.6079 1.22015C74.9326 1.56236 74.3722 2.05391 73.93 2.69935C73.6644 3.07987 73.4475 3.51428 73.2767 3.99739C72.9904 3.13636 72.5371 2.42533 71.9196 1.8656C71.0657 1.09158 69.954 0.703926 68.5839 0.703926C67.7995 0.703926 67.0846 0.86756 66.4398 1.20002C65.7944 1.53249 65.2431 2.00391 64.7911 2.61948C64.5379 2.96104 64.3275 3.34545 64.1535 3.76947L64.0515 1.06041H60.6412V17.1823L60.6464 17.192H64.4191V7.92136C64.4191 7.05774 64.5431 6.31814 64.7963 5.70256C65.0489 5.08698 65.397 4.61556 65.8379 4.2831C66.2801 3.95064 66.8112 3.787 67.4366 3.787C68.4443 3.787 69.1541 4.14414 69.5657 4.85907C69.9781 5.57399 70.1865 6.59151 70.1865 7.92136V17.1933H73.691V7.92136C73.691 7.05774 73.8098 6.31814 74.0527 5.70256C74.2962 5.08698 74.6436 4.61556 75.0949 4.2831C75.5468 3.95064 76.0832 3.787 76.7079 3.787C77.6559 3.787 78.3565 4.12466 78.8078 4.79933C79.2598 5.47464 79.4877 6.47203 79.4877 7.80253V17.194H83.2604V6.83956C83.2604 5.51425 83.0474 4.39219 82.6247 3.48895C82.2032 2.58052 81.587 1.89092 80.7831 1.41885H80.7851Z"/><path d="M97.9666 2.14874C96.9498 1.38447 95.6796 1.002 94.1511 1.002C92.918 1.002 91.8518 1.31628 90.933 1.939C90.2427 2.40783 89.694 2.96237 89.2992 3.7143L89.2564 1.0572H85.6376V22.3063H89.4103V15.3219C89.5953 15.6674 89.8174 15.9875 90.0947 16.2778C90.5817 16.7953 91.1797 17.2024 91.8765 17.4797C92.5667 17.7635 93.3186 17.905 94.1206 17.905C95.6491 17.905 96.9257 17.5226 97.9426 16.7583C98.9536 15.994 99.7244 14.9765 100.236 13.707C100.748 12.4369 101 10.674 101 9.12072C101 6.42076 100.193 3.813 97.9673 2.14874H97.9666ZM96.4498 13.2759C95.7595 14.17 94.8225 14.6135 93.6388 14.6135C92.455 14.6135 91.518 14.1694 90.8278 13.2759C90.1434 12.3817 89.8044 11.1551 89.8044 9.57721C89.8044 7.99931 90.1434 6.50128 90.8278 5.60714C91.518 4.71299 92.455 4.26949 93.6388 4.26949C94.8225 4.26949 95.7595 4.71364 96.4498 5.60714C97.1342 6.50128 97.4731 7.99866 97.4731 9.57721C97.4731 11.1558 97.1342 12.3824 96.4498 13.2759Z"/><path d="M0 7.9823L3.8019 1.06031H20.1712L16.3693 7.9823H0Z"/><path d="M0 17.1817L3.8019 10.2591H20.1712L16.3693 17.1817H0Z"/></svg>
-      <span class="tag">Banking</span>
-    </a>
-    <nav class="nav-links">
-      <a href="#how">How it works</a>
-      <a href="#cases" class="on">In production</a>
-      <a href="#governance">Governance</a>
-      <a href="#integrations">Integrations</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <div class="nav-cta"><a href="#pilot" class="btn btn-light">Scope a pilot <span class="ar">→</span></a></div>
-  </div>
-</header>
-
-<main id="top">
-
-<!-- HERO -->
-<section class="hero">
-  <canvas id="px"></canvas>
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div><div class="hero-glow two"></div>
-  <div class="wrap">
-    <h1><span class="ln"><span>The work scales.</span></span><span class="ln"><span>Your headcount can't.</span></span></h1>
-    <p class="lead">Zamp builds digital employees for banking, where precision is non-negotiable. They run operations start to close: inside your systems, under your controls, on the record for your examiners.</p>
-    <div class="hero-actions">
-      <a href="#pilot" class="btn btn-primary">Scope a pilot <span class="ar">→</span></a>
-      <a href="#cases" class="btn btn-light">See it in production</a>
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="wrap nav-in">
+      <a href="#top" class="brand">
+        <svg class="mark" viewBox="0 0 101 23" aria-label="Zamp">
+          <path
+            d="M40.8466 4.23199V1.0606H27.3799V4.01835H36.3791L27.0176 14.0104V17.1825H41.0596V14.2241H31.3954L40.8466 4.23199Z" />
+          <path
+            d="M57.3106 14.1747C57.1567 14.026 57.082 13.7377 57.082 13.3163V7.39949C57.082 5.24498 56.4963 3.5872 55.3301 2.43073C54.1638 1.27425 52.4411 0.693737 50.1678 0.693737C48.1776 0.693737 46.5542 1.16061 45.3081 2.08333C44.062 3.01124 43.2776 4.30733 42.9555 5.98003L46.8224 6.19366C47.0256 5.36965 47.3931 4.73914 47.9243 4.30733C48.4555 3.87551 49.2048 3.65733 50.173 3.65733C51.1957 3.65733 51.9749 3.94499 52.5106 4.5307C53.0418 5.11121 53.31 5.98977 53.31 7.15664L47.9341 8.1839C46.162 8.5261 44.8419 9.09233 43.9783 9.87673C43.1094 10.6611 42.6776 11.7481 42.6776 13.1377C42.6776 14.5273 43.1887 15.6098 44.2166 16.3838C45.2445 17.1578 46.599 17.5455 48.2918 17.5455H48.3016C49.2847 17.5455 50.1879 17.3968 51.0015 17.0935C51.8158 16.7909 52.4859 16.3637 53.0067 15.8078C53.3255 15.4708 53.5807 15.1039 53.7729 14.7085C53.8424 15.1585 53.9632 15.5409 54.1385 15.8526C54.4262 16.374 54.8333 16.7461 55.3443 16.9695C55.8606 17.1929 56.4463 17.302 57.1112 17.302C57.3943 17.302 57.6625 17.2922 57.9255 17.2721C58.1885 17.252 58.382 17.2227 58.5014 17.1825V14.4026H57.9904C57.6878 14.4026 57.4593 14.3234 57.3106 14.1741V14.1747ZM53.2996 10.6605C53.2996 11.4845 53.1262 12.204 52.7736 12.8196C52.421 13.4351 51.9301 13.9117 51.2944 14.2539C50.6593 14.5961 49.9093 14.765 49.0457 14.765H49.0405C48.2561 14.765 47.6509 14.5961 47.2289 14.2539C46.8068 13.9117 46.5938 13.4299 46.5938 12.8046C46.5938 12.2189 46.7873 11.752 47.1698 11.4001C47.5522 11.0475 48.1776 10.7793 49.0412 10.6007L53.3002 9.7566V10.6598L53.2996 10.6605Z" />
+          <path
+            d="M80.7851 1.41885C79.9812 0.947429 79.013 0.709121 77.8864 0.709121C77.0423 0.709121 76.2832 0.87795 75.6079 1.22015C74.9326 1.56236 74.3722 2.05391 73.93 2.69935C73.6644 3.07987 73.4475 3.51428 73.2767 3.99739C72.9904 3.13636 72.5371 2.42533 71.9196 1.8656C71.0657 1.09158 69.954 0.703926 68.5839 0.703926C67.7995 0.703926 67.0846 0.86756 66.4398 1.20002C65.7944 1.53249 65.2431 2.00391 64.7911 2.61948C64.5379 2.96104 64.3275 3.34545 64.1535 3.76947L64.0515 1.06041H60.6412V17.1823L60.6464 17.192H64.4191V7.92136C64.4191 7.05774 64.5431 6.31814 64.7963 5.70256C65.0489 5.08698 65.397 4.61556 65.8379 4.2831C66.2801 3.95064 66.8112 3.787 67.4366 3.787C68.4443 3.787 69.1541 4.14414 69.5657 4.85907C69.9781 5.57399 70.1865 6.59151 70.1865 7.92136V17.1933H73.691V7.92136C73.691 7.05774 73.8098 6.31814 74.0527 5.70256C74.2962 5.08698 74.6436 4.61556 75.0949 4.2831C75.5468 3.95064 76.0832 3.787 76.7079 3.787C77.6559 3.787 78.3565 4.12466 78.8078 4.79933C79.2598 5.47464 79.4877 6.47203 79.4877 7.80253V17.194H83.2604V6.83956C83.2604 5.51425 83.0474 4.39219 82.6247 3.48895C82.2032 2.58052 81.587 1.89092 80.7831 1.41885H80.7851Z" />
+          <path
+            d="M97.9666 2.14874C96.9498 1.38447 95.6796 1.002 94.1511 1.002C92.918 1.002 91.8518 1.31628 90.933 1.939C90.2427 2.40783 89.694 2.96237 89.2992 3.7143L89.2564 1.0572H85.6376V22.3063H89.4103V15.3219C89.5953 15.6674 89.8174 15.9875 90.0947 16.2778C90.5817 16.7953 91.1797 17.2024 91.8765 17.4797C92.5667 17.7635 93.3186 17.905 94.1206 17.905C95.6491 17.905 96.9257 17.5226 97.9426 16.7583C98.9536 15.994 99.7244 14.9765 100.236 13.707C100.748 12.4369 101 10.674 101 9.12072C101 6.42076 100.193 3.813 97.9673 2.14874H97.9666ZM96.4498 13.2759C95.7595 14.17 94.8225 14.6135 93.6388 14.6135C92.455 14.6135 91.518 14.1694 90.8278 13.2759C90.1434 12.3817 89.8044 11.1551 89.8044 9.57721C89.8044 7.99931 90.1434 6.50128 90.8278 5.60714C91.518 4.71299 92.455 4.26949 93.6388 4.26949C94.8225 4.26949 95.7595 4.71364 96.4498 5.60714C97.1342 6.50128 97.4731 7.99866 97.4731 9.57721C97.4731 11.1558 97.1342 12.3824 96.4498 13.2759Z" />
+          <path d="M0 7.9823L3.8019 1.06031H20.1712L16.3693 7.9823H0Z" />
+          <path d="M0 17.1817L3.8019 10.2591H20.1712L16.3693 17.1817H0Z" />
+        </svg>
+        <span class="tag">Banking</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#cases" class="on">In production</a>
+        <a href="#governance">Governance</a>
+        <a href="#integrations">Integrations</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-cta"><a href="#pilot" class="btn btn-light">Book a demo <span class="ar">→</span></a></div>
     </div>
-    <div class="hero-cred"><span class="rule"></span> In production at tier-1 banks across the UK, UAE and US</div>
-  </div>
-</section>
+  </header>
 
-<!-- METRICS -->
-<section class="metrics">
-  <div class="wrap">
-    <p class="kick"><b>Live results from digital employees in production</b>, across six banking workflows.</p>
-    <div class="mgrid">
-      <div class="mcell rv"><div class="big"><span class="count" data-to="55">0</span><span class="s">%</span></div><div class="lbl"><span>faster sanctions</span><span class="sub">payment processing</span></div></div>
-      <div class="mcell rv" data-d="1"><div class="big"><span class="count" data-to="70">0</span><span class="s">%</span></div><div class="lbl"><span>shorter trade-finance</span><span class="sub">turnaround times</span></div></div>
-      <div class="mcell rv" data-d="2"><div class="big"><span class="count" data-to="35">0</span><span class="s">pp</span></div><div class="lbl"><span>higher straight-through</span><span class="sub">rate in onboarding</span></div></div>
-      <div class="mcell rv" data-d="3"><div class="big"><span class="count" data-to="80">0</span><span class="s">%</span></div><div class="lbl"><span>shorter SAR</span><span class="sub">investigation time</span></div></div>
-    </div>
-  </div>
-</section>
+  <main id="top">
 
-<!-- LANDSCAPE -->
-<section class="sec" id="landscape">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <h2>A bank is three businesses at once</h2>
-      <p class="lead">Each runs on its own clock and its own rulebook. Hiring fixes none of them.</p>
-    </div>
-
-    <div class="rv">
-      <div class="tabs" data-tabset="desk">
-        <button class="tab on" data-t="d0">Back office</button>
-        <button class="tab" data-t="d1">Middle office</button>
-        <button class="tab" data-t="d2">Front office</button>
+    <!-- HERO -->
+    <section class="hero">
+      <canvas id="px"></canvas>
+      <div class="hero-grid"></div>
+      <div class="hero-glow"></div>
+      <div class="hero-glow two"></div>
+      <div class="wrap">
+        <h1><span class="ln"><span>The work scales.</span></span><span class="ln"><span>Your headcount doesn't have
+              to.</span></span></h1>
+        <p class="lead">Zamp builds the AI workforce for banking, where precision is non-negotiable. Deployed in days,
+          operating inside your systems, under your controls, on the record for your examiners.</p>
+        <div class="hero-actions">
+          <a href="#pilot" class="btn btn-primary">Book a demo <span class="ar">→</span></a>
+          <a href="#cases" class="btn btn-light">See it in production</a>
+        </div>
+        <div class="hero-cred"><span class="rule"></span> Already trusted by tier-1 banks across the UK, UAE and US
+        </div>
       </div>
+    </section>
 
-      <div class="panel on" id="d0">
-        <div class="office">
-          <div class="office-cap"><span class="oname">Back office</span><h3>The volume layer</h3></div>
-          <div class="office-body">
-            <div class="office-pain">
-              <span class="flabel">Where it hurts</span>
-              <div class="pnum">$1,500–3,000</div>
-              <p class="pdesc">per KYC review, and up to <b>95%</b> of alerts lead nowhere. Most of it already runs offshore, so the real pressure isn't the analyst on the desk. It's the next 500-seat expansion.</p>
+    <!-- METRICS -->
+    <section class="metrics">
+      <div class="wrap">
+        <p class="kick"><b>Live results from AI employees</b>, across core banking workflows.</p>
+        <div class="mgrid">
+          <div class="mcell rv">
+            <div class="big"><span class="count" data-to="55">0</span><span class="s">%</span></div>
+            <div class="lbl"><span>faster sanctions</span><span class="sub">payment processing</span></div>
+          </div>
+          <div class="mcell rv" data-d="1">
+            <div class="big"><span class="count" data-to="70">0</span><span class="s">%</span></div>
+            <div class="lbl"><span>shorter trade-finance</span><span class="sub">turnaround times</span></div>
+          </div>
+          <div class="mcell rv" data-d="2">
+            <div class="big"><span class="count" data-to="35">0</span><span class="s">pp</span></div>
+            <div class="lbl"><span>higher straight-through</span><span class="sub">rate in onboarding</span></div>
+          </div>
+          <div class="mcell rv" data-d="3">
+            <div class="big"><span class="count" data-to="80">0</span><span class="s">%</span></div>
+            <div class="lbl"><span>shorter SAR</span><span class="sub">investigation time</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANDSCAPE -->
+    <section class="sec" id="landscape">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <h2>A bank is three different businesses, not one</h2>
+          <p class="lead">Each runs on its own clock and its own rulebook. Headcount fixes none of them.</p>
+        </div>
+
+        <div class="rv">
+          <div class="tabs" data-tabset="desk">
+            <button class="tab on" data-t="d0">Back office</button>
+            <button class="tab" data-t="d1">Middle office</button>
+            <button class="tab" data-t="d2">Front office</button>
+          </div>
+
+          <div class="panel on" id="d0">
+            <div class="office">
+              <div class="office-cap"><span class="oname">Back office</span>
+                <h3>The volume layer</h3>
+              </div>
+              <div class="office-body">
+                <div class="office-pain">
+                  <span class="flabel">Where it hurts</span>
+                  <div class="pnum">$1,500–3,000</div>
+                  <p class="pdesc">per KYC review, and up to <b>95%</b> of alerts lead nowhere. Most of it already runs
+                    offshore, so the real pressure isn't the analyst on the desk. It's the next 500-seat expansion.</p>
+                </div>
+                <div class="office-ctx">
+                  <div class="ctx-block"><span class="flabel">Measured on</span>
+                    <div class="measure-val">Cost per case &amp; backlog age</div>
+                  </div>
+                  <div class="ctx-block"><span class="flabel">The work it carries</span>
+                    <ul class="worklist">
+                      <li>Payments</li>
+                      <li>KYC / AML</li>
+                      <li>Loan servicing</li>
+                      <li>Disputes</li>
+                      <li>Document processing</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="office-ctx">
-              <div class="ctx-block"><span class="flabel">Measured on</span><div class="measure-val">Cost per case &amp; backlog age</div></div>
-              <div class="ctx-block"><span class="flabel">The work it carries</span><ul class="worklist"><li>Payments</li><li>KYC / AML</li><li>Loan servicing</li><li>Disputes</li><li>Document processing</li></ul></div>
+          </div>
+
+          <div class="panel" id="d1">
+            <div class="office">
+              <div class="office-cap"><span class="oname">Middle office</span>
+                <h3>The layer that keeps growing</h3>
+              </div>
+              <div class="office-body">
+                <div class="office-pain">
+                  <span class="flabel">Where it hurts</span>
+                  <div class="pnum">166 days</div>
+                  <p class="pdesc">to file a SAR against a <b>30-day</b> clock, with compliance hours up <b>61%</b>
+                    since 2016. It also approves any AI the bank buys: both buyer and gatekeeper.</p>
+                </div>
+                <div class="office-ctx">
+                  <div class="ctx-block"><span class="flabel">Measured on</span>
+                    <div class="measure-val">Losses avoided &amp; clean exams</div>
+                  </div>
+                  <div class="ctx-block"><span class="flabel">The work it carries</span>
+                    <ul class="worklist">
+                      <li>Risk</li>
+                      <li>Compliance</li>
+                      <li>Model risk</li>
+                      <li>Treasury</li>
+                      <li>Legal</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="d2">
+            <div class="office">
+              <div class="office-cap"><span class="oname">Front office</span>
+                <h3>Where time is the constraint</h3>
+              </div>
+              <div class="office-body">
+                <div class="office-pain">
+                  <span class="flabel">Where it hurts</span>
+                  <div class="pnum">60% of the week</div>
+                  <p class="pdesc">goes to prep, not advice: memos, CRM, decks. Smallest team, highest comp. Hand the
+                    prep back and the advice sharpens.</p>
+                </div>
+                <div class="office-ctx">
+                  <div class="ctx-block"><span class="flabel">Measured on</span>
+                    <div class="measure-val">Revenue</div>
+                  </div>
+                  <div class="ctx-block"><span class="flabel">The work it carries</span>
+                    <ul class="worklist">
+                      <li>RMs</li>
+                      <li>Bankers</li>
+                      <li>Traders</li>
+                      <li>Advisors</li>
+                      <li>Branch staff</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="panel" id="d1">
-        <div class="office">
-          <div class="office-cap"><span class="oname">Middle office</span><h3>The layer that keeps growing</h3></div>
-          <div class="office-body">
-            <div class="office-pain">
-              <span class="flabel">Where it hurts</span>
-              <div class="pnum">166 days</div>
-              <p class="pdesc">to file a SAR against a <b>30-day</b> clock, with compliance hours up <b>61%</b> since 2016. It also approves any AI the bank buys: both buyer and gatekeeper.</p>
+    <!-- STATEMENT BAND (head + tail) -->
+    <section class="band">
+      <div class="wrap">
+        <p class="head">Banking volumes surge overnight and at quarter-end, then fall away. Headcount can't move at that
+          speed.</p>
+        <h2>Staff for the peak, and you pay for the idle. <span class="dim">Staff for the average, and you miss the
+            SLA.</span></h2>
+        <div class="tail"><span class="arrow">↓</span> An AI workforce grows and shrinks with the work, in real
+          time, at no cost for idle time.</div>
+      </div>
+    </section>
+
+    <!-- OWNER -->
+    <section class="sec" id="owner">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <h2>An Actual Owner, not a generic Copilot</h2>
+          <p class="lead">A copilot waits for your instructions in a prompt. A digital AI employee takes the whole job
+            off your desk and hands
+            back a result.</p>
+        </div>
+        <div class="owns rv">
+          <div class="own">
+            <h3>Owns the entire job, not just a step</h3>
+            <p>Reads the SOPs, pulls context from every system it needs, and takes it from intake to resolution. The
+              same path a trained analyst does today.</p>
+          </div>
+          <div class="own">
+            <h3>Escalates on your thresholds, not ours</h3>
+            <p>Anything above the severity as set by your policy, it escalates to a human. Every time.</p>
+          </div>
+          <div class="own">
+            <h3>Logged for your examiners</h3>
+            <p>What it looked at, why, who it escalated to, and when. From start to finish, across time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS — LOOP -->
+    <section class="sec" id="how">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <h2>Built on your actual process, not a prompt</h2>
+          <p class="lead">Generic automation initiatives lag because an SOP captures only 30–40% of the real process,
+            and one central
+            team can't reach every queue. Zamp is built from your full process instead, performs at your current
+            baseline from day one, then keeps refining it over time.</p>
+        </div>
+
+        <div class="loop rv" id="loop">
+          <div class="stage on" data-i="0">
+            <span class="stime">1–2 weeks</span>
+            <div class="snum">STAGE 01</div>
+            <h3>Institutionalize the process</h3>
+            <p class="sdesc">Reads your SOPs, interviews the people doing the actual work, and mines months of past
+              cases and tacit knowledge.</p>
+            <div class="sout">Out comes an <b>Agent Operating Procedure (AOP)</b>, 5–10× richer than the SOP, plus a
+              golden
+              eval set already validated against your current operations.</div>
+            <span class="prog"></span>
+          </div>
+          <div class="stage" data-i="1">
+            <span class="stime">&lt; 1 week</span>
+            <div class="snum">STAGE 02</div>
+            <h3>Handoff to an agent</h3>
+            <p class="sdesc">An engineering agent builds each step, picks the right tool, and self-tests for accuracy,
+              cost and latency.</p>
+            <div class="sout">Out comes a <b>production-ready digital AI employee</b>, with no additional engineering
+              effort from your side.</div>
+            <span class="prog"></span>
+          </div>
+          <div class="stage" data-i="2">
+            <span class="stime">&lt; 2 hours</span>
+            <div class="snum">STAGE 03</div>
+            <h3>Continuous improvement</h3>
+            <p class="sdesc">Learns from the team's active feedback: no tickets, no engineers. The procedure updates,
+              the
+              build re-runs with a new AOP and eval set.</p>
+            <div class="sout"><b>Accuracy compounds</b> with every case, and the loop continuously keeps learning and
+              improving.</div>
+            <span class="prog"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARE (dark) -->
+    <section class="sec dark" id="compare">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <h2>An AI workforce, supporting your human workforce</h2>
+          <p class="lead">Same work, measured on the terms your operations leaders already use.</p>
+        </div>
+        <div class="rv">
+          <div class="chead"><span></span><span class="h-trad">Human workforce</span><span class="h-dig">AI
+              workforce</span></div>
+          <div class="compare">
+            <div class="crow"><span class="cdim">Scale</span><span class="ctrad">Ramp-up takes months. Ramp-down means
+                layoffs.</span><span class="cdig">Spins up for a surge in minutes, and stands down the moment it
+                passes.</span></div>
+            <div class="crow"><span class="cdim">Availability</span><span class="ctrad">Weekdays, office
+                hours.</span><span class="cdig"><span class="num">24/7</span>, every day of the year.</span></div>
+            <div class="crow"><span class="cdim">Adaptability</span><span class="ctrad">A key change means a multi-week
+                retraining cycle.</span><span class="cdig">Update the SOP, test, redeploy. Live in hours.</span></div>
+            <div class="crow"><span class="cdim">Compliance</span><span class="ctrad">Not all actions are documented.
+                Audits take weeks.</span><span class="cdig"><span class="num">100%</span> decisions documented every
+                run,
+                with instant audits.</span></div>
+            <div class="crow"><span class="cdim">Knowledge</span><span class="ctrad">Your best operator leaves and takes
+                it to a competitor.</span><span class="cdig">Knowledge stays yours, permanently, across every
+                process.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOVERNANCE -->
+    <section class="sec" id="governance">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <h2>Every decision leaves a trail</h2>
+          <p class="lead">The part a certificate can't answer: how it behaves inside your risk framework.</p>
+        </div>
+        <div class="gov">
+          <div class="gitem rv">
+            <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 11l3 3L22 4" />
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+              </svg></div>
+            <div>
+              <h3>A documented rationale on every decision</h3>
+              <p>No black box risk. You can read why it did what it did, and who approved it.</p>
             </div>
-            <div class="office-ctx">
-              <div class="ctx-block"><span class="flabel">Measured on</span><div class="measure-val">Losses avoided &amp; clean exams</div></div>
-              <div class="ctx-block"><span class="flabel">The work it carries</span><ul class="worklist"><li>Risk</li><li>Compliance</li><li>Model risk</li><li>Treasury</li><li>Legal</li></ul></div>
+          </div>
+          <div class="gitem rv" data-d="1">
+            <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 7h-9M14 17H5M17 21a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM7 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+              </svg></div>
+            <div>
+              <h3>Escalation thresholds you set</h3>
+              <p>Per workflow, by your team. Anything outside the standard policy goes to a person.</p>
+            </div>
+          </div>
+          <div class="gitem rv">
+            <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4z" />
+                <path d="M4 9h16M9 9v11" />
+              </svg></div>
+            <div>
+              <h3>Built for your model-risk inventory</h3>
+              <p>Validation-ready documentation from day one. No reconstruction of evidence, and extra audit prep
+                overhead.</p>
+            </div>
+          </div>
+          <div class="gitem rv" data-d="1">
+            <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg></div>
+            <div>
+              <h3>Your data stays in your control</h3>
+              <p>No training on your proprietary data. Deployment respects your data boundaries and regulatory
+                perimeters.</p>
+            </div>
+          </div>
+        </div>
+        <p class="govnote rv">Full security posture and certifications live on the security page.</p>
+      </div>
+    </section>
+
+    <!-- INTEGRATIONS -->
+    <section class="wall" id="integrations">
+      <div class="wrap head rv">
+        <h2>Works with the systems your teams already use</h2>
+        <p>API where one exists, a browser agent where it doesn't. Every action is session-recorded, so your audit trail
+          builds itself no matter how many systems the AI employee touches.</p>
+      </div>
+      <div class="marquee">
+        <div class="track" id="track"></div>
+      </div>
+    </section>
+
+    <!-- CASES -->
+    <section class="sec" id="cases">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <h2>Already transformed six core workflows, live today</h2>
+          <p class="lead">Trusted by large scale teams across tier-1 banks in US, UK, and the UAE.</p>
+        </div>
+
+        <div class="rv">
+          <div class="tabs" data-tabset="case">
+            <button class="tab on" data-t="c0">Sanctions</button>
+            <button class="tab" data-t="c1">Trade Finance</button>
+            <button class="tab" data-t="c2">Payment Repair</button>
+            <button class="tab" data-t="c3">Onboarding</button>
+            <button class="tab" data-t="c4">Collections</button>
+            <button class="tab" data-t="c5">SAR / STR</button>
+          </div>
+
+          <div class="panel on" id="c0">
+            <div class="case">
+              <div>
+                <div class="who">Tier-1 UK Bank · L2 Adjudication</div>
+                <h3>Sanction alerts cleared, both tiers</h3>
+                <p class="flow-txt">Auto-clears ~70% of false positives at 99.9% confidence from each customer's own
+                  history, closes the RFI loop end to end, and traces recurring alerts back to the upstream rule.</p>
+              </div>
+              <div class="cmetrics">
+                <div class="cm">
+                  <div class="v"><span class="count" data-to="55">0</span><span class="s">%</span></div>
+                  <div class="l">faster payment processing</div>
+                </div>
+                <div class="cm">
+                  <div class="v"><span class="count" data-to="80">0</span><span class="s">%</span></div>
+                  <div class="l">less analyst time per case</div>
+                </div>
+                <div class="cm">
+                  <div class="v"><span class="count" data-to="60">0</span><span class="s">%</span></div>
+                  <div class="l">lower processing cost</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="c1">
+            <div class="case">
+              <div>
+                <div class="who">Top-7 US Global Bank · Letters of Credit</div>
+                <h3>Letters of credit, checked to the letter</h3>
+                <p class="flow-txt">Generates the LC end to end, validates every field against the application and LC
+                  terms, checks documents for UCP 600 / ISBP, and screens counterparties, vessels and goods before
+                  paying on a clean presentation.</p>
+              </div>
+              <div class="cmetrics">
+                <div class="cm">
+                  <div class="v"><span class="count" data-to="70">0</span><span class="s">%</span></div>
+                  <div class="l">shorter turnaround times</div>
+                </div>
+                <div class="cm">
+                  <div class="v"><span class="count" data-to="50">0</span><span class="s">%</span></div>
+                  <div class="l">more operations throughput</div>
+                </div>
+                <div class="cm">
+                  <div class="v"><span class="count" data-to="45">0</span><span class="s">%</span></div>
+                  <div class="l">lower processing cost</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="c2">
+            <div class="case">
+              <div>
+                <div class="who">Global Transaction Bank · Payments</div>
+                <h3>Non-STP exceptions, repaired and released</h3>
+                <p class="flow-txt">Diagnoses why STP failed, enriches the payment from reference and customer data,
+                  revalidates against format and CBPR+ rules, and releases it. Recurring failures get fed back to
+                  source.</p>
+              </div>
+              <div class="cmetrics">
+                <div class="cm">
+                  <div class="v">~<span class="count" data-to="10">0</span><span class="s">pp</span></div>
+                  <div class="l">higher straight-through rate</div>
+                </div>
+                <div class="cm">
+                  <div class="v"><span class="count" data-to="75">0</span><span class="s">%</span></div>
+                  <div class="l">shorter repair turnaround</div>
+                </div>
+                <div class="cm">
+                  <div class="v"><span class="count" data-to="40">0</span><span class="s">%</span></div>
+                  <div class="l">lower processing cost</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="c3">
+            <div class="case">
+              <div>
+                <div class="who">Global Top 50 Exchange · KYC and Onboarding</div>
+                <h3>Complex onboarding, accelerated</h3>
+                <p class="flow-txt">Captures and validates layered documents, issues RFIs in real time for anything
+                  missing, screens sanctions, PEP and adverse-media, and for enhanced due diligence assembles a
+                  decision-ready source-of-wealth pack.</p>
+              </div>
+              <div class="cmetrics">
+                <div class="cm">
+                  <div class="v"><span class="count" data-to="60">0</span><span class="s">%</span></div>
+                  <div class="l">shorter onboarding turnaround</div>
+                </div>
+                <div class="cm">
+                  <div class="v">~<span class="count" data-to="35">0</span><span class="s">pp</span></div>
+                  <div class="l">higher straight-through rate</div>
+                </div>
+                <div class="cm">
+                  <div class="v"><span class="count" data-to="55">0</span><span class="s">%</span></div>
+                  <div class="l">lower processing cost</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="c4">
+            <div class="case">
+              <div>
+                <div class="who">Regional Retail Bank · Collections</div>
+                <h3>Early warning, before the first incident</h3>
+                <p class="flow-txt">Monitors payments, balances, salary credits and bureau data across products, flags
+                  at-risk customers before the first missed payment, and builds a briefing pack for every collector
+                  call.</p>
+              </div>
+              <div class="cmetrics">
+                <div class="cm">
+                  <div class="v"><span class="count" data-to="10">0</span><span class="s">%</span></div>
+                  <div class="l">lower unsecured-book default rate</div>
+                </div>
+                <div class="cm">
+                  <div class="v"><span class="count" data-to="15">0</span><span class="s">%</span></div>
+                  <div class="l">higher recovery on delinquent accounts</div>
+                </div>
+                <div class="cm">
+                  <div class="v"><span class="count" data-to="50">0</span><span class="s">%</span></div>
+                  <div class="l">more outreach capacity</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="c5">
+            <div class="case">
+              <div>
+                <div class="who">Tier-1 UK Bank · Financial Crime</div>
+                <h3>SAR narratives, filing-ready</h3>
+                <p class="flow-txt">Fetches case data from the transaction-monitoring system, enriches it, clears false
+                  positives in context, drafts a FinCEN-ready narrative, and routes it to an L2 analyst for approval.
+                </p>
+              </div>
+              <div class="cmetrics">
+                <div class="cm">
+                  <div class="v">~<span class="count" data-to="70">0</span><span class="s">%</span></div>
+                  <div class="l">fewer false-positive L1 escalations</div>
+                </div>
+                <div class="cm">
+                  <div class="v">~<span class="count" data-to="45">0</span><span class="s">%</span></div>
+                  <div class="l">higher L2 analyst productivity</div>
+                </div>
+                <div class="cm">
+                  <div class="v">~<span class="count" data-to="80">0</span><span class="s">%</span></div>
+                  <div class="l">shorter SAR investigation time</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="panel" id="d2">
-        <div class="office">
-          <div class="office-cap"><span class="oname">Front office</span><h3>Where time is the constraint</h3></div>
-          <div class="office-body">
-            <div class="office-pain">
-              <span class="flabel">Where it hurts</span>
-              <div class="pnum">Most of the week</div>
-              <p class="pdesc">goes to prep, not advice: memos, CRM, decks. Smallest team, highest comp. Hand the prep back and the advice sharpens.</p>
+    <!-- PILOT (blue) -->
+    <section class="sec blue" id="pilot">
+      <div class="wrap">
+        <div class="sec-head rv" style="margin-bottom:0">
+          <h2>Start with one process. Scale on one contract.</h2>
+          <p class="lead">A 90-day pilot on a single workflow, then expansion across the org without going back to
+            procurement.</p>
+        </div>
+        <div class="steps3 rv">
+          <div class="st3">
+            <div class="st3-k"><span class="n">01</span><span class="w">Scope · Week 0</span></div>
+            <h3>One process, your model layer</h3>
+            <p>One function, on your own approved models. No platform decision, no rip-and-replace.</p>
+          </div>
+          <div class="st3">
+            <div class="st3-k"><span class="n">02</span><span class="w">Prove · Day 90</span></div>
+            <h3>Judged on your numbers</h3>
+            <p>Backlog age, cost per case, SLA: the metrics you already track. Full artifact pack on day one for TPRM
+              and InfoSec.</p>
+          </div>
+          <div class="st3">
+            <div class="st3-k"><span class="n">03</span><span class="w">Scale · Thereafter</span></div>
+            <h3>Expand on a single MSA</h3>
+            <p>Add workflows across the org under one MSA. Pay per digital-employee-hour; unit cost falls as more go
+              live.</p>
+          </div>
+        </div>
+        <div class="rv">
+          <a href="#" class="btn btn-ink">Book a demo <span class="ar">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec" id="faq">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <h2>The questions you're already asking</h2>
+        </div>
+        <div class="faq rv" id="faqlist">
+          <div class="qa open"><button>We're already building this ourselves.<span class="pm"></span></button>
+            <div class="ans">
+              <p>Your internal platform is horizontal: built for everyone, tuned for no one's queue, and already years
+                into its own backlog. Zamp runs on your approved model layer and lets your functional managers put a
+                digital employee on one job the central team can't reach this quarter, without any engineering effort.
+              </p>
             </div>
-            <div class="office-ctx">
-              <div class="ctx-block"><span class="flabel">Measured on</span><div class="measure-val">Revenue</div></div>
-              <div class="ctx-block"><span class="flabel">The work it carries</span><ul class="worklist"><li>RMs</li><li>Bankers</li><li>Traders</li><li>Advisors</li><li>Branch staff</li></ul></div>
+          </div>
+          <div class="qa"><button>Every agentic AI vendor promises this. What's different?<span
+                class="pm"></span></button>
+            <div class="ans">
+              <p>Most are built on a prompt, so they stall once the easy cases run out. Zamp is built on your SOPs and
+                your own history, which is exactly where the hard cases live.</p>
+            </div>
+          </div>
+          <div class="qa"><button>Will this replace my team?<span class="pm"></span></button>
+            <div class="ans">
+              <p>It absorbs the volume you can't hire fast enough for. Your people move to the judgment calls that were
+                always theirs. Headcount changes through attrition, on your timeline.</p>
+            </div>
+          </div>
+          <div class="qa"><button>Model risk will never sign off on a black box.<span class="pm"></span></button>
+            <div class="ans">
+              <p>There is no black box. Every decision arrives with a documented rationale and audit trail, built to sit
+                inside your
+                model inventory from day one.</p>
+            </div>
+          </div>
+          <div class="qa"><button>Our data can't leave the building.<span class="pm"></span></button>
+            <div class="ans">
+              <p>It doesn't. Deployment stays inside your perimeter. Data residency, deployment options, and
+                certifications are covered on
+                the security page.</p>
+            </div>
+          </div>
+          <div class="qa"><button>We tried RPA and it broke constantly.<span class="pm"></span></button>
+            <div class="ans">
+              <p>RPA breaks when a rule or a screen changes. This handles the judgment calls, escalates what it's unsure
+                about, and gets measured like staff rather than a script.</p>
+            </div>
+          </div>
+          <div class="qa"><button>Deployment will take 18 months.<span class="pm"></span></button>
+            <div class="ans">
+              <p>Not for a 90-day pilot that arrives with a complete artifact pack on day one.</p>
             </div>
           </div>
         </div>
+        <div class="rv" style="margin-top:52px"><a href="#pilot" class="btn btn-ink">Book a demo <span
+              class="ar">→</span></a></div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- STATEMENT BAND (head + tail) -->
-<section class="band">
-  <div class="wrap">
-    <p class="head">Banking volumes surge overnight and at quarter-end, then fall away. Headcount can't move at that speed.</p>
-    <h2>Staff for the peak, and you pay for the idle. <span class="dim">Staff for the average, and you miss the SLA.</span></h2>
-    <div class="tail"><span class="arrow">↓</span> A digital workforce grows and shrinks with the work, in real time, at no cost for idle time.</div>
-  </div>
-</section>
+  </main>
 
-<!-- OWNER -->
-<section class="sec" id="owner">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <h2>Not a copilot. An owner.</h2>
-      <p class="lead">A copilot waits for a prompt. A digital employee takes the whole job off your desk and hands back a result.</p>
-    </div>
-    <div class="owns rv">
-      <div class="own">
-        <h3>Owns the job, not a step in it</h3>
-        <p>Reads the case, pulls context from every system it needs, and takes it from intake to resolution. The same path a trained analyst walks.</p>
-      </div>
-      <div class="own">
-        <h3>Escalates on your thresholds, not ours</h3>
-        <p>Anything above the severity your team sets goes to a human. Every time.</p>
-      </div>
-      <div class="own">
-        <h3>Logged for your examiners</h3>
-        <p>What it looked at, why, who it escalated to, and when. Not the way an engineer debugs.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS — LOOP -->
-<section class="sec" id="how">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <h2>Built on your process, not a prompt</h2>
-      <p class="lead">Generic automation stalls: an SOP captures only 30–40% of the real process, and one central team can't reach every queue. Zamp is built from your full process instead, then keeps refining it.</p>
-    </div>
-
-    <div class="loop rv" id="loop">
-      <div class="stage on" data-i="0">
-        <span class="stime">1–2 weeks</span>
-        <div class="snum">STAGE 01</div>
-        <h3>Document the process</h3>
-        <p class="sdesc">Reads your SOPs, interviews the people doing the work, and mines months of past cases.</p>
-        <div class="sout">Out comes an <b>Agent Operating Procedure</b>, 5–10× richer than the SOP, plus a golden eval set.</div>
-        <span class="prog"></span>
-      </div>
-      <div class="stage" data-i="1">
-        <span class="stime">&lt; 1 week</span>
-        <div class="snum">STAGE 02</div>
-        <h3>Automate the workflow</h3>
-        <p class="sdesc">An engineering agent builds each step, picks the right tool, and self-tests for accuracy, cost and latency.</p>
-        <div class="sout">Out comes a <b>production-ready digital employee</b>, with no engineers in the loop.</div>
-        <span class="prog"></span>
-      </div>
-      <div class="stage" data-i="2">
-        <span class="stime">&lt; 2 hours</span>
-        <div class="snum">STAGE 03</div>
-        <h3>Improve continuously</h3>
-        <p class="sdesc">Learns from the ops team's feedback: no tickets, no engineers. The procedure updates, the build re-runs.</p>
-        <div class="sout"><b>Accuracy compounds</b> with every case, and the loop starts over.</div>
-        <span class="prog"></span>
-      </div>
-    </div>
-    <div class="loop-foot"><span class="ring"></span> <b>The loop runs continuously:</b> stage 03 feeds back into stage 01, and accuracy compounds.</div>
-  </div>
-</section>
-
-<!-- COMPARE (dark) -->
-<section class="sec dark" id="compare">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <h2>A digital employee, next to the team you have</h2>
-      <p class="lead">Same work, measured on the terms your operations leaders already use.</p>
-    </div>
-    <div class="rv">
-      <div class="chead"><span></span><span class="h-trad">Traditional workforce</span><span class="h-dig">Digital workforce</span></div>
-      <div class="compare">
-        <div class="crow"><span class="cdim">Scale</span><span class="ctrad">Ramp-up takes months. Ramp-down means layoffs.</span><span class="cdig">Spins up for a surge in minutes, and stands down the moment it passes.</span></div>
-        <div class="crow"><span class="cdim">Availability</span><span class="ctrad">Weekdays, office hours.</span><span class="cdig"><span class="num">24/7</span>, every day of the year.</span></div>
-        <div class="crow"><span class="cdim">Adaptability</span><span class="ctrad">A key change means a multi-week retraining cycle.</span><span class="cdig">Update the SOP, test, redeploy. Live in hours.</span></div>
-        <div class="crow"><span class="cdim">Compliance</span><span class="ctrad">SOPs followed inconsistently. Audits take weeks.</span><span class="cdig"><span class="num">100%</span> SOP adherence every run, with instant audits.</span></div>
-        <div class="crow"><span class="cdim">Knowledge</span><span class="ctrad">Your best operator leaves and takes it to a competitor.</span><span class="cdig">Knowledge stays yours, permanently, across every process.</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GOVERNANCE -->
-<section class="sec" id="governance">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <h2>Every decision leaves a record</h2>
-      <p class="lead">The part a certificate can't answer: how it behaves inside your risk framework.</p>
-    </div>
-    <div class="gov">
-      <div class="gitem rv"><div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div><h3>A documented rationale on every decision</h3><p>No black box. You can read why it did what it did.</p></div></div>
-      <div class="gitem rv" data-d="1"><div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9M14 17H5M17 21a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM7 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></div><div><h3>Escalation thresholds you set</h3><p>Per workflow, by your team. Above the line goes to a person.</p></div></div>
-      <div class="gitem rv"><div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 9v11"/></svg></div><div><h3>Built for your model-risk inventory</h3><p>Validation-ready documentation from day one.</p></div></div>
-      <div class="gitem rv" data-d="1"><div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h3>Your data stays in your perimeter</h3><p>No training on customer data. Deployment respects your boundary.</p></div></div>
-    </div>
-    <p class="govnote rv">Full security posture and certifications live on the security page. This section is about behavior, not paperwork.</p>
-  </div>
-</section>
-
-<!-- INTEGRATIONS -->
-<section class="wall" id="integrations">
-  <div class="wrap head rv">
-    <h2>It works in the systems you already run</h2>
-    <p>API where one exists, a browser agent where it doesn't. Every action is session-recorded, so your audit trail builds itself.</p>
-  </div>
-  <div class="marquee"><div class="track" id="track"></div></div>
-</section>
-
-<!-- CASES -->
-<section class="sec" id="cases">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <h2>Six workflows, live today</h2>
-      <p class="lead">The results above, workflow by workflow. Each runs in production today.</p>
-    </div>
-
-    <div class="rv">
-      <div class="tabs" data-tabset="case">
-        <button class="tab on" data-t="c0">Sanctions</button>
-        <button class="tab" data-t="c1">Trade finance</button>
-        <button class="tab" data-t="c2">Payment repair</button>
-        <button class="tab" data-t="c3">Onboarding</button>
-        <button class="tab" data-t="c4">Collections</button>
-        <button class="tab" data-t="c5">SAR / STR</button>
-      </div>
-
-      <div class="panel on" id="c0">
-        <div class="case">
-          <div>
-            <div class="who">Tier-1 UK bank · L2 adjudication</div>
-            <h3>Sanction alerts cleared, both tiers</h3>
-            <p class="flow-txt">Auto-clears ~70% of false positives at 99.9% confidence from each customer's own history, closes the RFI loop end to end, and traces recurring alerts back to the upstream rule.</p>
-          </div>
-          <div class="cmetrics">
-            <div class="cm"><div class="v"><span class="count" data-to="55">0</span><span class="s">%</span></div><div class="l">faster payment processing</div></div>
-            <div class="cm"><div class="v"><span class="count" data-to="80">0</span><span class="s">%</span></div><div class="l">less analyst time per case</div></div>
-            <div class="cm"><div class="v"><span class="count" data-to="60">0</span><span class="s">%</span></div><div class="l">lower processing cost</div></div>
-          </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="fgrid">
+        <div>
+          <a href="#top" class="brand"><svg class="mark" viewBox="0 0 101 23" aria-label="Zamp">
+              <path
+                d="M40.8466 4.23199V1.0606H27.3799V4.01835H36.3791L27.0176 14.0104V17.1825H41.0596V14.2241H31.3954L40.8466 4.23199Z" />
+              <path
+                d="M57.3106 14.1747C57.1567 14.026 57.082 13.7377 57.082 13.3163V7.39949C57.082 5.24498 56.4963 3.5872 55.3301 2.43073C54.1638 1.27425 52.4411 0.693737 50.1678 0.693737C48.1776 0.693737 46.5542 1.16061 45.3081 2.08333C44.062 3.01124 43.2776 4.30733 42.9555 5.98003L46.8224 6.19366C47.0256 5.36965 47.3931 4.73914 47.9243 4.30733C48.4555 3.87551 49.2048 3.65733 50.173 3.65733C51.1957 3.65733 51.9749 3.94499 52.5106 4.5307C53.0418 5.11121 53.31 5.98977 53.31 7.15664L47.9341 8.1839C46.162 8.5261 44.8419 9.09233 43.9783 9.87673C43.1094 10.6611 42.6776 11.7481 42.6776 13.1377C42.6776 14.5273 43.1887 15.6098 44.2166 16.3838C45.2445 17.1578 46.599 17.5455 48.2918 17.5455H48.3016C49.2847 17.5455 50.1879 17.3968 51.0015 17.0935C51.8158 16.7909 52.4859 16.3637 53.0067 15.8078C53.3255 15.4708 53.5807 15.1039 53.7729 14.7085C53.8424 15.1585 53.9632 15.5409 54.1385 15.8526C54.4262 16.374 54.8333 16.7461 55.3443 16.9695C55.8606 17.1929 56.4463 17.302 57.1112 17.302C57.3943 17.302 57.6625 17.2922 57.9255 17.2721C58.1885 17.252 58.382 17.2227 58.5014 17.1825V14.4026H57.9904C57.6878 14.4026 57.4593 14.3234 57.3106 14.1741V14.1747ZM53.2996 10.6605C53.2996 11.4845 53.1262 12.204 52.7736 12.8196C52.421 13.4351 51.9301 13.9117 51.2944 14.2539C50.6593 14.5961 49.9093 14.765 49.0457 14.765H49.0405C48.2561 14.765 47.6509 14.5961 47.2289 14.2539C46.8068 13.9117 46.5938 13.4299 46.5938 12.8046C46.5938 12.2189 46.7873 11.752 47.1698 11.4001C47.5522 11.0475 48.1776 10.7793 49.0412 10.6007L53.3002 9.7566V10.6598L53.2996 10.6605Z" />
+              <path
+                d="M80.7851 1.41885C79.9812 0.947429 79.013 0.709121 77.8864 0.709121C77.0423 0.709121 76.2832 0.87795 75.6079 1.22015C74.9326 1.56236 74.3722 2.05391 73.93 2.69935C73.6644 3.07987 73.4475 3.51428 73.2767 3.99739C72.9904 3.13636 72.5371 2.42533 71.9196 1.8656C71.0657 1.09158 69.954 0.703926 68.5839 0.703926C67.7995 0.703926 67.0846 0.86756 66.4398 1.20002C65.7944 1.53249 65.2431 2.00391 64.7911 2.61948C64.5379 2.96104 64.3275 3.34545 64.1535 3.76947L64.0515 1.06041H60.6412V17.1823L60.6464 17.192H64.4191V7.92136C64.4191 7.05774 64.5431 6.31814 64.7963 5.70256C65.0489 5.08698 65.397 4.61556 65.8379 4.2831C66.2801 3.95064 66.8112 3.787 67.4366 3.787C68.4443 3.787 69.1541 4.14414 69.5657 4.85907C69.9781 5.57399 70.1865 6.59151 70.1865 7.92136V17.1933H73.691V7.92136C73.691 7.05774 73.8098 6.31814 74.0527 5.70256C74.2962 5.08698 74.6436 4.61556 75.0949 4.2831C75.5468 3.95064 76.0832 3.787 76.7079 3.787C77.6559 3.787 78.3565 4.12466 78.8078 4.79933C79.2598 5.47464 79.4877 6.47203 79.4877 7.80253V17.194H83.2604V6.83956C83.2604 5.51425 83.0474 4.39219 82.6247 3.48895C82.2032 2.58052 81.587 1.89092 80.7831 1.41885H80.7851Z" />
+              <path
+                d="M97.9666 2.14874C96.9498 1.38447 95.6796 1.002 94.1511 1.002C92.918 1.002 91.8518 1.31628 90.933 1.939C90.2427 2.40783 89.694 2.96237 89.2992 3.7143L89.2564 1.0572H85.6376V22.3063H89.4103V15.3219C89.5953 15.6674 89.8174 15.9875 90.0947 16.2778C90.5817 16.7953 91.1797 17.2024 91.8765 17.4797C92.5667 17.7635 93.3186 17.905 94.1206 17.905C95.6491 17.905 96.9257 17.5226 97.9426 16.7583C98.9536 15.994 99.7244 14.9765 100.236 13.707C100.748 12.4369 101 10.674 101 9.12072C101 6.42076 100.193 3.813 97.9673 2.14874H97.9666ZM96.4498 13.2759C95.7595 14.17 94.8225 14.6135 93.6388 14.6135C92.455 14.6135 91.518 14.1694 90.8278 13.2759C90.1434 12.3817 89.8044 11.1551 89.8044 9.57721C89.8044 7.99931 90.1434 6.50128 90.8278 5.60714C91.518 4.71299 92.455 4.26949 93.6388 4.26949C94.8225 4.26949 95.7595 4.71364 96.4498 5.60714C97.1342 6.50128 97.4731 7.99866 97.4731 9.57721C97.4731 11.1558 97.1342 12.3824 96.4498 13.2759Z" />
+              <path d="M0 7.9823L3.8019 1.06031H20.1712L16.3693 7.9823H0Z" />
+              <path d="M0 17.1817L3.8019 10.2591H20.1712L16.3693 17.1817H0Z" />
+            </svg></a>
+          <p class="ft">A self-learning digital AI employee for institutions where precision is non-negotiable.</p>
+        </div>
+        <div>
+          <h4>Industries</h4>
+          <ul>
+            <li><a href="#">Banking</a></li>
+            <li><a href="#">Insurance</a></li>
+            <li><a href="#">Capital markets</a></li>
+            <li><a href="#">Fintech</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#governance">Governance</a></li>
+            <li><a href="#integrations">Integrations</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#cases">Customers</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#pilot">Scope a pilot</a></li>
+          </ul>
         </div>
       </div>
-
-      <div class="panel" id="c1">
-        <div class="case">
-          <div>
-            <div class="who">Top-7 US global bank · letters of credit</div>
-            <h3>Letters of credit, checked to the letter</h3>
-            <p class="flow-txt">Generates the LC end to end, validates every field against the application and LC terms, checks documents for UCP 600 / ISBP, and screens counterparties, vessels and goods before paying on a clean presentation.</p>
-          </div>
-          <div class="cmetrics">
-            <div class="cm"><div class="v"><span class="count" data-to="70">0</span><span class="s">%</span></div><div class="l">shorter turnaround times</div></div>
-            <div class="cm"><div class="v"><span class="count" data-to="50">0</span><span class="s">%</span></div><div class="l">more operations throughput</div></div>
-            <div class="cm"><div class="v"><span class="count" data-to="45">0</span><span class="s">%</span></div><div class="l">lower processing cost</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel" id="c2">
-        <div class="case">
-          <div>
-            <div class="who">Global transaction bank · payments</div>
-            <h3>Non-STP exceptions, repaired and released</h3>
-            <p class="flow-txt">Diagnoses why STP failed, enriches the payment from reference and customer data, revalidates against format and CBPR+ rules, and releases it. Recurring failures get fed back to source.</p>
-          </div>
-          <div class="cmetrics">
-            <div class="cm"><div class="v">~<span class="count" data-to="10">0</span><span class="s">pp</span></div><div class="l">higher straight-through rate</div></div>
-            <div class="cm"><div class="v"><span class="count" data-to="75">0</span><span class="s">%</span></div><div class="l">shorter repair turnaround</div></div>
-            <div class="cm"><div class="v"><span class="count" data-to="40">0</span><span class="s">%</span></div><div class="l">lower processing cost</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel" id="c3">
-        <div class="case">
-          <div>
-            <div class="who">Leading US exchange · KYC</div>
-            <h3>Complex onboarding, decision-ready</h3>
-            <p class="flow-txt">Captures and validates layered documents, issues RFIs in real time for anything missing, screens sanctions, PEP and adverse-media, and for enhanced due diligence assembles a decision-ready source-of-wealth pack.</p>
-          </div>
-          <div class="cmetrics">
-            <div class="cm"><div class="v"><span class="count" data-to="60">0</span><span class="s">%</span></div><div class="l">shorter onboarding turnaround</div></div>
-            <div class="cm"><div class="v">~<span class="count" data-to="35">0</span><span class="s">pp</span></div><div class="l">higher straight-through rate</div></div>
-            <div class="cm"><div class="v"><span class="count" data-to="55">0</span><span class="s">%</span></div><div class="l">lower processing cost</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel" id="c4">
-        <div class="case">
-          <div>
-            <div class="who">Regional retail bank · collections</div>
-            <h3>Early warning, before the first missed payment</h3>
-            <p class="flow-txt">Monitors payments, balances, salary credits and bureau data across products, flags at-risk customers before the first missed payment, and builds a briefing pack for every collector call.</p>
-          </div>
-          <div class="cmetrics">
-            <div class="cm"><div class="v"><span class="count" data-to="10">0</span><span class="s">%</span></div><div class="l">lower unsecured-book default rate</div></div>
-            <div class="cm"><div class="v"><span class="count" data-to="15">0</span><span class="s">%</span></div><div class="l">higher recovery on delinquent accounts</div></div>
-            <div class="cm"><div class="v"><span class="count" data-to="50">0</span><span class="s">%</span></div><div class="l">more outreach capacity</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel" id="c5">
-        <div class="case">
-          <div>
-            <div class="who">Tier-1 UK bank · financial crime</div>
-            <h3>SAR narratives, filing-ready</h3>
-            <p class="flow-txt">Fetches case data from the transaction-monitoring system, enriches it, clears false positives in context, drafts a FinCEN-ready narrative, and routes it to an L2 analyst for approval.</p>
-          </div>
-          <div class="cmetrics">
-            <div class="cm"><div class="v">~<span class="count" data-to="70">0</span><span class="s">%</span></div><div class="l">fewer false-positive L1 escalations</div></div>
-            <div class="cm"><div class="v">~<span class="count" data-to="45">0</span><span class="s">%</span></div><div class="l">higher L2 analyst productivity</div></div>
-            <div class="cm"><div class="v">~<span class="count" data-to="80">0</span><span class="s">%</span></div><div class="l">shorter SAR investigation time</div></div>
-          </div>
-        </div>
+      <div class="fbase">
+        <p>© 2026 Zamp — internal mockup, not for distribution</p>
+        <p>Third-person voice · “digital employee” · no competitors named</p>
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- PILOT (blue) -->
-<section class="sec blue" id="pilot">
-  <div class="wrap">
-    <div class="sec-head rv" style="margin-bottom:0">
-      <h2>Start with one queue. Scale on one contract.</h2>
-      <p class="lead">A 90-day pilot on a single workflow, then expansion across the org without going back to procurement.</p>
-    </div>
-    <div class="steps3 rv">
-      <div class="st3">
-        <div class="st3-k"><span class="n">01</span><span class="w">Scope · Week 0</span></div>
-        <h3>One queue, your model layer</h3>
-        <p>One function, on your own approved models. No platform decision, no rip-and-replace.</p>
-      </div>
-      <div class="st3">
-        <div class="st3-k"><span class="n">02</span><span class="w">Prove · Day 90</span></div>
-        <h3>Judged on your numbers</h3>
-        <p>Backlog age, cost per case, SLA: the metrics you already track. Full artifact pack on day one for TPRM and InfoSec.</p>
-      </div>
-      <div class="st3">
-        <div class="st3-k"><span class="n">03</span><span class="w">Scale · Thereafter</span></div>
-        <h3>Expand on a single MSA</h3>
-        <p>Add workflows across the org under one MSA. Pay per digital-employee-hour; unit cost falls as more go live.</p>
-      </div>
-    </div>
-    <div class="rv">
-      <a href="#" class="btn btn-ink">Scope a pilot <span class="ar">→</span></a>
-    </div>
-  </div>
-</section>
+  <script>
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-<!-- FAQ -->
-<section class="sec" id="faq">
-  <div class="wrap">
-    <div class="sec-head rv"><h2>The questions you're already asking</h2></div>
-    <div class="faq rv" id="faqlist">
-      <div class="qa open"><button>We're already building this ourselves.<span class="pm"></span></button><div class="ans"><p>Your internal platform is horizontal: built for everyone, tuned for no one's queue, and already years into its own backlog. Zamp runs on your approved model layer and lets your functional managers put a digital employee on one job the central team can't reach this quarter.</p></div></div>
-      <div class="qa"><button>Every agentic AI vendor promises this. What's different?<span class="pm"></span></button><div class="ans"><p>Most are built on a prompt, so they stall once the easy cases run out. Zamp is built on your SOPs and your own history, which is exactly where the hard cases live.</p></div></div>
-      <div class="qa"><button>Will this replace my team?<span class="pm"></span></button><div class="ans"><p>It absorbs the volume you can't hire fast enough for. Your people move to the judgment calls that were always theirs. Headcount changes through attrition, on your timeline.</p></div></div>
-      <div class="qa"><button>Model risk will never sign off on a black box.<span class="pm"></span></button><div class="ans"><p>There is no black box. Every decision arrives with a documented rationale, built to sit inside your model inventory from day one.</p></div></div>
-      <div class="qa"><button>Our data can't leave the building.<span class="pm"></span></button><div class="ans"><p>It doesn't. Deployment stays inside your perimeter. Data residency and certifications are covered on the security page.</p></div></div>
-      <div class="qa"><button>We tried RPA and it broke constantly.<span class="pm"></span></button><div class="ans"><p>RPA breaks when a rule or a screen changes. This handles the judgment calls, escalates what it's unsure about, and gets measured like staff rather than a script.</p></div></div>
-      <div class="qa"><button>Procurement will take 18 months.<span class="pm"></span></button><div class="ans"><p>Not for a 90-day pilot that arrives with a complete artifact pack on day one.</p></div></div>
-    </div>
-    <div class="rv" style="margin-top:52px"><a href="#pilot" class="btn btn-ink">Scope a pilot <span class="ar">→</span></a></div>
-  </div>
-</section>
+      var nav = document.getElementById('nav'), prog = document.getElementById('progress');
+      function onScroll() {
+        var y = window.scrollY; nav.classList.toggle('scrolled', y > 60);
+        var h = document.documentElement.scrollHeight - window.innerHeight; prog.style.width = (h > 0 ? (y / h * 100) : 0) + '%';
+      }
+      onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
 
-</main>
+      var counted = new WeakSet();
+      function runCount(el) {
+        var to = parseFloat(el.getAttribute('data-to')) || 0, dur = 1200, t0 = null;
+        function tick(ts) {
+          if (!t0) t0 = ts; var p = Math.min((ts - t0) / dur, 1); var e = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(to * e).toLocaleString(); if (p < 1) requestAnimationFrame(tick); else el.textContent = Math.round(to).toLocaleString();
+        }
+        requestAnimationFrame(tick);
+      }
+      var rv = [].slice.call(document.querySelectorAll('.rv, .mcell'));
+      if ('IntersectionObserver' in window && !reduce) {
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (en) {
+            if (en.isIntersecting) {
+              en.target.classList.add('in');
+              (en.target.querySelectorAll ? en.target.querySelectorAll('.count') : []).forEach(function (c) { if (!counted.has(c)) { counted.add(c); runCount(c); } });
+              io.unobserve(en.target);
+            }
+          });
+        }, { threshold: 0.16, rootMargin: '0px 0px -50px 0px' });
+        rv.forEach(function (e) { io.observe(e); });
+      } else {
+        rv.forEach(function (e) { e.classList.add('in'); });
+        document.querySelectorAll('.count').forEach(function (c) { c.textContent = Math.round(parseFloat(c.getAttribute('data-to')) || 0).toLocaleString(); });
+      }
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="wrap">
-    <div class="fgrid">
-      <div>
-        <a href="#top" class="brand"><svg class="mark" viewBox="0 0 101 23" aria-label="Zamp"><path d="M40.8466 4.23199V1.0606H27.3799V4.01835H36.3791L27.0176 14.0104V17.1825H41.0596V14.2241H31.3954L40.8466 4.23199Z"/><path d="M57.3106 14.1747C57.1567 14.026 57.082 13.7377 57.082 13.3163V7.39949C57.082 5.24498 56.4963 3.5872 55.3301 2.43073C54.1638 1.27425 52.4411 0.693737 50.1678 0.693737C48.1776 0.693737 46.5542 1.16061 45.3081 2.08333C44.062 3.01124 43.2776 4.30733 42.9555 5.98003L46.8224 6.19366C47.0256 5.36965 47.3931 4.73914 47.9243 4.30733C48.4555 3.87551 49.2048 3.65733 50.173 3.65733C51.1957 3.65733 51.9749 3.94499 52.5106 4.5307C53.0418 5.11121 53.31 5.98977 53.31 7.15664L47.9341 8.1839C46.162 8.5261 44.8419 9.09233 43.9783 9.87673C43.1094 10.6611 42.6776 11.7481 42.6776 13.1377C42.6776 14.5273 43.1887 15.6098 44.2166 16.3838C45.2445 17.1578 46.599 17.5455 48.2918 17.5455H48.3016C49.2847 17.5455 50.1879 17.3968 51.0015 17.0935C51.8158 16.7909 52.4859 16.3637 53.0067 15.8078C53.3255 15.4708 53.5807 15.1039 53.7729 14.7085C53.8424 15.1585 53.9632 15.5409 54.1385 15.8526C54.4262 16.374 54.8333 16.7461 55.3443 16.9695C55.8606 17.1929 56.4463 17.302 57.1112 17.302C57.3943 17.302 57.6625 17.2922 57.9255 17.2721C58.1885 17.252 58.382 17.2227 58.5014 17.1825V14.4026H57.9904C57.6878 14.4026 57.4593 14.3234 57.3106 14.1741V14.1747ZM53.2996 10.6605C53.2996 11.4845 53.1262 12.204 52.7736 12.8196C52.421 13.4351 51.9301 13.9117 51.2944 14.2539C50.6593 14.5961 49.9093 14.765 49.0457 14.765H49.0405C48.2561 14.765 47.6509 14.5961 47.2289 14.2539C46.8068 13.9117 46.5938 13.4299 46.5938 12.8046C46.5938 12.2189 46.7873 11.752 47.1698 11.4001C47.5522 11.0475 48.1776 10.7793 49.0412 10.6007L53.3002 9.7566V10.6598L53.2996 10.6605Z"/><path d="M80.7851 1.41885C79.9812 0.947429 79.013 0.709121 77.8864 0.709121C77.0423 0.709121 76.2832 0.87795 75.6079 1.22015C74.9326 1.56236 74.3722 2.05391 73.93 2.69935C73.6644 3.07987 73.4475 3.51428 73.2767 3.99739C72.9904 3.13636 72.5371 2.42533 71.9196 1.8656C71.0657 1.09158 69.954 0.703926 68.5839 0.703926C67.7995 0.703926 67.0846 0.86756 66.4398 1.20002C65.7944 1.53249 65.2431 2.00391 64.7911 2.61948C64.5379 2.96104 64.3275 3.34545 64.1535 3.76947L64.0515 1.06041H60.6412V17.1823L60.6464 17.192H64.4191V7.92136C64.4191 7.05774 64.5431 6.31814 64.7963 5.70256C65.0489 5.08698 65.397 4.61556 65.8379 4.2831C66.2801 3.95064 66.8112 3.787 67.4366 3.787C68.4443 3.787 69.1541 4.14414 69.5657 4.85907C69.9781 5.57399 70.1865 6.59151 70.1865 7.92136V17.1933H73.691V7.92136C73.691 7.05774 73.8098 6.31814 74.0527 5.70256C74.2962 5.08698 74.6436 4.61556 75.0949 4.2831C75.5468 3.95064 76.0832 3.787 76.7079 3.787C77.6559 3.787 78.3565 4.12466 78.8078 4.79933C79.2598 5.47464 79.4877 6.47203 79.4877 7.80253V17.194H83.2604V6.83956C83.2604 5.51425 83.0474 4.39219 82.6247 3.48895C82.2032 2.58052 81.587 1.89092 80.7831 1.41885H80.7851Z"/><path d="M97.9666 2.14874C96.9498 1.38447 95.6796 1.002 94.1511 1.002C92.918 1.002 91.8518 1.31628 90.933 1.939C90.2427 2.40783 89.694 2.96237 89.2992 3.7143L89.2564 1.0572H85.6376V22.3063H89.4103V15.3219C89.5953 15.6674 89.8174 15.9875 90.0947 16.2778C90.5817 16.7953 91.1797 17.2024 91.8765 17.4797C92.5667 17.7635 93.3186 17.905 94.1206 17.905C95.6491 17.905 96.9257 17.5226 97.9426 16.7583C98.9536 15.994 99.7244 14.9765 100.236 13.707C100.748 12.4369 101 10.674 101 9.12072C101 6.42076 100.193 3.813 97.9673 2.14874H97.9666ZM96.4498 13.2759C95.7595 14.17 94.8225 14.6135 93.6388 14.6135C92.455 14.6135 91.518 14.1694 90.8278 13.2759C90.1434 12.3817 89.8044 11.1551 89.8044 9.57721C89.8044 7.99931 90.1434 6.50128 90.8278 5.60714C91.518 4.71299 92.455 4.26949 93.6388 4.26949C94.8225 4.26949 95.7595 4.71364 96.4498 5.60714C97.1342 6.50128 97.4731 7.99866 97.4731 9.57721C97.4731 11.1558 97.1342 12.3824 96.4498 13.2759Z"/><path d="M0 7.9823L3.8019 1.06031H20.1712L16.3693 7.9823H0Z"/><path d="M0 17.1817L3.8019 10.2591H20.1712L16.3693 17.1817H0Z"/></svg></a>
-        <p class="ft">A self-learning digital employee for institutions where precision is non-negotiable.</p>
-      </div>
-      <div><h4>Industries</h4><ul><li><a href="#">Banking</a></li><li><a href="#">Insurance</a></li><li><a href="#">Capital markets</a></li><li><a href="#">Fintech</a></li></ul></div>
-      <div><h4>Platform</h4><ul><li><a href="#how">How it works</a></li><li><a href="#governance">Governance</a></li><li><a href="#integrations">Integrations</a></li><li><a href="#">Security</a></li></ul></div>
-      <div><h4>Company</h4><ul><li><a href="#cases">Customers</a></li><li><a href="#">About</a></li><li><a href="#">Careers</a></li><li><a href="#pilot">Scope a pilot</a></li></ul></div>
-    </div>
-    <div class="fbase">
-      <p>© 2026 Zamp — internal mockup, not for distribution</p>
-      <p>Third-person voice · “digital employee” · no competitors named</p>
-    </div>
-  </div>
-</footer>
+      /* tabs */
+      document.querySelectorAll('.tabs').forEach(function (set) {
+        set.addEventListener('click', function (e) {
+          var b = e.target.closest('.tab'); if (!b) return;
+          var id = b.getAttribute('data-t'), scope = b.closest('section');
+          set.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('on', t === b); });
+          scope.querySelectorAll('.panel').forEach(function (p) {
+            var on = p.id === id; p.classList.toggle('on', on);
+            if (on) { p.querySelectorAll('.count').forEach(function (c) { counted.delete(c); c.textContent = '0'; runCount(c); }); }
+          });
+        });
+      });
 
-<script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      /* how-it-works loop autoplay */
+      var loop = document.getElementById('loop');
+      if (loop) {
+        var stages = [].slice.call(loop.querySelectorAll('.stage')), idx = 0, timer = null, paused = false;
+        function show(i) {
+          idx = (i + stages.length) % stages.length;
+          stages.forEach(function (s, k) { s.classList.remove('on'); });
+          // force reflow so the progress-bar animation restarts
+          void stages[idx].offsetWidth; stages[idx].classList.add('on');
+        }
+        function start() { if (reduce) return; stop(); timer = setInterval(function () { if (!paused) show(idx + 1); }, 4200); }
+        function stop() { if (timer) { clearInterval(timer); timer = null; } }
+        show(0); start();
+        stages.forEach(function (s, k) {
+          s.addEventListener('mouseenter', function () { paused = true; show(k); });
+          s.addEventListener('mouseleave', function () { paused = false; });
+          s.addEventListener('click', function () { show(k); start(); });
+        });
+      }
 
-  var nav=document.getElementById('nav'), prog=document.getElementById('progress');
-  function onScroll(){ var y=window.scrollY; nav.classList.toggle('scrolled', y>60);
-    var h=document.documentElement.scrollHeight-window.innerHeight; prog.style.width=(h>0?(y/h*100):0)+'%'; }
-  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+      /* faq */
+      document.querySelectorAll('.qa').forEach(function (qa) {
+        var ans = qa.querySelector('.ans');
+        if (qa.classList.contains('open')) ans.style.maxHeight = ans.scrollHeight + 'px';
+        qa.querySelector('button').addEventListener('click', function () {
+          var open = qa.classList.toggle('open');
+          ans.style.maxHeight = open ? ans.scrollHeight + 'px' : 0;
+        });
+      });
 
-  var counted=new WeakSet();
-  function runCount(el){ var to=parseFloat(el.getAttribute('data-to'))||0, dur=1200, t0=null;
-    function tick(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/dur,1); var e=1-Math.pow(1-p,3);
-      el.textContent=Math.round(to*e).toLocaleString(); if(p<1)requestAnimationFrame(tick); else el.textContent=Math.round(to).toLocaleString(); }
-    requestAnimationFrame(tick); }
-  var rv=[].slice.call(document.querySelectorAll('.rv, .mcell'));
-  if('IntersectionObserver' in window && !reduce){
-    var io=new IntersectionObserver(function(es){es.forEach(function(en){ if(en.isIntersecting){
-      en.target.classList.add('in');
-      (en.target.querySelectorAll?en.target.querySelectorAll('.count'):[]).forEach(function(c){ if(!counted.has(c)){counted.add(c);runCount(c);} });
-      io.unobserve(en.target); }});},{threshold:0.16,rootMargin:'0px 0px -50px 0px'});
-    rv.forEach(function(e){io.observe(e);});
-  } else { rv.forEach(function(e){e.classList.add('in');});
-    document.querySelectorAll('.count').forEach(function(c){c.textContent=Math.round(parseFloat(c.getAttribute('data-to'))||0).toLocaleString();}); }
+      /* logo wall */
+      var logos = [
+        { img: 'logos/visa.svg', alt: 'Visa' }, { img: 'logos/mastercard.svg', alt: 'Mastercard' },
+        { word: 'Fiserv', mono: 'DRS' }, { img: 'logos/swift.svg', alt: 'Swift' },
+        { img: 'logos/oracle.svg', alt: 'Oracle' }, { img: 'logos/sap.svg', alt: 'SAP' },
+        { img: 'logos/servicenow.svg', alt: 'ServiceNow' }, { word: 'Fircosoft' },
+        { img: 'logos/salesforce.svg', alt: 'Salesforce' }, { word: 'Pega' },
+        { word: 'DocuSign' }, { word: 'Trade360' }
+      ];
+      function chip(l) {
+        if (l.img) return '<div class="lg"><img src="' + l.img + '" alt="' + l.alt + '"></div>';
+        return '<div class="lg"><span class="word">' + l.word + (l.mono ? ' <span class="mono">' + l.mono + '</span>' : '') + '</span></div>';
+      }
+      var track = document.getElementById('track'); if (track) { var html = logos.map(chip).join(''); track.innerHTML = html + html; }
 
-  /* tabs */
-  document.querySelectorAll('.tabs').forEach(function(set){
-    set.addEventListener('click',function(e){ var b=e.target.closest('.tab'); if(!b)return;
-      var id=b.getAttribute('data-t'), scope=b.closest('section');
-      set.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t===b);});
-      scope.querySelectorAll('.panel').forEach(function(p){ var on=p.id===id; p.classList.toggle('on',on);
-        if(on){ p.querySelectorAll('.count').forEach(function(c){ counted.delete(c); c.textContent='0'; runCount(c); }); } }); });
-  });
-
-  /* how-it-works loop autoplay */
-  var loop=document.getElementById('loop');
-  if(loop){
-    var stages=[].slice.call(loop.querySelectorAll('.stage')), idx=0, timer=null, paused=false;
-    function show(i){ idx=(i+stages.length)%stages.length;
-      stages.forEach(function(s,k){ s.classList.remove('on'); });
-      // force reflow so the progress-bar animation restarts
-      void stages[idx].offsetWidth; stages[idx].classList.add('on'); }
-    function start(){ if(reduce)return; stop(); timer=setInterval(function(){ if(!paused) show(idx+1); },4200); }
-    function stop(){ if(timer){clearInterval(timer);timer=null;} }
-    show(0); start();
-    stages.forEach(function(s,k){
-      s.addEventListener('mouseenter',function(){ paused=true; show(k); });
-      s.addEventListener('mouseleave',function(){ paused=false; });
-      s.addEventListener('click',function(){ show(k); start(); });
-    });
-  }
-
-  /* faq */
-  document.querySelectorAll('.qa').forEach(function(qa){ var ans=qa.querySelector('.ans');
-    if(qa.classList.contains('open')) ans.style.maxHeight=ans.scrollHeight+'px';
-    qa.querySelector('button').addEventListener('click',function(){ var open=qa.classList.toggle('open');
-      ans.style.maxHeight = open ? ans.scrollHeight+'px' : 0; }); });
-
-  /* logo wall */
-  var logos=[
-    {img:'logos/visa.svg',alt:'Visa'},{img:'logos/mastercard.svg',alt:'Mastercard'},
-    {word:'Fiserv',mono:'DRS'},{img:'logos/swift.svg',alt:'Swift'},
-    {img:'logos/oracle.svg',alt:'Oracle'},{img:'logos/sap.svg',alt:'SAP'},
-    {img:'logos/servicenow.svg',alt:'ServiceNow'},{word:'Fircosoft'},
-    {img:'logos/salesforce.svg',alt:'Salesforce'},{word:'Pega'},
-    {word:'DocuSign'},{word:'Trade360'}
-  ];
-  function chip(l){ if(l.img) return '<div class="lg"><img src="'+l.img+'" alt="'+l.alt+'"></div>';
-    return '<div class="lg"><span class="word">'+l.word+(l.mono?' <span class="mono">'+l.mono+'</span>':'')+'</span></div>'; }
-  var track=document.getElementById('track'); if(track){ var html=logos.map(chip).join(''); track.innerHTML=html+html; }
-
-  /* hero particles */
-  var cv=document.getElementById('px');
-  if(cv && !reduce){ var ctx=cv.getContext('2d'), W,H,dots,glyphs=['+','·','○','△'];
-    function size(){ var r=cv.parentElement.getBoundingClientRect(); W=cv.width=r.width; H=cv.height=r.height;
-      var n=Math.min(46,Math.round(W*H/26000)); dots=[];
-      for(var k=0;k<n;k++){ dots.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*0.18,vy:(Math.random()-.5)*0.18,s:9+Math.random()*10,a:0.06+Math.random()*0.16,g:glyphs[k%glyphs.length],blue:Math.random()<0.4}); } }
-    function draw(){ ctx.clearRect(0,0,W,H);
-      for(var k=0;k<dots.length;k++){ var d=dots[k]; d.x+=d.vx; d.y+=d.vy;
-        if(d.x<-20)d.x=W+20; if(d.x>W+20)d.x=-20; if(d.y<-20)d.y=H+20; if(d.y>H+20)d.y=-20;
-        ctx.globalAlpha=d.a; ctx.fillStyle=d.blue?'#3B82FF':'#FFFFFF'; ctx.font=d.s+'px "Geist Mono", monospace'; ctx.fillText(d.g,d.x,d.y); }
-      ctx.globalAlpha=1; requestAnimationFrame(draw); }
-    size(); draw(); var to; window.addEventListener('resize',function(){ clearTimeout(to); to=setTimeout(size,200); }); }
-})();
-</script>
+      /* hero particles */
+      var cv = document.getElementById('px');
+      if (cv && !reduce) {
+        var ctx = cv.getContext('2d'), W, H, dots, glyphs = ['+', '·', '○', '△'];
+        function size() {
+          var r = cv.parentElement.getBoundingClientRect(); W = cv.width = r.width; H = cv.height = r.height;
+          var n = Math.min(46, Math.round(W * H / 26000)); dots = [];
+          for (var k = 0; k < n; k++) { dots.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * 0.18, vy: (Math.random() - .5) * 0.18, s: 9 + Math.random() * 10, a: 0.06 + Math.random() * 0.16, g: glyphs[k % glyphs.length], blue: Math.random() < 0.4 }); }
+        }
+        function draw() {
+          ctx.clearRect(0, 0, W, H);
+          for (var k = 0; k < dots.length; k++) {
+            var d = dots[k]; d.x += d.vx; d.y += d.vy;
+            if (d.x < -20) d.x = W + 20; if (d.x > W + 20) d.x = -20; if (d.y < -20) d.y = H + 20; if (d.y > H + 20) d.y = -20;
+            ctx.globalAlpha = d.a; ctx.fillStyle = d.blue ? '#3B82FF' : '#FFFFFF'; ctx.font = d.s + 'px "Geist Mono", monospace'; ctx.fillText(d.g, d.x, d.y);
+          }
+          ctx.globalAlpha = 1; requestAnimationFrame(draw);
+        }
+        size(); draw(); var to; window.addEventListener('resize', function () { clearTimeout(to); to = setTimeout(size, 200); });
+      }
+    })();
+  </script>
 </body>
+
 </html>
