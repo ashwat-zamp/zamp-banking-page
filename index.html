@@ -142,7 +142,6 @@
       letter-spacing: -.02em
     }
 
-    /* field label (replaces pills): plain letter-spaced mono, no dot, no background */
     .flabel {
       font-family: var(--mono);
       font-size: 11px;
@@ -496,27 +495,15 @@
       }
     }
 
-    /* trust strip */
-    .trust {
-      background: var(--ink);
-      border-top: 1px solid rgba(255, 255, 255, .1)
-    }
-
-    .trust .wrap {
+    /* trust strip (behavioral pillars, sits inside dark #trust section) */
+    .pillars {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
-      padding: 28px 24px
-    }
-
-    @media(min-width:768px) {
-      .trust .wrap {
-        padding: 28px 40px
-      }
+      gap: 16px
     }
 
     @media(min-width:900px) {
-      .trust .wrap {
+      .pillars {
         grid-template-columns: repeat(5, 1fr);
         gap: 20px
       }
@@ -543,157 +530,66 @@
       line-height: 1.3
     }
 
-    /* use-case fit grid */
-    .fitgrid {
+    /* certification badges (dark, compact — beat 3) */
+    .certrow {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1px;
-      background: var(--hair-2);
-      border: 1px solid var(--hair-2);
-      border-radius: 20px;
-      overflow: hidden
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 32px
     }
 
     @media(min-width:720px) {
-      .fitgrid {
-        grid-template-columns: repeat(2, 1fr)
+      .certrow {
+        grid-template-columns: repeat(4, 1fr)
       }
     }
 
-    @media(min-width:1080px) {
-      .fitgrid {
-        grid-template-columns: repeat(3, 1fr)
-      }
-    }
-
-    .fitcard {
-      background: var(--white);
-      padding: clamp(24px, 3vw, 32px);
-      transition: background .25s
-    }
-
-    .fitcard:hover {
-      background: #fbfcfe
-    }
-
-    .fitcard .fi {
-      width: 32px;
-      height: 32px;
-      color: var(--blue);
-      margin-bottom: 18px
-    }
-
-    .fitcard .fi svg {
-      width: 100%;
-      height: 100%
-    }
-
-    .fitcard h3 {
-      font-size: 17.5px;
-      margin-bottom: 14px;
-      letter-spacing: -.015em
-    }
-
-    .fitcard ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px
-    }
-
-    .fitcard li {
-      font-size: 14.5px;
-      color: var(--body);
-      line-height: 1.4;
-      padding-left: 14px;
-      position: relative
-    }
-
-    .fitcard li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: .58em;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--faint)
-    }
-
-    /* customer logo wall (static, credential-style) */
-    .customers {
-      background: var(--white);
-      border-bottom: 1px solid var(--hair)
-    }
-
-    .customers .head {
-      padding-top: clamp(52px, 7vh, 72px)
-    }
-
-    .customers .head p {
-      font-size: 15px;
-      color: var(--muted);
-      margin-top: 12px
-    }
-
-    .clogo-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      padding: 34px 0 clamp(52px, 7vh, 72px)
-    }
-
-    @media(min-width:640px) {
-      .clogo-grid {
-        grid-template-columns: repeat(3, 1fr)
-      }
-    }
-
-    @media(min-width:960px) {
-      .clogo-grid {
-        grid-template-columns: repeat(5, 1fr)
-      }
-    }
-
-    .clg {
-      height: 76px;
-      border: 1px solid var(--hair);
+    .certbadge {
+      border: 1px solid rgba(255, 255, 255, .16);
       border-radius: 14px;
-      background: var(--canvas);
-      display: grid;
-      place-items: center;
-      padding: 0 20px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      background: rgba(255, 255, 255, .02);
       transition: border-color .25s, background .25s
     }
 
-    .clg:hover {
-      border-color: var(--faint);
-      background: #fff
+    .certbadge:hover {
+      border-color: rgba(59, 130, 255, .5);
+      background: rgba(0, 94, 255, .06)
     }
 
-    .clg img {
-      height: 24px;
-      width: auto;
-      max-width: 100%;
-      filter: grayscale(1) contrast(.55) opacity(.62);
-      transition: filter .3s var(--ease)
+    .certbadge svg {
+      width: 22px;
+      height: 22px;
+      color: var(--blue-bright);
+      flex: none
     }
 
-    .clg:hover img {
-      filter: none
-    }
-
-    .clg .word {
+    .certbadge .cb-name {
+      font-size: 14.5px;
       font-weight: 600;
-      font-size: 15px;
+      color: #fff;
       letter-spacing: -.01em;
-      color: var(--faint);
-      text-align: center;
-      transition: color .3s
+      line-height: 1.25
     }
 
-    .clg:hover .word {
-      color: var(--ink)
+    .certbadge .cb-status {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .48);
+      margin-top: 3px
+    }
+
+    .trustnote {
+      margin-top: 26px;
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, .5);
+      max-width: 66ch;
+      line-height: 1.55
     }
 
     /* section frame */
@@ -720,6 +616,52 @@
       border: 0;
       max-width: var(--maxw);
       margin: 0 auto
+    }
+
+    .kicker-lbl {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--blue);
+      display: block;
+      margin-bottom: 16px
+    }
+
+    .dark .kicker-lbl {
+      color: var(--blue-bright)
+    }
+
+    /* ============ HOW IT RUNS (owner principles) ============ */
+    .owns {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 26px
+    }
+
+    @media(min-width:820px) {
+      .owns {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 44px
+      }
+    }
+
+    .own {
+      border-top: 2px solid var(--ink);
+      padding-top: 18px
+    }
+
+    .own h3 {
+      font-size: 17.5px;
+      font-weight: 600;
+      letter-spacing: -.015em;
+      margin-bottom: 9px
+    }
+
+    .own p {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--body)
     }
 
     /* ============ METRICS (number + two-line label) ============ */
@@ -870,7 +812,6 @@
       }
     }
 
-    /* office card: pain-stat hero (left) + supporting context (right) */
     .office {
       border: 1px solid var(--hair);
       border-radius: 22px;
@@ -1068,38 +1009,6 @@
       line-height: 1
     }
 
-    /* owner beat */
-    .owns {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 26px
-    }
-
-    @media(min-width:820px) {
-      .owns {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 44px
-      }
-    }
-
-    .own {
-      border-top: 2px solid var(--ink);
-      padding-top: 18px
-    }
-
-    .own h3 {
-      font-size: 17.5px;
-      font-weight: 600;
-      letter-spacing: -.015em;
-      margin-bottom: 9px
-    }
-
-    .own p {
-      font-size: 15px;
-      line-height: 1.55;
-      color: var(--body)
-    }
-
     /* ============ HOW IT WORKS — LOOP ============ */
     .loop-lead {
       margin-bottom: 44px
@@ -1262,6 +1171,7 @@
     }
 
     @media(prefers-reduced-motion:reduce) {
+
       .stage.on .prog {
         animation: none;
         width: 100%
@@ -1388,6 +1298,283 @@
       vertical-align: middle
     }
 
+    /* ============ FIT (use-case map) ============ */
+    .fitgrid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--hair-2);
+      border: 1px solid var(--hair-2);
+      border-radius: 20px;
+      overflow: hidden
+    }
+
+    @media(min-width:720px) {
+      .fitgrid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media(min-width:1080px) {
+      .fitgrid {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    .fitcard {
+      background: var(--white);
+      padding: clamp(24px, 3vw, 32px);
+      transition: background .25s
+    }
+
+    .fitcard:hover {
+      background: #fbfcfe
+    }
+
+    .fitcard .fi {
+      width: 32px;
+      height: 32px;
+      color: var(--blue);
+      margin-bottom: 18px
+    }
+
+    .fitcard .fi svg {
+      width: 100%;
+      height: 100%
+    }
+
+    .fitcard h3 {
+      font-size: 17.5px;
+      margin-bottom: 14px;
+      letter-spacing: -.015em
+    }
+
+    .fitcard ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .fitcard li {
+      font-size: 14.5px;
+      color: var(--body);
+      line-height: 1.4;
+      padding-left: 14px;
+      position: relative
+    }
+
+    .fitcard li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .58em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--faint)
+    }
+
+    /* customer logo wall (static, credential-style) */
+    .customers {
+      background: var(--white)
+    }
+
+    .customers .head p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-top: 12px
+    }
+
+    .clogo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 34px
+    }
+
+    @media(min-width:640px) {
+      .clogo-grid {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    @media(min-width:960px) {
+      .clogo-grid {
+        grid-template-columns: repeat(5, 1fr)
+      }
+    }
+
+    .clg {
+      height: 76px;
+      border: 1px solid var(--hair);
+      border-radius: 14px;
+      background: var(--canvas);
+      display: grid;
+      place-items: center;
+      padding: 0 20px;
+      transition: border-color .25s, background .25s
+    }
+
+    .clg:hover {
+      border-color: var(--faint);
+      background: #fff
+    }
+
+    .clg img {
+      height: 24px;
+      width: auto;
+      max-width: 100%;
+      filter: grayscale(1) contrast(.55) opacity(.62);
+      transition: filter .3s var(--ease)
+    }
+
+    .clg:hover img {
+      filter: none
+    }
+
+    .clg .word {
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: -.01em;
+      color: var(--faint);
+      text-align: center;
+      transition: color .3s
+    }
+
+    .clg:hover .word {
+      color: var(--ink)
+    }
+
+    /* ============ MENTAL MODEL ============ */
+    .mmgrid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--hair-2);
+      border: 1px solid var(--hair-2);
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 28px
+    }
+
+    @media(min-width:800px) {
+      .mmgrid {
+        grid-template-columns: repeat(4, 1fr)
+      }
+    }
+
+    .mmcard {
+      background: var(--white);
+      padding: 24px 22px
+    }
+
+    .mmcard .mm-k {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 12px
+    }
+
+    .mmcard h4 {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 8px;
+      color: var(--ink)
+    }
+
+    .mmcard p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--body)
+    }
+
+    .mm-synth {
+      background: var(--blue-tint);
+      border-radius: 16px;
+      padding: 26px 28px;
+      font-size: clamp(16px, 1.9vw, 19px);
+      line-height: 1.5;
+      color: var(--ink);
+      font-weight: 500;
+      letter-spacing: -.005em
+    }
+
+    .mm-synth b {
+      color: var(--blue);
+      font-weight: 600
+    }
+
+    /* advantages / trade-offs split */
+    .tradeoffs {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-top: clamp(52px, 7vh, 72px)
+    }
+
+    @media(min-width:820px) {
+      .tradeoffs {
+        grid-template-columns: 1fr 1fr;
+        gap: 56px
+      }
+    }
+
+    .toh {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      display: block
+    }
+
+    .toh.adv {
+      color: var(--blue)
+    }
+
+    .toh.trd {
+      color: var(--muted)
+    }
+
+    .tolist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px
+    }
+
+    .tolist li {
+      display: flex;
+      gap: 13px;
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--body)
+    }
+
+    .tolist .ic {
+      flex: none;
+      width: 20px;
+      height: 20px;
+      margin-top: 2px
+    }
+
+    .tolist.adv .ic {
+      color: var(--blue)
+    }
+
+    .tolist.trd .ic {
+      color: var(--faint)
+    }
+
+    .tolist b {
+      color: var(--ink);
+      font-weight: 600
+    }
+
     /* governance */
     .gov {
       display: grid;
@@ -1453,7 +1640,18 @@
       line-height: 1.55
     }
 
-    /* logo wall */
+    .gov-divider {
+      grid-column: 1 / -1;
+      margin: 34px 0 8px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--hair)
+    }
+
+    .gov-divider .flabel {
+      display: block
+    }
+
+    /* logo wall (systems) */
     .wall {
       border-top: 1px solid var(--hair);
       border-bottom: 1px solid var(--hair);
@@ -1462,22 +1660,22 @@
 
     .wall .head {
       max-width: 720px;
-      padding: clamp(60px, 9vh, 90px) 0 40px
+      padding: clamp(60px, 9vh, 90px) 0 0
     }
 
     .wall .head h2 {
-      font-size: clamp(28px, 3.8vw, 46px);
-      margin-bottom: 18px
+      font-size: clamp(28px, 3.8vw, 46px)
     }
 
     .wall .head p {
-      font-size: 16.5px;
-      max-width: 60ch
+      max-width: 60ch;
+      margin-top: 18px;
+      font-size: 16.5px
     }
 
     .marquee {
       overflow: hidden;
-      padding: 14px 0 clamp(56px, 9vh, 80px);
+      padding: 34px 0 clamp(56px, 9vh, 80px);
       -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
       mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent)
     }
@@ -1636,7 +1834,7 @@
       line-height: 1.35
     }
 
-    /* pilot (blue) */
+    /* pilot / cta (blue) */
     .blue {
       background: linear-gradient(155deg, #0B52E0 0%, var(--blue) 55%, #2C74FF 100%);
       color: #fff;
@@ -1948,15 +2146,15 @@
     }
 
     .rv[data-d="1"] {
-      transition-delay: .08s
+      transition-delay: .09s
     }
 
     .rv[data-d="2"] {
-      transition-delay: .16s
+      transition-delay: .18s
     }
 
     .rv[data-d="3"] {
-      transition-delay: .24s
+      transition-delay: .27s
     }
 
     @media(prefers-reduced-motion:reduce) {
@@ -1996,20 +2194,22 @@
         <span class="tag">Banking</span>
       </a>
       <nav class="nav-links">
-        <a href="#fit">Where we fit</a>
-        <a href="#how">How it works</a>
-        <a href="#cases" class="on">In production</a>
-        <a href="#governance">Governance</a>
-        <a href="#integrations">Integrations</a>
+        <a href="#how" class="on">How it runs</a>
+        <a href="#results">Results</a>
+        <a href="#trust">Trust</a>
+        <a href="#model">Why Zamp</a>
+        <a href="#security">Security</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <div class="nav-cta"><a href="#pilot" class="btn btn-light">Book a demo <span class="ar">→</span></a></div>
+      <div class="nav-cta"><a href="#cta" class="btn btn-light">Book a demo <span class="ar">→</span></a></div>
     </div>
   </header>
 
   <main id="top">
 
-    <!-- HERO -->
+    <!-- ============================================================ -->
+    <!-- 1. HERO / HOOK -->
+    <!-- ============================================================ -->
     <section class="hero">
       <canvas id="px"></canvas>
       <div class="hero-grid"></div>
@@ -2021,160 +2221,48 @@
         <p class="lead">Zamp builds the AI workforce for banking, where precision is non-negotiable. Deployed in days,
           operating inside your systems, under your controls, on the record for your examiners.</p>
         <div class="hero-actions">
-          <a href="#pilot" class="btn btn-primary">Book a demo <span class="ar">→</span></a>
-          <a href="#cases" class="btn btn-light">See it in production</a>
+          <a href="#cta" class="btn btn-primary">Book a demo <span class="ar">→</span></a>
+          <a href="#results" class="btn btn-light">See it in production</a>
         </div>
         <div class="hero-cred"><span class="rule"></span> Already trusted by tier-1 banks across the UK, UAE and US
         </div>
       </div>
     </section>
 
-    <!-- TRUST STRIP -->
-    <section class="trust">
-      <div class="wrap">
-        <div class="tp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-          </svg><span>Built for regulated institutions</span></div>
-        <div class="tp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-            stroke-linecap="round" stroke-linejoin="round">
-            <rect x="4" y="10" width="16" height="10" rx="2" />
-            <path d="M8 10V7a4 4 0 0 1 8 0v3" />
-          </svg><span>Secure and compliant by design</span></div>
-        <div class="tp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 11l3 3L22 4" />
-            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-          </svg><span>No rip-and-replace</span></div>
-        <div class="tp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-            stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="8" r="3.4" />
-            <path d="M4.5 20c1.6-4 4.2-6 7.5-6s5.9 2 7.5 6" />
-          </svg><span>Human-in-the-loop by default</span></div>
-        <div class="tp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16v16H4z" />
-            <path d="M4 9h16M9 9v11" />
-          </svg><span>Fully auditable, always</span></div>
-      </div>
-    </section>
-
-    <!-- FIT (use-case map) -->
-    <section class="sec" id="fit" style="padding-top:clamp(56px,8vh,84px)">
+    <!-- ============================================================ -->
+    <!-- 2. HOW ZAMP RUNS BANKING OPERATIONS + PROVEN VALUE -->
+    <!-- ============================================================ -->
+    <section class="sec" id="how">
       <div class="wrap">
         <div class="sec-head rv">
-          <h2>Where Zamp fits in banking operations</h2>
-          <p class="lead">Six functional areas. Every workflow below already runs end to end in production.</p>
+          <span class="kicker-lbl">How it runs</span>
+          <h2>Acts like an actual owner, not a generic copilot</h2>
+          <p class="lead">A copilot waits for your instructions in a prompt. A digital AI employee takes the whole job
+            off your desk and hands back a result — the same way a trained analyst would, logged the way your
+            examiners read a file.</p>
         </div>
-        <div class="fitgrid rv">
-          <div class="fitcard">
-            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="6" width="20" height="13" rx="2" />
-                <path d="M2 10h20M6 15h4" />
-              </svg></div>
-            <h3>Payments &amp; settlements</h3>
-            <ul>
-              <li>Dispute investigation &amp; resolution</li>
-              <li>Payment authorization &amp; reconciliation</li>
-              <li>Cross-border exception management</li>
-              <li>Intraday liquidity &amp; settlement funding</li>
-            </ul>
+        <div class="owns rv">
+          <div class="own">
+            <h3>Owns the entire job, not just a step</h3>
+            <p>Reads the SOPs, pulls context from every system it needs, and takes it from intake to resolution. The
+              same path a trained analyst does today.</p>
           </div>
-          <div class="fitcard">
-            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6" />
-              </svg></div>
-            <h3>Lending &amp; trade operations</h3>
-            <ul>
-              <li>Secured &amp; unsecured underwriting</li>
-              <li>Trade &amp; supply chain finance</li>
-              <li>Loan lifecycle management</li>
-            </ul>
+          <div class="own">
+            <h3>Escalates on your thresholds, not ours</h3>
+            <p>Anything above the severity as set by your policy, it escalates to a human. Every time.</p>
           </div>
-          <div class="fitcard">
-            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z" />
-                <path d="M9 12l2 2 4-4" />
-              </svg></div>
-            <h3>Risk &amp; compliance</h3>
-            <ul>
-              <li>Transaction screening</li>
-              <li>AML / KYC monitoring</li>
-              <li>SAR / STR filing with EDD</li>
-            </ul>
-          </div>
-          <div class="fitcard">
-            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M10.3 3.9L2.5 17a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" />
-                <path d="M12 9v4M12 17h.01" />
-              </svg></div>
-            <h3>Fraud &amp; security operations</h3>
-            <ul>
-              <li>End-to-end chargeback investigation &amp; filing</li>
-              <li>Fraud detection &amp; incident response</li>
-              <li>Credit &amp; operational risk management</li>
-            </ul>
-          </div>
-          <div class="fitcard">
-            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="8" r="3.6" />
-                <path d="M4.5 20.5c1.7-4.3 4.4-6.5 7.5-6.5s5.8 2.2 7.5 6.5" />
-              </svg></div>
-            <h3>Customer onboarding</h3>
-            <ul>
-              <li>KYC / KYB document collection &amp; verification</li>
-              <li>Customer risk profiling &amp; due diligence</li>
-              <li>Loan onboarding</li>
-            </ul>
-          </div>
-          <div class="fitcard">
-            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-              </svg></div>
-            <h3>Customer communication &amp; experience</h3>
-            <ul>
-              <li>Hyper-personalized engagement</li>
-              <li>Next-best-action for cross-sell</li>
-              <li>Customer support workflows</li>
-            </ul>
+          <div class="own">
+            <h3>Logged for your examiners</h3>
+            <p>What it looked at, why, who it escalated to, and when. From start to finish, across time.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CUSTOMERS -->
-    <section class="customers" id="customers">
-      <div class="wrap head rv">
-        <h2>Trusted by leading banks and financial institutions</h2>
-        <p>A sample of the institutions running Zamp's AI workforce in production today.</p>
-      </div>
-      <div class="wrap">
-        <div class="clogo-grid rv">
-          <div class="clg"><img src="logos/bofa.svg" alt="Bank of America"></div>
-          <div class="clg"><img src="logos/natwest.svg" alt="NatWest"></div>
-          <div class="clg"><span class="word">BMO</span></div>
-          <div class="clg"><img src="logos/barclays.svg" alt="Barclays"></div>
-          <div class="clg"><span class="word">Commonwealth Bank</span></div>
-          <div class="clg"><img src="logos/hsbc.svg" alt="HSBC"></div>
-          <div class="clg"><span class="word">Block</span></div>
-          <div class="clg"><span class="word">Wio Bank</span></div>
-          <div class="clg"><img src="logos/cme.svg" alt="CME Group"></div>
-          <div class="clg"><span class="word">CBD</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- METRICS -->
     <section class="metrics">
       <div class="wrap">
-        <p class="kick"><b>Live results from AI employees</b>, across core banking workflows.</p>
+        <p class="kick"><b>That's how it runs. Here's what it's already delivered</b> — live results from AI
+          employees, across core banking workflows.</p>
         <div class="mgrid">
           <div class="mcell rv">
             <div class="big"><span class="count" data-to="55">0</span><span class="s">%</span></div>
@@ -2196,307 +2284,105 @@
       </div>
     </section>
 
-    <!-- LANDSCAPE -->
-    <section class="sec" id="landscape">
+    <!-- ============================================================ -->
+    <!-- 3. TRUST LABELS: security posture + real certifications -->
+    <!-- ============================================================ -->
+    <section class="sec dark" id="trust">
       <div class="wrap">
         <div class="sec-head rv">
-          <h2>A bank is three different businesses, not one</h2>
-          <p class="lead">Each runs on its own clock and its own rulebook. Headcount fixes none of them.</p>
+          <span class="kicker-lbl">Trust, established early</span>
+          <h2>Built for institutions where trust is the product</h2>
+          <p class="lead">Banking doesn't take security claims on faith, and neither do we. Every commitment below is
+            backed by an independent audit, not a promise.</p>
         </div>
 
-        <div class="rv">
-          <div class="tabs" data-tabset="desk">
-            <button class="tab on" data-t="d0">Back office</button>
-            <button class="tab" data-t="d1">Middle office</button>
-            <button class="tab" data-t="d2">Front office</button>
-          </div>
-
-          <div class="panel on" id="d0">
-            <div class="office">
-              <div class="office-cap"><span class="oname">Back office</span>
-                <h3>The volume layer</h3>
-              </div>
-              <div class="office-body">
-                <div class="office-pain">
-                  <span class="flabel">Where it hurts</span>
-                  <div class="pnum">$1,500–3,000</div>
-                  <p class="pdesc">per KYC review, and up to <b>95%</b> of alerts lead nowhere. Most of it already runs
-                    offshore, so the real pressure isn't the analyst on the desk. It's the next 500-seat expansion.</p>
-                </div>
-                <div class="office-ctx">
-                  <div class="ctx-block"><span class="flabel">Measured on</span>
-                    <div class="measure-val">Cost per case &amp; backlog age</div>
-                  </div>
-                  <div class="ctx-block"><span class="flabel">The work it carries</span>
-                    <ul class="worklist">
-                      <li>Payments</li>
-                      <li>KYC / AML</li>
-                      <li>Loan servicing</li>
-                      <li>Disputes</li>
-                      <li>Document processing</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel" id="d1">
-            <div class="office">
-              <div class="office-cap"><span class="oname">Middle office</span>
-                <h3>The layer that keeps growing</h3>
-              </div>
-              <div class="office-body">
-                <div class="office-pain">
-                  <span class="flabel">Where it hurts</span>
-                  <div class="pnum">166 days</div>
-                  <p class="pdesc">to file a SAR against a <b>30-day</b> clock, with compliance hours up <b>61%</b>
-                    since 2016. It also approves any AI the bank buys: both buyer and gatekeeper.</p>
-                </div>
-                <div class="office-ctx">
-                  <div class="ctx-block"><span class="flabel">Measured on</span>
-                    <div class="measure-val">Losses avoided &amp; clean exams</div>
-                  </div>
-                  <div class="ctx-block"><span class="flabel">The work it carries</span>
-                    <ul class="worklist">
-                      <li>Risk</li>
-                      <li>Compliance</li>
-                      <li>Model risk</li>
-                      <li>Treasury</li>
-                      <li>Legal</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel" id="d2">
-            <div class="office">
-              <div class="office-cap"><span class="oname">Front office</span>
-                <h3>Where time is the constraint</h3>
-              </div>
-              <div class="office-body">
-                <div class="office-pain">
-                  <span class="flabel">Where it hurts</span>
-                  <div class="pnum">60% of the week</div>
-                  <p class="pdesc">goes to prep, not advice: memos, CRM, decks. Smallest team, highest comp. Hand the
-                    prep back and the advice sharpens.</p>
-                </div>
-                <div class="office-ctx">
-                  <div class="ctx-block"><span class="flabel">Measured on</span>
-                    <div class="measure-val">Revenue</div>
-                  </div>
-                  <div class="ctx-block"><span class="flabel">The work it carries</span>
-                    <ul class="worklist">
-                      <li>RMs</li>
-                      <li>Bankers</li>
-                      <li>Traders</li>
-                      <li>Advisors</li>
-                      <li>Branch staff</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STATEMENT BAND (head + tail) -->
-    <section class="band">
-      <div class="wrap">
-        <p class="head">Banking volumes surge overnight and at quarter-end, then fall away. Headcount can't move at that
-          speed.</p>
-        <h2>Staff for the peak, and you pay for the idle. <span class="dim">Staff for the average, and you miss the
-            SLA.</span></h2>
-        <div class="tail"><span class="arrow">↓</span> An AI workforce grows and shrinks with the work, in real
-          time, at no cost for idle time.</div>
-      </div>
-    </section>
-
-    <!-- OWNER -->
-    <section class="sec" id="owner">
-      <div class="wrap">
-        <div class="sec-head rv">
-          <h2>Acts like an actual owner, not a generic copilot</h2>
-          <p class="lead">A copilot waits for your instructions in a prompt. A digital AI employee takes the whole job
-            off your desk and hands
-            back a result.</p>
-        </div>
-        <div class="owns rv">
-          <div class="own">
-            <h3>Owns the entire job, not just a step</h3>
-            <p>Reads the SOPs, pulls context from every system it needs, and takes it from intake to resolution. The
-              same path a trained analyst does today.</p>
-          </div>
-          <div class="own">
-            <h3>Escalates on your thresholds, not ours</h3>
-            <p>Anything above the severity as set by your policy, it escalates to a human. Every time.</p>
-          </div>
-          <div class="own">
-            <h3>Logged for your examiners</h3>
-            <p>What it looked at, why, who it escalated to, and when. From start to finish, across time.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS — LOOP -->
-    <section class="sec" id="how">
-      <div class="wrap">
-        <div class="sec-head rv">
-          <h2>Built on your actual process, not a prompt</h2>
-          <p class="lead">Generic automation initiatives lag because an SOP captures only 30–40% of the real process,
-            and one central
-            team can't reach every queue. Zamp is built from your full process instead, performs at your current
-            baseline from day one, then keeps refining it over time.</p>
+        <div class="pillars rv">
+          <div class="tp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg><span>Built for regulated institutions</span></div>
+          <div class="tp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="10" width="16" height="10" rx="2" />
+              <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+            </svg><span>Secure and compliant by design</span></div>
+          <div class="tp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 11l3 3L22 4" />
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+            </svg><span>No rip-and-replace</span></div>
+          <div class="tp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="3.4" />
+              <path d="M4.5 20c1.6-4 4.2-6 7.5-6s5.9 2 7.5 6" />
+            </svg><span>Human-in-the-loop by default</span></div>
+          <div class="tp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16v16H4z" />
+              <path d="M4 9h16M9 9v11" />
+            </svg><span>Fully auditable, always</span></div>
         </div>
 
-        <div class="loop rv" id="loop">
-          <div class="stage on" data-i="0">
-            <span class="stime">1–2 weeks</span>
-            <div class="snum">STAGE 01</div>
-            <h3>Institutionalize the process</h3>
-            <p class="sdesc">Reads your SOPs, interviews the people doing the actual work, and mines months of past
-              cases and tacit knowledge.</p>
-            <div class="sout">Out comes an <b>Agent Operating Procedure (AOP)</b>, 5–10× richer than the SOP, plus a
-              golden
-              eval set already validated against your current operations.</div>
-            <span class="prog"></span>
-          </div>
-          <div class="stage" data-i="1">
-            <span class="stime">&lt; 8-10 hours</span>
-            <div class="snum">STAGE 02</div>
-            <h3>Handoff to an agent</h3>
-            <p class="sdesc">An engineering agent builds each step, picks the right tool, and self-tests for accuracy,
-              cost and latency.</p>
-            <div class="sout">Out comes a <b>production-ready digital AI employee</b>, with no additional engineering
-              effort from your side.</div>
-            <span class="prog"></span>
-          </div>
-          <div class="stage" data-i="2">
-            <span class="stime">&lt; Ongoing</span>
-            <div class="snum">STAGE 03</div>
-            <h3>Continuous improvement</h3>
-            <p class="sdesc">Learns from the team's active feedback: no tickets, no engineers. The procedure updates,
-              the
-              build re-runs with a new AOP and eval set.</p>
-            <div class="sout"><b>Accuracy compounds</b> with every case, and the loop continuously keeps learning and
-              improving.</div>
-            <span class="prog"></span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COMPARE (dark) -->
-    <section class="sec dark" id="compare">
-      <div class="wrap">
-        <div class="sec-head rv">
-          <h2>An AI workforce, supporting your human workforce</h2>
-          <p class="lead">Same work, measured on the terms your operations leaders already use.</p>
-        </div>
-        <div class="rv">
-          <div class="chead"><span></span><span class="h-trad">Human workforce</span><span class="h-dig">AI
-              workforce</span></div>
-          <div class="compare">
-            <div class="crow"><span class="cdim">Scale</span><span class="ctrad">Ramp-up takes months. Ramp-down means
-                layoffs.</span><span class="cdig">Spins up for a surge in minutes, and stands down the moment it
-                passes.</span></div>
-            <div class="crow"><span class="cdim">Availability</span><span class="ctrad">Weekdays, office
-                hours.</span><span class="cdig"><span class="num">24/7</span>, every day of the year.</span></div>
-            <div class="crow"><span class="cdim">Adaptability</span><span class="ctrad">A key change means a multi-week
-                retraining cycle.</span><span class="cdig">Update the SOP, test, redeploy. Live in hours.</span></div>
-            <div class="crow"><span class="cdim">Compliance</span><span class="ctrad">Not all actions are documented.
-                Audits take weeks.</span><span class="cdig"><span class="num">100%</span> decisions documented every
-                run,
-                with instant audits.</span></div>
-            <div class="crow"><span class="cdim">Knowledge</span><span class="ctrad">Your best operator leaves and takes
-                it to a competitor.</span><span class="cdig">Knowledge stays yours, permanently, across every
-                process.</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GOVERNANCE -->
-    <section class="sec" id="governance">
-      <div class="wrap">
-        <div class="sec-head rv">
-          <h2>Every decision leaves a trail</h2>
-          <p class="lead">The part you can't compromise on: how it behaves inside your risk framework.</p>
-        </div>
-        <div class="gov">
-          <div class="gitem rv">
-            <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 11l3 3L22 4" />
-                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-              </svg></div>
+        <div class="certrow rv">
+          <div class="certbadge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M9 11l3 3L22 4" />
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+            </svg>
             <div>
-              <h3>A documented rationale on every decision</h3>
-              <p>No black box risk. You can read why it did what it did, and who approved it.</p>
+              <div class="cb-name">SOC 1 Type II</div>
+              <div class="cb-status">Independently audited</div>
             </div>
           </div>
-          <div class="gitem rv" data-d="1">
-            <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 7h-9M14 17H5M17 21a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM7 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
-              </svg></div>
+          <div class="certbadge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
             <div>
-              <h3>Escalation thresholds you set</h3>
-              <p>For each workflow, set by your team. Anything outside the standard policy goes to a person.</p>
+              <div class="cb-name">SOC 2 Type II</div>
+              <div class="cb-status">Independently audited</div>
             </div>
           </div>
-          <div class="gitem rv">
-            <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16v16H4z" />
-                <path d="M4 9h16M9 9v11" />
-              </svg></div>
+          <div class="certbadge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="8" r="6.5" />
+              <path d="M8.5 13.7L7 21l5-2.7 5 2.7-1.5-7.3" />
+            </svg>
             <div>
-              <h3>Built for your model-risk inventory</h3>
-              <p>Validation-ready documentation from day one. No reconstruction of evidence, and extra audit prep
-                overhead.</p>
+              <div class="cb-name">ISO 27001:2022</div>
+              <div class="cb-status">Certified</div>
             </div>
           </div>
-          <div class="gitem rv" data-d="1">
-            <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg></div>
+          <div class="certbadge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="10" rx="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
             <div>
-              <h3>Your data stays in your control</h3>
-              <p>No training on your proprietary data. Deployment respects your data boundaries and regulatory
-                perimeters.</p>
+              <div class="cb-name">GDPR</div>
+              <div class="cb-status">Compliant</div>
             </div>
           </div>
         </div>
-        <p class="govnote rv">Full security posture and certifications live on the security page.</p>
+        <p class="trustnote rv">Full audit reports and control mappings are available under NDA during due diligence.
+        </p>
       </div>
     </section>
 
-    <!-- INTEGRATIONS -->
-    <section class="wall" id="integrations">
-      <div class="wrap head rv">
-        <h2>Works with the systems your teams already use</h2>
-        <p>API where one exists, a browser agent where it doesn't. Every action is session-recorded, so your audit trail
-          builds itself no matter how many systems the AI employee touches.</p>
-      </div>
-      <div class="marquee">
-        <div class="track" id="track"></div>
-      </div>
-    </section>
-
-    <!-- CASES -->
-    <section class="sec" id="cases">
+    <!-- ============================================================ -->
+    <!-- 4. RESULTS: six workflows in production -->
+    <!-- ============================================================ -->
+    <section class="sec" id="results">
       <div class="wrap">
         <div class="sec-head rv">
+          <span class="kicker-lbl">Results</span>
           <h2>Already transformed six core workflows, live today</h2>
-          <p class="lead">Trusted by large scale teams across tier-1 banks in US, UK, and the UAE.</p>
+          <p class="lead">Trusted by large scale teams across tier-1 banks in US, UK, and the UAE. Not a roadmap —
+            production work, in front of real examiners.</p>
         </div>
 
         <div class="rv">
@@ -2667,8 +2553,553 @@
       </div>
     </section>
 
-    <!-- PILOT (blue) -->
-    <section class="sec blue" id="pilot">
+    <!-- ============================================================ -->
+    <!-- 5. WHY THIS MATTERS IN BANKING -->
+    <!-- ============================================================ -->
+    <section class="sec" id="landscape">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="kicker-lbl">Why this matters</span>
+          <h2>A bank is three different businesses, not one</h2>
+          <p class="lead">Each runs on its own clock and its own rulebook. Headcount fixes none of them — that's the
+            operational reality any AI strategy for banking has to start from.</p>
+        </div>
+
+        <div class="rv">
+          <div class="tabs" data-tabset="desk">
+            <button class="tab on" data-t="d0">Back office</button>
+            <button class="tab" data-t="d1">Middle office</button>
+            <button class="tab" data-t="d2">Front office</button>
+          </div>
+
+          <div class="panel on" id="d0">
+            <div class="office">
+              <div class="office-cap"><span class="oname">Back office</span>
+                <h3>The volume layer</h3>
+              </div>
+              <div class="office-body">
+                <div class="office-pain">
+                  <span class="flabel">Where it hurts</span>
+                  <div class="pnum">$1,500–3,000</div>
+                  <p class="pdesc">per KYC review, and up to <b>95%</b> of alerts lead nowhere. Most of it already runs
+                    offshore, so the real pressure isn't the analyst on the desk. It's the next 500-seat expansion.</p>
+                </div>
+                <div class="office-ctx">
+                  <div class="ctx-block"><span class="flabel">Measured on</span>
+                    <div class="measure-val">Cost per case &amp; backlog age</div>
+                  </div>
+                  <div class="ctx-block"><span class="flabel">The work it carries</span>
+                    <ul class="worklist">
+                      <li>Payments</li>
+                      <li>KYC / AML</li>
+                      <li>Loan servicing</li>
+                      <li>Disputes</li>
+                      <li>Document processing</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="d1">
+            <div class="office">
+              <div class="office-cap"><span class="oname">Middle office</span>
+                <h3>The layer that keeps growing</h3>
+              </div>
+              <div class="office-body">
+                <div class="office-pain">
+                  <span class="flabel">Where it hurts</span>
+                  <div class="pnum">166 days</div>
+                  <p class="pdesc">to file a SAR against a <b>30-day</b> clock, with compliance hours up <b>61%</b>
+                    since 2016. It also approves any AI the bank buys: both buyer and gatekeeper.</p>
+                </div>
+                <div class="office-ctx">
+                  <div class="ctx-block"><span class="flabel">Measured on</span>
+                    <div class="measure-val">Losses avoided &amp; clean exams</div>
+                  </div>
+                  <div class="ctx-block"><span class="flabel">The work it carries</span>
+                    <ul class="worklist">
+                      <li>Risk</li>
+                      <li>Compliance</li>
+                      <li>Model risk</li>
+                      <li>Treasury</li>
+                      <li>Legal</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="d2">
+            <div class="office">
+              <div class="office-cap"><span class="oname">Front office</span>
+                <h3>Where time is the constraint</h3>
+              </div>
+              <div class="office-body">
+                <div class="office-pain">
+                  <span class="flabel">Where it hurts</span>
+                  <div class="pnum">60% of the week</div>
+                  <p class="pdesc">goes to prep, not advice: memos, CRM, decks. Smallest team, highest comp. Hand the
+                    prep back and the advice sharpens.</p>
+                </div>
+                <div class="office-ctx">
+                  <div class="ctx-block"><span class="flabel">Measured on</span>
+                    <div class="measure-val">Revenue</div>
+                  </div>
+                  <div class="ctx-block"><span class="flabel">The work it carries</span>
+                    <ul class="worklist">
+                      <li>RMs</li>
+                      <li>Bankers</li>
+                      <li>Traders</li>
+                      <li>Advisors</li>
+                      <li>Branch staff</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <p class="head">Banking volumes surge overnight and at quarter-end, then fall away. Headcount can't move at
+          that speed.</p>
+        <h2>Staff for the peak, and you pay for the idle. <span class="dim">Staff for the average, and you miss the
+            SLA.</span></h2>
+        <div class="tail"><span class="arrow">↓</span> An AI workforce grows and shrinks with the work, in real time,
+          at no cost for idle time.</div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 6. HOW IT IS DIFFERENT -->
+    <!-- ============================================================ -->
+    <section class="sec" id="different">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="kicker-lbl">How it's different</span>
+          <h2>Built on your actual process, not a prompt</h2>
+          <p class="lead">Generic automation initiatives lag because an SOP captures only 30–40% of the real process,
+            and one central team can't reach every queue. Zamp is built from your full process instead, performs at
+            your current baseline from day one, then keeps refining it over time.</p>
+        </div>
+
+        <div class="loop rv" id="loop">
+          <div class="stage on" data-i="0">
+            <span class="stime">1–2 weeks</span>
+            <div class="snum">STAGE 01</div>
+            <h3>Institutionalize the process</h3>
+            <p class="sdesc">Reads your SOPs, interviews the people doing the actual work, and mines months of past
+              cases and tacit knowledge.</p>
+            <div class="sout">Out comes an <b>Agent Operating Procedure (AOP)</b>, 5–10× richer than the SOP, plus a
+              golden eval set already validated against your current operations.</div>
+            <span class="prog"></span>
+          </div>
+          <div class="stage" data-i="1">
+            <span class="stime">&lt; 8-10 hours</span>
+            <div class="snum">STAGE 02</div>
+            <h3>Handoff to an agent</h3>
+            <p class="sdesc">An engineering agent builds each step, picks the right tool, and self-tests for accuracy,
+              cost and latency.</p>
+            <div class="sout">Out comes a <b>production-ready digital AI employee</b>, with no additional engineering
+              effort from your side.</div>
+            <span class="prog"></span>
+          </div>
+          <div class="stage" data-i="2">
+            <span class="stime">&lt; Ongoing</span>
+            <div class="snum">STAGE 03</div>
+            <h3>Continuous improvement</h3>
+            <p class="sdesc">Learns from the team's active feedback: no tickets, no engineers. The procedure updates,
+              the build re-runs with a new AOP and eval set.</p>
+            <div class="sout"><b>Accuracy compounds</b> with every case, and the loop continuously keeps learning and
+              improving.</div>
+            <span class="prog"></span>
+          </div>
+        </div>
+        <div class="loop-foot rv"><span class="ring"></span> Auto-playing through the build loop. Most agentic AI
+          stalls on the first exception because it was built on a prompt — this one was built on your process.</div>
+      </div>
+    </section>
+
+    <section class="sec dark" id="compare">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <h2>An AI workforce, supporting your human workforce</h2>
+          <p class="lead">Same work, measured on the terms your operations leaders already use.</p>
+        </div>
+        <div class="rv">
+          <div class="chead"><span></span><span class="h-trad">Human workforce</span><span class="h-dig">AI
+              workforce</span></div>
+          <div class="compare">
+            <div class="crow"><span class="cdim">Scale</span><span class="ctrad">Ramp-up takes months. Ramp-down means
+                layoffs.</span><span class="cdig">Spins up for a surge in minutes, and stands down the moment it
+                passes.</span></div>
+            <div class="crow"><span class="cdim">Availability</span><span class="ctrad">Weekdays, office
+                hours.</span><span class="cdig"><span class="num">24/7</span>, every day of the year.</span></div>
+            <div class="crow"><span class="cdim">Adaptability</span><span class="ctrad">A key change means a multi-week
+                retraining cycle.</span><span class="cdig">Update the SOP, test, redeploy. Live in hours.</span></div>
+            <div class="crow"><span class="cdim">Compliance</span><span class="ctrad">Not all actions are documented.
+                Audits take weeks.</span><span class="cdig"><span class="num">100%</span> decisions documented every
+                run, with instant audits.</span></div>
+            <div class="crow"><span class="cdim">Knowledge</span><span class="ctrad">Your best operator leaves and
+                takes it to a competitor.</span><span class="cdig">Knowledge stays yours, permanently, across every
+                process.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 7. WHAT MAKES IT A GREAT FIT FOR BANKING NEEDS -->
+    <!-- ============================================================ -->
+    <section class="sec" id="fit">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="kicker-lbl">The fit</span>
+          <h2>Where Zamp fits in banking operations</h2>
+          <p class="lead">Six functional areas. Every workflow below already runs end to end in production.</p>
+        </div>
+        <div class="fitgrid rv">
+          <div class="fitcard">
+            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="20" height="13" rx="2" />
+                <path d="M2 10h20M6 15h4" />
+              </svg></div>
+            <h3>Payments &amp; settlements</h3>
+            <ul>
+              <li>Dispute investigation &amp; resolution</li>
+              <li>Payment authorization &amp; reconciliation</li>
+              <li>Cross-border exception management</li>
+              <li>Intraday liquidity &amp; settlement funding</li>
+            </ul>
+          </div>
+          <div class="fitcard">
+            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6" />
+              </svg></div>
+            <h3>Lending &amp; trade operations</h3>
+            <ul>
+              <li>Secured &amp; unsecured underwriting</li>
+              <li>Trade &amp; supply chain finance</li>
+              <li>Loan lifecycle management</li>
+            </ul>
+          </div>
+          <div class="fitcard">
+            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg></div>
+            <h3>Risk &amp; compliance</h3>
+            <ul>
+              <li>Transaction screening</li>
+              <li>AML / KYC monitoring</li>
+              <li>SAR / STR filing with EDD</li>
+            </ul>
+          </div>
+          <div class="fitcard">
+            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.3 3.9L2.5 17a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" />
+                <path d="M12 9v4M12 17h.01" />
+              </svg></div>
+            <h3>Fraud &amp; security operations</h3>
+            <ul>
+              <li>End-to-end chargeback investigation &amp; filing</li>
+              <li>Fraud detection &amp; incident response</li>
+              <li>Credit &amp; operational risk management</li>
+            </ul>
+          </div>
+          <div class="fitcard">
+            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="3.6" />
+                <path d="M4.5 20.5c1.7-4.3 4.4-6.5 7.5-6.5s5.8 2.2 7.5 6.5" />
+              </svg></div>
+            <h3>Customer onboarding</h3>
+            <ul>
+              <li>KYC / KYB document collection &amp; verification</li>
+              <li>Customer risk profiling &amp; due diligence</li>
+              <li>Loan onboarding</li>
+            </ul>
+          </div>
+          <div class="fitcard">
+            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg></div>
+            <h3>Customer communication &amp; experience</h3>
+            <ul>
+              <li>Hyper-personalized engagement</li>
+              <li>Next-best-action for cross-sell</li>
+              <li>Customer support workflows</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec customers" style="padding-top:0">
+      <div class="wrap head rv">
+        <h2>Trusted by leading banks and financial institutions</h2>
+        <p>A sample of the institutions running Zamp's AI workforce in production today.</p>
+        <div class="clogo-grid">
+          <div class="clg"><img src="logos/bofa.svg" alt="Bank of America"></div>
+          <div class="clg"><img src="logos/natwest.svg" alt="NatWest"></div>
+          <div class="clg"><span class="word">BMO</span></div>
+          <div class="clg"><img src="logos/barclays.svg" alt="Barclays"></div>
+          <div class="clg"><span class="word">Commonwealth Bank</span></div>
+          <div class="clg"><img src="logos/hsbc.svg" alt="HSBC"></div>
+          <div class="clg"><span class="word">Block</span></div>
+          <div class="clg"><span class="word">Wio Bank</span></div>
+          <div class="clg"><img src="logos/cme.svg" alt="CME Group"></div>
+          <div class="clg"><span class="word">CBD</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 8. MENTAL MODEL + ADVANTAGES / TRADE-OFFS -->
+    <!-- ============================================================ -->
+    <section class="sec" id="model">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="kicker-lbl">How to think about it</span>
+          <h2>Not RPA. Not a chatbot. Not an outsourced team.</h2>
+          <p class="lead">A new category, sitting between your software and your staff. Here's where it sits against
+            the categories you already evaluate against.</p>
+        </div>
+
+        <div class="mmgrid rv">
+          <div class="mmcard">
+            <div class="mm-k">If it were RPA</div>
+            <h4>Automates clicks on a fixed screen</h4>
+            <p>Breaks the moment a rule or a UI changes. No judgment, no exceptions handling.</p>
+          </div>
+          <div class="mmcard">
+            <div class="mm-k">If it were a copilot</div>
+            <h4>Answers when asked</h4>
+            <p>Waits for a prompt. The outcome — and the work of getting there — is still on your desk.</p>
+          </div>
+          <div class="mmcard">
+            <div class="mm-k">If it were a BPO</div>
+            <h4>Owns the outcome, off-site</h4>
+            <p>Takes the job, but off your systems, outside your controls, and on someone else's timeline.</p>
+          </div>
+          <div class="mmcard">
+            <div class="mm-k">If it were a custom build</div>
+            <h4>Fits exactly, eventually</h4>
+            <p>Gets you precisely what you need — after months of engineering you then have to staff and maintain.</p>
+          </div>
+        </div>
+
+        <p class="mm-synth rv">Zamp <b>owns outcomes</b> like a BPO, <b>lives inside your systems</b> like RPA,
+          <b>reasons through exceptions</b> like an agent, and <b>reports like staff</b> — without the failure mode of
+          any one category alone.</p>
+
+        <div class="tradeoffs">
+          <div class="rv">
+            <span class="toh adv">Where it's a clear advantage</span>
+            <ul class="tolist adv">
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg><span><b>Scales with volume, not with hiring cycles</b> — spins up for a surge in minutes and
+                  stands down at no idle cost.</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg><span><b>100% consistent SOP adherence</b>, with a documented rationale and instant audit trail
+                  on every case.</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg><span><b>Institutional knowledge that stays</b>, even when the person who built the process
+                  leaves.</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg><span><b>Live in one to two weeks</b>, with no engineering effort required on your side.</span>
+              </li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg><span><b>Accuracy compounds every week</b> through the feedback loop, not just at go-live.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="rv" data-d="1">
+            <span class="toh trd">Where it isn't a fit yet</span>
+            <ul class="tolist trd">
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M8 12h8" />
+                </svg><span><b>Needs a real process to learn from</b> — SOPs, historical cases, time with your
+                  operators. It won't invent a process for a workflow that's never run before.</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M8 12h8" />
+                </svg><span><b>Escalates rather than guesses</b> — anything outside its proven thresholds still goes to
+                  a person, by design.</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M8 12h8" />
+                </svg><span><b>The full value curve takes months to compound</b> — the first case it resolves isn't
+                  the best one it will ever resolve.</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M8 12h8" />
+                </svg><span><b>Deploys inside your perimeter</b>, which means your own model-layer and
+                  data-governance decisions come first, not after.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 9. DETAILED SECURITY, RISK & COMPLIANCE POSTURE -->
+    <!-- ============================================================ -->
+    <section class="sec" id="security">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="kicker-lbl">Security, risk &amp; compliance</span>
+          <h2>Every decision leaves a trail</h2>
+          <p class="lead">The part a certificate can't answer: how it behaves inside your risk framework. And the part
+            a promise can't answer: how it's independently verified.</p>
+        </div>
+        <div class="gov">
+          <div class="gitem rv">
+            <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 11l3 3L22 4" />
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+              </svg></div>
+            <div>
+              <h3>A documented rationale on every decision</h3>
+              <p>No black box risk. You can read why it did what it did, and who approved it.</p>
+            </div>
+          </div>
+          <div class="gitem rv" data-d="1">
+            <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 7h-9M14 17H5M17 21a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM7 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+              </svg></div>
+            <div>
+              <h3>Escalation thresholds you set</h3>
+              <p>For each workflow, set by your team. Anything outside the standard policy goes to a person.</p>
+            </div>
+          </div>
+          <div class="gitem rv">
+            <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4z" />
+                <path d="M4 9h16M9 9v11" />
+              </svg></div>
+            <div>
+              <h3>Built for your model-risk inventory</h3>
+              <p>Validation-ready documentation from day one. No reconstruction of evidence, and extra audit prep
+                overhead.</p>
+            </div>
+          </div>
+          <div class="gitem rv" data-d="1">
+            <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg></div>
+            <div>
+              <h3>Your data stays in your control</h3>
+              <p>No training on your proprietary data. Deployment respects your data boundaries and regulatory
+                perimeters.</p>
+            </div>
+          </div>
+
+          <div class="gov-divider"><span class="flabel">Independently verified</span></div>
+
+          <div class="gitem rv">
+            <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 11l3 3L22 4" />
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+              </svg></div>
+            <div>
+              <h3>SOC 1 Type II — audited</h3>
+              <p>Controls over financial reporting, independently examined over time. The standard your own auditors
+                expect from any system touching financial data.</p>
+            </div>
+          </div>
+          <div class="gitem rv" data-d="1">
+            <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg></div>
+            <div>
+              <h3>SOC 2 Type II — audited</h3>
+              <p>Controls for security, availability and confidentiality, examined over a period of time, not a
+                point-in-time snapshot.</p>
+            </div>
+          </div>
+          <div class="gitem rv">
+            <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6.5" />
+                <path d="M8.5 13.7L7 21l5-2.7 5 2.7-1.5-7.3" />
+              </svg></div>
+            <div>
+              <h3>ISO 27001:2022 — certified</h3>
+              <p>Our information security management system meets the international standard for how security is
+                managed, not just implemented.</p>
+            </div>
+          </div>
+          <div class="gitem rv" data-d="1">
+            <div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="10" rx="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg></div>
+            <div>
+              <h3>GDPR — compliant</h3>
+              <p>Full compliance with EU data protection law, with documented breach notification and data-subject
+                rights handling.</p>
+            </div>
+          </div>
+        </div>
+        <p class="govnote rv">Data encrypted in transit and at rest. Role-based access control with multi-factor
+          authentication. Hosted on AWS and GCP infrastructure with built-in redundancy. Full security posture, audit
+          reports, and control mappings are available under NDA.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 10. INTEGRATIONS -->
+    <!-- ============================================================ -->
+    <section class="wall" id="integrations">
+      <div class="wrap head rv">
+        <h2>Works with the systems your teams already use</h2>
+        <p>API where one exists, a browser agent where it doesn't. Every action is session-recorded, so your audit
+          trail builds itself no matter how many systems the AI employee touches.</p>
+      </div>
+      <div class="marquee">
+        <div class="track" id="track"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 11. CTA -->
+    <!-- ============================================================ -->
+    <section class="sec blue" id="cta">
       <div class="wrap">
         <div class="sec-head rv" style="margin-bottom:0">
           <h2>Start with one process.<br> Scale with confidence.</h2>
@@ -2700,7 +3131,9 @@
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- ============================================================ -->
+    <!-- 12. FAQ -->
+    <!-- ============================================================ -->
     <section class="sec" id="faq">
       <div class="wrap">
         <div class="sec-head rv">
@@ -2730,22 +3163,20 @@
           </div>
           <div class="qa"><button>Model risk will never sign off on a black box.<span class="pm"></span></button>
             <div class="ans">
-              <p>There is no black box. Every decision arrives with a documented rationale and audit trail, built to sit
-                inside your
-                model inventory from day one.</p>
+              <p>There is no black box. Every decision arrives with a documented rationale and audit trail, built to
+                sit inside your model inventory from day one.</p>
             </div>
           </div>
           <div class="qa"><button>Our data can't leave the building.<span class="pm"></span></button>
             <div class="ans">
               <p>It doesn't. Deployment stays inside your perimeter. Data residency, deployment options, and
-                certifications are covered on
-                the security page.</p>
+                certifications are covered on the security page.</p>
             </div>
           </div>
           <div class="qa"><button>We tried RPA and it broke constantly.<span class="pm"></span></button>
             <div class="ans">
-              <p>RPA breaks when a rule or a screen changes. This handles the judgment calls, escalates what it's unsure
-                about, and gets measured like staff rather than a script.</p>
+              <p>RPA breaks when a rule or a screen changes. This handles the judgment calls, escalates what it's
+                unsure about, and gets measured like staff rather than a script.</p>
             </div>
           </div>
           <div class="qa"><button>Deployment will take 18 months.<span class="pm"></span></button>
@@ -2754,7 +3185,7 @@
             </div>
           </div>
         </div>
-        <div class="rv" style="margin-top:52px"><a href="#pilot" class="btn btn-ink">Book a demo <span
+        <div class="rv" style="margin-top:52px"><a href="#cta" class="btn btn-ink">Book a demo <span
               class="ar">→</span></a></div>
       </div>
     </section>
@@ -2792,19 +3223,19 @@
         <div>
           <h4>Platform</h4>
           <ul>
-            <li><a href="#how">How it works</a></li>
-            <li><a href="#governance">Governance</a></li>
+            <li><a href="#how">How it runs</a></li>
+            <li><a href="#security">Security</a></li>
             <li><a href="#integrations">Integrations</a></li>
-            <li><a href="#">Security</a></li>
+            <li><a href="#">Security page</a></li>
           </ul>
         </div>
         <div>
           <h4>Company</h4>
           <ul>
-            <li><a href="#cases">Customers</a></li>
+            <li><a href="#results">Customers</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Careers</a></li>
-            <li><a href="#pilot">Scope a pilot</a></li>
+            <li><a href="#cta">Book a demo</a></li>
           </ul>
         </div>
       </div>
@@ -2872,7 +3303,6 @@
         function show(i) {
           idx = (i + stages.length) % stages.length;
           stages.forEach(function (s, k) { s.classList.remove('on'); });
-          // force reflow so the progress-bar animation restarts
           void stages[idx].offsetWidth; stages[idx].classList.add('on');
         }
         function start() { if (reduce) return; stop(); timer = setInterval(function () { if (!paused) show(idx + 1); }, 4200); }
@@ -2895,7 +3325,7 @@
         });
       });
 
-      /* logo wall */
+      /* logo wall (systems) */
       var logos = [
         { img: 'logos/visa.svg', alt: 'Visa' }, { img: 'logos/mastercard.svg', alt: 'Mastercard' },
         { word: 'Fiserv', mono: 'DRS' }, { img: 'logos/swift.svg', alt: 'Swift' },
