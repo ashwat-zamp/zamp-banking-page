@@ -1,0 +1,11 @@
+services:
+  zamp-banking-page:
+    build: .
+    ports:
+      - "8793:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost/index.html"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
