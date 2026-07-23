@@ -155,13 +155,20 @@
 
     .case-card { background: var(--blue-subtle); border: 1px solid rgba(0,94,255,.15); border-radius: 16px; padding: clamp(28px,4vw,40px) }
     .case { display: grid; grid-template-columns: 1fr; gap: 32px }
-    @media(min-width:880px) { .case { grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: flex-start } }
+    @media(min-width:920px) { .case { grid-template-columns: 1.25fr .75fr; gap: 40px; align-items: flex-start } }
     .case .who { font-family: var(--mono); font-size: 11.5px; letter-spacing: 1px; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; font-weight: 600 }
     .case h3 { font-size: clamp(22px,2.6vw,28px); margin-bottom: 12px; letter-spacing: -.03em }
     .case .txt { font-size: 15px; line-height: 1.55; color: var(--body); margin-bottom: 20px }
-    .case .detail-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: var(--body) }
-    .case .detail-list li { position: relative; padding-left: 20px; line-height: 1.45 }
-    .case .detail-list li::before { content: ""; position: absolute; left: 0; top: .55em; width: 6px; height: 6px; border-radius: 50%; background: var(--blue) }
+
+    /* Bento Flow Step Cards */
+    .bento-flow { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 20px }
+    @media(min-width:640px) { .bento-flow { grid-template-columns: repeat(2,1fr) } }
+    .bento-card { background: var(--white); border: 1px solid rgba(0,94,255,.14); border-radius: 12px; padding: 16px 18px; transition: all .2s var(--ease) }
+    .bento-card:hover { border-color: var(--blue); box-shadow: 0 6px 20px -8px rgba(0,94,255,.22); transform: translateY(-2px) }
+    .bento-step { font-family: var(--mono); font-size: 11px; font-weight: 600; color: var(--blue); letter-spacing: .5px; margin-bottom: 6px }
+    .bento-title { font-size: 14.5px; font-weight: 600; color: var(--ink); margin-bottom: 4px; line-height: 1.3 }
+    .bento-text { font-size: 13px; color: var(--body); line-height: 1.45 }
+
     .cmetrics { border-top: 1px solid rgba(0,94,255,.12); background: var(--white); border-radius: 12px; padding: 8px 20px; border: 1px solid var(--hair) }
     .cm { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--hair-2) }
     .cm:last-child { border-bottom: none }
@@ -202,7 +209,7 @@
     @keyframes progfill { from{width:0} to{width:100%} }
     @media(prefers-reduced-motion:reduce) { .stage.on .prog{animation:none;width:100%} }
 
-    /* Deep Workflows Grid (8 Operational Domains) */
+    /* Deep Workflows Grid */
     .wf-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 32px }
     @media(min-width:768px) { .wf-grid { grid-template-columns: repeat(2,1fr) } }
     .wf-card { background: var(--white); border: 1px solid var(--hair); border-radius: 16px; padding: 28px; transition: border-color .2s, box-shadow .2s }
@@ -415,12 +422,31 @@
                 <div class="who">Tier-1 UK Bank · Financial Crime Operations</div>
                 <h3>Sanctions &amp; PEP Alert Screening (L1 + L2)</h3>
                 <p class="txt">A Tier-1 UK Bank processed thousands of sanctions alerts monthly across OFAC, UN, EU, and UK OFSI watchlists. The vast majority were false positives consuming analyst bandwidth.</p>
-                <ul class="detail-list">
-                  <li><b>Fircosoft/Vigil Integration:</b> Receives alerts, deduplicates, and scores composite priority across 9 risk factors.</li>
-                  <li><b>Multi-Method Name Matching:</b> Handles Cyrillic romanization, multilingual transliteration, and cultural naming norms.</li>
-                  <li><b>Autonomous Browser Agent:</b> Performs live lookups on OFSI portals and Google News adverse media checks to confirm hits.</li>
-                  <li><b>L1 False Positives &amp; L2 Escalations:</b> Auto-dispositions low-risk alerts; deep-dives Companies House, SEC EDGAR, and beneficial ownership up to 3 network levels for MLRO sign-off.</li>
-                </ul>
+
+                <!-- Process Bento Step Grid -->
+                <div class="bento-flow">
+                  <div class="bento-card">
+                    <div class="bento-step">01 · SIGNAL INGESTION</div>
+                    <div class="bento-title">Fircosoft &amp; Vigil Integration</div>
+                    <p class="bento-text">Ingests raw sanctions queues, deduplicates redundant alerts, and scores composite priority across 9 risk factors.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">02 · ENTITY RESOLUTION</div>
+                    <div class="bento-title">Multilingual Context Matching</div>
+                    <p class="bento-text">Resolves Cyrillic romanization, Arabic transliteration, and cultural naming variations beyond string matches.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">03 · LIVE VERIFICATION</div>
+                    <div class="bento-title">Autonomous Browser Agent</div>
+                    <p class="bento-text">Executes live web lookups on OFSI portals, UK Companies House, and Google News adverse media feeds.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">04 · DISPOSITION &amp; AUDIT</div>
+                    <div class="bento-title">L1 Clearance &amp; L2 Escalation</div>
+                    <p class="bento-text">Auto-dispositions L1 false positives; maps beneficial ownership up to 3 network levels for MLRO sign-off.</p>
+                  </div>
+                </div>
+
               </div>
               <div class="cmetrics">
                 <div class="cm"><div class="v"><span class="count" data-to="85">0</span><span class="s">%</span></div><div class="l">TAT reduction on alert disposition</div></div>
@@ -440,11 +466,31 @@
                 <div class="who">Tier-1 UK Bank · Fraud &amp; Dispute Operations</div>
                 <h3>End-to-End Chargeback Dispute Management</h3>
                 <p class="txt">Operations teams manually worked disputes across four disconnected portals (Fiserv DRS, TCS, Unity, MCom) with an 18-step process, zero triage, and strict card scheme deadlines.</p>
-                <ul class="detail-list">
-                  <li><b>Multi-System Queue Ingestion:</b> Monitors Fiserv DRS queue daily, reads merchant evidence via Visa VROL and Mastercard MCM.</li>
-                  <li><b>Automated Scheme Rules:</b> Applies dispute-type remediation logic per Visa/Mastercard network specifications.</li>
-                  <li><b>Remediation &amp; Redebit Execution:</b> Dispatches customer notices via DRS/Unity or Thunderhead, keys redebits directly with Consumer Duty balance checks.</li>
-                </ul>
+
+                <!-- Process Bento Step Grid -->
+                <div class="bento-flow">
+                  <div class="bento-card">
+                    <div class="bento-step">01 · PORTAL INGESTION</div>
+                    <div class="bento-title">Multi-Queue Aggregation</div>
+                    <p class="bento-text">Monitors daily Fiserv DRS, TCS, Unity, and MCom dispute queues without manual portal hopping.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">02 · NETWORK RULES</div>
+                    <div class="bento-title">Automated Scheme Remediation</div>
+                    <p class="bento-text">Applies Visa VROL and Mastercard MCM dispute-type rules to validate merchant representment evidence.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">03 · FULFILLMENT</div>
+                    <div class="bento-title">Notice &amp; Redebit Dispatch</div>
+                    <p class="bento-text">Keys customer notices via Thunderhead and dispatches debit adjustments with Consumer Duty balance checks.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">04 · GOVERNANCE</div>
+                    <div class="bento-title">Zero Deadline Slippage</div>
+                    <p class="bento-text">Eliminates missed card scheme windows and logs an end-to-end audit trail for internal compliance.</p>
+                  </div>
+                </div>
+
               </div>
               <div class="cmetrics">
                 <div class="cm"><div class="v">~<span class="count" data-to="10">0</span><span class="s">%</span></div><div class="l">increase in chargeback win-rate</div></div>
@@ -464,11 +510,31 @@
                 <div class="who">Top-7 Global Bank · Corporate &amp; Institutional Trade</div>
                 <h3>Trade Finance Letter of Credit (LC) Examination</h3>
                 <p class="txt">Processing thousands of financing and LC requests monthly required validating 8 to 15 document types (bills of lading, invoices, packing lists, certs of origin) against LC terms and ICC rules.</p>
-                <ul class="detail-list">
-                  <li><b>Document Intelligence:</b> Classifies document presentations and extracts structured field data automatically.</li>
-                  <li><b>Cross-Document Consistency Verification:</b> Verifies quantity, date, and party alignment across all 8 to 15 documents.</li>
-                  <li><b>UCP 600 Analysis &amp; Screening:</b> Validates presentations against ICC UCP 600 / ISBP 745 rules and runs parallel vessel sanctions screening.</li>
-                </ul>
+
+                <!-- Process Bento Step Grid -->
+                <div class="bento-flow">
+                  <div class="bento-card">
+                    <div class="bento-step">01 · INTAKE &amp; PARSING</div>
+                    <div class="bento-title">Multi-Doc Extraction</div>
+                    <p class="bento-text">Ingests and extracts structured field data across 8 to 15 document types (bills of lading, invoices, certs of origin).</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">02 · CROSS-DOCUMENT</div>
+                    <div class="bento-title">Consistency Verification</div>
+                    <p class="bento-text">Checks quantity, date, vessel, and party alignment across all presentation documents simultaneously.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">03 · ICC RULE ENGINE</div>
+                    <div class="bento-title">UCP 600 &amp; ISBP 745 Analysis</div>
+                    <p class="bento-text">Validates presentations against ICC international banking rules and generates instant discrepancy reports.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">04 · RISK &amp; APPROVAL</div>
+                    <div class="bento-title">Vessel &amp; Sanctions Screening</div>
+                    <p class="bento-text">Runs vessel tracking and counterparty sanctions checks before dispatching same-day approval notices.</p>
+                  </div>
+                </div>
+
               </div>
               <div class="cmetrics">
                 <div class="cm"><div class="v"><span class="count" data-to="70">0</span><span class="s">%</span></div><div class="l">TAT reduction in document processing</div></div>
@@ -488,11 +554,31 @@
                 <div class="who">Tier-1 UAE Bank · Financial Crime Compliance</div>
                 <h3>Real-Time Transaction Screening &amp; Chargebacks</h3>
                 <p class="txt">A leading digital bank reviewed thousands of daily payment alerts across WorldCheck, Dow Jones, Monitor codes, and internal watchlists with zero tolerance for error during rapid transaction growth.</p>
-                <ul class="detail-list">
-                  <li><b>Real-Time Stream Processing:</b> Monitors transactions against watchlists as payments flow through the processor.</li>
-                  <li><b>Multilingual Contextual Matching:</b> Accounts for regional naming norms and transliteration beyond simple string matching.</li>
-                  <li><b>Zero-Touch Chargebacks:</b> Browser agent files dispute responses directly in card portals (70%+ zero-touch in &lt;10 min).</li>
-                </ul>
+
+                <!-- Process Bento Step Grid -->
+                <div class="bento-flow">
+                  <div class="bento-card">
+                    <div class="bento-step">01 · STREAM INTAKE</div>
+                    <div class="bento-title">Real-Time Payment Feed</div>
+                    <p class="bento-text">Intercepts live transactions against WorldCheck, Dow Jones, and internal watchlists with sub-second latency.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">02 · PHONETIC MATCHING</div>
+                    <div class="bento-title">Regional Transliteration</div>
+                    <p class="bento-text">Identifies complex Arabic and regional name variations to eliminate false negatives during peak volume.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">03 · TRIAGE SLAs</div>
+                    <div class="bento-title">Sub-5 Min Decisioning</div>
+                    <p class="bento-text">Clears low-risk payment holds automatically while routing high-risk hits directly to compliance leads.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">04 · DISPUTE PORTAL</div>
+                    <div class="bento-title">Zero-Touch Representment</div>
+                    <p class="bento-text">Files chargeback dispute responses directly into card schemes in under 10 minutes (70%+ zero-touch).</p>
+                  </div>
+                </div>
+
               </div>
               <div class="cmetrics">
                 <div class="cm"><div class="v">Real-time</div><div class="l">alert processing flow</div></div>
@@ -512,11 +598,31 @@
                 <div class="who">Global FinTech Leader · Corporate Accounting</div>
                 <h3>Accounting OpEx Reclassification &amp; SOX Audits</h3>
                 <p class="txt">An enterprise accounting team reviewed OpEx invoices monthly to catch miscoded CapEx and prepaid amortizations across thousands of Oracle GL and AP line items within a tight 10-day close window.</p>
-                <ul class="detail-list">
-                  <li><b>Direct Oracle API Integration:</b> Extracts GL journal lines, filters intercompany tax lines, and enriches PO metadata.</li>
-                  <li><b>Hybrid Classification Engine:</b> Combines LLM contextual judgment with deterministic Python execution rules.</li>
-                  <li><b>Journal Entry Generation:</b> Generates balanced debit/credit journal entries in Oracle-ready FBDI format with 5-point SOX audit logs.</li>
-                </ul>
+
+                <!-- Process Bento Step Grid -->
+                <div class="bento-flow">
+                  <div class="bento-card">
+                    <div class="bento-step">01 · GL INGESTION</div>
+                    <div class="bento-title">Direct Oracle API Connection</div>
+                    <p class="bento-text">Extracts GL journal line items, filters intercompany tax entries, and enriches purchase order metadata.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">02 · HYBRID JUDGMENT</div>
+                    <div class="bento-title">Deterministic &amp; LLM Rules</div>
+                    <p class="bento-text">Combines LLM contextual analysis with deterministic Python rules to detect miscoded CapEx &amp; prepaid items.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">03 · JOURNAL GENERATION</div>
+                    <div class="bento-title">Oracle FBDI Interface</div>
+                    <p class="bento-text">Automatically constructs balanced debit/credit journal entries formatted for instant Oracle upload.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">04 · SOX AUDITABILITY</div>
+                    <div class="bento-title">5-Point Audit Verification</div>
+                    <p class="bento-text">Attaches a complete 5-point SOX compliance trail to every reclassification before ledger posting.</p>
+                  </div>
+                </div>
+
               </div>
               <div class="cmetrics">
                 <div class="cm"><div class="v"><span class="count" data-to="75">0</span><span class="s">%</span></div><div class="l">reduction in human touchpoints</div></div>
@@ -536,11 +642,31 @@
                 <div class="who">US Market Exchange · Institutional Onboarding</div>
                 <h3>Institutional Client Onboarding &amp; LEI Validation</h3>
                 <p class="txt">A major market exchange spanned AML checks, KYC collection, LEI validation, and regulatory classification across 200+ disjointed onboarding flows that caused customer friction and delays.</p>
-                <ul class="detail-list">
-                  <li><b>Front-End Integration:</b> Replaced static forms with real-time validations, guided flows, and automated data extraction.</li>
-                  <li><b>API &amp; Browser Agent Network:</b> Connects to LEI registries, DocuSign, and internal compliance databases.</li>
-                  <li><b>Live Dossier Tracking:</b> Follows up automatically with clients and presents reviewers with a live action-ready dossier.</li>
-                </ul>
+
+                <!-- Process Bento Step Grid -->
+                <div class="bento-flow">
+                  <div class="bento-card">
+                    <div class="bento-step">01 · SMART INTAKE</div>
+                    <div class="bento-title">Guided Dynamic Forms</div>
+                    <p class="bento-text">Replaces static questionnaires with real-time validations, guided uploads, and automated field extraction.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">02 · REGISTRIES &amp; APIS</div>
+                    <div class="bento-title">API &amp; Browser Network</div>
+                    <p class="bento-text">Connects directly to LEI registries, DocuSign, SEC EDGAR, and internal compliance databases.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">03 · AUTOMATED NUDGING</div>
+                    <div class="bento-title">Zero Document Chasing</div>
+                    <p class="bento-text">Tracks missing client documentation and dispatches automated follow-up reminders.</p>
+                  </div>
+                  <div class="bento-card">
+                    <div class="bento-step">04 · DOSSIER ASSEMBLY</div>
+                    <div class="bento-title">Reviewer-Ready Package</div>
+                    <p class="bento-text">Assembles a complete, pre-vetted onboarding dossier with risk scoring for immediate officer sign-off.</p>
+                  </div>
+                </div>
+
               </div>
               <div class="cmetrics">
                 <div class="cm"><div class="v"><span class="count" data-to="95">0</span><span class="s">%</span></div><div class="l">TAT reduction in client onboarding</div></div>
