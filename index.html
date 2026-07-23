@@ -82,11 +82,11 @@
     .nav-in { display: flex; align-items: center; justify-content: space-between; height: 66px }
     .brand { display: flex; align-items: center; gap: 10px; color: #fff }
     .brand .tag { font-family: var(--mono); font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,.5); padding-left: 11px; border-left: 1px solid rgba(255,255,255,.2) }
-    .nav-links { display: none; gap: 24px; align-items: center }
-    .nav-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,.75); transition: color .2s }
+    .nav-links { display: none; gap: 20px; align-items: center }
+    .nav-links a { font-size: 13.5px; font-weight: 500; color: rgba(255,255,255,.75); transition: color .2s }
     .nav-links a:hover { color: #fff }
     .nav-cta .btn { padding: 9px 16px; font-size: 13.5px }
-    @media(min-width:920px) { .nav-links { display: flex } }
+    @media(min-width:980px) { .nav-links { display: flex } }
     .nav.scrolled { background: rgba(252,252,252,.88); backdrop-filter: saturate(180%) blur(16px); border-bottom: 1px solid var(--hair) }
     .nav.scrolled .brand { color: var(--ink) }
     .nav.scrolled .brand .tag { color: var(--muted); border-color: var(--hair) }
@@ -118,7 +118,7 @@
 
     /* section frame */
     .sec { padding: clamp(64px,9vh,100px) 0 }
-    .sec-head { max-width: 700px; margin-bottom: clamp(36px,5vh,48px) }
+    .sec-head { max-width: 720px; margin-bottom: clamp(36px,5vh,48px) }
     .sec-head h2 { margin-bottom: 14px }
 
     /* customer logos */
@@ -196,7 +196,7 @@
     .trait-table td.digi { color: var(--ink); font-weight: 500; font-size: 14.5px; width: 39%; background: var(--blue-subtle) }
     .trait-table td.digi b { color: var(--blue) }
 
-    /* 3-Step Lifecycle */
+    /* Product How-It-Works Lifecycle Cards */
     .loop { display: grid; grid-template-columns: 1fr; gap: 18px }
     @media(min-width:840px) { .loop { grid-template-columns: repeat(3,1fr); gap: 20px } }
     .stage { border: 1px solid var(--hair); border-radius: 16px; padding: 28px 24px; background: var(--white); position: relative; overflow: hidden; cursor: pointer; transition: border-color .3s var(--ease), box-shadow .3s var(--ease), transform .3s var(--ease) }
@@ -304,12 +304,13 @@
         <span class="tag">Banking</span>
       </a>
       <nav class="nav-links">
-        <a href="#impact">Impact Proof</a>
+        <a href="#domains">Operational Domains</a>
+        <a href="#impact">Proved Use Cases</a>
+        <a href="#usecases">Workflows Catalog</a>
         <a href="#trust">Governance</a>
-        <a href="#dilemma">The Reality</a>
-        <a href="#democratization">3-Step Lifecycle</a>
+        <a href="#dilemma">Why Central AI Fails</a>
+        <a href="#democratization">How Zamp Works</a>
         <a href="#traits">Traits</a>
-        <a href="#usecases">Workflows</a>
         <a href="#transformation">Transformation</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -328,7 +329,7 @@
         <p class="lead">An intelligent, self-learning digital employee for institutions where precision is non-negotiable. Zamp joins your organization as a teammate to own end to end execution across core banking systems—built and deployed in under 2 weeks without engineering effort.</p>
         <div class="hero-actions">
           <a href="#cta" class="btn btn-primary">Schedule Executive Briefing <span class="ar">→</span></a>
-          <a href="#impact" class="btn btn-light">Explore Production Proof</a>
+          <a href="#domains" class="btn btn-light">Explore Operational Domains</a>
         </div>
         <div class="hero-specs">
           <div class="hero-spec-item">
@@ -373,16 +374,17 @@
       </div>
     </section>
 
-    <!-- SECTION 1: LIVE CUSTOMER IMPACT (EARLY PROOF) -->
-    <section class="sec" style="background:var(--white);border-top:1px solid var(--hair)" id="impact">
+    <!-- SECTION 1: OPERATIONAL DOMAINS & PRODUCTION METRICS (UPFRONT POSITION) -->
+    <section class="sec" style="background:var(--white);border-top:1px solid var(--hair)" id="domains">
       <div class="wrap">
         <div class="sec-head rv">
-          <h2>Empirical results from live enterprise operations</h2>
-          <p class="lead">Zamp digital employees operate directly inside production queues across Tier-1 global institutions, delivering speed, precision, and complete auditability.</p>
+          <h2>Banking operational domains Zamp digital employees run</h2>
+          <p class="lead">Pre-trained digital employees deployed across financial crime, chargebacks, trade finance, payments, and accounting—operating directly inside live banking queues with measured institutional impact.</p>
         </div>
       </div>
     </section>
 
+    <!-- Production Impact Metrics Banner -->
     <section class="metrics">
       <div class="wrap">
         <div class="mgrid">
@@ -406,8 +408,14 @@
       </div>
     </section>
 
-    <section class="sec" style="background:var(--white);padding-top:clamp(40px,6vh,56px)">
+    <!-- SECTION 2: PROVED PRODUCTION USE CASES (Case Study Panels with Bento Step Grids) -->
+    <section class="sec" style="background:var(--white);padding-top:clamp(40px,6vh,56px)" id="impact">
       <div class="wrap rv">
+        <div class="sec-head" style="margin-bottom:28px">
+          <h2>Empirical results from live enterprise operations</h2>
+          <p class="lead">Select an operational domain below to inspect exact process step execution and verified production metrics.</p>
+        </div>
+
         <div class="tabs" data-tabset="case">
           <button class="tab on" data-t="c0">Sanctions Screening</button>
           <button class="tab" data-t="c1">Chargebacks &amp; Disputes</button>
@@ -720,150 +728,11 @@
       </div>
     </section>
 
-    <!-- SECTION 2: REGULATORY GOVERNANCE & AUDITABILITY -->
-    <section class="sec dark" id="trust">
-      <div class="wrap">
-        <div class="sec-head rv">
-          <h2>Built for bank examiners, model risk, and CRO sign-off</h2>
-          <p class="lead" style="color:rgba(255,255,255,.68)">Financial institutions cannot take security claims on faith. Zamp provides 100% regulatory compliance, complete auditability, and human accountability for every action taken.</p>
-        </div>
-
-        <div class="certrow rv">
-          <div class="certbadge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            <div><div class="cb-name">SOC 1 Type II</div><div class="cb-status">Audited Controls</div></div>
-          </div>
-          <div class="certbadge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <div><div class="cb-name">SOC 2 Type II</div><div class="cb-status">Security &amp; Privacy</div></div>
-          </div>
-          <div class="certbadge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="6.5"/><path d="M8.5 13.7L7 21l5-2.7 5 2.7-1.5-7.3"/></svg>
-            <div><div class="cb-name">ISO 27001:2022</div><div class="cb-status">Certified ISMS</div></div>
-          </div>
-          <div class="certbadge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <div><div class="cb-name">GDPR &amp; GxP</div><div class="cb-status">Fully Compliant</div></div>
-          </div>
-        </div>
-
-        <p class="trustnote rv"><b>Zero Model Training on Customer Telemetry.</b> Your banking records, transactions, and SOPs remain strictly private. Every decision generates a documented audit trail ready for internal auditors and regulators.</p>
-      </div>
-    </section>
-
-    <!-- SECTION 3: THE OPERATIONAL DILEMMA & WHY AI AUTOMATION FAILS (Warm Amber Tint) -->
-    <section class="sec dilemma-sec" id="dilemma">
-      <div class="wrap">
-        <div class="sec-head rv">
-          <h2>Central IT automation is unscalable. Copilots add workload.</h2>
-          <p class="lead">Traditional automation projects stall due to three fundamental bottlenecks. Meanwhile, AI copilots merely assist staff with prompts, leaving humans in the operational bottleneck.</p>
-        </div>
-
-        <div class="prob-grid rv">
-          <div class="prob-card">
-            <h3>SOPs Are Only 30% to 40% Accurate</h3>
-            <p>Undocumented operator know-how stays locked in analysts' heads. Constant back-and-forth between business teams and engineering slows deployment and causes accuracy drops.</p>
-          </div>
-          <div class="prob-card">
-            <h3>Nuanced Engineering Complexity</h3>
-            <p>Every workflow nuance requires specific tooling: deterministic Python code, multi-agent orchestrations, vector search, or browser agents. Hand-building these creates custom technical debt.</p>
-          </div>
-          <div class="prob-card">
-            <h3>Central IT Bandwidth Constraints</h3>
-            <p>Central IT automation teams never have enough bandwidth to prioritize requests across operational units, causing multi-year backlogs for essential queue improvements.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 4: HOW ZAMP DEMOCRATIZATION WORKS (3-STEP LIFECYCLE) -->
-    <section class="sec" style="background:var(--white);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)" id="democratization">
-      <div class="wrap">
-        <div class="sec-head rv">
-          <h2>Democratize digital employees for functional managers</h2>
-          <p class="lead">Zamp enables business and operations teams to hire, train, and deploy digital employees in under 2 weeks, with zero engineering effort required.</p>
-        </div>
-
-        <div class="loop rv" id="loop">
-          <div class="stage on" data-i="0">
-            <span class="stime">STEP 1 · 1 TO 2 WEEKS</span>
-            <h3>Document &amp; Capture Tacit Knowledge</h3>
-            <p>The Onboarding Agent reads SOPs, policies, and training videos, interviews operators to surface undocumented know-how, and mines 3 to 6 months of historical case data for edge cases.</p>
-            <div class="outcome-tag">Outcome: <b>Agent Operating Procedure (AOP)</b> 5 to 10x richer than static SOPs.</div>
-            <span class="prog"></span>
-          </div>
-
-          <div class="stage" data-i="1">
-            <span class="stime">STEP 2 · UNDER 1 WEEK</span>
-            <h3>Automate Workflow Autonomously</h3>
-            <p>The Recursive Engineering Agent architects each step, writes deterministic code, selects optimal tools (prompts, multi-agents, vector search, browser agents), and runs self-testing for accuracy, cost, and latency.</p>
-            <div class="outcome-tag">Outcome: <b>Production-Ready Digital Worker</b> with zero eng support.</div>
-            <span class="prog"></span>
-          </div>
-
-          <div class="stage" data-i="2">
-            <span class="stime">STEP 3 · UNDER 2 HOURS</span>
-            <h3>Continuous Improvement</h3>
-            <p>The Insights &amp; Feedback Agent incorporates direct feedback from Ops users without IT tickets. AOPs and eval sets update automatically, compounding precision over time.</p>
-            <div class="outcome-tag">Outcome: <b>Compounding Accuracy</b> driven by operational feedback.</div>
-            <span class="prog"></span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 5: TRAITS OF A DIGITAL WORKFORCE -->
-    <section class="sec" id="traits">
-      <div class="wrap">
-        <div class="sec-head rv">
-          <h2>Traditional Workforce vs. Zamp Digital Workforce</h2>
-          <p class="lead">How digital employees fundamentally transform operational capacity, speed, and compliance.</p>
-        </div>
-
-        <table class="trait-table rv">
-          <thead>
-            <tr>
-              <th>Dimension</th>
-              <th>Traditional Workforce</th>
-              <th>Zamp Digital Workforce</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="feature-title">Scale</td>
-              <td class="trad">Ramp-up takes months. Ramp-down requires layoffs or unassigned overhead.</td>
-              <td class="digi"><b>Scale up for volume surges instantly</b> and back down after. Zero cost for idle time.</td>
-            </tr>
-            <tr>
-              <td class="feature-title">Availability</td>
-              <td class="trad">Weekdays, office hours, subject to shift constraints.</td>
-              <td class="digi"><b>24 / 7 / 365 continuous execution</b> with zero downtime.</td>
-            </tr>
-            <tr>
-              <td class="feature-title">Adaptability</td>
-              <td class="trad">Key process changes require multi-week retraining cycles.</td>
-              <td class="digi"><b>Update the SOP, test, and redeploy in hours.</b> Live operational updates.</td>
-            </tr>
-            <tr>
-              <td class="feature-title">Compliance</td>
-              <td class="trad">SOPs followed inconsistently. Internal audits take weeks.</td>
-              <td class="digi"><b>100% SOP adherence on every run.</b> Instant regulatory-grade audit logs.</td>
-            </tr>
-            <tr>
-              <td class="feature-title">Knowledge Retention</td>
-              <td class="trad">Best operators leave and take tacit knowledge to competitors.</td>
-              <td class="digi"><b>Knowledge remains permanently yours</b> with instant insights across all processes.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- SECTION 6: COMPREHENSIVE WORKFLOWS CATALOG (8 OPERATIONAL DOMAINS) -->
+    <!-- SECTION 3: COMPREHENSIVE WORKFLOWS CATALOG (8 OPERATIONAL DOMAINS) -->
     <section class="sec" style="background:var(--white);border-top:1px solid var(--hair)" id="usecases">
       <div class="wrap">
         <div class="sec-head rv">
-          <h2>Banking operational domains Zamp digital employees run</h2>
+          <h2>Full catalog of banking queues Zamp runs</h2>
           <p class="lead">Deep, pre-built operational execution capabilities across 8 core banking queues with complete system interoperability and examiner auditability.</p>
         </div>
 
@@ -1025,7 +894,146 @@
       </div>
     </section>
 
-    <!-- SECTION 7: MULTI-YEAR TRANSFORMATION JOURNEY -->
+    <!-- SECTION 4: TRUST, SECURITY & REGULATORY GOVERNANCE -->
+    <section class="sec dark" id="trust">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <h2>Built for bank examiners, model risk, and CRO sign-off</h2>
+          <p class="lead" style="color:rgba(255,255,255,.68)">Financial institutions cannot take security claims on faith. Zamp provides 100% regulatory compliance, complete auditability, and human accountability for every action taken.</p>
+        </div>
+
+        <div class="certrow rv">
+          <div class="certbadge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            <div><div class="cb-name">SOC 1 Type II</div><div class="cb-status">Audited Controls</div></div>
+          </div>
+          <div class="certbadge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div><div class="cb-name">SOC 2 Type II</div><div class="cb-status">Security &amp; Privacy</div></div>
+          </div>
+          <div class="certbadge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="6.5"/><path d="M8.5 13.7L7 21l5-2.7 5 2.7-1.5-7.3"/></svg>
+            <div><div class="cb-name">ISO 27001:2022</div><div class="cb-status">Certified ISMS</div></div>
+          </div>
+          <div class="certbadge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <div><div class="cb-name">GDPR &amp; GxP</div><div class="cb-status">Fully Compliant</div></div>
+          </div>
+        </div>
+
+        <p class="trustnote rv"><b>Zero Model Training on Customer Telemetry.</b> Your banking records, transactions, and SOPs remain strictly private. Every decision generates a documented audit trail ready for internal auditors and regulators.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 5: THE OPERATIONAL DILEMMA & WHY CENTRAL AI AUTOMATION FAILS -->
+    <section class="sec dilemma-sec" id="dilemma">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <h2>Central IT automation is unscalable. Copilots add workload.</h2>
+          <p class="lead">Traditional AI automation projects stall due to three fundamental bottlenecks. Meanwhile, AI copilots merely assist staff with prompts, leaving human operators stuck in the operational bottleneck.</p>
+        </div>
+
+        <div class="prob-grid rv">
+          <div class="prob-card">
+            <h3>SOPs Are Only 30% to 40% Accurate</h3>
+            <p>Undocumented operator know-how stays locked in analysts' heads. Constant back-and-forth between business teams and engineering slows deployment and causes accuracy drops.</p>
+          </div>
+          <div class="prob-card">
+            <h3>Nuanced Engineering Complexity</h3>
+            <p>Every workflow nuance requires specific tooling: deterministic Python code, multi-agent orchestrations, vector search, or browser agents. Hand-building these creates custom technical debt.</p>
+          </div>
+          <div class="prob-card">
+            <h3>Central IT Bandwidth Constraints</h3>
+            <p>Central IT automation teams never have enough bandwidth to prioritize requests across operational units, causing multi-year backlogs for essential queue improvements.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: HOW ZAMP WORKS FOR BUSINESS USERS (PRODUCT DEMOCRATIZATION ENGINE) -->
+    <section class="sec" style="background:var(--white);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)" id="democratization">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <h2>Democratize digital employees for functional managers</h2>
+          <p class="lead">Zamp enables business and operations leads to hire, train, and deploy digital employees directly in under 2 weeks, with zero engineering effort or IT ticketing required.</p>
+        </div>
+
+        <div class="loop rv" id="loop">
+          <div class="stage on" data-i="0">
+            <span class="stime">STEP 1 · 1 TO 2 WEEKS</span>
+            <h3>Document &amp; Capture Tacit Knowledge</h3>
+            <p>The Onboarding Agent reads SOPs, policies, and training videos, interviews operators to surface undocumented know-how, and mines 3 to 6 months of historical case data for edge cases.</p>
+            <div class="outcome-tag">Outcome: <b>Agent Operating Procedure (AOP)</b> 5 to 10x richer than static SOPs.</div>
+            <span class="prog"></span>
+          </div>
+
+          <div class="stage" data-i="1">
+            <span class="stime">STEP 2 · UNDER 1 WEEK</span>
+            <h3>Automate Workflow Autonomously</h3>
+            <p>The Recursive Engineering Agent architects each step, writes deterministic code, selects optimal tools (prompts, multi-agents, vector search, browser agents), and runs self-testing for accuracy, cost, and latency.</p>
+            <div class="outcome-tag">Outcome: <b>Production-Ready Digital Worker</b> with zero eng support.</div>
+            <span class="prog"></span>
+          </div>
+
+          <div class="stage" data-i="2">
+            <span class="stime">STEP 3 · UNDER 2 HOURS</span>
+            <h3>Continuous Improvement</h3>
+            <p>The Insights &amp; Feedback Agent incorporates direct feedback from Ops users without IT tickets. AOPs and eval sets update automatically, compounding precision over time.</p>
+            <div class="outcome-tag">Outcome: <b>Compounding Accuracy</b> driven by operational feedback.</div>
+            <span class="prog"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: TRAITS OF A DIGITAL WORKFORCE -->
+    <section class="sec" id="traits">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <h2>Traditional Workforce vs. Zamp Digital Workforce</h2>
+          <p class="lead">How digital employees fundamentally transform operational capacity, speed, and compliance.</p>
+        </div>
+
+        <table class="trait-table rv">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Traditional Workforce</th>
+              <th>Zamp Digital Workforce</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="feature-title">Scale</td>
+              <td class="trad">Ramp-up takes months. Ramp-down requires layoffs or unassigned overhead.</td>
+              <td class="digi"><b>Scale up for volume surges instantly</b> and back down after. Zero cost for idle time.</td>
+            </tr>
+            <tr>
+              <td class="feature-title">Availability</td>
+              <td class="trad">Weekdays, office hours, subject to shift constraints.</td>
+              <td class="digi"><b>24 / 7 / 365 continuous execution</b> with zero downtime.</td>
+            </tr>
+            <tr>
+              <td class="feature-title">Adaptability</td>
+              <td class="trad">Key process changes require multi-week retraining cycles.</td>
+              <td class="digi"><b>Update the SOP, test, and redeploy in hours.</b> Live operational updates.</td>
+            </tr>
+            <tr>
+              <td class="feature-title">Compliance</td>
+              <td class="trad">SOPs followed inconsistently. Internal audits take weeks.</td>
+              <td class="digi"><b>100% SOP adherence on every run.</b> Instant regulatory-grade audit logs.</td>
+            </tr>
+            <tr>
+              <td class="feature-title">Knowledge Retention</td>
+              <td class="trad">Best operators leave and take tacit knowledge to competitors.</td>
+              <td class="digi"><b>Knowledge remains permanently yours</b> with instant insights across all processes.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 8: MULTI-YEAR TRANSFORMATION JOURNEY -->
     <section class="sec" id="transformation">
       <div class="wrap">
         <div class="sec-head rv">
@@ -1061,7 +1069,7 @@
       </div>
     </section>
 
-    <!-- SECTION 8: EXECUTIVE FAQ -->
+    <!-- SECTION 9: EXECUTIVE EVALUATION FAQ -->
     <section class="sec" style="background:var(--white);border-top:1px solid var(--hair)" id="faq">
       <div class="wrap">
         <div class="sec-head rv">
@@ -1110,7 +1118,7 @@
       </div>
     </section>
 
-    <!-- SECTION 9: EXECUTIVE CTA -->
+    <!-- SECTION 10: EXECUTIVE CTA -->
     <section class="sec blue" id="cta">
       <div class="wrap">
         <div class="sec-head rv" style="margin-bottom:0">
