@@ -59,10 +59,8 @@
     p { color: var(--body) }
     .lead { font-size: clamp(17px, 1.8vw, 20px); color: var(--body); line-height: 1.55; max-width: 58ch }
 
-    .kicker { font-family: var(--mono); font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--blue); display: block; margin-bottom: 14px; font-weight: 600 }
     .dark { background: var(--ink); color: #fff }
     .dark p { color: rgba(255,255,255,.7) }
-    .dark .kicker { color: var(--blue-bright) }
 
     .mark { height: 22px; width: auto; display: inline-block }
     .mark path { fill: currentColor }
@@ -134,7 +132,7 @@
     .clg .word { font-weight: 600; font-size: 13.5px; color: var(--faint); text-align: center; transition: color .3s }
     .clg:hover .word { color: var(--ink) }
 
-    /* metrics (Soft positive blue tint) */
+    /* metrics */
     .metrics { background: var(--blue-subtle); border-top: 1px solid rgba(0,94,255,.12); border-bottom: 1px solid rgba(0,94,255,.12) }
     .metrics .wrap { padding: clamp(40px,6vh,56px) 24px }
     @media(min-width:768px) { .metrics .wrap { padding: clamp(40px,6vh,56px) 40px } }
@@ -146,7 +144,7 @@
     .mcell .big .s { color: var(--blue); font-size: .55em }
     .mcell .lbl { font-size: 14.5px; font-weight: 500; color: var(--muted); line-height: 1.35 }
 
-    /* tabs + panels (clean domain tabs) */
+    /* tabs + panels */
     .tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; border-bottom: 1px solid var(--hair); padding-bottom: 16px }
     .tab { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--muted); padding: 8px 16px; border: 1px solid var(--hair); border-radius: 8px; background: var(--white); cursor: pointer; transition: all .2s var(--ease) }
     .tab:hover { border-color: var(--blue); color: var(--blue) }
@@ -171,12 +169,11 @@
     .cm .v .s { color: var(--blue); font-size: .55em }
     .cm .l { font-size: 13.5px; color: var(--body) }
 
-    /* Problem Section (Semantic Warning/Friction styling) */
+    /* Problem Section */
     .dilemma-sec { background: #FAF9F5; border-top: 1px solid #EAE6DF; border-bottom: 1px solid #EAE6DF }
     .prob-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 28px }
     @media(min-width:768px) { .prob-grid { grid-template-columns: repeat(3,1fr) } }
     .prob-card { background: var(--white); border: 1px solid #EBE7DF; border-top: 3px solid var(--amber-accent); border-radius: 12px; padding: 26px 22px }
-    .prob-card .prob-num { font-family: var(--mono); font-size: 11px; font-weight: 600; color: var(--amber-accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px }
     .prob-card h3 { font-size: 18px; margin-bottom: 10px; color: var(--ink) }
     .prob-card p { font-size: 14px; line-height: 1.55; color: var(--body) }
 
@@ -205,24 +202,26 @@
     @keyframes progfill { from{width:0} to{width:100%} }
     @media(prefers-reduced-motion:reduce) { .stage.on .prog{animation:none;width:100%} }
 
-    /* Workflows Grid */
-    .fitgrid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--hair-2); border: 1px solid var(--hair-2); border-radius: 18px; overflow: hidden }
-    @media(min-width:720px) { .fitgrid { grid-template-columns: repeat(2,1fr) } }
-    @media(min-width:1040px) { .fitgrid { grid-template-columns: repeat(3,1fr) } }
-    .fitcard { background: var(--white); padding: clamp(24px,3vw,30px); transition: background .2s }
-    .fitcard:hover { background: var(--blue-subtle) }
-    .fitcard .fi { width: 32px; height: 32px; color: var(--blue); margin-bottom: 14px; background: rgba(0,94,255,.08); padding: 6px; border-radius: 8px }
-    .fitcard .fi svg { width: 100%; height: 100% }
-    .fitcard h3 { margin-bottom: 12px; font-size: 18px }
-    .fitcard ul { list-style: none; display: flex; flex-direction: column; gap: 8px }
-    .fitcard li { font-size: 14px; line-height: 1.4; color: var(--body); padding-left: 16px; position: relative }
-    .fitcard li::before { content: ""; position: absolute; left: 0; top: .55em; width: 5px; height: 5px; border-radius: 50%; background: var(--blue) }
+    /* Deep Workflows Grid (8 Operational Domains) */
+    .wf-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 32px }
+    @media(min-width:768px) { .wf-grid { grid-template-columns: repeat(2,1fr) } }
+    .wf-card { background: var(--white); border: 1px solid var(--hair); border-radius: 16px; padding: 28px; transition: border-color .2s, box-shadow .2s }
+    .wf-card:hover { border-color: var(--blue-bright); box-shadow: 0 12px 32px -16px rgba(0,94,255,.25) }
+    .wf-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px }
+    .wf-icon { width: 40px; height: 40px; background: var(--blue-subtle); color: var(--blue); border-radius: 10px; display: grid; place-items: center; flex: none }
+    .wf-icon svg { width: 20px; height: 20px }
+    .wf-card h3 { font-size: 20px; letter-spacing: -.02em }
+    .wf-desc { font-size: 14.5px; color: var(--body); margin-bottom: 18px; line-height: 1.5 }
+    .wf-meta { font-family: var(--mono); font-size: 11.5px; color: var(--muted); background: var(--surface); padding: 8px 12px; border-radius: 6px; margin-bottom: 16px }
+    .wf-meta b { color: var(--ink) }
+    .wf-tasks { list-style: none; display: flex; flex-direction: column; gap: 9px }
+    .wf-tasks li { font-size: 14px; color: var(--body); padding-left: 18px; position: relative; line-height: 1.45 }
+    .wf-tasks li::before { content: "•"; position: absolute; left: 0; color: var(--blue); font-weight: bold }
 
     /* Phased Expansion Roadmap */
     .road-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px }
     @media(min-width:768px) { .road-grid { grid-template-columns: repeat(4,1fr) } }
     .road-card { background: var(--white); border: 1px solid var(--hair); border-top: 3px solid var(--blue); border-radius: 14px; padding: 24px 20px }
-    .road-phase { font-family: var(--mono); font-size: 11px; text-transform: uppercase; color: var(--blue); font-weight: 600; margin-bottom: 6px }
     .road-card h4 { font-size: 17px; margin-bottom: 8px }
     .road-card p { font-size: 13.5px; line-height: 1.45; color: var(--body) }
     .road-stat { margin-top: 14px; font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--blue); background: var(--blue-tint); padding: 5px 10px; border-radius: 6px; display: inline-block }
@@ -315,7 +314,6 @@
       <canvas id="px"></canvas>
       <div class="hero-glow"></div>
       <div class="wrap">
-        <span class="kicker" style="color:var(--blue-bright)">Zamp AI Digital Workforce for Banking</span>
         <h1><span class="ln"><span>The future of work:</span></span><span class="ln"><span>Your AI digital workforce.</span></span></h1>
         <p class="lead">An intelligent, self-learning digital employee for institutions where precision is non-negotiable. Zamp joins your organization as a teammate to own end to end execution across core banking systems—built and deployed in under 2 weeks without engineering effort.</p>
         <div class="hero-actions">
@@ -369,7 +367,6 @@
     <section class="sec" style="background:var(--white);border-top:1px solid var(--hair)" id="impact">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="kicker">Proven Production Impact</span>
           <h2>Empirical results from live enterprise operations</h2>
           <p class="lead">Zamp digital employees operate directly inside production queues across Tier-1 global institutions, delivering speed, precision, and complete auditability.</p>
         </div>
@@ -562,7 +559,6 @@
     <section class="sec dark" id="trust">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="kicker">Security &amp; Regulatory Governance</span>
           <h2>Built for bank examiners, model risk, and CRO sign-off</h2>
           <p class="lead" style="color:rgba(255,255,255,.68)">Financial institutions cannot take security claims on faith. Zamp provides 100% regulatory compliance, complete auditability, and human accountability for every action taken.</p>
         </div>
@@ -594,25 +590,21 @@
     <section class="sec dilemma-sec" id="dilemma">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="kicker" style="color:var(--amber-accent)">The Operational Dilemma</span>
           <h2>Central IT automation is unscalable. Copilots add workload.</h2>
           <p class="lead">Traditional automation projects stall due to three fundamental bottlenecks. Meanwhile, AI copilots merely assist staff with prompts, leaving humans in the operational bottleneck.</p>
         </div>
 
         <div class="prob-grid rv">
           <div class="prob-card">
-            <div class="prob-num">01 · Knowledge Gap</div>
             <h3>SOPs Are Only 30% to 40% Accurate</h3>
             <p>Undocumented operator know-how stays locked in analysts' heads. Constant back-and-forth between business teams and engineering slows deployment and causes accuracy drops.</p>
           </div>
           <div class="prob-card">
-            <div class="prob-num">02 · Engineering Complexity</div>
-            <h3>Nuanced Tooling Demands</h3>
+            <h3>Nuanced Engineering Complexity</h3>
             <p>Every workflow nuance requires specific tooling: deterministic Python code, multi-agent orchestrations, vector search, or browser agents. Hand-building these creates custom technical debt.</p>
           </div>
           <div class="prob-card">
-            <div class="prob-num">03 · IT Bottlenecks</div>
-            <h3>Central Bandwidth Constraints</h3>
+            <h3>Central IT Bandwidth Constraints</h3>
             <p>Central IT automation teams never have enough bandwidth to prioritize requests across operational units, causing multi-year backlogs for essential queue improvements.</p>
           </div>
         </div>
@@ -623,7 +615,6 @@
     <section class="sec" style="background:var(--white);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)" id="democratization">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="kicker">The Zamp Solution</span>
           <h2>Democratize digital employees for functional managers</h2>
           <p class="lead">Zamp enables business and operations teams to hire, train, and deploy digital employees in under 2 weeks, with zero engineering effort required.</p>
         </div>
@@ -660,7 +651,6 @@
     <section class="sec" id="traits">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="kicker">Operational Comparison</span>
           <h2>Traditional Workforce vs. Zamp Digital Workforce</h2>
           <p class="lead">How digital employees fundamentally transform operational capacity, speed, and compliance.</p>
         </div>
@@ -704,82 +694,168 @@
       </div>
     </section>
 
-    <!-- SECTION 6: WORKFLOWS ZAMP DIGITAL EMPLOYEES CAN RUN -->
+    <!-- SECTION 6: COMPREHENSIVE WORKFLOWS CATALOG (8 OPERATIONAL DOMAINS) -->
     <section class="sec" style="background:var(--white);border-top:1px solid var(--hair)" id="usecases">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="kicker">Workflows Catalog</span>
           <h2>Banking operational domains Zamp digital employees run</h2>
-          <p class="lead">Pre-configured operational capabilities across back, middle, and front office queues.</p>
+          <p class="lead">Deep, pre-built operational execution capabilities across 8 core banking queues with complete system interoperability and examiner auditability.</p>
         </div>
 
-        <div class="fitgrid rv">
-          <div class="fitcard">
-            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
-            <h3>Payment &amp; Settlement Operations</h3>
-            <ul>
-              <li>Dispute investigation &amp; resolution</li>
-              <li>Payment authorization &amp; reconciliation</li>
-              <li>Cross-border exception management</li>
-              <li>Intraday liquidity &amp; settlement funding</li>
-              <li>Settlement break investigation &amp; unmatched items</li>
+        <div class="wf-grid rv">
+          
+          <!-- Domain 1 -->
+          <div class="wf-card">
+            <div class="wf-header">
+              <div class="wf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              <h3>Financial Crime, AML &amp; Sanctions Screening</h3>
+            </div>
+            <p class="wf-desc">Autonomously ingests, scores, and adjudicates screening alerts across global watchlists, PEP databases, and internal risk monitors.</p>
+            <div class="wf-meta"><b>Core Systems:</b> Fircosoft, Vigil, Actimize, WorldCheck, Dow Jones, OFSI, FinCEN E-Filing</div>
+            <ul class="wf-tasks">
+              <li>Level 1 false-positive auto-clearance with sub-hour SLAs on counter-terrorism flags</li>
+              <li>Multilingual transliteration, Cyrillic romanization &amp; cultural naming conventions</li>
+              <li>Autonomous browser lookup on regulatory portals &amp; Google News adverse media</li>
+              <li>Level 2 deep-dive beneficial ownership mapping up to 3 network levels</li>
+              <li>FinCEN / FCA SAR narrative drafting for MLRO sign-off</li>
             </ul>
           </div>
 
-          <div class="fitcard">
-            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6"/></svg></div>
-            <h3>Lending &amp; Trade Operations</h3>
-            <ul>
-              <li>Secured &amp; unsecured underwriting</li>
-              <li>Trade &amp; supply chain finance (LC examination)</li>
-              <li>Loan lifecycle management</li>
-              <li>Covenant tracking &amp; credit memo assembly</li>
+          <!-- Domain 2 -->
+          <div class="wf-card">
+            <div class="wf-header">
+              <div class="wf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.3 3.9L2.5 17a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+              </div>
+              <h3>Fraud &amp; Chargeback Dispute Operations</h3>
+            </div>
+            <p class="wf-desc">Executes the 18-step chargeback representment lifecycle across multiple merchant portals without missing scheme filing deadlines.</p>
+            <div class="wf-meta"><b>Core Systems:</b> Fiserv DRS, TCS, Unity, MCom, Visa VROL, Mastercard MCM, Thunderhead</div>
+            <ul class="wf-tasks">
+              <li>Ingests representments sorted by age and transaction value</li>
+              <li>Interprets retailer evidence against Visa/Mastercard scheme-specific rules</li>
+              <li>Dispatches customer communications &amp; keys redebits via DRS Debit Adjustment</li>
+              <li>Consumer Duty balance checks and pre-arbitration write-off escalations</li>
+              <li>Authorized Push Payment (APP) fraud investigation &amp; recovery</li>
             </ul>
           </div>
 
-          <div class="fitcard">
-            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
-            <h3>Financial Crime &amp; Compliance</h3>
-            <ul>
-              <li>Transaction screening &amp; PEP monitoring</li>
-              <li>AML / KYC alert adjudication (L1 + L2)</li>
-              <li>FinCEN / FCA SAR narrative drafting</li>
-              <li>Adverse media &amp; sanctions lookups</li>
+          <!-- Domain 3 -->
+          <div class="wf-card">
+            <div class="wf-header">
+              <div class="wf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6"/></svg>
+              </div>
+              <h3>Trade Finance &amp; Commercial Credit Ops</h3>
+            </div>
+            <p class="wf-desc">Validates extensive Letter of Credit (LC) document presentations against LC terms and ICC rules within strict settlement timelines.</p>
+            <div class="wf-meta"><b>Core Systems:</b> Trade360, Oracle Financials, SWIFT Trade, Vessel Screening APIs</div>
+            <ul class="wf-tasks">
+              <li>Classifies 8 to 15 presentation documents (invoices, bills of lading, certs of origin)</li>
+              <li>Cognitive validation against specific LC terms (dates, amounts, port pairs)</li>
+              <li>Checks cross-document alignment across all 8–15 presentation documents</li>
+              <li>UCP 600 / ISBP 745 regulatory analysis &amp; discrepancy report generation</li>
+              <li>Parallel sanctions and vessel tracking on all counterparties</li>
             </ul>
           </div>
 
-          <div class="fitcard">
-            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10.3 3.9L2.5 17a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></div>
-            <h3>Fraud, Risk &amp; Security Operations</h3>
-            <ul>
-              <li>End-to-end chargeback investigation &amp; representment</li>
-              <li>Visa VROL &amp; Mastercard MCM filing</li>
-              <li>Fraud detection, incident response &amp; recovery</li>
-              <li>Credit &amp; operational risk management</li>
+          <!-- Domain 4 -->
+          <div class="wf-card">
+            <div class="wf-header">
+              <div class="wf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+              </div>
+              <h3>Payments, Settlements &amp; ISO 20022 Repair</h3>
+            </div>
+            <p class="wf-desc">Diagnoses non-STP payment exceptions, enriches missing fields, and repairs ISO 20022 messages before SLA breaches occur.</p>
+            <div class="wf-meta"><b>Core Systems:</b> SWIFT Alliance, Finastra, Fiserv, CBPR+ Validation Engine</div>
+            <ul class="wf-tasks">
+              <li>Non-STP exception diagnosis (invalid BIC, missing IBAN, purpose code errors)</li>
+              <li>Enriches payment instructions from reference customer databases</li>
+              <li>Revalidates and releases messages against CBPR+ and ISO 20022 pacs.008 rules</li>
+              <li>Intraday liquidity monitoring &amp; settlement funding allocation</li>
+              <li>Unmatched item resolution &amp; correspondent repair tracing</li>
             </ul>
           </div>
 
-          <div class="fitcard">
-            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5c1.7-4.3 4.4-6.5 7.5-6.5s5.8 2.2 7.5 6.5"/></svg></div>
-            <h3>Customer Onboarding</h3>
-            <ul>
-              <li>KYC / KYB document collection &amp; verification</li>
-              <li>LEI registry validation &amp; DocuSign integration</li>
-              <li>Customer risk profiling &amp; due diligence (EDD)</li>
-              <li>Loan onboarding &amp; account setup</li>
+          <!-- Domain 5 -->
+          <div class="wf-card">
+            <div class="wf-header">
+              <div class="wf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5c1.7-4.3 4.4-6.5 7.5-6.5s5.8 2.2 7.5 6.5"/></svg>
+              </div>
+              <h3>Corporate KYB &amp; Client Onboarding</h3>
+            </div>
+            <p class="wf-desc">Streamlines multi-jurisdiction institutional onboarding across AML checks, KYC collection, LEI validation, and risk setup.</p>
+            <div class="wf-meta"><b>Core Systems:</b> DocuSign, LEI Registries, Companies House, SEC EDGAR, Salesforce FS</div>
+            <ul class="wf-tasks">
+              <li>Replaces static forms with real-time validations &amp; guided document flows</li>
+              <li>Extracts entity data, UBO details, and regulatory classifications</li>
+              <li>Cross-document consistency checks (bank statements, source of funds)</li>
+              <li>Automated multi-jurisdictional RFI dispatch &amp; tracking</li>
+              <li>Assembles decision-ready evidence packs for EDD reviewers</li>
             </ul>
           </div>
 
-          <div class="fitcard">
-            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
-            <h3>Customer Communication &amp; Experience</h3>
-            <ul>
-              <li>Hyper-personalized engagement communications</li>
-              <li>Next-Best Action engine for cross-sell</li>
-              <li>Customer support workflows &amp; self-service</li>
-              <li>Automated RFI dispatch &amp; tracking</li>
+          <!-- Domain 6 -->
+          <div class="wf-card">
+            <div class="wf-header">
+              <div class="wf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </div>
+              <h3>Commercial Lending &amp; Credit Lifecycle</h3>
+            </div>
+            <p class="wf-desc">Accelerates loan underwriting and ongoing portfolio servicing by automating financial spreading and covenant tracking.</p>
+            <div class="wf-meta"><b>Core Systems:</b> nCino, Moody's CreditLens, Finastra LaserPro, Core Banking GL</div>
+            <ul class="wf-tasks">
+              <li>Financial statement spreading &amp; CapEx line-item extraction</li>
+              <li>Prepares credit memos &amp; debt service coverage ratio (DSCR) calculations</li>
+              <li>Covenant compliance monitoring &amp; borrowing base certificate verification</li>
+              <li>Collateral valuation updates &amp; lien verification tracking</li>
+              <li>Loan lifecycle servicing &amp; credit extension package assembly</li>
             </ul>
           </div>
+
+          <!-- Domain 7 -->
+          <div class="wf-card">
+            <div class="wf-header">
+              <div class="wf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <h3>Corporate Accounting &amp; SOX OpEx Management</h3>
+            </div>
+            <p class="wf-desc">Reviews OpEx invoices monthly to catch CapEx miscodings and prepaid amortizations under strict SOX audit controls.</p>
+            <div class="wf-meta"><b>Core Systems:</b> Oracle ERP Cloud, SAP S/4HANA, Workday Financials, FBDI Interfaces</div>
+            <ul class="wf-tasks">
+              <li>Direct API extraction of GL journal lines &amp; AP invoice data</li>
+              <li>Filters intercompany transactions and tax line items</li>
+              <li>Hybrid classification engine (LLM judgment + deterministic Python)</li>
+              <li>Generates balanced debit/credit journal entries in Oracle FBDI format</li>
+              <li>5-point SOX audit trail logged from source GL line to posted entry</li>
+            </ul>
+          </div>
+
+          <!-- Domain 8 -->
+          <div class="wf-card">
+            <div class="wf-header">
+              <div class="wf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              </div>
+              <h3>Customer Experience &amp; Early Warning Outreach</h3>
+            </div>
+            <p class="wf-desc">Monitors signals across payments, balances, and credit bureau feeds to trigger proactive customer engagement.</p>
+            <div class="wf-meta"><b>Core Systems:</b> ServiceNow, Salesforce Financial Services Cloud, Zendesk, Bureau APIs</div>
+            <ul class="wf-tasks">
+              <li>Flags at-risk accounts before the first missed payment</li>
+              <li>Builds consolidated collector briefing packs for outreach calls</li>
+              <li>Executes hyper-personalized customer engagement communications</li>
+              <li>Next-Best Action recommendation engine for relationship managers</li>
+              <li>Automated customer support resolution for operational inquiries</li>
+            </ul>
+          </div>
+
         </div>
       </div>
     </section>
@@ -788,35 +864,30 @@
     <section class="sec" id="transformation">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="kicker">Transformation Journey</span>
           <h2>Start narrow. Expand on internal pull.</h2>
           <p class="lead">Every enterprise partner starts with one process, proves value, and expands org-wide driven by operational demand.</p>
         </div>
 
         <div class="road-grid rv">
           <div class="road-card">
-            <div class="road-phase">Pilot · Month 2</div>
             <h4>1 to 2 Processes Live</h4>
             <p>Zamp builds the first set of digital employees directly deployable into production. Baseline run cost established.</p>
             <div class="road-stat">0% AI Employees</div>
           </div>
 
           <div class="road-card">
-            <div class="road-phase">Scale · Year 1</div>
             <h4>15 to 75 Processes</h4>
             <p>Digital employees run the bulk of routine operations work with higher accuracy, compliance, and speed.</p>
             <div class="road-stat">~10% AI Employees</div>
           </div>
 
           <div class="road-card">
-            <div class="road-phase">Expansion · Year 2</div>
             <h4>75 to 250 Processes</h4>
             <p>Most complex workflows are run by digital employees. "Build an AI employee" becomes the default operational approach.</p>
             <div class="road-stat">~40% AI Employees</div>
           </div>
 
           <div class="road-card">
-            <div class="road-phase">Transformation · Year 3</div>
             <h4>250+ Processes Live</h4>
             <p>All core operations workflows run by digital employees. Teams solely monitor processes and govern readiness.</p>
             <div class="road-stat">80%+ AI Employees (25% Cost Savings)</div>
@@ -829,7 +900,6 @@
     <section class="sec" style="background:var(--white);border-top:1px solid var(--hair)" id="faq">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="kicker">Leadership Evaluation FAQ</span>
           <h2>Answers for COOs, CROs, and Heads of Operations</h2>
           <p class="lead">Addressing key considerations from executive evaluations.</p>
         </div>
