@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zamp for Banking: The AI Digital Workforce for Financial Institutions</title>
+  <title>Zamp for Banking: The AI Workforce for Regulated Operations</title>
   <meta name="description"
-    content="Zamp enables an intelligent, self-learning AI digital workforce for banking operations. Deploy digital employees in under 2 weeks without engineering effort." />
+    content="Zamp is the AI workforce for banking operations. Each AI employee owns a queue end to end, inside the systems you already run, against thresholds your team sets, with a decision record on every case." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -160,15 +160,6 @@
     .case h3 { font-size: clamp(22px,2.6vw,28px); margin-bottom: 12px; letter-spacing: -.03em }
     .case .txt { font-size: 15px; line-height: 1.55; color: var(--body); margin-bottom: 20px }
 
-    /* Bento Flow Step Cards */
-    .bento-flow { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 20px }
-    @media(min-width:640px) { .bento-flow { grid-template-columns: repeat(2,1fr) } }
-    .bento-card { background: var(--white); border: 1px solid rgba(0,94,255,.14); border-radius: 12px; padding: 16px 18px; transition: all .2s var(--ease) }
-    .bento-card:hover { border-color: var(--blue); box-shadow: 0 6px 20px -8px rgba(0,94,255,.22); transform: translateY(-2px) }
-    .bento-step { font-family: var(--mono); font-size: 11px; font-weight: 600; color: var(--blue); letter-spacing: .5px; margin-bottom: 6px }
-    .bento-title { font-size: 14.5px; font-weight: 600; color: var(--ink); margin-bottom: 4px; line-height: 1.3 }
-    .bento-text { font-size: 13px; color: var(--body); line-height: 1.45 }
-
     /* Redesigned Impact Column (Aligned & Titled) */
     .cmetrics { background: var(--white); border: 1px solid rgba(0,94,255,.16); border-radius: 14px; padding: 22px 24px; display: flex; flex-direction: column; height: 100%; box-shadow: 0 4px 16px -6px rgba(0,94,255,.08) }
     .cmetrics-head { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase; color: var(--blue); padding-bottom: 12px; border-bottom: 1px solid var(--hair); margin-bottom: 8px }
@@ -186,15 +177,6 @@
     .prob-card { background: var(--white); border: 1px solid #EBE7DF; border-top: 3px solid var(--amber-accent); border-radius: 12px; padding: 26px 22px }
     .prob-card h3 { font-size: 18px; margin-bottom: 10px; color: var(--ink) }
     .prob-card p { font-size: 14px; line-height: 1.55; color: var(--body) }
-
-    /* Comparison Table: Digital Workforce vs Traditional Workforce */
-    .trait-table { width: 100%; border-collapse: collapse; margin-top: 28px; background: var(--white); border-radius: 14px; overflow: hidden; border: 1px solid var(--hair) }
-    .trait-table th, .trait-table td { padding: 18px 22px; text-align: left; border-bottom: 1px solid var(--hair) }
-    .trait-table th { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); background: var(--surface) }
-    .trait-table td.feature-title { font-weight: 600; font-size: 15px; color: var(--ink); width: 22% }
-    .trait-table td.trad { color: var(--muted); font-size: 14.5px; width: 39% }
-    .trait-table td.digi { color: var(--ink); font-weight: 500; font-size: 14.5px; width: 39%; background: var(--blue-subtle) }
-    .trait-table td.digi b { color: var(--blue) }
 
     /* Product How-It-Works Lifecycle Cards */
     .loop { display: grid; grid-template-columns: 1fr; gap: 18px }
@@ -227,6 +209,13 @@
     .wf-tasks { list-style: none; display: flex; flex-direction: column; gap: 9px }
     .wf-tasks li { font-size: 14px; color: var(--body); padding-left: 18px; position: relative; line-height: 1.45 }
     .wf-tasks li::before { content: "•"; position: absolute; left: 0; color: var(--blue); font-weight: bold }
+
+    /* Toggle-based Catalog Cards */
+    .catalog-card { background: var(--white); border: 1px solid var(--hair); border-radius: 16px; padding: clamp(24px, 4vw, 36px); box-shadow: 0 4px 20px -8px rgba(0,0,0,.05); border-top: 3px solid var(--blue) }
+    .catalog-content { display: grid; grid-template-columns: 1fr; gap: 24px }
+    @media(min-width:860px) {
+      .catalog-content { grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: start }
+    }
 
     /* Phased Expansion Roadmap */
     .road-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px }
@@ -284,6 +273,56 @@
 
     .banner { background: var(--lime); color: var(--ink); text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; padding: 8px 16px; position: relative; z-index: 80 }
 
+    /* volume-math stat tiles (problem section) */
+    .stat-num { font-family: var(--mono); font-weight: 600; font-size: clamp(28px,3.4vw,38px); letter-spacing: -.03em; color: var(--amber-accent); line-height: 1; margin-bottom: 12px }
+    .prob-card .src { margin-top: 14px; font-family: var(--mono); font-size: 11px; color: var(--faint) }
+
+    /* the turn: work-shape statement */
+    .turn { margin-top: 32px; background: var(--ink); color: #fff; border-radius: 16px; padding: clamp(28px,4vw,40px) }
+    .turn h3 { font-size: clamp(21px,2.8vw,32px); color: #fff; letter-spacing: -.03em; margin-bottom: 16px; max-width: 26ch; line-height: 1.1 }
+    .turn > p { color: rgba(255,255,255,.72); font-size: 15.5px; line-height: 1.6; max-width: 64ch }
+    .turn-points { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.14) }
+    @media(min-width:760px) { .turn-points { grid-template-columns: repeat(3,1fr); gap: 28px } }
+    .turn-points div { font-size: 14px; color: rgba(255,255,255,.68); line-height: 1.5 }
+    .turn-points b { color: #fff; display: block; margin-bottom: 6px; font-weight: 600; font-size: 14.5px }
+    .turn-keep { margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); font-size: clamp(15.5px,1.7vw,18px); color: #fff; font-weight: 500; max-width: 58ch; line-height: 1.5 }
+
+    /* category traits */
+    .trait-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: 16px; overflow: hidden; margin-top: 28px }
+    @media(min-width:720px) { .trait-grid { grid-template-columns: repeat(2,1fr) } }
+    @media(min-width:1040px) { .trait-grid { grid-template-columns: repeat(3,1fr) } }
+    .trait-item { background: var(--white); padding: 26px 24px }
+    .trait-item .ti { width: 24px; height: 24px; color: var(--blue); margin-bottom: 14px }
+    .trait-item .ti svg { width: 100%; height: 100% }
+    .trait-item h3 { font-size: 16.5px; margin-bottom: 8px }
+    .trait-item p { font-size: 14px; line-height: 1.55; color: var(--body) }
+    .trait-item.accent { background: var(--blue-subtle); display: flex; align-items: center }
+    .trait-item.accent p { color: var(--ink); font-size: 16px; font-weight: 500; line-height: 1.45 }
+
+    /* governance grid (dark) */
+    .gov-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; overflow: hidden; margin-bottom: 28px }
+    @media(min-width:760px) { .gov-grid { grid-template-columns: repeat(2,1fr) } }
+    .gov-item { background: var(--ink); padding: 26px 24px }
+    .gov-item .gk { font-family: var(--mono); font-size: 10.5px; letter-spacing: .9px; text-transform: uppercase; color: var(--blue-bright); margin-bottom: 10px; font-weight: 600 }
+    .gov-item h3 { color: #fff; font-size: 16.5px; margin-bottom: 8px }
+    .gov-item p { color: rgba(255,255,255,.64); font-size: 14px; line-height: 1.55 }
+
+    /* regulatory canon chips */
+    .canon { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px }
+    .canon span { font-family: var(--mono); font-size: 11.5px; color: rgba(255,255,255,.78); border: 1px solid rgba(255,255,255,.18); border-radius: 20px; padding: 7px 13px }
+
+    /* what your people keep */
+    .keep { margin-top: 18px; padding: 15px 18px; background: var(--white); border: 1px solid rgba(0,94,255,.15); border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0 }
+    .keep .kk { font-family: var(--mono); font-size: 10.5px; letter-spacing: .9px; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; font-weight: 600 }
+    .keep p { font-size: 14px; line-height: 1.5; color: var(--body); margin: 0 }
+
+    /* system logo strip */
+    .syslabel { font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px }
+    .syslogos { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; padding-top: 28px; border-top: 1px solid var(--hair) }
+    .syslogos .sl { height: 54px; min-width: 104px; border: 1px solid var(--hair); border-radius: 10px; background: var(--canvas); display: grid; place-items: center; padding: 0 18px; flex: 1 1 auto }
+    .syslogos .sl img { height: 17px; width: auto; filter: grayscale(1) contrast(.5) opacity(.55) }
+    .syslogos .sl .w { font-family: var(--mono); font-size: 12px; color: var(--muted) }
+
     .rv { opacity: 0; transform: translateY(20px); transition: opacity .7s var(--ease-out), transform .7s var(--ease-out) }
     .rv.in { opacity: 1; transform: none }
     .rv[data-d="1"] { transition-delay: .08s }
@@ -294,7 +333,7 @@
 
 <body>
 
-  <div class="banner">Internal mockup · Zamp Banking Digital Workforce Briefing · July 2026</div>
+  <div class="banner">Internal mockup · Zamp for Banking · Copy and story review</div>
   <div class="progress" id="progress"></div>
 
   <header class="nav" id="nav">
@@ -304,17 +343,14 @@
         <span class="tag">Banking</span>
       </a>
       <nav class="nav-links">
-        <a href="#domains">Operational Domains</a>
-        <a href="#impact">Proved Use Cases</a>
-        <a href="#usecases">Workflows Catalog</a>
-        <a href="#trust">Governance</a>
-        <a href="#dilemma">Why Central AI Fails</a>
-        <a href="#democratization">How Zamp Works</a>
-        <a href="#traits">Traits</a>
-        <a href="#transformation">Transformation</a>
+        <a href="#shape">The work</a>
+        <a href="#category">Why an AI employee</a>
+        <a href="#governance">Governance</a>
+        <a href="#runs">What it runs</a>
+        <a href="#catalog">Catalog</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <div class="nav-cta"><a href="#cta" class="btn btn-light">Book a demo <span class="ar">→</span></a></div>
+      <div class="nav-cta"><a href="#pilot" class="btn btn-light">Scope a pilot <span class="ar">→</span></a></div>
     </div>
   </header>
 
@@ -325,31 +361,31 @@
       <canvas id="px"></canvas>
       <div class="hero-glow"></div>
       <div class="wrap">
-        <h1><span class="ln"><span>The future of work:</span></span><span class="ln"><span>Your AI digital workforce.</span></span></h1>
-        <p class="lead">An intelligent, self-learning digital employee for institutions where precision is non-negotiable. Zamp joins your organization as a teammate to own end to end execution across core banking systems—built and deployed in under 2 weeks without engineering effort.</p>
+        <h1><span class="ln"><span>Your obligations scale.</span></span><span class="ln"><span>Your headcount can't.</span></span></h1>
+        <p class="lead">Zamp is the AI workforce for banking operations. Each AI employee owns a queue end to end: sanctions and transaction screening, chargebacks, institutional onboarding, trade finance examination. It works inside the systems you already run, against thresholds your team sets, and writes a decision record for every case it touches.</p>
         <div class="hero-actions">
-          <a href="#cta" class="btn btn-primary">Schedule Executive Briefing <span class="ar">→</span></a>
-          <a href="#domains" class="btn btn-light">Explore Operational Domains</a>
+          <a href="#pilot" class="btn btn-primary">Scope a pilot <span class="ar">→</span></a>
+          <a href="#runs" class="btn btn-light">See what it runs</a>
         </div>
         <div class="hero-specs">
           <div class="hero-spec-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>&lt;2 Weeks Build &amp; Deploy</span>
+            <span>Live in under two weeks</span>
           </div>
           <div class="hero-spec-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Zero Engineering Effort</span>
+            <span>Built by your ops team</span>
           </div>
           <div class="hero-spec-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>100% SOP Adherence</span>
+            <span>Runs on your approved model layer</span>
           </div>
           <div class="hero-spec-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Digital Employees, Not AI Automation</span>
+            <span>Every action logged with its rationale</span>
           </div>
         </div>
-        <div class="hero-cred"><span class="rule"></span> Partnered with leading global banks across the US, UK, and UAE</div>
+        <div class="hero-cred"><span class="rule"></span> In production at banks in the US, UK and UAE</div>
       </div>
     </section>
 
@@ -357,7 +393,8 @@
     <section class="customers">
       <div class="wrap" style="padding:clamp(40px,6vh,54px) 24px">
         <div class="rv">
-          <h2 style="font-size:clamp(22px,2.8vw,30px);text-align:center">Trusted by leading banks and financial institutions</h2>
+          <h2 style="font-size:clamp(20px,2.4vw,26px);text-align:center">In production inside regulated institutions</h2>
+          <p class="lead" style="text-align:center;margin:12px auto 0;max-width:64ch">A tier-1 UK bank. A Top-7 US global bank. A tier-1 UAE digital bank. A US derivatives exchange.</p>
           <div class="clogo-grid">
             <div class="clg"><img src="logos/bofa.svg" alt="Bank of America"></div>
             <div class="clg"><img src="logos/natwest.svg" alt="NatWest"></div>
@@ -374,763 +411,750 @@
       </div>
     </section>
 
-    <!-- SECTION 1: OPERATIONAL DOMAINS & PRODUCTION METRICS (UPFRONT POSITION) -->
-    <section class="sec" style="background:var(--white);border-top:1px solid var(--hair)" id="domains">
+    <!-- SECTION 1: THE SHAPE OF THE WORK (thesis + volume math + the turn) -->
+    <section class="sec dilemma-sec" id="shape">
       <div class="wrap">
         <div class="sec-head rv">
-          <h2>Banking operational domains Zamp digital employees run</h2>
-          <p class="lead">Pre-trained digital employees deployed across financial crime, chargebacks, trade finance, payments, and accounting—operating directly inside live banking queues with measured institutional impact.</p>
+          <h2>Banking's obligations compound. Hiring does not.</h2>
+          <p class="lead">Regulatory scope only expands, and every alert, every review, every dispute has to be worked case by case. This is not a staffing gap that closes with one more hiring round. It is the shape of the work.</p>
+        </div>
+
+        <div class="prob-grid rv">
+          <div class="prob-card">
+            <div class="stat-num">85 to 95%</div>
+            <h3>of transaction-monitoring alerts are false positives</h3>
+            <p>Analysts document every one of them before it closes. In production, some systems run higher.</p>
+            <div class="src">Flagright · Facctum · FluxForce</div>
+          </div>
+          <div class="prob-card">
+            <div class="stat-num">$1,500 to 3,000</div>
+            <h3>to complete a single corporate KYC review</h3>
+            <p>One bank in five spends more than $3,000. Onboarding ten thousand clients can cost $35M a year in KYC alone.</p>
+            <div class="src">Fenergo</div>
+          </div>
+          <div class="prob-card">
+            <div class="stat-num">+61%</div>
+            <h3>growth in hours spent on compliance since 2016</h3>
+            <p>Compliance was the function that grew regardless of the cycle. Analyst turnover runs 18 to 22% a year against that.</p>
+            <div class="src">Bank Policy Institute · FluxForce</div>
+          </div>
+        </div>
+
+        <div class="turn rv">
+          <h3>A team sized for the average is wrong twice.</h3>
+          <p>It is short in audit season and during an incident, when the queue is deepest and the clock is hardest. It is expensive in the quiet weeks, when there is less to do and the same payroll. Banks have absorbed this for decades because human capacity was the only kind available, and human capacity is bought in seats, on a hiring cycle, a year at a time.</p>
+          <div class="turn-points">
+            <div><b>Short at the peak.</b>Large institutions have averaged 166 days to file a SAR against a 30-day expectation. That gap is a capacity problem with a calendar.</div>
+            <div><b>Idle at the trough.</b>A holiday week costs the same as a close week. The rota was set months earlier.</div>
+            <div><b>Right at both.</b>At a tier-1 UAE digital bank, Zamp absorbed a tenfold overnight spike in dispute volume without adding a shift.</div>
+          </div>
+          <p class="turn-keep">Your analysts keep the judgment calls. They stop being the reason the queue can only move so fast.</p>
         </div>
       </div>
     </section>
 
-    <!-- Production Impact Metrics Banner -->
+    <!-- Headline results -->
     <section class="metrics">
       <div class="wrap">
+        <p class="syslabel rv" style="margin-bottom:20px">Measured in production, at four institutions</p>
         <div class="mgrid">
           <div class="mcell rv">
-            <div class="big"><span class="count" data-to="85">0</span><span class="s">%</span></div>
-            <div class="lbl">TAT reduction on sanctions alert disposition</div>
+            <div class="big">85<span class="s">%</span></div>
+            <div class="lbl">less time to disposition on a sanctions alert</div>
           </div>
           <div class="mcell rv" data-d="1">
-            <div class="big"><span class="count" data-to="70">0</span><span class="s">%</span></div>
-            <div class="lbl">TAT reduction on trade Letter of Credit examination</div>
+            <div class="big">70<span class="s">%</span></div>
+            <div class="lbl">less time to examine an LC presentation</div>
           </div>
           <div class="mcell rv" data-d="2">
-            <div class="big"><span class="count" data-to="95">0</span><span class="s">%+</span></div>
-            <div class="lbl">dispute filing accuracy (&lt;10 min per case TAT)</div>
+            <div class="big">95<span class="s">%</span></div>
+            <div class="lbl">less time to onboard an institutional client</div>
           </div>
           <div class="mcell rv" data-d="1">
             <div class="big">100<span class="s">%</span></div>
-            <div class="lbl">regulatory-grade audit trail on every disposition</div>
+            <div class="lbl">of cases carry a complete decision record</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 2: PROVED PRODUCTION USE CASES (Case Study Panels with Bento Step Grids) -->
-    <section class="sec" style="background:var(--white);padding-top:clamp(40px,6vh,56px)" id="impact">
-      <div class="wrap rv">
-        <div class="sec-head" style="margin-bottom:28px">
-          <h2>Empirical results from live enterprise operations</h2>
-          <p class="lead">Select an operational domain below to inspect exact process step execution and verified production metrics.</p>
-        </div>
-
-        <div class="tabs" data-tabset="case">
-          <button class="tab on" data-t="c0">Sanctions Screening</button>
-          <button class="tab" data-t="c1">Chargebacks &amp; Disputes</button>
-          <button class="tab" data-t="c2">Trade Finance LC</button>
-          <button class="tab" data-t="c3">Transaction Screening</button>
-          <button class="tab" data-t="c4">OpEx Accounting</button>
-          <button class="tab" data-t="c5">Client Onboarding</button>
-        </div>
-
-        <!-- Sanctions Screening -->
-        <div class="panel on" id="c0">
-          <div class="case-card">
-            <div class="case">
-              <div>
-                <div class="who">Tier-1 UK Bank · Financial Crime Operations</div>
-                <h3>Sanctions &amp; PEP Alert Screening (L1 + L2)</h3>
-                <p class="txt">A Tier-1 UK Bank processed thousands of sanctions alerts monthly across OFAC, UN, EU, and UK OFSI watchlists. The vast majority were false positives consuming analyst bandwidth.</p>
-
-                <!-- Process Bento Step Grid -->
-                <div class="bento-flow">
-                  <div class="bento-card">
-                    <div class="bento-step">01 · SIGNAL INGESTION</div>
-                    <div class="bento-title">Fircosoft &amp; Vigil Integration</div>
-                    <p class="bento-text">Ingests raw sanctions queues, deduplicates redundant alerts, and scores composite priority across 9 risk factors.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">02 · ENTITY RESOLUTION</div>
-                    <div class="bento-title">Multilingual Context Matching</div>
-                    <p class="bento-text">Resolves Cyrillic romanization, Arabic transliteration, and cultural naming variations beyond string matches.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">03 · LIVE VERIFICATION</div>
-                    <div class="bento-title">Autonomous Browser Agent</div>
-                    <p class="bento-text">Executes live web lookups on OFSI portals, UK Companies House, and Google News adverse media feeds.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">04 · DISPOSITION &amp; AUDIT</div>
-                    <div class="bento-title">L1 Clearance &amp; L2 Escalation</div>
-                    <p class="bento-text">Auto-dispositions L1 false positives; maps beneficial ownership up to 3 network levels for MLRO sign-off.</p>
-                  </div>
-                </div>
-
-              </div>
-              
-              <!-- Titled & Equal-Height Aligned Impact Column -->
-              <div class="cmetrics">
-                <div class="cmetrics-head">Measured Production Impact</div>
-                <div class="cmetrics-list">
-                  <div class="cm"><div class="v"><span class="count" data-to="85">0</span><span class="s">%</span></div><div class="l">TAT reduction on alert disposition</div></div>
-                  <div class="cm"><div class="v"><span class="count" data-to="70">0</span><span class="s">%</span></div><div class="l">false positive analyst hours reclaimed</div></div>
-                  <div class="cm"><div class="v">L1 + L2</div><div class="l">both tiers fully automated</div></div>
-                  <div class="cm"><div class="v">100<span class="s">%</span></div><div class="l">regulatory-grade audit trail on every case</div></div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Chargebacks -->
-        <div class="panel" id="c1">
-          <div class="case-card">
-            <div class="case">
-              <div>
-                <div class="who">Tier-1 UK Bank · Fraud &amp; Dispute Operations</div>
-                <h3>End-to-End Chargeback Dispute Management</h3>
-                <p class="txt">Operations teams manually worked disputes across four disconnected portals (Fiserv DRS, TCS, Unity, MCom) with an 18-step process, zero triage, and strict card scheme deadlines.</p>
-
-                <!-- Process Bento Step Grid -->
-                <div class="bento-flow">
-                  <div class="bento-card">
-                    <div class="bento-step">01 · PORTAL INGESTION</div>
-                    <div class="bento-title">Multi-Queue Aggregation</div>
-                    <p class="bento-text">Monitors daily Fiserv DRS, TCS, Unity, and MCom dispute queues without manual portal hopping.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">02 · NETWORK RULES</div>
-                    <div class="bento-title">Automated Scheme Remediation</div>
-                    <p class="bento-text">Applies Visa VROL and Mastercard MCM dispute-type rules to validate merchant representment evidence.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">03 · FULFILLMENT</div>
-                    <div class="bento-title">Notice &amp; Redebit Dispatch</div>
-                    <p class="bento-text">Keys customer notices via Thunderhead and dispatches debit adjustments with Consumer Duty balance checks.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">04 · GOVERNANCE</div>
-                    <div class="bento-title">Zero Deadline Slippage</div>
-                    <p class="bento-text">Eliminates missed card scheme windows and logs an end-to-end audit trail for internal compliance.</p>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Titled & Equal-Height Aligned Impact Column -->
-              <div class="cmetrics">
-                <div class="cmetrics-head">Measured Production Impact</div>
-                <div class="cmetrics-list">
-                  <div class="cm"><div class="v">~<span class="count" data-to="10">0</span><span class="s">%</span></div><div class="l">increase in chargeback win-rate</div></div>
-                  <div class="cm"><div class="v"><span class="count" data-to="40">0</span><span class="s">%</span></div><div class="l">reduction in cost per chargeback</div></div>
-                  <div class="cm"><div class="v">Zero</div><div class="l">missed card scheme deadlines</div></div>
-                  <div class="cm"><div class="v">100<span class="s">%</span></div><div class="l">cases with full audit trail</div></div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Trade Finance -->
-        <div class="panel" id="c2">
-          <div class="case-card">
-            <div class="case">
-              <div>
-                <div class="who">Top-7 Global Bank · Corporate &amp; Institutional Trade</div>
-                <h3>Trade Finance Letter of Credit (LC) Examination</h3>
-                <p class="txt">Processing thousands of financing and LC requests monthly required validating 8 to 15 document types (bills of lading, invoices, packing lists, certs of origin) against LC terms and ICC rules.</p>
-
-                <!-- Process Bento Step Grid -->
-                <div class="bento-flow">
-                  <div class="bento-card">
-                    <div class="bento-step">01 · INTAKE &amp; PARSING</div>
-                    <div class="bento-title">Multi-Doc Extraction</div>
-                    <p class="bento-text">Ingests and extracts structured field data across 8 to 15 document types (bills of lading, invoices, certs of origin).</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">02 · CROSS-DOCUMENT</div>
-                    <div class="bento-title">Consistency Verification</div>
-                    <p class="bento-text">Checks quantity, date, vessel, and party alignment across all presentation documents simultaneously.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">03 · ICC RULE ENGINE</div>
-                    <div class="bento-title">UCP 600 &amp; ISBP 745 Analysis</div>
-                    <p class="bento-text">Validates presentations against ICC international banking rules and generates instant discrepancy reports.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">04 · RISK &amp; APPROVAL</div>
-                    <div class="bento-title">Vessel &amp; Sanctions Screening</div>
-                    <p class="bento-text">Runs vessel tracking and counterparty sanctions checks before dispatching same-day approval notices.</p>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Titled & Equal-Height Aligned Impact Column -->
-              <div class="cmetrics">
-                <div class="cmetrics-head">Measured Production Impact</div>
-                <div class="cmetrics-list">
-                  <div class="cm"><div class="v"><span class="count" data-to="70">0</span><span class="s">%</span></div><div class="l">TAT reduction in document processing</div></div>
-                  <div class="cm"><div class="v">Same-day</div><div class="l">processing for standard presentations</div></div>
-                  <div class="cm"><div class="v"><span class="count" data-to="90">0</span><span class="s">%</span></div><div class="l">reduction in false positive burden</div></div>
-                  <div class="cm"><div class="v">2 to 3x</div><div class="l">capacity increase for current team</div></div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Transaction Screening -->
-        <div class="panel" id="c3">
-          <div class="case-card">
-            <div class="case">
-              <div>
-                <div class="who">Tier-1 UAE Bank · Financial Crime Compliance</div>
-                <h3>Real-Time Transaction Screening &amp; Chargebacks</h3>
-                <p class="txt">A leading digital bank reviewed thousands of daily payment alerts across WorldCheck, Dow Jones, Monitor codes, and internal watchlists with zero tolerance for error during rapid transaction growth.</p>
-
-                <!-- Process Bento Step Grid -->
-                <div class="bento-flow">
-                  <div class="bento-card">
-                    <div class="bento-step">01 · STREAM INTAKE</div>
-                    <div class="bento-title">Real-Time Payment Feed</div>
-                    <p class="bento-text">Intercepts live transactions against WorldCheck, Dow Jones, and internal watchlists with sub-second latency.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">02 · PHONETIC MATCHING</div>
-                    <div class="bento-title">Regional Transliteration</div>
-                    <p class="bento-text">Identifies complex Arabic and regional name variations to eliminate false negatives during peak volume.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">03 · TRIAGE SLAs</div>
-                    <div class="bento-title">Sub-5 Min Decisioning</div>
-                    <p class="bento-text">Clears low-risk payment holds automatically while routing high-risk hits directly to compliance leads.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">04 · DISPUTE PORTAL</div>
-                    <div class="bento-title">Zero-Touch Representment</div>
-                    <p class="bento-text">Files chargeback dispute responses directly into card schemes in under 10 minutes (70%+ zero-touch).</p>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Titled & Equal-Height Aligned Impact Column -->
-              <div class="cmetrics">
-                <div class="cmetrics-head">Measured Production Impact</div>
-                <div class="cmetrics-list">
-                  <div class="cm"><div class="v">Real-time</div><div class="l">alert processing flow</div></div>
-                  <div class="cm"><div class="v"><span class="count" data-to="95">0</span><span class="s">%+</span></div><div class="l">accuracy achieved across alerts</div></div>
-                  <div class="cm"><div class="v">&lt;5 min</div><div class="l">alert-to-decision cycle time</div></div>
-                  <div class="cm"><div class="v">~0<span class="s">%</span></div><div class="l">false-negative rate</div></div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- OpEx Accounting -->
-        <div class="panel" id="c4">
-          <div class="case-card">
-            <div class="case">
-              <div>
-                <div class="who">Global FinTech Leader · Corporate Accounting</div>
-                <h3>Accounting OpEx Reclassification &amp; SOX Audits</h3>
-                <p class="txt">An enterprise accounting team reviewed OpEx invoices monthly to catch miscoded CapEx and prepaid amortizations across thousands of Oracle GL and AP line items within a tight 10-day close window.</p>
-
-                <!-- Process Bento Step Grid -->
-                <div class="bento-flow">
-                  <div class="bento-card">
-                    <div class="bento-step">01 · GL INGESTION</div>
-                    <div class="bento-title">Direct Oracle API Connection</div>
-                    <p class="bento-text">Extracts GL journal line items, filters intercompany tax entries, and enriches purchase order metadata.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">02 · HYBRID JUDGMENT</div>
-                    <div class="bento-title">Deterministic &amp; LLM Rules</div>
-                    <p class="bento-text">Combines LLM contextual analysis with deterministic Python rules to detect miscoded CapEx &amp; prepaid items.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">03 · JOURNAL GENERATION</div>
-                    <div class="bento-title">Oracle FBDI Interface</div>
-                    <p class="bento-text">Automatically constructs balanced debit/credit journal entries formatted for instant Oracle upload.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">04 · SOX AUDITABILITY</div>
-                    <div class="bento-title">5-Point Audit Verification</div>
-                    <p class="bento-text">Attaches a complete 5-point SOX compliance trail to every reclassification before ledger posting.</p>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Titled & Equal-Height Aligned Impact Column -->
-              <div class="cmetrics">
-                <div class="cmetrics-head">Measured Production Impact</div>
-                <div class="cmetrics-list">
-                  <div class="cm"><div class="v"><span class="count" data-to="75">0</span><span class="s">%</span></div><div class="l">reduction in human touchpoints</div></div>
-                  <div class="cm"><div class="v">~1.5 days</div><div class="l">reduction in monthly closing period</div></div>
-                  <div class="cm"><div class="v">5 / 5</div><div class="l">SOX review checks completed</div></div>
-                  <div class="cm"><div class="v">100<span class="s">%</span></div><div class="l">recall on human-identified items</div></div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Client Onboarding -->
-        <div class="panel" id="c5">
-          <div class="case-card">
-            <div class="case">
-              <div>
-                <div class="who">US Market Exchange · Institutional Onboarding</div>
-                <h3>Institutional Client Onboarding &amp; LEI Validation</h3>
-                <p class="txt">A major market exchange spanned AML checks, KYC collection, LEI validation, and regulatory classification across 200+ disjointed onboarding flows that caused customer friction and delays.</p>
-
-                <!-- Process Bento Step Grid -->
-                <div class="bento-flow">
-                  <div class="bento-card">
-                    <div class="bento-step">01 · SMART INTAKE</div>
-                    <div class="bento-title">Guided Dynamic Forms</div>
-                    <p class="bento-text">Replaces static questionnaires with real-time validations, guided uploads, and automated field extraction.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">02 · REGISTRIES &amp; APIS</div>
-                    <div class="bento-title">API &amp; Browser Network</div>
-                    <p class="bento-text">Connects directly to LEI registries, DocuSign, SEC EDGAR, and internal compliance databases.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">03 · AUTOMATED NUDGING</div>
-                    <div class="bento-title">Zero Document Chasing</div>
-                    <p class="bento-text">Tracks missing client documentation and dispatches automated follow-up reminders.</p>
-                  </div>
-                  <div class="bento-card">
-                    <div class="bento-step">04 · DOSSIER ASSEMBLY</div>
-                    <div class="bento-title">Reviewer-Ready Package</div>
-                    <p class="bento-text">Assembles a complete, pre-vetted onboarding dossier with risk scoring for immediate officer sign-off.</p>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Titled & Equal-Height Aligned Impact Column -->
-              <div class="cmetrics">
-                <div class="cmetrics-head">Measured Production Impact</div>
-                <div class="cmetrics-list">
-                  <div class="cm"><div class="v"><span class="count" data-to="95">0</span><span class="s">%</span></div><div class="l">TAT reduction in client onboarding</div></div>
-                  <div class="cm"><div class="v">Real-time</div><div class="l">validations &amp; LEI verifications</div></div>
-                  <div class="cm"><div class="v">Zero</div><div class="l">manual document chasing</div></div>
-                  <div class="cm"><div class="v">100<span class="s">%</span></div><div class="l">audit trail on every case</div></div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECTION 3: COMPREHENSIVE WORKFLOWS CATALOG (8 OPERATIONAL DOMAINS) -->
-    <section class="sec" style="background:var(--white);border-top:1px solid var(--hair)" id="usecases">
+    <!-- SECTION 2: THE CATEGORY — WHY AN AI EMPLOYEE, NOT AN AGENT -->
+    <section class="sec" id="category">
       <div class="wrap">
         <div class="sec-head rv">
-          <h2>Full catalog of banking queues Zamp runs</h2>
-          <p class="lead">Deep, pre-built operational execution capabilities across 8 core banking queues with complete system interoperability and examiner auditability.</p>
+          <h2>Why an AI employee, not an agent</h2>
+          <p class="lead">You build an agent, engineer it, troubleshoot it, and maintain it. You onboard an employee, train it, and give it feedback. In a regulated operation that difference decides whether the thing survives its first exception.</p>
         </div>
 
-        <div class="wf-grid rv">
-          
-          <!-- Domain 1 -->
-          <div class="wf-card">
-            <div class="wf-header">
-              <div class="wf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
-              </div>
-              <h3>Financial Crime, AML &amp; Sanctions Screening</h3>
-            </div>
-            <p class="wf-desc">Autonomously ingests, scores, and adjudicates screening alerts across global watchlists, PEP databases, and internal risk monitors.</p>
-            <div class="wf-meta"><b>Core Systems:</b> Fircosoft, Vigil, Actimize, WorldCheck, Dow Jones, OFSI, FinCEN E-Filing</div>
-            <ul class="wf-tasks">
-              <li>Level 1 false-positive auto-clearance with sub-hour SLAs on counter-terrorism flags</li>
-              <li>Multilingual transliteration, Cyrillic romanization &amp; cultural naming conventions</li>
-              <li>Autonomous browser lookup on regulatory portals &amp; Google News adverse media</li>
-              <li>Level 2 deep-dive beneficial ownership mapping up to 3 network levels</li>
-              <li>FinCEN / FCA SAR narrative drafting for MLRO sign-off</li>
-            </ul>
+        <div class="trait-grid rv">
+          <div class="trait-item">
+            <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <h3>Captures what the SOP left out</h3>
+            <p>Zamp reads your procedures, interviews the operators who actually work the queue, and mines three to six months of closed cases. What comes out is an Agent Operating Procedure five to ten times richer than the document you started with, which is why it performs at your current baseline from the first week.</p>
+          </div>
+          <div class="trait-item">
+            <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+            <h3>Measured before it ships</h3>
+            <p>Every version runs against a golden eval set built from your own historical dispositions. Accuracy, cost and latency are tested step by step, and those results are the evidence your validators ask for.</p>
+          </div>
+          <div class="trait-item">
+            <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 3v6a3 3 0 0 0 3 3h6"/><path d="M18 3v18"/><path d="M15 9l3-3 3 3"/></svg></div>
+            <h3>Works the queue, escalates the rest</h3>
+            <p>It clears what meets your documented criteria and routes everything else to a person with the reason attached. You set the thresholds, per workflow, and you change them without waiting on us.</p>
+          </div>
+          <div class="trait-item">
+            <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 7h-9M14 17H5M17 21a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM7 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></div>
+            <h3>Institutional, not personal</h3>
+            <p>Connections, context and datasets sit at the organisation level under role-based access. Analyst turnover runs 18 to 22% a year. What an AI employee learns about your queue stays with the bank.</p>
+          </div>
+          <div class="trait-item">
+            <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <h3>Accountable like a colleague</h3>
+            <p>A named owner, a defined scope, supervised output, and a record of what it did and why. It gets reviewed the way you review staff rather than debugged the way you debug software.</p>
+          </div>
+          <div class="trait-item accent">
+            <p>A copilot waits to be asked. An agent waits to be maintained. An AI employee owns the outcome.</p>
+          </div>
+        </div>
+
+        <p class="syslabel rv" style="margin-top:40px">How one gets hired</p>
+        <div class="loop rv" id="loop">
+          <div class="stage on" data-i="0">
+            <span class="stime">1 TO 2 WEEKS</span>
+            <h3>Onboarding</h3>
+            <p>An onboarding agent reads the procedures, interviews the operators, and mines closed cases for the exceptions nobody wrote down.</p>
+            <div class="outcome-tag">Produces the <b>Agent Operating Procedure</b> and the eval set it will be judged against.</div>
+            <span class="prog"></span>
           </div>
 
-          <!-- Domain 2 -->
-          <div class="wf-card">
-            <div class="wf-header">
-              <div class="wf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.3 3.9L2.5 17a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
-              </div>
-              <h3>Fraud &amp; Chargeback Dispute Operations</h3>
-            </div>
-            <p class="wf-desc">Executes the 18-step chargeback representment lifecycle across multiple merchant portals without missing scheme filing deadlines.</p>
-            <div class="wf-meta"><b>Core Systems:</b> Fiserv DRS, TCS, Unity, MCom, Visa VROL, Mastercard MCM, Thunderhead</div>
-            <ul class="wf-tasks">
-              <li>Ingests representments sorted by age and transaction value</li>
-              <li>Interprets retailer evidence against Visa/Mastercard scheme-specific rules</li>
-              <li>Dispatches customer communications &amp; keys redebits via DRS Debit Adjustment</li>
-              <li>Consumer Duty balance checks and pre-arbitration write-off escalations</li>
-              <li>Authorized Push Payment (APP) fraud investigation &amp; recovery</li>
-            </ul>
+          <div class="stage" data-i="1">
+            <span class="stime">UNDER A WEEK</span>
+            <h3>Build</h3>
+            <p>An engineering agent architects each step, writes the deterministic parts, picks the tool the step needs, and self-tests against the eval set.</p>
+            <div class="outcome-tag">Produces a <b>production-ready AI employee</b> with no engineering effort on your side.</div>
+            <span class="prog"></span>
           </div>
 
-          <!-- Domain 3 -->
-          <div class="wf-card">
-            <div class="wf-header">
-              <div class="wf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6"/></svg>
-              </div>
-              <h3>Trade Finance &amp; Commercial Credit Ops</h3>
-            </div>
-            <p class="wf-desc">Validates extensive Letter of Credit (LC) document presentations against LC terms and ICC rules within strict settlement timelines.</p>
-            <div class="wf-meta"><b>Core Systems:</b> Trade360, Oracle Financials, SWIFT Trade, Vessel Screening APIs</div>
-            <ul class="wf-tasks">
-              <li>Classifies 8 to 15 presentation documents (invoices, bills of lading, certs of origin)</li>
-              <li>Cognitive validation against specific LC terms (dates, amounts, port pairs)</li>
-              <li>Checks cross-document alignment across all 8–15 presentation documents</li>
-              <li>UCP 600 / ISBP 745 regulatory analysis &amp; discrepancy report generation</li>
-              <li>Parallel sanctions and vessel tracking on all counterparties</li>
-            </ul>
+          <div class="stage" data-i="2">
+            <span class="stime">ONGOING</span>
+            <h3>Feedback</h3>
+            <p>Corrections from the ops team go back into the procedure. Every change is versioned, re-run against the eval set, and released on your approval.</p>
+            <div class="outcome-tag">Accuracy improves case by case, under <b>your change control</b>.</div>
+            <span class="prog"></span>
           </div>
-
-          <!-- Domain 4 -->
-          <div class="wf-card">
-            <div class="wf-header">
-              <div class="wf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
-              </div>
-              <h3>Payments, Settlements &amp; ISO 20022 Repair</h3>
-            </div>
-            <p class="wf-desc">Diagnoses non-STP payment exceptions, enriches missing fields, and repairs ISO 20022 messages before SLA breaches occur.</p>
-            <div class="wf-meta"><b>Core Systems:</b> SWIFT Alliance, Finastra, Fiserv, CBPR+ Validation Engine</div>
-            <ul class="wf-tasks">
-              <li>Non-STP exception diagnosis (invalid BIC, missing IBAN, purpose code errors)</li>
-              <li>Enriches payment instructions from reference customer databases</li>
-              <li>Revalidates and releases messages against CBPR+ and ISO 20022 pacs.008 rules</li>
-              <li>Intraday liquidity monitoring &amp; settlement funding allocation</li>
-              <li>Unmatched item resolution &amp; correspondent repair tracing</li>
-            </ul>
-          </div>
-
-          <!-- Domain 5 -->
-          <div class="wf-card">
-            <div class="wf-header">
-              <div class="wf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5c1.7-4.3 4.4-6.5 7.5-6.5s5.8 2.2 7.5 6.5"/></svg>
-              </div>
-              <h3>Corporate KYB &amp; Client Onboarding</h3>
-            </div>
-            <p class="wf-desc">Streamlines multi-jurisdiction institutional onboarding across AML checks, KYC collection, LEI validation, and risk setup.</p>
-            <div class="wf-meta"><b>Core Systems:</b> DocuSign, LEI Registries, Companies House, SEC EDGAR, Salesforce FS</div>
-            <ul class="wf-tasks">
-              <li>Replaces static forms with real-time validations &amp; guided document flows</li>
-              <li>Extracts entity data, UBO details, and regulatory classifications</li>
-              <li>Cross-document consistency checks (bank statements, source of funds)</li>
-              <li>Automated multi-jurisdictional RFI dispatch &amp; tracking</li>
-              <li>Assembles decision-ready evidence packs for EDD reviewers</li>
-            </ul>
-          </div>
-
-          <!-- Domain 6 -->
-          <div class="wf-card">
-            <div class="wf-header">
-              <div class="wf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-              </div>
-              <h3>Commercial Lending &amp; Credit Lifecycle</h3>
-            </div>
-            <p class="wf-desc">Accelerates loan underwriting and ongoing portfolio servicing by automating financial spreading and covenant tracking.</p>
-            <div class="wf-meta"><b>Core Systems:</b> nCino, Moody's CreditLens, Finastra LaserPro, Core Banking GL</div>
-            <ul class="wf-tasks">
-              <li>Financial statement spreading &amp; CapEx line-item extraction</li>
-              <li>Prepares credit memos &amp; debt service coverage ratio (DSCR) calculations</li>
-              <li>Covenant compliance monitoring &amp; borrowing base certificate verification</li>
-              <li>Collateral valuation updates &amp; lien verification tracking</li>
-              <li>Loan lifecycle servicing &amp; credit extension package assembly</li>
-            </ul>
-          </div>
-
-          <!-- Domain 7 -->
-          <div class="wf-card">
-            <div class="wf-header">
-              <div class="wf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              </div>
-              <h3>Corporate Accounting &amp; SOX OpEx Management</h3>
-            </div>
-            <p class="wf-desc">Reviews OpEx invoices monthly to catch CapEx miscodings and prepaid amortizations under strict SOX audit controls.</p>
-            <div class="wf-meta"><b>Core Systems:</b> Oracle ERP Cloud, SAP S/4HANA, Workday Financials, FBDI Interfaces</div>
-            <ul class="wf-tasks">
-              <li>Direct API extraction of GL journal lines &amp; AP invoice data</li>
-              <li>Filters intercompany transactions and tax line items</li>
-              <li>Hybrid classification engine (LLM judgment + deterministic Python)</li>
-              <li>Generates balanced debit/credit journal entries in Oracle FBDI format</li>
-              <li>5-point SOX audit trail logged from source GL line to posted entry</li>
-            </ul>
-          </div>
-
-          <!-- Domain 8 -->
-          <div class="wf-card">
-            <div class="wf-header">
-              <div class="wf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-              </div>
-              <h3>Customer Experience &amp; Early Warning Outreach</h3>
-            </div>
-            <p class="wf-desc">Monitors signals across payments, balances, and credit bureau feeds to trigger proactive customer engagement.</p>
-            <div class="wf-meta"><b>Core Systems:</b> ServiceNow, Salesforce Financial Services Cloud, Zendesk, Bureau APIs</div>
-            <ul class="wf-tasks">
-              <li>Flags at-risk accounts before the first missed payment</li>
-              <li>Builds consolidated collector briefing packs for outreach calls</li>
-              <li>Executes hyper-personalized customer engagement communications</li>
-              <li>Next-Best Action recommendation engine for relationship managers</li>
-              <li>Automated customer support resolution for operational inquiries</li>
-            </ul>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- SECTION 4: TRUST, SECURITY & REGULATORY GOVERNANCE -->
-    <section class="sec dark" id="trust">
+    <!-- SECTION 3: GOVERNANCE & EVIDENCE -->
+    <section class="sec dark" id="governance">
       <div class="wrap">
         <div class="sec-head rv">
-          <h2>Built for bank examiners, model risk, and CRO sign-off</h2>
-          <p class="lead" style="color:rgba(255,255,255,.68)">Financial institutions cannot take security claims on faith. Zamp provides 100% regulatory compliance, complete auditability, and human accountability for every action taken.</p>
+          <h2>Governed like staff. Evidenced for examiners.</h2>
+          <p class="lead" style="color:rgba(255,255,255,.68)">Zamp is built to be examined. Every action an AI employee takes is logged with its inputs, its rationale, and the threshold it was measured against. Your obligations stay yours. Our job is to make them evidenceable.</p>
+        </div>
+
+        <div class="canon rv">
+          <span>SR 11-7 / OCC 2011-12</span>
+          <span>Interagency third-party risk guidance</span>
+          <span>NYDFS Part 504</span>
+          <span>BSA/AML program requirements</span>
+          <span>Reg E and Reg Z dispute clocks</span>
+          <span>UCP 600 / ISBP 745</span>
+        </div>
+
+        <div class="gov-grid rv">
+          <div class="gov-item">
+            <div class="gk">Supervision</div>
+            <h3>Human in the loop, by configuration</h3>
+            <p>Confidence-scored routing, four-eyes review, and hard escalation overrides. You set the thresholds per workflow. Anything outside them goes to a person, every time.</p>
+          </div>
+          <div class="gov-item">
+            <div class="gk">Change control</div>
+            <h3>Versioned, tested, released on your approval</h3>
+            <p>Every version re-runs against the golden eval set before release. Change logs export into your model inventory, so a model update is a notified event rather than a surprise found at validation.</p>
+          </div>
+          <div class="gov-item">
+            <div class="gk">Evidence</div>
+            <h3>Written for an examiner, not a debugger</h3>
+            <p>Inputs, rationale, threshold and outcome on every case. Portal work is session-recorded, so a browser step carries the same evidentiary weight as an API call.</p>
+          </div>
+          <div class="gov-item">
+            <div class="gk">Data</div>
+            <h3>We do not train on your data</h3>
+            <p>No model, ours or a third party's, is trained on your records. Deployment runs inside your perimeter with region pinning, single sign-on, and role-based entitlements.</p>
+          </div>
         </div>
 
         <div class="certrow rv">
           <div class="certbadge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            <div><div class="cb-name">SOC 1 Type II</div><div class="cb-status">Audited Controls</div></div>
-          </div>
-          <div class="certbadge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <div><div class="cb-name">SOC 2 Type II</div><div class="cb-status">Security &amp; Privacy</div></div>
+            <div><div class="cb-name">SOC 2 Type II</div><div class="cb-status">Report under NDA</div></div>
           </div>
           <div class="certbadge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="6.5"/><path d="M8.5 13.7L7 21l5-2.7 5 2.7-1.5-7.3"/></svg>
             <div><div class="cb-name">ISO 27001:2022</div><div class="cb-status">Certified ISMS</div></div>
           </div>
           <div class="certbadge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            <div><div class="cb-name">SOC 1 Type II</div><div class="cb-status">Controls over reporting</div></div>
+          </div>
+          <div class="certbadge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <div><div class="cb-name">GDPR &amp; GxP</div><div class="cb-status">Fully Compliant</div></div>
+            <div><div class="cb-name">GDPR</div><div class="cb-status">DPA and residency</div></div>
           </div>
         </div>
 
-        <p class="trustnote rv"><b>Zero Model Training on Customer Telemetry.</b> Your banking records, transactions, and SOPs remain strictly private. Every decision generates a documented audit trail ready for internal auditors and regulators.</p>
+        <p class="trustnote rv">The artifact pack goes to third-party risk and InfoSec on day one, not after the pilot: control mappings, model documentation, eval-set results, and audit-trail samples in the formats your reviewers already recognise.</p>
       </div>
     </section>
 
-    <!-- SECTION 5: THE OPERATIONAL DILEMMA & WHY CENTRAL AI AUTOMATION FAILS -->
-    <section class="sec dilemma-sec" id="dilemma">
+    <!-- SECTION 4: WHAT ZAMP RUNS (proof) -->
+    <section class="sec" style="background:var(--white);padding-top:clamp(40px,6vh,56px)" id="runs">
+      <div class="wrap rv">
+        <div class="sec-head" style="margin-bottom:28px">
+          <h2>Five queues, five institutions, in production</h2>
+          <p class="lead">What the AI employee owns, what your people keep, and what moved.</p>
+        </div>
+
+        <div class="tabs" data-tabset="case">
+          <button class="tab on" data-t="c0">Sanctions screening</button>
+          <button class="tab" data-t="c1">Chargebacks</button>
+          <button class="tab" data-t="c2">Transaction screening</button>
+          <button class="tab" data-t="c3">Trade finance</button>
+          <button class="tab" data-t="c4">Institutional onboarding</button>
+        </div>
+
+        <div class="panel on" id="c0">
+          <div class="case-card">
+            <div class="case">
+              <div>
+                <div class="who">A tier-1 UK bank · financial crime operations</div>
+                <h3>Sanctions and PEP screening, both tiers</h3>
+                <p class="txt">Alerts arrive against OFAC, UN, EU and UK OFSI lists. Roughly nine in ten clear as no-match, and each one was documented by hand before it closed. Zamp works Level 1 and Level 2: it clears what meets the bank's documented no-match criteria with the rationale attached, traces beneficial ownership up to three network levels where the case calls for it, and assembles the dossier the MLRO signs.</p>
+                <div class="keep">
+                  <div class="kk">What your people keep</div>
+                  <p>The MLRO keeps the filing decision. Analysts keep the escalated cases, the true matches, and the policy tuning that sets the thresholds in the first place.</p>
+                </div>
+              </div>
+              <div class="cmetrics">
+                <div class="cmetrics-head">What moved</div>
+                <div class="cmetrics-list">
+                  <div class="cm">
+                    <div class="v">85<span class="s">%</span></div>
+                    <div class="l">less time to disposition</div>
+                  </div>
+                  <div class="cm">
+                    <div class="v">70<span class="s">%</span></div>
+                    <div class="l">of false-positive analyst hours reclaimed</div>
+                  </div>
+                  <div class="cm">
+                    <div class="v">L1 + L2</div>
+                    <div class="l">both tiers worked end to end</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" id="c1">
+          <div class="case-card">
+            <div class="case">
+              <div>
+                <div class="who">A tier-1 UK bank · disputes and fraud operations</div>
+                <h3>Chargeback representment, filed inside the scheme window</h3>
+                <p class="txt">Disputes land across the acquirer's dispute platform and two internal case managers, each with its own queue and its own clock. Zamp works all of them in one pass, applies Visa and Mastercard dispute-type rules to the merchant's evidence, issues the customer notice, and keys the adjustment.</p>
+                <div class="keep">
+                  <div class="kk">What your people keep</div>
+                  <p>Your team keeps the write-off calls, the pre-arbitration judgment, and anything carrying legal exposure.</p>
+                </div>
+              </div>
+              <div class="cmetrics">
+                <div class="cmetrics-head">What moved</div>
+                <div class="cmetrics-list">
+                  <div class="cm">
+                    <div class="v">~10<span class="s">%</span></div>
+                    <div class="l">higher win rate on representment</div>
+                  </div>
+                  <div class="cm">
+                    <div class="v">40<span class="s">%</span></div>
+                    <div class="l">lower cost per dispute</div>
+                  </div>
+                  <div class="cm">
+                    <div class="v">Zero</div>
+                    <div class="l">scheme deadlines missed</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" id="c2">
+          <div class="case-card">
+            <div class="case">
+              <div>
+                <div class="who">A tier-1 UAE digital bank · financial crime compliance</div>
+                <h3>Payment screening at the speed of the payment</h3>
+                <p class="txt">Live payment traffic screened against licensed watchlist data, with transliteration-aware matching for Arabic and regional name variants. Alerts meeting the bank's documented criteria clear with a rationale attached; everything else routes to compliance with an escalation pack already assembled. The same deployment absorbed a tenfold overnight spike in dispute volume without a rota change.</p>
+                <div class="keep">
+                  <div class="kk">What your people keep</div>
+                  <p>Compliance keeps every true-match decision and every hold that carries customer impact.</p>
+                </div>
+              </div>
+              <div class="cmetrics">
+                <div class="cmetrics-head">What moved</div>
+                <div class="cmetrics-list">
+                  <div class="cm">
+                    <div class="v">Real time</div>
+                    <div class="l">screening on live payment traffic</div>
+                  </div>
+                  <div class="cm">
+                    <div class="v">&lt;5 min</div>
+                    <div class="l">from alert to decision</div>
+                  </div>
+                  <div class="cm">
+                    <div class="v">10x</div>
+                    <div class="l">overnight volume spike absorbed</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" id="c3">
+          <div class="case-card">
+            <div class="case">
+              <div>
+                <div class="who">A Top-7 US global bank · corporate and institutional trade</div>
+                <h3>Letter of credit examination, same day</h3>
+                <p class="txt">Each presentation runs 8 to 15 documents against the credit terms and the ICC rules. Zamp extracts the fields, checks consistency across every document in the set, applies UCP 600 and ISBP 745, and runs counterparty and vessel screening alongside rather than after.</p>
+                <div class="keep">
+                  <div class="kk">What your people keep</div>
+                  <p>Examiners keep the discrepancy call and the decision to pay. The waiver conversation with the applicant stays human.</p>
+                </div>
+              </div>
+              <div class="cmetrics">
+                <div class="cmetrics-head">What moved</div>
+                <div class="cmetrics-list">
+                  <div class="cm">
+                    <div class="v">70<span class="s">%</span></div>
+                    <div class="l">less time to examine a presentation</div>
+                  </div>
+                  <div class="cm">
+                    <div class="v">Same day</div>
+                    <div class="l">on standard presentations</div>
+                  </div>
+                  <div class="cm">
+                    <div class="v">2 to 3x</div>
+                    <div class="l">capacity from the existing team</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" id="c4">
+          <div class="case-card">
+            <div class="case">
+              <div>
+                <div class="who">A US derivatives exchange · institutional onboarding</div>
+                <h3>Institutional onboarding, without the document chase</h3>
+                <p class="txt">Onboarding ran through more than two hundred separate flows spanning AML checks, KYC collection, LEI validation and regulatory classification. Zamp replaced the static forms with validated intake, pulled directly from LEI registries and compliance platforms, and tracked what was still outstanding so nobody had to.</p>
+                <div class="keep">
+                  <div class="kk">What your people keep</div>
+                  <p>Reviewers keep the risk rating and the exceptions. Relationship managers get the client back sooner.</p>
+                </div>
+              </div>
+              <div class="cmetrics">
+                <div class="cmetrics-head">What moved</div>
+                <div class="cmetrics-list">
+                  <div class="cm">
+                    <div class="v">95<span class="s">%</span></div>
+                    <div class="l">less time to onboard a client</div>
+                  </div>
+                  <div class="cm">
+                    <div class="v">Zero</div>
+                    <div class="l">manual document chases</div>
+                  </div>
+                  <div class="cm">
+                    <div class="v">200+</div>
+                    <div class="l">separate flows replaced by one</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: THE FULL CATALOG -->
+    <section class="sec" style="background:var(--white);border-top:1px solid var(--hair)" id="catalog">
       <div class="wrap">
         <div class="sec-head rv">
-          <h2>Central IT automation is unscalable. Copilots add workload.</h2>
-          <p class="lead">Traditional AI automation projects stall due to three fundamental bottlenecks. Meanwhile, AI copilots merely assist staff with prompts, leaving human operators stuck in the operational bottleneck.</p>
+          <h2>Eight queues Zamp runs today</h2>
+          <p class="lead">And the systems each one works inside. Every clearance decision below runs against criteria your team documents and can change.</p>
         </div>
 
-        <div class="prob-grid rv">
-          <div class="prob-card">
-            <h3>SOPs Are Only 30% to 40% Accurate</h3>
-            <p>Undocumented operator know-how stays locked in analysts' heads. Constant back-and-forth between business teams and engineering slows deployment and causes accuracy drops.</p>
+        <div class="tabs rv" data-tabset="catalog" style="margin-bottom:28px">
+          <button class="tab on" data-t="q0">Financial crime & AML</button>
+          <button class="tab" data-t="q1">Fraud & chargebacks</button>
+          <button class="tab" data-t="q2">Trade finance</button>
+          <button class="tab" data-t="q3">Payments & settlement</button>
+          <button class="tab" data-t="q4">Corporate KYB</button>
+          <button class="tab" data-t="q5">Commercial lending</button>
+          <button class="tab" data-t="q6">Reconciliations</button>
+          <button class="tab" data-t="q7">Servicing & collections</button>
+        </div>
+
+        <!-- Panel 0: Financial crime -->
+        <div class="panel on" id="q0">
+          <div class="catalog-card">
+            <div class="catalog-content">
+              <div>
+                <div class="wf-header">
+                  <div class="wf-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+                  </div>
+                  <h3>Financial crime, AML and sanctions</h3>
+                </div>
+                <p class="wf-desc">Screens alerts against watchlists, PEP data and internal monitors, then clears what meets your documented no-match criteria.</p>
+                <div class="wf-meta"><b>Works inside:</b> Fircosoft, Actimize, World-Check, Dow Jones</div>
+              </div>
+              <div>
+                <div style="font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Automated Queue Operations</div>
+                <ul class="wf-tasks">
+                  <li>Level 1 clearance against your documented criteria, with the rationale attached to each case</li>
+                  <li>Transliteration-aware matching across Cyrillic, Arabic and regional naming conventions</li>
+                  <li>Level 2 beneficial ownership tracing up to three network levels</li>
+                  <li>Open-source media checks, with source, timestamp and screenshot captured on the case</li>
+                  <li>SAR and STR narrative drafting for the MLRO or BSA officer to sign</li>
+                  <li>Escalation packs assembled for anything outside the documented criteria</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div class="prob-card">
-            <h3>Nuanced Engineering Complexity</h3>
-            <p>Every workflow nuance requires specific tooling: deterministic Python code, multi-agent orchestrations, vector search, or browser agents. Hand-building these creates custom technical debt.</p>
+        </div>
+
+        <!-- Panel 1: Fraud and chargeback disputes -->
+        <div class="panel" id="q1">
+          <div class="catalog-card">
+            <div class="catalog-content">
+              <div>
+                <div class="wf-header">
+                  <div class="wf-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.3 3.9L2.5 17a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+                  </div>
+                  <h3>Fraud and chargeback disputes</h3>
+                </div>
+                <p class="wf-desc">Works the representment lifecycle across every dispute queue and files inside the scheme window.</p>
+                <div class="wf-meta"><b>Works inside:</b> Fiserv DRS, Visa VROL, Mastercard MCM</div>
+              </div>
+              <div>
+                <div style="font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Automated Queue Operations</div>
+                <ul class="wf-tasks">
+                  <li>Aggregates dispute queues and sorts by age and exposure</li>
+                  <li>Applies Visa and Mastercard dispute-type rules to the merchant's evidence</li>
+                  <li>Tracks the Reg E provisional-credit clock and issues the customer notice</li>
+                  <li>Authorised push payment fraud investigation and recovery</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div class="prob-card">
-            <h3>Central IT Bandwidth Constraints</h3>
-            <p>Central IT automation teams never have enough bandwidth to prioritize requests across operational units, causing multi-year backlogs for essential queue improvements.</p>
+        </div>
+
+        <!-- Panel 2: Trade finance -->
+        <div class="panel" id="q2">
+          <div class="catalog-card">
+            <div class="catalog-content">
+              <div>
+                <div class="wf-header">
+                  <div class="wf-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6"/></svg>
+                  </div>
+                  <h3>Trade finance and commercial credit</h3>
+                </div>
+                <p class="wf-desc">Examines letter of credit presentations against the credit terms and the ICC rules inside the settlement window.</p>
+                <div class="wf-meta"><b>Works inside:</b> Trade360, Oracle, SWIFT</div>
+              </div>
+              <div>
+                <div style="font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Automated Queue Operations</div>
+                <ul class="wf-tasks">
+                  <li>Classifies and extracts the 8 to 15 documents in a presentation</li>
+                  <li>Checks consistency across the full set: dates, amounts, quantities, ports, parties</li>
+                  <li>Applies UCP 600 and ISBP 745, and generates the discrepancy report</li>
+                  <li>Counterparty and vessel screening run in parallel, not after</li>
+                </ul>
+              </div>
+            </div>
           </div>
+        </div>
+
+        <!-- Panel 3: Payments -->
+        <div class="panel" id="q3">
+          <div class="catalog-card">
+            <div class="catalog-content">
+              <div>
+                <div class="wf-header">
+                  <div class="wf-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+                  </div>
+                  <h3>Payments, settlement and message repair</h3>
+                </div>
+                <p class="wf-desc">Diagnoses non-STP exceptions, enriches the missing fields, and revalidates before the SLA breaks.</p>
+                <div class="wf-meta"><b>Works inside:</b> SWIFT Alliance, Finastra, Fiserv</div>
+              </div>
+              <div>
+                <div style="font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Automated Queue Operations</div>
+                <ul class="wf-tasks">
+                  <li>Non-STP diagnosis: invalid BIC, missing IBAN, purpose-code errors</li>
+                  <li>Enrichment from reference and customer data, then revalidation against CBPR+ and pacs.008</li>
+                  <li>Unmatched item resolution and correspondent repair tracing</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 4: Corporate KYB -->
+        <div class="panel" id="q4">
+          <div class="catalog-card">
+            <div class="catalog-content">
+              <div>
+                <div class="wf-header">
+                  <div class="wf-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5c1.7-4.3 4.4-6.5 7.5-6.5s5.8 2.2 7.5 6.5"/></svg>
+                  </div>
+                  <h3>Corporate KYB and client onboarding</h3>
+                </div>
+                <p class="wf-desc">Runs multi-jurisdiction institutional onboarding from intake through to a decision-ready file.</p>
+                <div class="wf-meta"><b>Works inside:</b> DocuSign, LEI registries, Companies House, SEC EDGAR</div>
+              </div>
+              <div>
+                <div style="font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Automated Queue Operations</div>
+                <ul class="wf-tasks">
+                  <li>Validated intake in place of static questionnaires</li>
+                  <li>Entity, beneficial ownership and regulatory classification extraction</li>
+                  <li>Consistency checks across bank statements and source-of-funds evidence</li>
+                  <li>Multi-jurisdictional information requests dispatched and tracked to close</li>
+                  <li>Evidence packs assembled for enhanced due diligence review</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 5: Commercial lending -->
+        <div class="panel" id="q5">
+          <div class="catalog-card">
+            <div class="catalog-content">
+              <div>
+                <div class="wf-header">
+                  <div class="wf-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                  </div>
+                  <h3>Commercial lending and credit lifecycle</h3>
+                </div>
+                <p class="wf-desc">Spreads the financials, tracks the covenants, and prepares the memo the credit decision runs on.</p>
+                <div class="wf-meta"><b>Works inside:</b> nCino, Moody's CreditLens, Finastra</div>
+              </div>
+              <div>
+                <div style="font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Automated Queue Operations</div>
+                <ul class="wf-tasks">
+                  <li>Financial statement spreading and line-item extraction</li>
+                  <li>Credit memo preparation and debt service coverage calculation</li>
+                  <li>Covenant monitoring and borrowing base certificate verification</li>
+                  <li>Collateral valuation updates and lien verification tracking</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 6: Reconciliations -->
+        <div class="panel" id="q6">
+          <div class="catalog-card">
+            <div class="catalog-content">
+              <div>
+                <div class="wf-header">
+                  <div class="wf-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  </div>
+                  <h3>Reconciliations and corporate accounting</h3>
+                </div>
+                <p class="wf-desc">Classifies exceptions under audit control and generates the entries ready for posting.</p>
+                <div class="wf-meta"><b>Works inside:</b> Oracle ERP, SAP S/4HANA, Workday</div>
+              </div>
+              <div>
+                <div style="font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Automated Queue Operations</div>
+                <ul class="wf-tasks">
+                  <li>General ledger journal line and payable invoice extraction</li>
+                  <li>Intercompany and tax line filtering</li>
+                  <li>Classification combining model judgment with deterministic rules</li>
+                  <li>Balanced entries generated for posting, traceable from source line to posted entry</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 7: Servicing & collections -->
+        <div class="panel" id="q7">
+          <div class="catalog-card">
+            <div class="catalog-content">
+              <div>
+                <div class="wf-header">
+                  <div class="wf-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                  </div>
+                  <h3>Servicing, collections and early warning</h3>
+                </div>
+                <p class="wf-desc">Watches the signals that precede a missed payment and prepares the outreach before it becomes a recovery.</p>
+                <div class="wf-meta"><b>Works inside:</b> ServiceNow, Salesforce Financial Services Cloud</div>
+              </div>
+              <div>
+                <div style="font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Automated Queue Operations</div>
+                <ul class="wf-tasks">
+                  <li>Flags at-risk accounts ahead of the first missed payment</li>
+                  <li>Builds the briefing pack for each collector call</li>
+                  <li>Next-best-action recommendations for relationship managers</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rv">
+          <div class="syslogos">
+            <div class="sl"><img src="logos/visa.svg" alt="Visa"></div>
+            <div class="sl"><img src="logos/mastercard.svg" alt="Mastercard"></div>
+            <div class="sl"><img src="logos/swift.svg" alt="Swift"></div>
+            <div class="sl"><img src="logos/oracle.svg" alt="Oracle"></div>
+            <div class="sl"><img src="logos/sap.svg" alt="SAP"></div>
+            <div class="sl"><img src="logos/salesforce.svg" alt="Salesforce"></div>
+            <div class="sl"><img src="logos/servicenow.svg" alt="ServiceNow"></div>
+            <div class="sl"><img src="logos/fiserv.svg" alt="Fiserv"></div>
+          </div>
+          <p style="margin-top:18px;font-size:14px;color:var(--muted);max-width:64ch">Zamp connects by API where one exists and by browser agent where one does not, working the same interfaces your operators use. Portal sessions are recorded, so nothing is replaced to get started.</p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 6: HOW ZAMP WORKS FOR BUSINESS USERS (PRODUCT DEMOCRATIZATION ENGINE) -->
-    <section class="sec" style="background:var(--white);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)" id="democratization">
+    <!-- SECTION 6: THE PILOT -->
+    <section class="sec blue" id="pilot">
       <div class="wrap">
-        <div class="sec-head rv">
-          <h2>Democratize digital employees for functional managers</h2>
-          <p class="lead">Zamp enables business and operations leads to hire, train, and deploy digital employees directly in under 2 weeks, with zero engineering effort or IT ticketing required.</p>
+        <div class="sec-head rv" style="margin-bottom:0">
+          <h2>Scope a pilot on one queue.</h2>
+          <p class="lead">Ninety days, one workflow, your go/no-go metrics. The first AI employee is live in under two weeks.</p>
         </div>
-
-        <div class="loop rv" id="loop">
-          <div class="stage on" data-i="0">
-            <span class="stime">STEP 1 · 1 TO 2 WEEKS</span>
-            <h3>Document &amp; Capture Tacit Knowledge</h3>
-            <p>The Onboarding Agent reads SOPs, policies, and training videos, interviews operators to surface undocumented know-how, and mines 3 to 6 months of historical case data for edge cases.</p>
-            <div class="outcome-tag">Outcome: <b>Agent Operating Procedure (AOP)</b> 5 to 10x richer than static SOPs.</div>
-            <span class="prog"></span>
+        <div class="steps3 rv">
+          <div class="st3">
+            <div class="n">01 · SCOPE</div>
+            <h3>One queue, your thresholds</h3>
+            <p>Pick a high-volume queue. Zamp runs on your approved model layer, inside your perimeter, against criteria your team writes.</p>
           </div>
-
-          <div class="stage" data-i="1">
-            <span class="stime">STEP 2 · UNDER 1 WEEK</span>
-            <h3>Automate Workflow Autonomously</h3>
-            <p>The Recursive Engineering Agent architects each step, writes deterministic code, selects optimal tools (prompts, multi-agents, vector search, browser agents), and runs self-testing for accuracy, cost, and latency.</p>
-            <div class="outcome-tag">Outcome: <b>Production-Ready Digital Worker</b> with zero eng support.</div>
-            <span class="prog"></span>
+          <div class="st3">
+            <div class="n">02 · PROVE</div>
+            <h3>Your metrics, not ours</h3>
+            <p>Cost per case, backlog age, SLA adherence, and quality against your human baseline. The artifact pack reaches third-party risk and InfoSec on day one.</p>
           </div>
-
-          <div class="stage" data-i="2">
-            <span class="stime">STEP 3 · UNDER 2 HOURS</span>
-            <h3>Continuous Improvement</h3>
-            <p>The Insights &amp; Feedback Agent incorporates direct feedback from Ops users without IT tickets. AOPs and eval sets update automatically, compounding precision over time.</p>
-            <div class="outcome-tag">Outcome: <b>Compounding Accuracy</b> driven by operational feedback.</div>
-            <span class="prog"></span>
+          <div class="st3">
+            <div class="n">03 · SCALE</div>
+            <h3>Expand on the same agreement</h3>
+            <p>Adjacent queues reuse one MSA and one completed security review. Cost per case falls as more queues go live.</p>
           </div>
         </div>
-      </div>
-    </section>
+        <div class="rv"><a href="#pilot" class="btn btn-ink">Scope a pilot <span class="ar">→</span></a></div>
 
-    <!-- SECTION 7: TRAITS OF A DIGITAL WORKFORCE -->
-    <section class="sec" id="traits">
-      <div class="wrap">
-        <div class="sec-head rv">
-          <h2>Traditional Workforce vs. Zamp Digital Workforce</h2>
-          <p class="lead">How digital employees fundamentally transform operational capacity, speed, and compliance.</p>
-        </div>
-
-        <table class="trait-table rv">
-          <thead>
-            <tr>
-              <th>Dimension</th>
-              <th>Traditional Workforce</th>
-              <th>Zamp Digital Workforce</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="feature-title">Scale</td>
-              <td class="trad">Ramp-up takes months. Ramp-down requires layoffs or unassigned overhead.</td>
-              <td class="digi"><b>Scale up for volume surges instantly</b> and back down after. Zero cost for idle time.</td>
-            </tr>
-            <tr>
-              <td class="feature-title">Availability</td>
-              <td class="trad">Weekdays, office hours, subject to shift constraints.</td>
-              <td class="digi"><b>24 / 7 / 365 continuous execution</b> with zero downtime.</td>
-            </tr>
-            <tr>
-              <td class="feature-title">Adaptability</td>
-              <td class="trad">Key process changes require multi-week retraining cycles.</td>
-              <td class="digi"><b>Update the SOP, test, and redeploy in hours.</b> Live operational updates.</td>
-            </tr>
-            <tr>
-              <td class="feature-title">Compliance</td>
-              <td class="trad">SOPs followed inconsistently. Internal audits take weeks.</td>
-              <td class="digi"><b>100% SOP adherence on every run.</b> Instant regulatory-grade audit logs.</td>
-            </tr>
-            <tr>
-              <td class="feature-title">Knowledge Retention</td>
-              <td class="trad">Best operators leave and take tacit knowledge to competitors.</td>
-              <td class="digi"><b>Knowledge remains permanently yours</b> with instant insights across all processes.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- SECTION 8: MULTI-YEAR TRANSFORMATION JOURNEY -->
-    <section class="sec" id="transformation">
-      <div class="wrap">
-        <div class="sec-head rv">
-          <h2>Start narrow. Expand on internal pull.</h2>
-          <p class="lead">Every enterprise partner starts with one process, proves value, and expands org-wide driven by operational demand.</p>
-        </div>
-
-        <div class="road-grid rv">
-          <div class="road-card">
-            <h4>1 to 2 Processes Live</h4>
-            <p>Zamp builds the first set of digital employees directly deployable into production. Baseline run cost established.</p>
-            <div class="road-stat">0% AI Employees</div>
+        <p class="syslabel rv" style="color:rgba(255,255,255,.6);margin-top:52px">How this expands, when it works</p>
+        <div class="road-grid rv" style="margin-top:16px">
+          <div class="road-card" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);border-top-color:#fff">
+            <h4 style="color:#fff">1 to 2 queues</h4>
+            <p style="color:rgba(255,255,255,.72)">The first AI employees go into production. Run cost per case is established against your own baseline.</p>
+            <div class="road-stat" style="background:rgba(255,255,255,.14);color:#fff">Baseline set</div>
           </div>
-
-          <div class="road-card">
-            <h4>15 to 75 Processes</h4>
-            <p>Digital employees run the bulk of routine operations work with higher accuracy, compliance, and speed.</p>
-            <div class="road-stat">~10% AI Employees</div>
+          <div class="road-card" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);border-top-color:#fff">
+            <h4 style="color:#fff">15 to 75 queues</h4>
+            <p style="color:rgba(255,255,255,.72)">Routine volume across financial crime, disputes and servicing runs with a decision record on every case.</p>
+            <div class="road-stat" style="background:rgba(255,255,255,.14);color:#fff">40 to 60% lower cost per case</div>
           </div>
-
-          <div class="road-card">
-            <h4>75 to 250 Processes</h4>
-            <p>Most complex workflows are run by digital employees. "Build an AI employee" becomes the default operational approach.</p>
-            <div class="road-stat">~40% AI Employees</div>
+          <div class="road-card" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);border-top-color:#fff">
+            <h4 style="color:#fff">75 to 250 queues</h4>
+            <p style="color:rgba(255,255,255,.72)">The harder workflows follow. Each new queue reuses the completed security review and vendor onboarding.</p>
+            <div class="road-stat" style="background:rgba(255,255,255,.14);color:#fff">2 to 3x capacity per team</div>
           </div>
-
-          <div class="road-card">
-            <h4>250+ Processes Live</h4>
-            <p>All core operations workflows run by digital employees. Teams solely monitor processes and govern readiness.</p>
-            <div class="road-stat">80%+ AI Employees (25% Cost Savings)</div>
+          <div class="road-card" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);border-top-color:#fff">
+            <h4 style="color:#fff">250+ queues</h4>
+            <p style="color:rgba(255,255,255,.72)">Operations leads scope a new AI employee the way they scope any other resourcing decision.</p>
+            <div class="road-stat" style="background:rgba(255,255,255,.14);color:#fff">Expansion on internal demand</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 9: EXECUTIVE EVALUATION FAQ -->
+    <!-- SECTION 7: FAQ -->
     <section class="sec" style="background:var(--white);border-top:1px solid var(--hair)" id="faq">
       <div class="wrap">
         <div class="sec-head rv">
-          <h2>Answers for COOs, CROs, and Heads of Operations</h2>
-          <p class="lead">Addressing key considerations from executive evaluations.</p>
+          <h2>The questions that decide this</h2>
         </div>
 
         <div class="faq-list rv" id="faqlist">
           <div class="qa open">
-            <button>How does Zamp integrate with our existing core banking systems?<span class="pm"></span></button>
+            <button>Will this replace my team?<span class="pm"></span></button>
             <div class="ans">
-              <p>Zamp connects directly via REST APIs where available. Where APIs do not exist, Zamp uses secure browser automation to navigate portals exactly as a human operator would (e.g., Fiserv DRS, Trade360, Oracle, SAP, Visa VROL, Mastercard MCM, ServiceNow). Teams do not need to replace existing IT systems.</p>
+              <p>It absorbs the volume you cannot hire fast enough for. Backlogs in this work are structurally infinite: alert volume scales with transaction volume, KYC refresh scales with the book, and regulatory scope only widens. New capacity gets consumed, not idled. Your analysts move to the judgment calls that were always theirs, and with turnover already at 18 to 22% a year, workforce shape changes through attrition on your timeline rather than through a decision anyone has to announce.</p>
             </div>
           </div>
 
           <div class="qa">
-            <button>We already have internal AI and IT automation initiatives. Why Zamp?<span class="pm"></span></button>
+            <button>We are already building this internally.<span class="pm"></span></button>
             <div class="ans">
-              <p>Zamp complements internal IT efforts. Central IT platforms are horizontal and often bottlenecked by multi-year backlogs. Zamp empowers functional managers to build and deploy digital workers in under 2 weeks on your approved model layer with full governance.</p>
+              <p>Then Zamp runs on top of it. Internal platforms are horizontal, built to serve everyone, and their roadmaps get set by front-office demand. An owned vertical workflow with its own escalation logic, evidence formats and regulatory mappings is a different product, and it tends to sit behind the platform team's backlog while your queue is due this quarter. Zamp runs on your approved model gateway, so this is additive to the internal effort rather than a competing bet.</p>
             </div>
           </div>
 
           <div class="qa">
-            <button>How does Zamp ensure regulatory compliance and auditability?<span class="pm"></span></button>
+            <button>Model risk will not approve a black box.<span class="pm"></span></button>
             <div class="ans">
-              <p>Security and compliance are at the core of the Zamp platform. Every disposition, filing, and decision generates a complete, regulatory-grade audit trail. Zero customer telemetry is ever used for public model retraining.</p>
+              <p>Agreed, and they should not. Every decision carries its inputs, its rationale, and the threshold it was measured against. Every version is tested against a golden eval set built from your own historical dispositions before it releases, and change logs export into your model inventory so a model update arrives as a notified event. Under SR 11-7 you remain responsible for models you buy, so the documentation is built to sit inside your inventory rather than to sit beside it.</p>
             </div>
           </div>
 
           <div class="qa">
-            <button>Do Operations teams adopt Zamp, or is it managed by IT?<span class="pm"></span></button>
+            <button>Our data cannot leave the bank.<span class="pm"></span></button>
             <div class="ans">
-              <p>Ops teams adopt Zamp directly. Business managers train Zamp on their specific SOPs without writing code or submitting IT support tickets. At leading global banks, operations managers actively expand Zamp across new queues like a digital colleague.</p>
+              <p>It does not have to. Deployment runs inside your perimeter with region pinning, single sign-on, and role-based entitlements. No model, ours or a third party's, is trained on your records.</p>
             </div>
           </div>
 
           <div class="qa">
-            <button>What is the commercial and partnership structure?<span class="pm"></span></button>
+            <button>We have been burned by RPA.<span class="pm"></span></button>
             <div class="ans">
-              <p>Zamp operates on an accountable partnership model: transparent usage-based billing per ACU (Digital Employee Hour) plus 2 to 8 embedded Zamp experts to discover, train, and co-build workflows with your team.</p>
+              <p>Reasonably so. RPA broke because it encoded brittle rules against screens that changed underneath it. This handles unstructured judgment work, escalates what falls outside its documented criteria instead of guessing, and gets measured the way you measure staff rather than the way you monitor a script. When a portal changes, the AI employee adapts to it the way an operator would.</p>
+            </div>
+          </div>
+
+          <div class="qa">
+            <button>Will our regulator object?<span class="pm"></span></button>
+            <div class="ans">
+              <p>Regulators object to ungoverned AI, and to backlogs. Supervised capacity with documented thresholds, human sign-off on escalations, and an exportable decision record is the defensible posture in an examination. Reported use of advanced AI in KYC and AML moved from 42% to 82% in a single year, so the question in the room is no longer whether AI belongs in this work.</p>
+            </div>
+          </div>
+
+          <div class="qa">
+            <button>Procurement will take eighteen months.<span class="pm"></span></button>
+            <div class="ans">
+              <p>Not for a ninety-day pilot on one queue with a complete artifact pack on day one. Control mappings, model documentation, eval-set results and audit-trail samples arrive in the formats your reviewers already recognise, and the same pack carries into the next queue on the same MSA and the same security review.</p>
             </div>
           </div>
         </div>
 
-        <div class="rv" style="margin-top:44px"><a href="#cta" class="btn btn-ink">Book an executive demo <span class="ar">→</span></a></div>
-      </div>
-    </section>
-
-    <!-- SECTION 10: EXECUTIVE CTA -->
-    <section class="sec blue" id="cta">
-      <div class="wrap">
-        <div class="sec-head rv" style="margin-bottom:0">
-          <h2>Start narrow. Expand on internal pull.</h2>
-          <p class="lead">Initiate a 2-week digital employee pilot on a single high-priority workflow, then scale across operations with complete confidence.</p>
-        </div>
-        <div class="steps3 rv">
-          <div class="st3"><div class="n">01 · SCOPE</div><h3>Select One Workflow</h3><p>Identify a single high-volume queue (sanctions false positives, chargebacks, or trade LC checks).</p></div>
-          <div class="st3"><div class="n">02 · PROVE</div><h3>Build in &lt;2 Weeks</h3><p>Zamp Onboarding Agent captures SOPs and mines historical data to build the Agent Operating Procedure.</p></div>
-          <div class="st3"><div class="n">03 · SCALE</div><h3>Expand Org-Wide</h3><p>Scale digital employees across additional business units under a single Master Services Agreement.</p></div>
-        </div>
-        <div class="rv"><a href="#" class="btn btn-ink">Schedule Executive Briefing <span class="ar">→</span></a></div>
+        <div class="rv" style="margin-top:44px"><a href="#pilot" class="btn btn-ink">Scope a pilot <span class="ar">→</span></a></div>
       </div>
     </section>
 
@@ -1141,7 +1165,7 @@
       <a href="#top" class="brand">
         <svg class="mark" viewBox="0 0 101 23" aria-label="Zamp"><path d="M40.8466 4.23199V1.0606H27.3799V4.01835H36.3791L27.0176 14.0104V17.1825H41.0596V14.2241H31.3954L40.8466 4.23199Z"/><path d="M57.3106 14.1747C57.1567 14.026 57.082 13.7377 57.082 13.3163V7.39949C57.082 5.24498 56.4963 3.5872 55.3301 2.43073C54.1638 1.27425 52.4411 0.693737 50.1678 0.693737C48.1776 0.693737 46.5542 1.16061 45.3081 2.08333C44.062 3.01124 43.2776 4.30733 42.9555 5.98003L46.8224 6.19366C47.0256 5.36965 47.3931 4.73914 47.9243 4.30733C48.4555 3.87551 49.2048 3.65733 50.173 3.65733C51.1957 3.65733 51.9749 3.94499 52.5106 4.5307C53.0418 5.11121 53.31 5.98977 53.31 7.15664L47.9341 8.1839C46.162 8.5261 44.8419 9.09233 43.9783 9.87673C43.1094 10.6611 42.6776 11.7481 42.6776 13.1377C42.6776 14.5273 43.1887 15.6098 44.2166 16.3838C45.2445 17.1578 46.599 17.5455 48.2918 17.5455H48.3016C49.2847 17.5455 50.1879 17.3968 51.0015 17.0935C51.8158 16.7909 52.4859 16.3637 53.0067 15.8078C53.3255 15.4708 53.5807 15.1039 53.7729 14.7085C53.8424 15.1585 53.9632 15.5409 54.1385 15.8526C54.4262 16.374 54.8333 16.7461 55.3443 16.9695C55.8606 17.1929 56.4463 17.302 57.1112 17.302C57.3943 17.302 57.6625 17.2922 57.9255 17.2721C58.1885 17.252 58.382 17.2227 58.5014 17.1825V14.4026H57.9904C57.6878 14.4026 57.4593 14.3234 57.3106 14.1741V14.1747ZM53.2996 10.6605C53.2996 11.4845 53.1262 12.204 52.7736 12.8196C52.421 13.4351 51.9301 13.9117 51.2944 14.2539C50.6593 14.5961 49.9093 14.765 49.0457 14.765H49.0405C48.2561 14.765 47.6509 14.5961 47.2289 14.2539C46.8068 13.9117 46.5938 13.4299 46.5938 12.8046C46.5938 12.2189 46.7873 11.752 47.1698 11.4001C47.5522 11.0475 48.1776 10.7793 49.0412 10.6007L53.3002 9.7566V10.6598L53.2996 10.6605Z"/><path d="M80.7851 1.41885C79.9812 0.947429 79.013 0.709121 77.8864 0.709121C77.0423 0.709121 76.2832 0.87795 75.6079 1.22015C74.9326 1.56236 74.3722 2.05391 73.93 2.69935C73.6644 3.07987 73.4475 3.51428 73.2767 3.99739C72.9904 3.13636 72.5371 2.42533 71.9196 1.8656C71.0657 1.09158 69.954 0.703926 68.5839 0.703926C67.7995 0.703926 67.0846 0.86756 66.4398 1.20002C65.7944 1.53249 65.2431 2.00391 64.7911 2.61948C64.5379 2.96104 64.3275 3.34545 64.1535 3.76947L64.0515 1.06041H60.6412V17.1823L60.6464 17.192H64.4191V7.92136C64.4191 7.05774 64.5431 6.31814 64.7963 5.70256C65.0489 5.08698 65.397 4.61556 65.8379 4.2831C66.2801 3.95064 66.8112 3.787 67.4366 3.787C68.4443 3.787 69.1541 4.14414 69.5657 4.85907C69.9781 5.57399 70.1865 6.59151 70.1865 7.92136V17.1933H73.691V7.92136C73.691 7.05774 73.8098 6.31814 74.0527 5.70256C74.2962 5.08698 74.6436 4.61556 75.0949 4.2831C75.5468 3.95064 76.0832 3.787 76.7079 3.787C77.6559 3.787 78.3565 4.12466 78.8078 4.79933C79.2598 5.47464 79.4877 6.47203 79.4877 7.80253V17.194H83.2604V6.83956C83.2604 5.51425 83.0474 4.39219 82.6247 3.48895C82.2032 2.58052 81.587 1.89092 80.7831 1.41885H80.7851Z"/><path d="M97.9666 2.14874C96.9498 1.38447 95.6796 1.002 94.1511 1.002C92.918 1.002 91.8518 1.31628 90.933 1.939C90.2427 2.40783 89.694 2.96237 89.2992 3.7143L89.2564 1.0572H85.6376V22.3063H89.4103V15.3219C89.5953 15.6674 89.8174 15.9875 90.0947 16.2778C90.5817 16.7953 91.1797 17.2024 91.8765 17.4797C92.5667 17.7635 93.3186 17.905 94.1206 17.905C95.6491 17.905 96.9257 17.5226 97.9426 16.7583C98.9536 15.994 99.7244 14.9765 100.236 13.707C100.748 12.4369 101 10.674 101 9.12072C101 6.42076 100.193 3.813 97.9673 2.14874H97.9666ZM96.4498 13.2759C95.7595 14.17 94.8225 14.6135 93.6388 14.6135C92.455 14.6135 91.518 14.1694 90.8278 13.2759C90.1434 12.3817 89.8044 11.1551 89.8044 9.57721C89.8044 7.99931 90.1434 6.50128 90.8278 5.60714C91.518 4.71299 92.455 4.26949 93.6388 4.26949C94.8225 4.26949 95.7595 4.71364 96.4498 5.60714C97.1342 6.50128 97.4731 7.99866 97.4731 9.57721C97.4731 11.1558 97.1342 12.3824 96.4498 13.2759Z"/><path d="M0 7.9823L3.8019 1.06031H20.1712L16.3693 7.9823H0Z"/><path d="M0 17.1817L3.8019 10.2591H20.1712L16.3693 17.1817H0Z"/></svg>
       </a>
-      <p class="ft">An intelligent, self-learning digital employee for institutions where precision is non-negotiable.</p>
+      <p class="ft">The AI workforce for banking operations. Built for institutions where precision is not negotiable.</p>
     </div>
     <div class="wrap fbase">© 2026 Zamp Inc. Internal mockup for review only.</div>
   </footer>
@@ -1157,26 +1181,14 @@
       }
       onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
 
-      var counted = new WeakSet();
-      function runCount(el) {
-        var to = parseFloat(el.getAttribute('data-to')) || 0, dur = 1100, t0 = null;
-        function tick(ts) { if (!t0) t0 = ts; var p = Math.min((ts - t0) / dur, 1); var e = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(to * e).toLocaleString(); if (p < 1) requestAnimationFrame(tick); else el.textContent = Math.round(to).toLocaleString(); }
-        requestAnimationFrame(tick);
-      }
       var rv = [].slice.call(document.querySelectorAll('.rv, .mcell'));
       if ('IntersectionObserver' in window && !reduce) {
         var io = new IntersectionObserver(function (es) {
-          es.forEach(function (en) { if (en.isIntersecting) {
-            en.target.classList.add('in');
-            (en.target.querySelectorAll ? en.target.querySelectorAll('.count') : []).forEach(function (c) { if (!counted.has(c)) { counted.add(c); runCount(c); } });
-            io.unobserve(en.target);
-          } });
+          es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
         }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
         rv.forEach(function (e) { io.observe(e); });
       } else {
         rv.forEach(function (e) { e.classList.add('in'); });
-        document.querySelectorAll('.count').forEach(function (c) { c.textContent = Math.round(parseFloat(c.getAttribute('data-to')) || 0).toLocaleString(); });
       }
 
       document.querySelectorAll('.tabs').forEach(function (set) {
@@ -1184,10 +1196,7 @@
           var b = e.target.closest('.tab'); if (!b) return;
           var id = b.getAttribute('data-t'), scope = b.closest('section');
           set.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('on', t === b); });
-          scope.querySelectorAll('.panel').forEach(function (p) {
-            var on = p.id === id; p.classList.toggle('on', on);
-            if (on) { p.querySelectorAll('.count').forEach(function (c) { counted.delete(c); c.textContent = '0'; runCount(c); }); }
-          });
+          scope.querySelectorAll('.panel').forEach(function (p) { p.classList.toggle('on', p.id === id); });
         });
       });
 
