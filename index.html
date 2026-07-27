@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400&family=Geist+Mono:wght@300;400&display=swap"
     rel="stylesheet" />
   <style>
     :root {
@@ -41,23 +41,24 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0 }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100% }
-    body { font-family: var(--sans); font-size: 17px; line-height: 1.6; color: var(--ink); background: var(--canvas); -webkit-font-smoothing: antialiased; overflow-x: hidden }
+    body { font-family: var(--sans); font-weight: 400; font-size: 17px; line-height: 1.68; color: var(--ink); background: var(--canvas); -webkit-font-smoothing: antialiased; overflow-x: hidden }
     a { color: inherit; text-decoration: none }
     img { max-width: 100%; display: block }
+    b, strong { font-weight: 400 }
     ::selection { background: var(--blue); color: #fff }
 
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px }
-    @media(min-width:768px) { .wrap { padding: 0 40px } }
+    @media(min-width:768px) { .wrap { padding: 0 44px } }
     section { position: relative }
     section[id] { scroll-margin-top: 90px }
 
-    h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.03em; line-height: 1.08 }
-    h1 { font-size: clamp(36px, 7.2vw, 84px); letter-spacing: -0.045em; font-weight: 700; line-height: .98 }
-    h2 { font-size: clamp(26px, 3.8vw, 44px); letter-spacing: -0.035em }
-    h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.015em }
-    h4 { font-size: 16px; font-weight: 600; letter-spacing: -0.01em }
+    h1, h2, h3, h4 { font-weight: 400; letter-spacing: -0.03em; line-height: 1.1 }
+    h1 { font-size: clamp(36px, 7.2vw, 80px); letter-spacing: -0.04em; font-weight: 300; line-height: 1.02 }
+    h2 { font-size: clamp(26px, 3.6vw, 42px); letter-spacing: -0.03em }
+    h3 { font-size: 19px; font-weight: 400; letter-spacing: -0.01em }
+    h4 { font-size: 16px; font-weight: 400; letter-spacing: -0.01em }
     p { color: var(--body) }
-    .lead { font-size: clamp(17px, 1.8vw, 20px); color: var(--body); line-height: 1.55; max-width: 58ch }
+    .lead { font-size: clamp(17px, 1.8vw, 20px); color: var(--body); font-weight: 300; line-height: 1.6; max-width: 58ch }
 
     .dark { background: var(--ink); color: #fff }
     .dark p { color: rgba(255,255,255,.7) }
@@ -67,7 +68,7 @@
 
     .progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--blue), var(--blue-bright)); z-index: 100; transition: width .1s linear }
 
-    .btn { position: relative; display: inline-flex; align-items: center; gap: 9px; font-family: var(--sans); font-size: 15px; font-weight: 500; padding: 13px 22px; border-radius: 10px; cursor: pointer; border: 1px solid transparent; transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease), box-shadow .2s var(--ease); white-space: nowrap }
+    .btn { position: relative; display: inline-flex; align-items: center; gap: 9px; font-family: var(--sans); font-size: 15px; font-weight: 400; padding: 13px 22px; border-radius: 10px; cursor: pointer; border: 1px solid transparent; transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease), box-shadow .2s var(--ease); white-space: nowrap }
     .btn:hover { transform: translateY(-2px) }
     .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 8px 24px -10px rgba(0,94,255,.7) }
     .btn-primary:hover { background: #0B52E0 }
@@ -83,7 +84,7 @@
     .brand { display: flex; align-items: center; gap: 10px; color: #fff }
     .brand .tag { font-family: var(--mono); font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,.5); padding-left: 11px; border-left: 1px solid rgba(255,255,255,.2) }
     .nav-links { display: none; gap: 20px; align-items: center }
-    .nav-links a { font-size: 13.5px; font-weight: 500; color: rgba(255,255,255,.75); transition: color .2s }
+    .nav-links a { font-size: 13.5px; font-weight: 400; color: rgba(255,255,255,.75); transition: color .2s }
     .nav-links a:hover { color: #fff }
     .nav-cta .btn { padding: 9px 16px; font-size: 13.5px }
     @media(min-width:980px) { .nav-links { display: flex } }
@@ -101,25 +102,25 @@
     .hero-glow { position: absolute; z-index: 0; top: -14%; right: -6%; width: min(700px,80vw); height: min(700px,80vw); background: radial-gradient(circle, rgba(0,94,255,.28) 0%, rgba(0,94,255,.05) 42%, transparent 66%); filter: blur(10px); animation: breathe 9s var(--ease) infinite alternate }
     @keyframes breathe { from{opacity:.75;transform:scale(1)} to{opacity:1;transform:scale(1.1)} }
     .hero .wrap { position: relative; z-index: 2 }
-    .hero h1 { max-width: 16ch; margin-bottom: 24px; color: #fff }
+    .hero h1 { max-width: 16ch; margin-bottom: 30px; color: #fff }
     .hero h1 .ln { display: block; overflow: hidden }
     .hero h1 .ln span { display: block; transform: translateY(105%); animation: rise 1s var(--ease-out) forwards }
     .hero h1 .ln:nth-child(2) span { animation-delay: .12s; color: rgba(255,255,255,.45) }
     @keyframes rise { to{transform:translateY(0)} }
     @keyframes up { to{opacity:1;transform:none} }
-    .hero .lead { color: rgba(255,255,255,.72); margin-bottom: 32px; opacity: 0; animation: up .9s var(--ease-out) .4s forwards; max-width: 60ch }
+    .hero .lead { color: rgba(255,255,255,.72); margin-bottom: 38px; opacity: 0; animation: up .9s var(--ease-out) .4s forwards; max-width: 60ch }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; opacity: 0; animation: up .9s var(--ease-out) .52s forwards }
-    .hero-cred { margin-top: 32px; display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 12px; color: rgba(255,255,255,.5); opacity: 0; animation: up .9s var(--ease-out) .64s forwards }
+    .hero-cred { margin-top: 38px; display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-weight: 400; font-size: 12px; color: rgba(255,255,255,.5); opacity: 0; animation: up .9s var(--ease-out) .64s forwards }
     .hero-cred .rule { width: 30px; height: 1px; background: rgba(255,255,255,.25) }
 
-    .hero-specs { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 28px; opacity: 0; animation: up .9s var(--ease-out) .72s forwards }
-    .hero-spec-item { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; color: rgba(255,255,255,.8) }
+    .hero-specs { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 34px; opacity: 0; animation: up .9s var(--ease-out) .72s forwards }
+    .hero-spec-item { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-weight: 400; font-size: 12px; color: rgba(255,255,255,.8) }
     .hero-spec-item svg { width: 14px; height: 14px; color: var(--blue-bright) }
 
     /* section frame */
-    .sec { padding: clamp(64px,9vh,100px) 0 }
-    .sec-head { max-width: 720px; margin-bottom: clamp(36px,5vh,48px) }
-    .sec-head h2 { margin-bottom: 14px }
+    .sec { padding: clamp(76px,11vh,128px) 0 }
+    .sec-head { max-width: 720px; margin-bottom: clamp(44px,6vh,60px) }
+    .sec-head h2 { margin-bottom: 18px }
 
     /* customer logos */
     .customers { background: var(--white); border-bottom: 1px solid var(--hair) }
@@ -129,7 +130,7 @@
     .clg:hover { border-color: var(--faint); background: #fff }
     .clg img { height: 21px; width: auto; filter: grayscale(1) contrast(.55) opacity(.6); transition: filter .3s }
     .clg:hover img { filter: none }
-    .clg .word { font-weight: 600; font-size: 13.5px; color: var(--faint); text-align: center; transition: color .3s }
+    .clg .word { font-weight: 400; font-size: 13.5px; color: var(--faint); text-align: center; transition: color .3s }
     .clg:hover .word { color: var(--ink) }
 
     /* metrics */
@@ -138,56 +139,51 @@
     @media(min-width:768px) { .metrics .wrap { padding: clamp(40px,6vh,56px) 40px } }
     .mgrid { display: grid; grid-template-columns: 1fr; gap: 2px; background: rgba(0,94,255,.1) }
     @media(min-width:720px) { .mgrid { grid-template-columns: repeat(4,1fr) } }
-    .mcell { background: var(--white); padding: 28px 24px; transition: transform .2s var(--ease) }
+    .mcell { background: var(--white); padding: 36px 28px; transition: transform .2s var(--ease) }
     .mcell:hover { transform: translateY(-2px) }
-    .mcell .big { font-family: var(--mono); font-weight: 600; font-size: clamp(38px,4.4vw,50px); letter-spacing: -.03em; color: var(--ink); line-height: 1; margin-bottom: 10px }
+    .mcell .big { font-family: var(--mono); font-weight: 400; font-size: clamp(38px,4.4vw,50px); letter-spacing: -.03em; color: var(--ink); line-height: 1; margin-bottom: 12px }
     .mcell .big .s { color: var(--blue); font-size: .55em }
-    .mcell .lbl { font-size: 14.5px; font-weight: 500; color: var(--muted); line-height: 1.35 }
+    .mcell .lbl { font-size: 14.5px; font-weight: 400; color: var(--muted); line-height: 1.45 }
 
-    /* tabs + panels */
-    .tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; border-bottom: 1px solid var(--hair); padding-bottom: 16px }
-    .tab { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--muted); padding: 8px 16px; border: 1px solid var(--hair); border-radius: 8px; background: var(--white); cursor: pointer; transition: all .2s var(--ease) }
-    .tab:hover { border-color: var(--blue); color: var(--blue) }
-    .tab.on { background: var(--blue); border-color: var(--blue); color: #fff; box-shadow: 0 4px 14px -4px rgba(0,94,255,.5) }
-    .panel { display: none; animation: fade .45s var(--ease-out) }
-    .panel.on { display: block }
     @keyframes fade { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
 
-    .case-card { background: var(--blue-subtle); border: 1px solid rgba(0,94,255,.15); border-radius: 16px; padding: clamp(28px,4vw,40px) }
-    .case { display: grid; grid-template-columns: 1fr; gap: 32px }
+    .case-card { position: relative; overflow: hidden; background: var(--blue-subtle); border: 1px solid rgba(0,94,255,.15); border-radius: 16px; padding: clamp(28px,4vw,40px) }
+    .case-card::before, .catalog-card::before { content: attr(data-index); position: absolute; top: -6px; right: 22px; font-family: var(--mono); font-size: 84px; font-weight: 300; color: var(--blue); opacity: .07; line-height: 1; pointer-events: none; user-select: none }
+    .case { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr; gap: 32px }
     @media(min-width:920px) { .case { grid-template-columns: 1.22fr .78fr; gap: 36px; align-items: stretch } }
-    .case .who { font-family: var(--mono); font-size: 11.5px; letter-spacing: 1px; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; font-weight: 600 }
-    .case h3 { font-size: clamp(22px,2.6vw,28px); margin-bottom: 12px; letter-spacing: -.03em }
-    .case .txt { font-size: 15px; line-height: 1.55; color: var(--body); margin-bottom: 20px }
+    .case .who { font-family: var(--mono); font-size: 11.5px; letter-spacing: 1px; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; font-weight: 400 }
+    .case h3 { font-size: clamp(22px,2.6vw,28px); margin-bottom: 14px; letter-spacing: -.03em; font-weight: 300 }
+    .case .txt { font-size: 15px; line-height: 1.6; color: var(--body); margin-bottom: 20px }
 
     /* Redesigned Impact Column (Aligned & Titled) */
-    .cmetrics { background: var(--white); border: 1px solid rgba(0,94,255,.16); border-radius: 14px; padding: 22px 24px; display: flex; flex-direction: column; height: 100%; box-shadow: 0 4px 16px -6px rgba(0,94,255,.08) }
-    .cmetrics-head { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase; color: var(--blue); padding-bottom: 12px; border-bottom: 1px solid var(--hair); margin-bottom: 8px }
+    .cmetrics { background: var(--white); border: 1px solid rgba(0,94,255,.16); border-radius: 14px; padding: 24px 26px; display: flex; flex-direction: column; height: 100%; box-shadow: 0 4px 16px -6px rgba(0,94,255,.08) }
+    .cmetrics-head { font-family: var(--mono); font-size: 11px; font-weight: 400; letter-spacing: .8px; text-transform: uppercase; color: var(--blue); padding-bottom: 12px; border-bottom: 1px solid var(--hair); margin-bottom: 8px }
     .cmetrics-list { display: flex; flex-direction: column; justify-content: space-around; flex: 1 }
-    .cm { display: flex; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--hair-2) }
+    .cm { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--hair-2) }
     .cm:last-child { border-bottom: none }
-    .cm .v { font-family: var(--mono); font-size: clamp(22px,2.4vw,28px); font-weight: 600; letter-spacing: -.03em; color: var(--ink); min-width: 110px }
+    .cm .v { font-family: var(--mono); font-size: clamp(22px,2.4vw,28px); font-weight: 400; letter-spacing: -.03em; color: var(--ink); min-width: 110px }
     .cm .v .s { color: var(--blue); font-size: .55em }
     .cm .l { font-size: 13.5px; color: var(--body) }
 
     /* Problem Section */
     .dilemma-sec { background: #FAF9F5; border-top: 1px solid #EAE6DF; border-bottom: 1px solid #EAE6DF }
-    .prob-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 28px }
-    @media(min-width:768px) { .prob-grid { grid-template-columns: repeat(3,1fr) } }
-    .prob-card { background: var(--white); border: 1px solid #EBE7DF; border-top: 3px solid var(--amber-accent); border-radius: 12px; padding: 26px 22px }
-    .prob-card h3 { font-size: 18px; margin-bottom: 10px; color: var(--ink) }
-    .prob-card p { font-size: 14px; line-height: 1.55; color: var(--body) }
+    .prob-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 36px }
+    @media(min-width:768px) { .prob-grid { grid-template-columns: repeat(3,1fr); gap: 44px } }
+    .prob-card { position: relative; padding-top: 18px }
+    .prob-card::before { content: ""; position: absolute; top: 0; left: 0; width: 32px; height: 2px; background: var(--amber-accent) }
+    .prob-card h3 { font-size: 18px; margin-bottom: 12px; color: var(--ink); font-weight: 300 }
+    .prob-card p { font-size: 14px; line-height: 1.6; color: var(--body) }
 
     /* Product How-It-Works Lifecycle Cards */
     .loop { display: grid; grid-template-columns: 1fr; gap: 18px }
-    @media(min-width:840px) { .loop { grid-template-columns: repeat(3,1fr); gap: 20px } }
-    .stage { border: 1px solid var(--hair); border-radius: 16px; padding: 28px 24px; background: var(--white); position: relative; overflow: hidden; cursor: pointer; transition: border-color .3s var(--ease), box-shadow .3s var(--ease), transform .3s var(--ease) }
+    @media(min-width:840px) { .loop { grid-template-columns: repeat(3,1fr); gap: 24px } }
+    .stage { border: 1px solid var(--hair); border-radius: 16px; padding: 32px 28px; background: var(--white); position: relative; overflow: hidden; cursor: pointer; transition: border-color .3s var(--ease), box-shadow .3s var(--ease), transform .3s var(--ease) }
     .stage.on { border-color: var(--blue); box-shadow: 0 16px 40px -26px rgba(0,94,255,.6); transform: translateY(-3px); background: var(--blue-subtle) }
-    .stage .stime { font-family: var(--mono); font-size: 11px; color: var(--faint); letter-spacing: .5px; font-weight: 600 }
+    .stage .stime { font-family: var(--mono); font-size: 11px; color: var(--faint); letter-spacing: .5px; font-weight: 400 }
     .stage.on .stime { color: var(--blue) }
-    .stage h3 { margin: 10px 0 8px }
-    .stage p { font-size: 14px; line-height: 1.5; color: var(--body) }
-    .stage .outcome-tag { margin-top: 16px; padding-top: 14px; border-top: 1px dashed rgba(0,94,255,.2); font-size: 13.5px; font-weight: 500; color: var(--ink) }
+    .stage h3 { margin: 12px 0 10px; font-weight: 300 }
+    .stage p { font-size: 14px; line-height: 1.55; color: var(--body) }
+    .stage .outcome-tag { margin-top: 18px; padding-top: 16px; border-top: 1px dashed rgba(0,94,255,.2); font-size: 13.5px; font-weight: 400; color: var(--ink) }
     .stage .outcome-tag b { color: var(--blue) }
     .stage .prog { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--blue) }
     .stage.on .prog { animation: progfill 4.5s linear forwards }
@@ -202,49 +198,50 @@
     .wf-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px }
     .wf-icon { width: 40px; height: 40px; background: var(--blue-subtle); color: var(--blue); border-radius: 10px; display: grid; place-items: center; flex: none }
     .wf-icon svg { width: 20px; height: 20px }
-    .wf-card h3 { font-size: 20px; letter-spacing: -.02em }
-    .wf-desc { font-size: 14.5px; color: var(--body); margin-bottom: 18px; line-height: 1.5 }
-    .wf-meta { font-family: var(--mono); font-size: 11.5px; color: var(--muted); background: var(--surface); padding: 8px 12px; border-radius: 6px; margin-bottom: 16px }
-    .wf-meta b { color: var(--ink) }
-    .wf-tasks { list-style: none; display: flex; flex-direction: column; gap: 9px }
-    .wf-tasks li { font-size: 14px; color: var(--body); padding-left: 18px; position: relative; line-height: 1.45 }
-    .wf-tasks li::before { content: "•"; position: absolute; left: 0; color: var(--blue); font-weight: bold }
+    .wf-card h3 { font-size: 20px; letter-spacing: -.02em; font-weight: 300 }
+    .wf-desc { font-size: 14.5px; color: var(--body); margin-bottom: 18px; line-height: 1.55 }
+    .wf-meta { font-family: var(--mono); font-size: 11.5px; color: var(--muted); background: var(--surface); padding: 9px 12px; border-radius: 6px; margin-bottom: 16px }
+    .wf-meta b { color: var(--ink); font-weight: 400 }
+    .wf-tasks { list-style: none; display: flex; flex-direction: column; gap: 10px }
+    .wf-tasks li { font-size: 14px; color: var(--body); padding-left: 18px; position: relative; line-height: 1.5 }
+    .wf-tasks li::before { content: "•"; position: absolute; left: 0; color: var(--blue); font-weight: 400 }
 
     /* Toggle-based Catalog Cards */
-    .catalog-card { background: var(--white); border: 1px solid var(--hair); border-radius: 16px; padding: clamp(24px, 4vw, 36px); box-shadow: 0 4px 20px -8px rgba(0,0,0,.05); border-top: 3px solid var(--blue) }
-    .catalog-content { display: grid; grid-template-columns: 1fr; gap: 24px }
+    .catalog-card { position: relative; overflow: hidden; background: var(--white); border: 1px solid var(--hair); border-radius: 16px; padding: clamp(28px, 4vw, 40px); box-shadow: 0 4px 20px -8px rgba(0,0,0,.05); border-top: 2px solid var(--blue) }
+    .catalog-content { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr; gap: 24px }
     @media(min-width:860px) {
       .catalog-content { grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: start }
     }
 
-    /* Phased Expansion Roadmap */
-    .road-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px }
-    @media(min-width:768px) { .road-grid { grid-template-columns: repeat(4,1fr) } }
-    .road-card { background: var(--white); border: 1px solid var(--hair); border-top: 3px solid var(--blue); border-radius: 14px; padding: 24px 20px }
-    .road-card h4 { font-size: 17px; margin-bottom: 8px }
-    .road-card p { font-size: 13.5px; line-height: 1.45; color: var(--body) }
-    .road-stat { margin-top: 14px; font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--blue); background: var(--blue-tint); padding: 5px 10px; border-radius: 6px; display: inline-block }
+    /* Phased Expansion Roadmap: horizontal stepper */
+    .stepline { position: relative; display: grid; grid-template-columns: 1fr; gap: 36px; margin-top: 24px; padding-top: 32px }
+    .stepline::before { content: ""; position: absolute; top: 5px; left: 0; right: 0; height: 1px; background: rgba(255,255,255,.22) }
+    @media(min-width:860px) { .stepline { grid-template-columns: repeat(4,1fr); gap: 28px } }
+    .step-item { position: relative }
+    .step-item::before { content: ""; position: absolute; top: -30px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 4px rgba(255,255,255,.14) }
+    .step-item h4 { color: #fff; font-size: 16.5px; font-weight: 300; margin-bottom: 10px }
+    .step-item p { color: rgba(255,255,255,.72); font-size: 13.5px; line-height: 1.55; margin-bottom: 14px }
+    .step-stat { font-family: var(--mono); font-size: 12px; font-weight: 400; color: #fff; background: rgba(255,255,255,.14); padding: 5px 10px; border-radius: 6px; display: inline-block }
 
     /* trust: certification badges */
-    .certrow { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px }
+    .certrow { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px }
     @media(min-width:720px) { .certrow { grid-template-columns: repeat(4,1fr) } }
-    .certbadge { border: 1px solid rgba(255,255,255,.16); border-radius: 12px; padding: 16px 18px; display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,.02); transition: border-color .2s, background .2s }
+    .certbadge { border: 1px solid rgba(255,255,255,.16); border-radius: 12px; padding: 18px 20px; display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,.02); transition: border-color .2s, background .2s }
     .certbadge:hover { border-color: rgba(59,130,255,.5); background: rgba(0,94,255,.06) }
     .certbadge svg { width: 20px; height: 20px; color: var(--blue-bright); flex: none }
-    .certbadge .cb-name { font-size: 14px; font-weight: 600; color: #fff }
+    .certbadge .cb-name { font-size: 14px; font-weight: 400; color: #fff }
     .certbadge .cb-status { font-family: var(--mono); font-size: 10px; letter-spacing: .6px; text-transform: uppercase; color: rgba(255,255,255,.48); margin-top: 2px }
-    .trustnote { margin-top: 24px; font-size: 13.5px; color: rgba(255,255,255,.55); max-width: 68ch }
 
     /* cta */
     .blue { background: linear-gradient(155deg,#0B52E0 0%,var(--blue) 55%,#2C74FF 100%); color: #fff }
     .blue h2 { color: #fff; margin-bottom: 14px }
     .blue .lead { color: rgba(255,255,255,.9) }
-    .steps3 { display: grid; grid-template-columns: 1fr; gap: 0; margin: 36px 0 32px }
-    @media(min-width:760px) { .steps3 { grid-template-columns: repeat(3,1fr) } }
-    .st3 { border-top: 2px solid rgba(255,255,255,.4); padding: 18px 22px 4px 0 }
-    .st3 .n { font-family: var(--mono); font-size: 12px; letter-spacing: .5px; color: rgba(255,255,255,.7) }
-    .st3 h3 { color: #fff; margin: 8px 0 6px }
-    .st3 p { color: rgba(255,255,255,.85); font-size: 14.5px; line-height: 1.45 }
+    .steps3 { display: grid; grid-template-columns: 1fr; gap: 28px; margin: 44px 0 40px }
+    @media(min-width:760px) { .steps3 { grid-template-columns: repeat(3,1fr); gap: 40px } }
+    .st3 { border-top: 1px solid rgba(255,255,255,.4); padding: 22px 22px 4px 0 }
+    .st3 .n { font-family: var(--mono); font-weight: 400; font-size: 12px; letter-spacing: .5px; color: rgba(255,255,255,.7) }
+    .st3 h3 { color: #fff; margin: 10px 0 8px; font-weight: 300 }
+    .st3 p { color: rgba(255,255,255,.85); font-size: 14.5px; line-height: 1.5 }
     .blue .btn-ink { background: #fff; color: var(--ink) }
     .blue .btn-ink:hover { background: var(--ink); color: #fff }
 
@@ -253,7 +250,7 @@
     .qa { border-top: 1px solid var(--hair); transition: border-color .2s }
     .qa:last-child { border-bottom: 1px solid var(--hair) }
     .qa.open { border-top-color: var(--blue) }
-    .qa button { width: 100%; background: none; border: 0; cursor: pointer; font-family: var(--sans); text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; font-size: 16.5px; font-weight: 600; letter-spacing: -.01em; color: var(--ink); transition: color .2s }
+    .qa button { width: 100%; background: none; border: 0; cursor: pointer; font-family: var(--sans); text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 0; font-size: 16.5px; font-weight: 400; letter-spacing: -.01em; color: var(--ink); transition: color .2s }
     .qa button:hover { color: var(--blue) }
     .qa .pm { flex: none; width: 16px; height: 16px; position: relative }
     .qa .pm::before, .qa .pm::after { content: ""; position: absolute; background: var(--muted); border-radius: 2px; transition: opacity .2s, background .2s }
@@ -262,7 +259,7 @@
     .qa.open .pm::after { opacity: 0 }
     .qa.open .pm::before { background: var(--blue) }
     .qa .ans { overflow: hidden; max-height: 0; transition: max-height .35s var(--ease) }
-    .qa .ans p { font-size: 15px; line-height: 1.55; color: var(--body); padding: 0 30px 20px 0 }
+    .qa .ans p { font-size: 15px; line-height: 1.65; color: var(--body); padding: 0 30px 26px 0 }
 
     /* footer */
     .footer { background: var(--ink); color: #fff; padding: 52px 0 32px }
@@ -274,54 +271,113 @@
     .banner { background: var(--lime); color: var(--ink); text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; padding: 8px 16px; position: relative; z-index: 80 }
 
     /* volume-math stat tiles (problem section) */
-    .stat-num { font-family: var(--mono); font-weight: 600; font-size: clamp(28px,3.4vw,38px); letter-spacing: -.03em; color: var(--amber-accent); line-height: 1; margin-bottom: 12px }
-    .prob-card .src { margin-top: 14px; font-family: var(--mono); font-size: 11px; color: var(--faint) }
+    .stat-num { font-family: var(--mono); font-weight: 400; font-size: clamp(28px,3.4vw,38px); letter-spacing: -.03em; color: var(--amber-accent); line-height: 1.15; margin-bottom: 14px; min-height: 2.3em; display: flex; align-items: flex-end }
 
     /* the turn: work-shape statement */
-    .turn { margin-top: 32px; background: var(--ink); color: #fff; border-radius: 16px; padding: clamp(28px,4vw,40px) }
-    .turn h3 { font-size: clamp(21px,2.8vw,32px); color: #fff; letter-spacing: -.03em; margin-bottom: 16px; max-width: 26ch; line-height: 1.1 }
-    .turn > p { color: rgba(255,255,255,.72); font-size: 15.5px; line-height: 1.6; max-width: 64ch }
-    .turn-points { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.14) }
-    @media(min-width:760px) { .turn-points { grid-template-columns: repeat(3,1fr); gap: 28px } }
-    .turn-points div { font-size: 14px; color: rgba(255,255,255,.68); line-height: 1.5 }
-    .turn-points b { color: #fff; display: block; margin-bottom: 6px; font-weight: 600; font-size: 14.5px }
-    .turn-keep { margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); font-size: clamp(15.5px,1.7vw,18px); color: #fff; font-weight: 500; max-width: 58ch; line-height: 1.5 }
-
-    /* category traits */
-    .trait-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: 16px; overflow: hidden; margin-top: 28px }
-    @media(min-width:720px) { .trait-grid { grid-template-columns: repeat(2,1fr) } }
-    @media(min-width:1040px) { .trait-grid { grid-template-columns: repeat(3,1fr) } }
-    .trait-item { background: var(--white); padding: 26px 24px }
-    .trait-item .ti { width: 24px; height: 24px; color: var(--blue); margin-bottom: 14px }
-    .trait-item .ti svg { width: 100%; height: 100% }
-    .trait-item h3 { font-size: 16.5px; margin-bottom: 8px }
-    .trait-item p { font-size: 14px; line-height: 1.55; color: var(--body) }
-    .trait-item.accent { background: var(--blue-subtle); display: flex; align-items: center }
-    .trait-item.accent p { color: var(--ink); font-size: 16px; font-weight: 500; line-height: 1.45 }
-
-    /* governance grid (dark) */
-    .gov-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; overflow: hidden; margin-bottom: 28px }
-    @media(min-width:760px) { .gov-grid { grid-template-columns: repeat(2,1fr) } }
-    .gov-item { background: var(--ink); padding: 26px 24px }
-    .gov-item .gk { font-family: var(--mono); font-size: 10.5px; letter-spacing: .9px; text-transform: uppercase; color: var(--blue-bright); margin-bottom: 10px; font-weight: 600 }
-    .gov-item h3 { color: #fff; font-size: 16.5px; margin-bottom: 8px }
-    .gov-item p { color: rgba(255,255,255,.64); font-size: 14px; line-height: 1.55 }
+    .turn { margin-top: 56px; background: var(--ink); color: #fff; border-radius: 16px; padding: clamp(32px,4.6vw,48px) }
+    .turn h3 { font-size: clamp(21px,2.8vw,32px); color: #fff; letter-spacing: -.03em; margin-bottom: 18px; max-width: 26ch; line-height: 1.15; font-weight: 300 }
+    .turn > p { color: rgba(255,255,255,.72); font-size: 15.5px; line-height: 1.65; max-width: 64ch }
+    .turn-points { display: grid; grid-template-columns: 1fr; gap: 22px; margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.14) }
+    @media(min-width:760px) { .turn-points { grid-template-columns: repeat(3,1fr); gap: 32px } }
+    .turn-points div { font-size: 14px; color: rgba(255,255,255,.68); line-height: 1.55 }
+    .turn-points b { color: #fff; display: block; margin-bottom: 8px; font-weight: 400; font-size: 14.5px }
+    .turn-keep { margin-top: 30px; padding-top: 26px; border-top: 1px solid rgba(255,255,255,.14); font-size: clamp(15.5px,1.7vw,18px); color: #fff; font-weight: 300; max-width: 58ch; line-height: 1.55 }
 
     /* regulatory canon chips */
-    .canon { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px }
-    .canon span { font-family: var(--mono); font-size: 11.5px; color: rgba(255,255,255,.78); border: 1px solid rgba(255,255,255,.18); border-radius: 20px; padding: 7px 13px }
+    .canon { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 34px }
+    .canon span { font-family: var(--mono); font-size: 11.5px; font-weight: 400; color: rgba(255,255,255,.78); border: 1px solid rgba(255,255,255,.18); border-radius: 20px; padding: 7px 13px }
 
     /* what your people keep */
-    .keep { margin-top: 18px; padding: 15px 18px; background: var(--white); border: 1px solid rgba(0,94,255,.15); border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0 }
-    .keep .kk { font-family: var(--mono); font-size: 10.5px; letter-spacing: .9px; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; font-weight: 600 }
-    .keep p { font-size: 14px; line-height: 1.5; color: var(--body); margin: 0 }
+    .keep { margin-top: 20px; padding: 17px 20px; background: var(--white); border: 1px solid rgba(0,94,255,.15); border-left: 2px solid var(--blue); border-radius: 0 10px 10px 0 }
+    .keep .kk { font-family: var(--mono); font-size: 10.5px; letter-spacing: .9px; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; font-weight: 400 }
+    .keep p { font-size: 14px; line-height: 1.55; color: var(--body); margin: 0 }
 
     /* system logo strip */
-    .syslabel { font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px }
-    .syslogos { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; padding-top: 28px; border-top: 1px solid var(--hair) }
+    .syslabel { font-family: var(--mono); font-weight: 400; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px }
+    .syslogos { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 44px; padding-top: 36px; border-top: 1px solid var(--hair) }
     .syslogos .sl { height: 54px; min-width: 104px; border: 1px solid var(--hair); border-radius: 10px; background: var(--canvas); display: grid; place-items: center; padding: 0 18px; flex: 1 1 auto }
     .syslogos .sl img { height: 17px; width: auto; filter: grayscale(1) contrast(.5) opacity(.55) }
     .syslogos .sl .w { font-family: var(--mono); font-size: 12px; color: var(--muted) }
+
+    /* autoplay left-tab / right-detail component */
+    .atab { display: grid; grid-template-columns: 1fr; gap: 4px; margin-top: 24px }
+    @media(min-width:960px) { .atab { grid-template-columns: 300px 1fr; gap: 64px; align-items: center } }
+    .atab-nav { display: flex; flex-direction: row; overflow-x: auto; gap: 2px; margin-bottom: 32px; -ms-overflow-style: none; scrollbar-width: none }
+    .atab-nav::-webkit-scrollbar { display: none }
+    @media(min-width:960px) { .atab-nav { flex-direction: column; overflow: visible; margin-bottom: 0 } }
+    .atab-btn { position: relative; display: block; flex: none; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--hair); cursor: pointer; padding: 16px 22px 16px 2px; font-family: var(--sans); white-space: nowrap }
+    @media(min-width:960px) { .atab-btn { width: 100%; white-space: normal; border-bottom: 0; border-left: 1px solid var(--hair); padding: 19px 16px 19px 24px } }
+    .atab-btn::before { content: ""; position: absolute; background: var(--blue); left: 0; bottom: -1px; height: 2px; width: 0 }
+    @media(min-width:960px) { .atab-btn::before { left: -1px; top: 0; bottom: auto; width: 2px; height: 0 } }
+    .atab-btn.on::before { animation: atabfill-x var(--atab-dur, 6s) linear forwards }
+    @media(min-width:960px) { .atab-btn.on::before { animation: atabfill-y var(--atab-dur, 6s) linear forwards } }
+    @keyframes atabfill-x { from{width:0} to{width:100%} }
+    @keyframes atabfill-y { from{height:0} to{height:100%} }
+    @media(prefers-reduced-motion:reduce) { .atab-btn.on::before { animation: none; width: 100%; height: 100% } }
+    .atab-btn h3 { font-size: 15.5px; font-weight: 300; letter-spacing: -.01em; color: var(--faint); transition: color .25s var(--ease) }
+    .atab-btn.on h3 { color: var(--ink) }
+    .dark .atab-btn { border-color: rgba(255,255,255,.14) }
+    .dark .atab-btn h3 { color: rgba(255,255,255,.38) }
+    .dark .atab-btn.on h3 { color: #fff }
+
+    .atab-stage { position: relative; min-width: 0 }
+    .atab-pane { display: none }
+    .atab-pane.on { display: block; animation: fade .5s var(--ease-out) }
+    .atab-pane h3 { margin-bottom: 12px }
+    .atab-pane > p { font-size: 15px; line-height: 1.65; max-width: 54ch; padding-left: 20px; border-left: 2px solid var(--hair) }
+    .dark .atab-pane > p { border-left-color: rgba(255,255,255,.18) }
+
+    .atab-visual { position: relative; border: 1px solid var(--hair); border-radius: 20px; background: linear-gradient(160deg,var(--surface) 0%,var(--white) 100%); padding: clamp(30px,4.4vw,46px); margin-bottom: 28px; min-height: 280px; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 24px 56px -36px rgba(10,10,11,.22); border-top: 2px solid var(--blue) }
+    .atab-visual::before { content: attr(data-index); position: absolute; top: 8px; right: 22px; font-family: var(--mono); font-size: 72px; font-weight: 300; color: var(--ink); opacity: .045; line-height: 1; pointer-events: none; user-select: none }
+    .dark .atab-visual { background: linear-gradient(160deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,.02) 100%); border-color: rgba(255,255,255,.14); box-shadow: 0 24px 56px -36px rgba(0,0,0,.5) }
+    .dark .atab-visual::before { color: #fff; opacity: .06 }
+
+    /* schematic UI-animation visuals (category traits) */
+    .uiviz { position: relative; z-index: 1; width: 100%; max-width: 380px; font-family: var(--sans) }
+    .uiviz-label { font-family: var(--mono); font-weight: 400; font-size: 10.5px; letter-spacing: .9px; text-transform: uppercase; color: var(--muted); margin-bottom: 20px }
+    .uiviz-card { background: var(--white); border: 1px solid var(--hair); border-radius: 12px; padding: 20px 22px }
+
+    .uiviz-doc .dline { height: 8px; border-radius: 4px; background: var(--hair-2); margin-bottom: 11px }
+    .uiviz-doc .dline:last-child { margin-bottom: 0 }
+    .uiviz-doc .dline.hl { background: var(--blue-tint); position: relative }
+    .uiviz-doc .dline.hl::after { content: ""; position: absolute; left: -9px; top: 0; bottom: 0; width: 2px; background: var(--blue) }
+    .uiviz-doc .w90{width:90%} .uiviz-doc .w80{width:80%} .uiviz-doc .w70{width:70%} .uiviz-doc .w65{width:65%} .uiviz-doc .w55{width:55%}
+    .uiviz-doc .dcap { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--hair); font-size: 12px; color: var(--muted); line-height: 1.5 }
+
+    .uiviz-eval .erow { display: flex; align-items: center; gap: 12px; margin-bottom: 15px }
+    .uiviz-eval .erow:last-of-type { margin-bottom: 0 }
+    .uiviz-eval .el { font-size: 12.5px; color: var(--body); width: 76px; flex: none }
+    .uiviz-eval .etrack { flex: 1; height: 6px; background: var(--hair-2); border-radius: 3px; overflow: hidden }
+    .uiviz-eval .efill { height: 100%; background: var(--blue); border-radius: 3px; width: 0 }
+    .atab-pane.on .uiviz-eval .efill { animation: efillgrow 1s var(--ease-out) forwards }
+    @keyframes efillgrow { from{width:0} to{width:var(--w,70%)} }
+    .uiviz-eval .epass { margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--hair); font-size: 12.5px; color: var(--ink); display: flex; align-items: center; gap: 8px }
+    .uiviz-eval .epass svg { width: 14px; height: 14px; color: var(--blue) }
+
+    .uiviz-route .rrow { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--body); padding: 8px 0; border-bottom: 1px solid var(--hair-2) }
+    .uiviz-route .rrow:last-child { border-bottom: 0 }
+    .uiviz-route .rid { font-family: var(--mono); font-size: 11px; color: var(--faint); width: 30px; flex: none }
+    .uiviz-route .rtag { margin-left: auto; font-family: var(--mono); font-size: 10px; letter-spacing: .4px; text-transform: uppercase; padding: 3px 9px; border-radius: 20px; flex: none }
+    .uiviz-route .rtag.clear { color: #1A7A4C; background: #E6F4EC }
+    .uiviz-route .rtag.esc { color: var(--amber-accent); background: var(--amber-subtle) }
+
+    .uiviz-access { display: flex; flex-direction: column; align-items: center }
+    .uiviz-access .ahub { width: 56px; height: 56px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; margin-bottom: 22px; flex: none }
+    .uiviz-access .ahub svg { width: 22px; height: 22px }
+    .uiviz-access .aroles { display: flex; gap: 34px; position: relative; padding-top: 22px; border-top: 1px solid var(--hair) }
+    .uiviz-access .arole { position: relative; display: flex; flex-direction: column; align-items: center; gap: 9px }
+    .uiviz-access .arole::before { content: ""; position: absolute; top: -22px; left: 50%; width: 1px; height: 22px; background: var(--hair) }
+    .uiviz-access .arole .adot { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--hair); background: var(--white); display: grid; place-items: center; color: var(--blue) }
+    .uiviz-access .arole .adot svg { width: 16px; height: 16px }
+    .uiviz-access .arole span { font-size: 11px; color: var(--muted) }
+
+    .uiviz-log .lrow { display: flex; gap: 14px; padding-bottom: 20px; position: relative }
+    .uiviz-log .lrow:last-child { padding-bottom: 0 }
+    .uiviz-log .lrow::before { content: ""; position: absolute; left: 5px; top: 14px; bottom: -6px; width: 1px; background: var(--hair) }
+    .uiviz-log .lrow:last-child::before { display: none }
+    .uiviz-log .ldot { width: 11px; height: 11px; border-radius: 50%; background: var(--blue); flex: none; margin-top: 3px }
+    .uiviz-log .ltime { font-family: var(--mono); font-size: 10.5px; color: var(--faint); margin-bottom: 3px }
+    .uiviz-log .ltxt { font-size: 12.5px; color: var(--ink) }
 
     .rv { opacity: 0; transform: translateY(20px); transition: opacity .7s var(--ease-out), transform .7s var(--ease-out) }
     .rv.in { opacity: 1; transform: none }
@@ -483,38 +539,117 @@
           <p class="lead">In a regulated operation that difference decides whether the thing survives its first exception.</p>
         </div>
 
-        <div class="trait-grid rv">
-          <div class="trait-item">
-            <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <h3>Captures what nobody documented</h3>
-            <p>Zamp reads your procedures, interviews the operators who actually work the process, and mines three to six months of historical data. What comes out is an Agent Operating Procedure five to ten times richer than the document you started with, which is why it performs at your current baseline from the first week.</p>
+        <p class="rv" style="font-size:clamp(17px,2vw,20px);font-weight:300;letter-spacing:-.01em;color:var(--ink);background:var(--blue-subtle);border-radius:12px;padding:24px 28px;margin-top:8px;margin-bottom:52px;max-width:640px;line-height:1.5">A copilot waits to be asked. An agent waits to be maintained. An AI employee owns the outcome.</p>
+
+        <div class="atab rv" data-duration="6500">
+          <div class="atab-nav">
+            <button class="atab-btn on">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:18px;height:18px;color:var(--blue);margin-bottom:10px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <h3>Captures what nobody documented</h3>
+            </button>
+            <button class="atab-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:18px;height:18px;color:var(--blue);margin-bottom:10px"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+              <h3>Measured before it ships</h3>
+            </button>
+            <button class="atab-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:18px;height:18px;color:var(--blue);margin-bottom:10px"><path d="M6 3v6a3 3 0 0 0 3 3h6"/><path d="M18 3v18"/><path d="M15 9l3-3 3 3"/></svg>
+              <h3>Works the routine, escalates the rest</h3>
+            </button>
+            <button class="atab-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:18px;height:18px;color:var(--blue);margin-bottom:10px"><path d="M20 7h-9M14 17H5M17 21a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM7 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+              <h3>Institutional, not personal</h3>
+            </button>
+            <button class="atab-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:18px;height:18px;color:var(--blue);margin-bottom:10px"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              <h3>Accountable like a colleague</h3>
+            </button>
           </div>
-          <div class="trait-item">
-            <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
-            <h3>Measured before it ships</h3>
-            <p>Every version runs against a golden eval set built from your own historical dispositions. Accuracy, cost and latency are tested step by step, and those results are the evidence your validators ask for.</p>
-          </div>
-          <div class="trait-item">
-            <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 3v6a3 3 0 0 0 3 3h6"/><path d="M18 3v18"/><path d="M15 9l3-3 3 3"/></svg></div>
-            <h3>Works the routine, escalates the rest</h3>
-            <p>It clears what meets your documented criteria and routes everything else to a person with the reason attached. You set the thresholds, per workflow, and you change them without waiting on us.</p>
-          </div>
-          <div class="trait-item">
-            <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 7h-9M14 17H5M17 21a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM7 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></div>
-            <h3>Institutional, not personal</h3>
-            <p>Connections, context and datasets sit at the organisation level under role-based access. What an AI employee learns about your processes stays with the bank.</p>
-          </div>
-          <div class="trait-item">
-            <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-            <h3>Accountable like a colleague</h3>
-            <p>A named owner, a defined scope, supervised output, and a record of what it did and why. It gets reviewed the way you review staff rather than debugged the way you debug software.</p>
-          </div>
-          <div class="trait-item accent">
-            <p>A copilot waits to be asked. An agent waits to be maintained. An AI employee owns the outcome.</p>
+
+          <div class="atab-stage">
+            <div class="atab-pane on">
+              <div class="atab-visual" data-index="01">
+                <div class="uiviz">
+                  <div class="uiviz-label">Agent Operating Procedure — draft</div>
+                  <div class="uiviz-card uiviz-doc">
+                    <div class="dline w90"></div>
+                    <div class="dline w70 hl"></div>
+                    <div class="dline w80"></div>
+                    <div class="dline w55 hl"></div>
+                    <div class="dline w65"></div>
+                    <div class="dline w90 hl"></div>
+                    <div class="dcap">Sourced from procedures, operator interviews, and 3 to 6 months of case history</div>
+                  </div>
+                </div>
+              </div>
+              <p>Zamp reads your procedures, interviews the operators who actually work the process, and mines three to six months of historical data. What comes out is an Agent Operating Procedure five to ten times richer than the document you started with, which is why it performs at your current baseline from the first week.</p>
+            </div>
+
+            <div class="atab-pane">
+              <div class="atab-visual" data-index="02">
+                <div class="uiviz">
+                  <div class="uiviz-label">Eval set — v14</div>
+                  <div class="uiviz-card uiviz-eval">
+                    <div class="erow"><span class="el">Accuracy</span><span class="etrack"><span class="efill" style="--w:94%"></span></span></div>
+                    <div class="erow"><span class="el">Cost</span><span class="etrack"><span class="efill" style="--w:68%"></span></span></div>
+                    <div class="erow"><span class="el">Latency</span><span class="etrack"><span class="efill" style="--w:82%"></span></span></div>
+                    <div class="epass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Tested against the eval set, step by step</div>
+                  </div>
+                </div>
+              </div>
+              <p>Every version runs against a golden eval set built from your own historical dispositions. Accuracy, cost and latency are tested step by step, and those results are the evidence your validators ask for.</p>
+            </div>
+
+            <div class="atab-pane">
+              <div class="atab-visual" data-index="03">
+                <div class="uiviz">
+                  <div class="uiviz-label">Case queue — live</div>
+                  <div class="uiviz-card uiviz-route">
+                    <div class="rrow"><span class="rid">041</span><span>Meets documented criteria</span><span class="rtag clear">Cleared</span></div>
+                    <div class="rrow"><span class="rid">042</span><span>Meets documented criteria</span><span class="rtag clear">Cleared</span></div>
+                    <div class="rrow"><span class="rid">043</span><span>Outside threshold</span><span class="rtag esc">Escalated</span></div>
+                    <div class="rrow"><span class="rid">044</span><span>Meets documented criteria</span><span class="rtag clear">Cleared</span></div>
+                    <div class="rrow"><span class="rid">045</span><span>Meets documented criteria</span><span class="rtag clear">Cleared</span></div>
+                  </div>
+                </div>
+              </div>
+              <p>It clears what meets your documented criteria and routes everything else to a person with the reason attached. You set the thresholds, per workflow, and you change them without waiting on us.</p>
+            </div>
+
+            <div class="atab-pane">
+              <div class="atab-visual" data-index="04">
+                <div class="uiviz">
+                  <div class="uiviz-label">Role-based access</div>
+                  <div class="uiviz-access">
+                    <div class="ahub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 11V7a6 6 0 0 1 12 0v4"/><rect x="4" y="11" width="16" height="10" rx="2"/></svg></div>
+                    <div class="aroles">
+                      <div class="arole"><div class="adot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg></div><span>Compliance</span></div>
+                      <div class="arole"><div class="adot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div><span>Operations</span></div>
+                      <div class="arole"><div class="adot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V10M12 20V4M20 20v-7"/></svg></div><span>Risk</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p>Connections, context and datasets sit at the organisation level under role-based access. What an AI employee learns about your processes stays with the bank.</p>
+            </div>
+
+            <div class="atab-pane">
+              <div class="atab-visual" data-index="05">
+                <div class="uiviz">
+                  <div class="uiviz-label">Decision record</div>
+                  <div class="uiviz-card uiviz-log">
+                    <div class="lrow"><span class="ldot"></span><div><div class="ltime">10:41:02</div><div class="ltxt">Input received — alert #88213</div></div></div>
+                    <div class="lrow"><span class="ldot"></span><div><div class="ltime">10:41:04</div><div class="ltxt">Rationale attached — no-match, documented criteria</div></div></div>
+                    <div class="lrow"><span class="ldot"></span><div><div class="ltime">10:41:04</div><div class="ltxt">Threshold checked — within policy</div></div></div>
+                    <div class="lrow"><span class="ldot"></span><div><div class="ltime">10:41:05</div><div class="ltxt">Outcome recorded — cleared</div></div></div>
+                  </div>
+                </div>
+              </div>
+              <p>A named owner, a defined scope, supervised output, and a record of what it did and why. It gets reviewed the way you review staff rather than debugged the way you debug software.</p>
+            </div>
           </div>
         </div>
 
-        <p class="syslabel rv" style="margin-top:40px">How to hire a Zamp AI employee</p>
+        <p class="syslabel rv" style="margin-top:76px;padding-top:52px;border-top:1px solid var(--hair)">How to hire a Zamp AI employee</p>
         <div class="loop rv" id="loop">
           <div class="stage on" data-i="0">
             <span class="stime">1 TO 2 WEEKS</span>
@@ -560,30 +695,83 @@
           <span>UCP 600 / ISBP 745</span>
         </div>
 
-        <div class="gov-grid rv">
-          <div class="gov-item">
-            <div class="gk">Supervision</div>
-            <h3>Human in the loop, by design</h3>
-            <p>Confidence-scored routing, four-eyes review, and hard escalation overrides. You set the thresholds per workflow. Anything outside them goes to a person, every time.</p>
+        <div class="atab rv" data-duration="7000">
+          <div class="atab-nav">
+            <button class="atab-btn on"><h3>Supervision</h3></button>
+            <button class="atab-btn"><h3>Change control</h3></button>
+            <button class="atab-btn"><h3>Evidence</h3></button>
+            <button class="atab-btn"><h3>Data</h3></button>
           </div>
-          <div class="gov-item">
-            <div class="gk">Change control</div>
-            <h3>Versioned, tested, and validated before deployment</h3>
-            <p>Every version re-runs against the golden eval set before release. Change logs export into your model inventory, so a model update is a notified event rather than a surprise found at validation.</p>
-          </div>
-          <div class="gov-item">
-            <div class="gk">Evidence</div>
-            <h3>Captured for an examiner, not a developer</h3>
-            <p>Inputs, rationale, threshold and outcome on every case. Portal work is session-recorded, so a browser step carries the same evidentiary weight as an API call.</p>
-          </div>
-          <div class="gov-item">
-            <div class="gk">Data</div>
-            <h3>We do not train on your proprietary data</h3>
-            <p>No model, ours or a third party's, is trained on your records. Deployment runs inside your perimeter with region pinning, single sign-on, and role-based entitlements.</p>
+
+          <div class="atab-stage">
+            <div class="atab-pane on">
+              <div class="atab-visual" data-index="01">
+                <div class="uiviz">
+                  <div class="uiviz-label">Case queue — live</div>
+                  <div class="uiviz-card uiviz-route">
+                    <div class="rrow"><span class="rid">041</span><span>Within confidence threshold</span><span class="rtag clear">Cleared</span></div>
+                    <div class="rrow"><span class="rid">042</span><span>Within confidence threshold</span><span class="rtag clear">Cleared</span></div>
+                    <div class="rrow"><span class="rid">043</span><span>Below threshold</span><span class="rtag esc">To reviewer</span></div>
+                    <div class="rrow"><span class="rid">044</span><span>Within confidence threshold</span><span class="rtag clear">Cleared</span></div>
+                  </div>
+                </div>
+              </div>
+              <h3>Human in the loop, by design</h3>
+              <p>Confidence-scored routing, four-eyes review, and hard escalation overrides. You set the thresholds per workflow. Anything outside them goes to a person, every time.</p>
+            </div>
+
+            <div class="atab-pane">
+              <div class="atab-visual" data-index="02">
+                <div class="uiviz">
+                  <div class="uiviz-label">Model inventory</div>
+                  <div class="uiviz-card uiviz-log">
+                    <div class="lrow"><span class="ldot"></span><div><div class="ltime">v12</div><div class="ltxt">Tested against the golden eval set</div></div></div>
+                    <div class="lrow"><span class="ldot"></span><div><div class="ltime">v13</div><div class="ltxt">Tested against the golden eval set</div></div></div>
+                    <div class="lrow"><span class="ldot"></span><div><div class="ltime">v14</div><div class="ltxt">Released — change log exported</div></div></div>
+                  </div>
+                </div>
+              </div>
+              <h3>Versioned, tested, and validated before deployment</h3>
+              <p>Every version re-runs against the golden eval set before release. Change logs export into your model inventory, so a model update is a notified event rather than a surprise found at validation.</p>
+            </div>
+
+            <div class="atab-pane">
+              <div class="atab-visual" data-index="03">
+                <div class="uiviz">
+                  <div class="uiviz-label">Case record — #88213</div>
+                  <div class="uiviz-card" style="display:flex;flex-direction:column;gap:16px">
+                    <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;color:var(--blue);flex:none"><polyline points="20 6 9 17 4 12"/></svg>Input</div>
+                    <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;color:var(--blue);flex:none"><polyline points="20 6 9 17 4 12"/></svg>Rationale</div>
+                    <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;color:var(--blue);flex:none"><polyline points="20 6 9 17 4 12"/></svg>Threshold</div>
+                    <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;color:var(--blue);flex:none"><polyline points="20 6 9 17 4 12"/></svg>Outcome</div>
+                  </div>
+                </div>
+              </div>
+              <h3>Captured for an examiner, not a developer</h3>
+              <p>Inputs, rationale, threshold and outcome on every case. Portal work is session-recorded, so a browser step carries the same evidentiary weight as an API call.</p>
+            </div>
+
+            <div class="atab-pane">
+              <div class="atab-visual" data-index="04">
+                <div class="uiviz">
+                  <div class="uiviz-label">Deployment perimeter</div>
+                  <div class="uiviz-access">
+                    <div class="ahub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+                    <div class="aroles">
+                      <div class="arole"><div class="adot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 4 6 4 9s-1.5 6.5-4 9c-2.5-2.5-4-6-4-9s1.5-6.5 4-9z"/></svg></div><span>Region</span></div>
+                      <div class="arole"><div class="adot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 11V7a6 6 0 0 1 12 0v4"/><rect x="4" y="11" width="16" height="10" rx="2"/></svg></div><span>Encryption</span></div>
+                      <div class="arole"><div class="adot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="15" r="3.2"/><path d="M10.3 12.7L20 3M16 7l3 3M13 4l3 3"/></svg></div><span>SSO</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h3>We do not train on your proprietary data</h3>
+              <p>No model, ours or a third party's, is trained on your records. Deployment runs inside your perimeter with region pinning, single sign-on, and role-based entitlements.</p>
+            </div>
           </div>
         </div>
 
-        <div class="certrow rv">
+        <div class="certrow rv" style="margin-top:48px">
           <div class="certbadge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             <div><div class="cb-name">SOC 2 Type II</div><div class="cb-status">Report under NDA</div></div>
@@ -612,172 +800,176 @@
           <p class="lead">Measurable results from areas Zamp already runs today.</p>
         </div>
 
-        <div class="tabs" data-tabset="case">
-          <button class="tab on" data-t="c0">Sanctions screening</button>
-          <button class="tab" data-t="c1">Chargebacks</button>
-          <button class="tab" data-t="c2">Transaction screening</button>
-          <button class="tab" data-t="c3">Trade finance</button>
-          <button class="tab" data-t="c4">Institutional onboarding</button>
-        </div>
+        <div class="atab" data-duration="8000">
+          <div class="atab-nav">
+            <button class="atab-btn on"><h3>Sanctions screening</h3></button>
+            <button class="atab-btn"><h3>Chargebacks</h3></button>
+            <button class="atab-btn"><h3>Transaction screening</h3></button>
+            <button class="atab-btn"><h3>Trade finance</h3></button>
+            <button class="atab-btn"><h3>Institutional onboarding</h3></button>
+          </div>
 
-        <div class="panel on" id="c0">
-          <div class="case-card">
-            <div class="case">
-              <div>
-                <div class="who">Tier-1 UK bank · financial crime operations</div>
-                <h3>Sanctions and PEP screening, both tiers</h3>
-                <p class="txt">Alerts arrive against OFAC, UN, EU and UK OFSI lists. Roughly nine in ten clear as no-match, and each one was documented by hand before it closed. Zamp works Level 1 and Level 2: it clears what meets the bank's documented no-match criteria with the rationale attached, traces beneficial ownership up to three network levels where the case calls for it, and assembles the dossier the MLRO signs.</p>
-                <div class="keep">
-                  <div class="kk">What your people keep</div>
-                  <p>The MLRO keeps the filing decision. Analysts keep the escalated cases, the true matches, and the policy tuning that sets the thresholds in the first place.</p>
-                </div>
-              </div>
-              <div class="cmetrics">
-                <div class="cmetrics-head">What moved</div>
-                <div class="cmetrics-list">
-                  <div class="cm">
-                    <div class="v">85<span class="s">%</span></div>
-                    <div class="l">less time to disposition</div>
+          <div class="atab-stage">
+            <div class="atab-pane on">
+              <div class="case-card" data-index="01">
+                <div class="case">
+                  <div>
+                    <div class="who">Tier-1 UK bank · financial crime operations</div>
+                    <h3>Sanctions and PEP screening, both tiers</h3>
+                    <p class="txt">Alerts arrive against OFAC, UN, EU and UK OFSI lists. Roughly nine in ten clear as no-match, and each one was documented by hand before it closed. Zamp works Level 1 and Level 2: it clears what meets the bank's documented no-match criteria with the rationale attached, traces beneficial ownership up to three network levels where the case calls for it, and assembles the dossier the MLRO signs.</p>
+                    <div class="keep">
+                      <div class="kk">What your people keep</div>
+                      <p>The MLRO keeps the filing decision. Analysts keep the escalated cases, the true matches, and the policy tuning that sets the thresholds in the first place.</p>
+                    </div>
                   </div>
-                  <div class="cm">
-                    <div class="v">70<span class="s">%</span></div>
-                    <div class="l">of false-positive analyst hours reclaimed</div>
-                  </div>
-                  <div class="cm">
-                    <div class="v">L1 + L2</div>
-                    <div class="l">both tiers worked end to end</div>
+                  <div class="cmetrics">
+                    <div class="cmetrics-head">What moved</div>
+                    <div class="cmetrics-list">
+                      <div class="cm">
+                        <div class="v">85<span class="s">%</span></div>
+                        <div class="l">less time to disposition</div>
+                      </div>
+                      <div class="cm">
+                        <div class="v">70<span class="s">%</span></div>
+                        <div class="l">of false-positive analyst hours reclaimed</div>
+                      </div>
+                      <div class="cm">
+                        <div class="v">L1 + L2</div>
+                        <div class="l">both tiers worked end to end</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="panel" id="c1">
-          <div class="case-card">
-            <div class="case">
-              <div>
-                <div class="who">Tier-1 UK bank · disputes and fraud operations</div>
-                <h3>Chargeback representment, filed inside the scheme window</h3>
-                <p class="txt">Disputes land across the acquirer's dispute platform and two internal case managers, each with its own queue and its own clock. Zamp works all of them in one pass, applies Visa and Mastercard dispute-type rules to the merchant's evidence, issues the customer notice, and keys the adjustment.</p>
-                <div class="keep">
-                  <div class="kk">What your people keep</div>
-                  <p>Your team keeps the write-off calls, the pre-arbitration judgment, and anything carrying legal exposure.</p>
-                </div>
-              </div>
-              <div class="cmetrics">
-                <div class="cmetrics-head">What moved</div>
-                <div class="cmetrics-list">
-                  <div class="cm">
-                    <div class="v">~10<span class="s">%</span></div>
-                    <div class="l">higher win rate on representment</div>
+            <div class="atab-pane">
+              <div class="case-card" data-index="02">
+                <div class="case">
+                  <div>
+                    <div class="who">Tier-1 UK bank · disputes and fraud operations</div>
+                    <h3>Chargeback representment, filed inside the scheme window</h3>
+                    <p class="txt">Disputes land across the acquirer's dispute platform and two internal case managers, each with its own queue and its own clock. Zamp works all of them in one pass, applies Visa and Mastercard dispute-type rules to the merchant's evidence, issues the customer notice, and keys the adjustment.</p>
+                    <div class="keep">
+                      <div class="kk">What your people keep</div>
+                      <p>Your team keeps the write-off calls, the pre-arbitration judgment, and anything carrying legal exposure.</p>
+                    </div>
                   </div>
-                  <div class="cm">
-                    <div class="v">40<span class="s">%</span></div>
-                    <div class="l">lower cost per dispute</div>
-                  </div>
-                  <div class="cm">
-                    <div class="v">Zero</div>
-                    <div class="l">scheme deadlines missed</div>
+                  <div class="cmetrics">
+                    <div class="cmetrics-head">What moved</div>
+                    <div class="cmetrics-list">
+                      <div class="cm">
+                        <div class="v">~10<span class="s">%</span></div>
+                        <div class="l">higher win rate on representment</div>
+                      </div>
+                      <div class="cm">
+                        <div class="v">40<span class="s">%</span></div>
+                        <div class="l">lower cost per dispute</div>
+                      </div>
+                      <div class="cm">
+                        <div class="v">Zero</div>
+                        <div class="l">scheme deadlines missed</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="panel" id="c2">
-          <div class="case-card">
-            <div class="case">
-              <div>
-                <div class="who">Tier-1 UAE digital bank · financial crime compliance</div>
-                <h3>Payment screening at the speed of the payment</h3>
-                <p class="txt">Live payment traffic screened against licensed watchlist data, with transliteration-aware matching for Arabic and regional name variants. Alerts meeting the bank's documented criteria clear with a rationale attached; everything else routes to compliance with an escalation pack already assembled. The same deployment absorbed a tenfold overnight spike in dispute volume without a rota change.</p>
-                <div class="keep">
-                  <div class="kk">What your people keep</div>
-                  <p>Compliance keeps every true-match decision and every hold that carries customer impact.</p>
-                </div>
-              </div>
-              <div class="cmetrics">
-                <div class="cmetrics-head">What moved</div>
-                <div class="cmetrics-list">
-                  <div class="cm">
-                    <div class="v">Real time</div>
-                    <div class="l">screening on live payment traffic</div>
+            <div class="atab-pane">
+              <div class="case-card" data-index="03">
+                <div class="case">
+                  <div>
+                    <div class="who">Tier-1 UAE digital bank · financial crime compliance</div>
+                    <h3>Payment screening at the speed of the payment</h3>
+                    <p class="txt">Live payment traffic screened against licensed watchlist data, with transliteration-aware matching for Arabic and regional name variants. Alerts meeting the bank's documented criteria clear with a rationale attached; everything else routes to compliance with an escalation pack already assembled. The same deployment absorbed a tenfold overnight spike in dispute volume without a rota change.</p>
+                    <div class="keep">
+                      <div class="kk">What your people keep</div>
+                      <p>Compliance keeps every true-match decision and every hold that carries customer impact.</p>
+                    </div>
                   </div>
-                  <div class="cm">
-                    <div class="v">&lt;5 min</div>
-                    <div class="l">from alert to decision</div>
-                  </div>
-                  <div class="cm">
-                    <div class="v">10x</div>
-                    <div class="l">overnight volume spike absorbed</div>
+                  <div class="cmetrics">
+                    <div class="cmetrics-head">What moved</div>
+                    <div class="cmetrics-list">
+                      <div class="cm">
+                        <div class="v">Real time</div>
+                        <div class="l">screening on live payment traffic</div>
+                      </div>
+                      <div class="cm">
+                        <div class="v">&lt;5 min</div>
+                        <div class="l">from alert to decision</div>
+                      </div>
+                      <div class="cm">
+                        <div class="v">10x</div>
+                        <div class="l">overnight volume spike absorbed</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="panel" id="c3">
-          <div class="case-card">
-            <div class="case">
-              <div>
-                <div class="who">Top-7 US global bank · corporate and institutional trade</div>
-                <h3>Letter of credit examination, same day</h3>
-                <p class="txt">Each presentation runs 8 to 15 documents against the credit terms and the ICC rules. Zamp extracts the fields, checks consistency across every document in the set, applies UCP 600 and ISBP 745, and runs counterparty and vessel screening alongside rather than after.</p>
-                <div class="keep">
-                  <div class="kk">What your people keep</div>
-                  <p>Examiners keep the discrepancy call and the decision to pay. The waiver conversation with the applicant stays human.</p>
-                </div>
-              </div>
-              <div class="cmetrics">
-                <div class="cmetrics-head">What moved</div>
-                <div class="cmetrics-list">
-                  <div class="cm">
-                    <div class="v">70<span class="s">%</span></div>
-                    <div class="l">less time to examine a presentation</div>
+            <div class="atab-pane">
+              <div class="case-card" data-index="04">
+                <div class="case">
+                  <div>
+                    <div class="who">Top-7 US global bank · corporate and institutional trade</div>
+                    <h3>Letter of credit examination, same day</h3>
+                    <p class="txt">Each presentation runs 8 to 15 documents against the credit terms and the ICC rules. Zamp extracts the fields, checks consistency across every document in the set, applies UCP 600 and ISBP 745, and runs counterparty and vessel screening alongside rather than after.</p>
+                    <div class="keep">
+                      <div class="kk">What your people keep</div>
+                      <p>Examiners keep the discrepancy call and the decision to pay. The waiver conversation with the applicant stays human.</p>
+                    </div>
                   </div>
-                  <div class="cm">
-                    <div class="v">Same day</div>
-                    <div class="l">on standard presentations</div>
-                  </div>
-                  <div class="cm">
-                    <div class="v">2 to 3x</div>
-                    <div class="l">capacity from the existing team</div>
+                  <div class="cmetrics">
+                    <div class="cmetrics-head">What moved</div>
+                    <div class="cmetrics-list">
+                      <div class="cm">
+                        <div class="v">70<span class="s">%</span></div>
+                        <div class="l">less time to examine a presentation</div>
+                      </div>
+                      <div class="cm">
+                        <div class="v">Same day</div>
+                        <div class="l">on standard presentations</div>
+                      </div>
+                      <div class="cm">
+                        <div class="v">2 to 3x</div>
+                        <div class="l">capacity from the existing team</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="panel" id="c4">
-          <div class="case-card">
-            <div class="case">
-              <div>
-                <div class="who">A US derivatives exchange · institutional onboarding</div>
-                <h3>Institutional onboarding, without the document chase</h3>
-                <p class="txt">Onboarding ran through more than two hundred separate flows spanning AML checks, KYC collection, LEI validation and regulatory classification. Zamp replaced the static forms with validated intake, pulled directly from LEI registries and compliance platforms, and tracked what was still outstanding so nobody had to.</p>
-                <div class="keep">
-                  <div class="kk">What your people keep</div>
-                  <p>Reviewers keep the risk rating and the exceptions. Relationship managers get the client back sooner.</p>
-                </div>
-              </div>
-              <div class="cmetrics">
-                <div class="cmetrics-head">What moved</div>
-                <div class="cmetrics-list">
-                  <div class="cm">
-                    <div class="v">95<span class="s">%</span></div>
-                    <div class="l">less time to onboard a client</div>
+            <div class="atab-pane">
+              <div class="case-card" data-index="05">
+                <div class="case">
+                  <div>
+                    <div class="who">A US derivatives exchange · institutional onboarding</div>
+                    <h3>Institutional onboarding, without the document chase</h3>
+                    <p class="txt">Onboarding ran through more than two hundred separate flows spanning AML checks, KYC collection, LEI validation and regulatory classification. Zamp replaced the static forms with validated intake, pulled directly from LEI registries and compliance platforms, and tracked what was still outstanding so nobody had to.</p>
+                    <div class="keep">
+                      <div class="kk">What your people keep</div>
+                      <p>Reviewers keep the risk rating and the exceptions. Relationship managers get the client back sooner.</p>
+                    </div>
                   </div>
-                  <div class="cm">
-                    <div class="v">Zero</div>
-                    <div class="l">manual document chases</div>
-                  </div>
-                  <div class="cm">
-                    <div class="v">200+</div>
-                    <div class="l">separate flows replaced by one</div>
+                  <div class="cmetrics">
+                    <div class="cmetrics-head">What moved</div>
+                    <div class="cmetrics-list">
+                      <div class="cm">
+                        <div class="v">95<span class="s">%</span></div>
+                        <div class="l">less time to onboard a client</div>
+                      </div>
+                      <div class="cm">
+                        <div class="v">Zero</div>
+                        <div class="l">manual document chases</div>
+                      </div>
+                      <div class="cm">
+                        <div class="v">200+</div>
+                        <div class="l">separate flows replaced by one</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -795,20 +987,22 @@
           <p class="lead">Proven use cases across core banking functions, already configured and ready to go live for your organisation. </p>
         </div>
 
-        <div class="tabs rv" data-tabset="catalog" style="margin-bottom:28px">
-          <button class="tab on" data-t="q0">Financial crime & AML</button>
-          <button class="tab" data-t="q1">Fraud & chargebacks</button>
-          <button class="tab" data-t="q2">Trade finance</button>
-          <button class="tab" data-t="q3">Payments & settlement</button>
-          <button class="tab" data-t="q4">Corporate KYB</button>
-          <button class="tab" data-t="q5">Commercial lending</button>
-          <button class="tab" data-t="q6">Reconciliations</button>
-          <button class="tab" data-t="q7">Servicing & collections</button>
-        </div>
+        <div class="atab" data-duration="7500">
+          <div class="atab-nav">
+            <button class="atab-btn on"><h3>Financial crime & AML</h3></button>
+            <button class="atab-btn"><h3>Fraud & chargebacks</h3></button>
+            <button class="atab-btn"><h3>Trade finance</h3></button>
+            <button class="atab-btn"><h3>Payments & settlement</h3></button>
+            <button class="atab-btn"><h3>Corporate KYB</h3></button>
+            <button class="atab-btn"><h3>Commercial lending</h3></button>
+            <button class="atab-btn"><h3>Reconciliations</h3></button>
+            <button class="atab-btn"><h3>Servicing & collections</h3></button>
+          </div>
 
-        <!-- Panel 0: Financial crime -->
-        <div class="panel on" id="q0">
-          <div class="catalog-card">
+          <div class="atab-stage">
+
+                <div class="atab-pane on">
+          <div class="catalog-card" data-index="01">
             <div class="catalog-content">
               <div>
                 <div class="wf-header">
@@ -821,7 +1015,7 @@
                 <div class="wf-meta"><b>Works inside:</b> Fircosoft, Actimize, World-Check, Dow Jones</div>
               </div>
               <div>
-                <div style="font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Automated Queue Operations</div>
+                <div style="font-family:var(--mono);font-size:11.5px;font-weight:400;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:14px">Automated Queue Operations</div>
                 <ul class="wf-tasks">
                   <li>Level 1 clearance against your documented criteria, with the rationale attached to each case</li>
                   <li>Transliteration-aware matching across Cyrillic, Arabic and regional naming conventions</li>
@@ -835,9 +1029,8 @@
           </div>
         </div>
 
-        <!-- Panel 1: Fraud and chargeback disputes -->
-        <div class="panel" id="q1">
-          <div class="catalog-card">
+                <div class="atab-pane">
+          <div class="catalog-card" data-index="02">
             <div class="catalog-content">
               <div>
                 <div class="wf-header">
@@ -850,7 +1043,7 @@
                 <div class="wf-meta"><b>Works inside:</b> Fiserv DRS, Visa VROL, Mastercard MCM</div>
               </div>
               <div>
-                <div style="font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Automated Queue Operations</div>
+                <div style="font-family:var(--mono);font-size:11.5px;font-weight:400;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:14px">Automated Queue Operations</div>
                 <ul class="wf-tasks">
                   <li>Aggregates dispute queues and sorts by age and exposure</li>
                   <li>Applies Visa and Mastercard dispute-type rules to the merchant's evidence</li>
@@ -862,9 +1055,8 @@
           </div>
         </div>
 
-        <!-- Panel 2: Trade finance -->
-        <div class="panel" id="q2">
-          <div class="catalog-card">
+                <div class="atab-pane">
+          <div class="catalog-card" data-index="03">
             <div class="catalog-content">
               <div>
                 <div class="wf-header">
@@ -877,7 +1069,7 @@
                 <div class="wf-meta"><b>Works inside:</b> Trade360, Oracle, SWIFT</div>
               </div>
               <div>
-                <div style="font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Automated Queue Operations</div>
+                <div style="font-family:var(--mono);font-size:11.5px;font-weight:400;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:14px">Automated Queue Operations</div>
                 <ul class="wf-tasks">
                   <li>Classifies and extracts the 8 to 15 documents in a presentation</li>
                   <li>Checks consistency across the full set: dates, amounts, quantities, ports, parties</li>
@@ -889,9 +1081,8 @@
           </div>
         </div>
 
-        <!-- Panel 3: Payments -->
-        <div class="panel" id="q3">
-          <div class="catalog-card">
+                <div class="atab-pane">
+          <div class="catalog-card" data-index="04">
             <div class="catalog-content">
               <div>
                 <div class="wf-header">
@@ -904,7 +1095,7 @@
                 <div class="wf-meta"><b>Works inside:</b> SWIFT Alliance, Finastra, Fiserv</div>
               </div>
               <div>
-                <div style="font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Automated Queue Operations</div>
+                <div style="font-family:var(--mono);font-size:11.5px;font-weight:400;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:14px">Automated Queue Operations</div>
                 <ul class="wf-tasks">
                   <li>Non-STP diagnosis: invalid BIC, missing IBAN, purpose-code errors</li>
                   <li>Enrichment from reference and customer data, then revalidation against CBPR+ and pacs.008</li>
@@ -915,9 +1106,8 @@
           </div>
         </div>
 
-        <!-- Panel 4: Corporate KYB -->
-        <div class="panel" id="q4">
-          <div class="catalog-card">
+                <div class="atab-pane">
+          <div class="catalog-card" data-index="05">
             <div class="catalog-content">
               <div>
                 <div class="wf-header">
@@ -930,7 +1120,7 @@
                 <div class="wf-meta"><b>Works inside:</b> DocuSign, LEI registries, Companies House, SEC EDGAR</div>
               </div>
               <div>
-                <div style="font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Automated Queue Operations</div>
+                <div style="font-family:var(--mono);font-size:11.5px;font-weight:400;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:14px">Automated Queue Operations</div>
                 <ul class="wf-tasks">
                   <li>Validated intake in place of static questionnaires</li>
                   <li>Entity, beneficial ownership and regulatory classification extraction</li>
@@ -943,9 +1133,8 @@
           </div>
         </div>
 
-        <!-- Panel 5: Commercial lending -->
-        <div class="panel" id="q5">
-          <div class="catalog-card">
+                <div class="atab-pane">
+          <div class="catalog-card" data-index="06">
             <div class="catalog-content">
               <div>
                 <div class="wf-header">
@@ -958,7 +1147,7 @@
                 <div class="wf-meta"><b>Works inside:</b> nCino, Moody's CreditLens, Finastra</div>
               </div>
               <div>
-                <div style="font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Automated Queue Operations</div>
+                <div style="font-family:var(--mono);font-size:11.5px;font-weight:400;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:14px">Automated Queue Operations</div>
                 <ul class="wf-tasks">
                   <li>Financial statement spreading and line-item extraction</li>
                   <li>Credit memo preparation and debt service coverage calculation</li>
@@ -970,9 +1159,8 @@
           </div>
         </div>
 
-        <!-- Panel 6: Reconciliations -->
-        <div class="panel" id="q6">
-          <div class="catalog-card">
+                <div class="atab-pane">
+          <div class="catalog-card" data-index="07">
             <div class="catalog-content">
               <div>
                 <div class="wf-header">
@@ -985,7 +1173,7 @@
                 <div class="wf-meta"><b>Works inside:</b> Oracle ERP, SAP S/4HANA, Workday</div>
               </div>
               <div>
-                <div style="font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Automated Queue Operations</div>
+                <div style="font-family:var(--mono);font-size:11.5px;font-weight:400;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:14px">Automated Queue Operations</div>
                 <ul class="wf-tasks">
                   <li>General ledger journal line and payable invoice extraction</li>
                   <li>Intercompany and tax line filtering</li>
@@ -997,9 +1185,8 @@
           </div>
         </div>
 
-        <!-- Panel 7: Servicing & collections -->
-        <div class="panel" id="q7">
-          <div class="catalog-card">
+                <div class="atab-pane">
+          <div class="catalog-card" data-index="08">
             <div class="catalog-content">
               <div>
                 <div class="wf-header">
@@ -1012,7 +1199,7 @@
                 <div class="wf-meta"><b>Works inside:</b> ServiceNow, Salesforce Financial Services Cloud</div>
               </div>
               <div>
-                <div style="font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">Automated Queue Operations</div>
+                <div style="font-family:var(--mono);font-size:11.5px;font-weight:400;letter-spacing:.8px;text-transform:uppercase;color:var(--blue);margin-bottom:14px">Automated Queue Operations</div>
                 <ul class="wf-tasks">
                   <li>Flags at-risk accounts ahead of the first missed payment</li>
                   <li>Builds the briefing pack for each collector call</li>
@@ -1020,6 +1207,8 @@
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
           </div>
         </div>
 
@@ -1066,26 +1255,26 @@
         <div class="rv"><a href="#pilot" class="btn btn-ink">Scope a pilot <span class="ar">→</span></a></div>
 
         <p class="syslabel rv" style="color:rgba(255,255,255,.6);margin-top:52px">How this expands, when it works</p>
-        <div class="road-grid rv" style="margin-top:16px">
-          <div class="road-card" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);border-top-color:#fff">
-            <h4 style="color:#fff">1 to 2 processes</h4>
-            <p style="color:rgba(255,255,255,.72)">The first AI employees go into production. Run cost per task is established against your own baseline.</p>
-            <div class="road-stat" style="background:rgba(255,255,255,.14);color:#fff">Baseline set</div>
+        <div class="stepline rv">
+          <div class="step-item">
+            <h4>1 to 2 processes</h4>
+            <p>The first AI employees go into production. Run cost per task is established against your own baseline.</p>
+            <div class="step-stat">Baseline set</div>
           </div>
-          <div class="road-card" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);border-top-color:#fff">
-            <h4 style="color:#fff">15 to 75 processes</h4>
-            <p style="color:rgba(255,255,255,.72)">Routine volume across financial crime, disputes and servicing runs with a decision record on every case.</p>
-            <div class="road-stat" style="background:rgba(255,255,255,.14);color:#fff">40 to 60% lower cost per case</div>
+          <div class="step-item">
+            <h4>15 to 75 processes</h4>
+            <p>Routine volume across financial crime, disputes and servicing runs with a decision record on every case.</p>
+            <div class="step-stat">40 to 60% lower cost per case</div>
           </div>
-          <div class="road-card" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);border-top-color:#fff">
-            <h4 style="color:#fff">75 to 250 processes</h4>
-            <p style="color:rgba(255,255,255,.72)">The harder workflows follow. Each new process reuses the completed security review and vendor onboarding.</p>
-            <div class="road-stat" style="background:rgba(255,255,255,.14);color:#fff">2 to 3x capacity per team</div>
+          <div class="step-item">
+            <h4>75 to 250 processes</h4>
+            <p>The harder workflows follow. Each new process reuses the completed security review and vendor onboarding.</p>
+            <div class="step-stat">2 to 3x capacity per team</div>
           </div>
-          <div class="road-card" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);border-top-color:#fff">
-            <h4 style="color:#fff">250+ processes</h4>
-            <p style="color:rgba(255,255,255,.72)">Operations scope AI employees the way they scope any other resourcing decision.</p>
-            <div class="road-stat" style="background:rgba(255,255,255,.14);color:#fff">Expansion on internal demand</div>
+          <div class="step-item">
+            <h4>250+ processes</h4>
+            <p>Operations scope AI employees the way they scope any other resourcing decision.</p>
+            <div class="step-stat">Expansion on internal demand</div>
           </div>
         </div>
       </div>
@@ -1186,13 +1375,27 @@
         rv.forEach(function (e) { e.classList.add('in'); });
       }
 
-      document.querySelectorAll('.tabs').forEach(function (set) {
-        set.addEventListener('click', function (e) {
-          var b = e.target.closest('.tab'); if (!b) return;
-          var id = b.getAttribute('data-t'), scope = b.closest('section');
-          set.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('on', t === b); });
-          scope.querySelectorAll('.panel').forEach(function (p) { p.classList.toggle('on', p.id === id); });
-        });
+      document.querySelectorAll('.atab').forEach(function (root) {
+        var dur = parseInt(root.getAttribute('data-duration') || '6000', 10);
+        root.style.setProperty('--atab-dur', dur + 'ms');
+        var btns = [].slice.call(root.querySelectorAll('.atab-btn'));
+        var panes = [].slice.call(root.querySelectorAll('.atab-pane'));
+        if (!btns.length || !panes.length) return;
+        var idx = 0, timer = null, paused = false;
+        function show(i) {
+          idx = (i + btns.length) % btns.length;
+          btns.forEach(function (b) { b.classList.remove('on'); });
+          panes.forEach(function (p) { p.classList.remove('on'); });
+          void btns[idx].offsetWidth;
+          btns[idx].classList.add('on');
+          panes[idx].classList.add('on');
+        }
+        function start() { if (reduce) return; stop(); timer = setInterval(function () { if (!paused) show(idx + 1); }, dur); }
+        function stop() { if (timer) { clearInterval(timer); timer = null; } }
+        show(0); start();
+        btns.forEach(function (b, k) { b.addEventListener('click', function () { show(k); start(); }); });
+        root.addEventListener('mouseenter', function () { paused = true; });
+        root.addEventListener('mouseleave', function () { paused = false; });
       });
 
       var loop = document.getElementById('loop');
